@@ -574,14 +574,14 @@
 }
 
 .detail-price {
-  font-family: var(--ff-mono, monospace);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
 
 .detail-old-price {
-  font-family: var(--ff-mono, monospace);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.875rem;
   color: var(--text-muted, #999);
   text-decoration: line-through;

@@ -1694,12 +1694,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cart-progress-text {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   color: var(--text-primary, #FFFFFF) !important;
   margin: 0;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 /* Cart Body */
@@ -1713,9 +1713,9 @@ h1, h2, h3, h4, h5, h6 {
 .cart-empty-msg {
   text-align: center;
   color: var(--text-muted, rgba(255, 255, 255, 0.6));
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.875rem !important;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding-top: 4rem;
 }
@@ -1762,7 +1762,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cart-line-title {
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.9375rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.04em !important;
@@ -1792,8 +1792,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cart-line-variant {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
+  font-weight: 500 !important;
   color: var(--text-secondary, rgba(255, 255, 255, 0.65)) !important;
   margin-top: 4px;
   display: block;
@@ -1821,7 +1822,7 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   border: none;
   color: var(--text-primary, #FFFFFF);
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.9375rem !important;
   width: 26px;
   height: 26px;
@@ -1838,7 +1839,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .qty-control b {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.875rem !important;
   font-weight: 700;
   padding: 0 10px;
@@ -1854,14 +1855,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cart-line-price-main {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 1rem !important;
   font-weight: 700 !important;
   color: var(--text-primary, #FFFFFF) !important;
 }
 
 .cart-line-price-old {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
   color: var(--text-muted, rgba(255, 255, 255, 0.4)) !important;
   text-decoration: line-through;
@@ -1918,7 +1919,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .recommend-item-title {
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.875rem !important;
   font-weight: 700 !important;
   color: var(--text-primary, #FFFFFF) !important;
@@ -1926,7 +1927,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .recommend-item-price {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
   color: var(--text-secondary, rgba(255, 255, 255, 0.75)) !important;
   margin-top: 2px;
@@ -1936,7 +1937,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--text-primary, #FFFFFF);
   color: var(--bg-primary, #0A0A0C);
   border: none;
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em !important;
@@ -2011,7 +2012,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   outline: none;
   color: var(--text-primary, #FFFFFF);
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.9375rem !important;
   font-weight: 600;
   width: 100%;
@@ -2025,7 +2026,7 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   border: none;
   color: var(--text-primary, #FFFFFF);
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.08em;
@@ -2041,7 +2042,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .shipping-calc-result {
   margin-top: 0.6rem;
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
   color: #0EA5E9;
   font-weight: 600;
@@ -2074,9 +2075,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cart-total-amount {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 1.85rem !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   color: var(--text-primary, #FFFFFF) !important;
   line-height: 1;
 }
@@ -2089,7 +2090,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 52px;
   background: var(--text-primary, #FFFFFF);
   color: var(--bg-primary, #0A0A0C);
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 1.0625rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em;
@@ -2117,8 +2118,9 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   border: none;
   color: var(--text-secondary, rgba(255, 255, 255, 0.65));
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.8125rem !important;
+  font-weight: 500 !important;
   text-decoration: none;
   cursor: pointer;
   padding: 0;
