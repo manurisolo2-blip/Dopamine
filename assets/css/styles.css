@@ -548,11 +548,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  /* Technical monospace font — core design requirement */
-  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.75);
   background-color: transparent;
