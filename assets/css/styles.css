@@ -263,26 +263,6 @@ main,
   pointer-events: none;
 }
 
-/* 3. Capa Atmosférica (z-index: 20) */
-.particle-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 20;
-  pointer-events: none !important;
-  overflow: hidden;
-}
-
-.particle-container canvas,
-#particle-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none !important;
-}
-
 
 /* ---- Light Theme (Default - Clean Minimalist High-Contrast) ---- */
 [data-theme="light"] {
@@ -1123,29 +1103,6 @@ h1, h2, h3, h4, h5, h6 {
 .char-fade-4 { opacity: 0.3; }
 .char-fade-5 { opacity: 0.18; }
 .char-fade-6 { opacity: 0.08; }
-
-.floating-particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  pointer-events: none;
-  border-radius: 1px;
-  animation: float-particle 6s ease-in-out infinite alternate;
-}
-
-.particle-red {
-  background: #EF4444;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
-}
-
-.particle-blue {
-  background: #3B82F6;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
-}
-
-.p-1 { top: 20%; left: 15%; animation-delay: 0s; }
-.p-2 { top: 60%; right: 18%; animation-delay: 1.5s; }
-.p-3 { bottom: 25%; left: 25%; animation-delay: 3s; }
 
 
 
