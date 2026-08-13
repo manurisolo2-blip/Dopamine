@@ -44,6 +44,14 @@
   src: url('https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoRfnhjJnar524OM24N8y.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -135,9 +143,10 @@ select {
   --color-accent:     #0EA5E9;
   --color-accent-dim: #0284C7;
 
-  /* ---- Core 3-Font Architecture (Display: Bebas Neue, Technical/Nav: JetBrains Mono, Body: Space Grotesk) ---- */
+  /* ---- Core Typography Architecture (Display: Bebas Neue, Technical/Nav: JetBrains Mono, Body/Small: Montserrat) ---- */
   --ff-heading: 'Bebas Neue', 'Space Grotesk', sans-serif;
-  --ff-body:    'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --ff-body:    'Montserrat', sans-serif, Arial, Helvetica;
+  --ff-sans:    'Montserrat', sans-serif, Arial, Helvetica;
   --ff-mono:    'JetBrains Mono', 'SF Mono', monospace;
 
   /* ---- WCAG 2.2 & Fluid Typography Math with clamp() ---- */

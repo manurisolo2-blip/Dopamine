@@ -33,7 +33,7 @@
         border: 1px solid rgba(255, 255, 255, 0.25);
         padding: 16px 20px;
         z-index: 99999;
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Montserrat', sans-serif, Arial, Helvetica;
         color: #FFFFFF;
         box-shadow: 0 12px 36px rgba(0,0,0,0.7);
         display: flex;
