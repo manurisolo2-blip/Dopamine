@@ -123,7 +123,7 @@ a.btn,
 .size-btn,
 .swatch-btn,
 .quantity-btn,
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select {
   min-width: 44px;
   min-height: 44px;

@@ -1062,8 +1062,15 @@
       }
       .nk-checkbox-label input[type="checkbox"] {
         accent-color: #111;
-        width: 16px;
-        height: 16px;
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        min-height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin: 0;
       }
 
       /* PILL BUTTON CONTINUAR */
