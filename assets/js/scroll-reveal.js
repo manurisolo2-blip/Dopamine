@@ -117,6 +117,8 @@
     const charWindow = step + charOverlap;
 
     function handleScroll() {
+      const isLight = document.documentElement.dataset.theme === 'light';
+      const baseRgb = isLight ? '14, 14, 14' : '255, 255, 255';
       const rect = textSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
@@ -141,9 +143,9 @@
           const alpha = (0.18 + eased * 0.82).toFixed(3);
           span.style.color = `rgba(239, 68, 68, ${alpha})`;
         } else {
-          // Line 1: Crisp white (faint translucent white -> solid white #FFFFFF)
+          // Line 1: Theme-aware color (Black/Charcoal in light mode, Crisp White in dark mode)
           const alpha = (0.15 + eased * 0.85).toFixed(3);
-          span.style.color = `rgba(255, 255, 255, ${alpha})`;
+          span.style.color = `rgba(${baseRgb}, ${alpha})`;
         }
 
         const translateY = ((1 - eased) * 4).toFixed(2);
@@ -154,6 +156,13 @@
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Watch for theme toggles on <html> and update instantly
+    const themeObserver = new MutationObserver(() => {
+      handleScroll();
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
     handleScroll();
   }
 

@@ -1079,8 +1079,16 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform, color;
 }
 
+[data-theme="light"] .char-span {
+  color: rgba(14, 14, 14, 0.18);
+}
+
 .reveal-interactive .char-span {
   color: rgba(239, 68, 68, 0.2);
+}
+
+[data-theme="light"] .reveal-interactive .char-span {
+  color: rgba(220, 38, 38, 0.25);
 }
 
 .char-filled {
@@ -1088,8 +1096,16 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
+[data-theme="light"] .char-filled {
+  color: #0E0E0E;
+}
+
 .reveal-interactive .char-filled {
   color: #EF4444;
+}
+
+[data-theme="light"] .reveal-interactive .char-filled {
+  color: #DC2626;
 }
 
 .char-fade-1 { opacity: 0.85; }
