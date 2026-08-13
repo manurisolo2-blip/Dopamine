@@ -378,7 +378,7 @@
 }
 
 .shop-products-grid .product-card .card-subtitle {
-  font-family: var(--ff-mono);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 11px; /* 11px technical text */
   color: #888888; /* Medium gray secondary color */
   letter-spacing: 0.08em;
@@ -386,7 +386,7 @@
 }
 
 .shop-products-grid .product-card .card-price {
-  font-family: var(--ff-mono, monospace);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica, monospace);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -435,7 +435,7 @@
 }
 
 .shop-product-head span {
-  font-family: var(--ff-mono), monospace !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica), monospace !important;
   font-size: 0.875rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.05em !important;
@@ -1495,7 +1495,7 @@ body.shop-page {
 }
 
 .shop-product-prices .price-old {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--text-muted);
@@ -1504,7 +1504,7 @@ body.shop-page {
 }
 
 .shop-product-prices .price-current {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -1856,7 +1856,7 @@ body.shop-page {
 }
 
 .shop-product-prices .price-old {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.75rem !important;
   font-weight: 500 !important;
   color: rgba(255, 255, 255, 0.45) !important;
@@ -1865,7 +1865,7 @@ body.shop-page {
 }
 
 .shop-product-prices .price-current {
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace) !important;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important;
   font-size: 0.9375rem !important;
   font-weight: 700 !important;
   color: #FFFFFF !important;
