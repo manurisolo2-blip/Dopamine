@@ -783,17 +783,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-tagline {
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: var(--ls-widest);
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: var(--space-3xl);
   text-transform: uppercase;
 }
 
 .hero-cta {
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: var(--ls-wider);
@@ -838,12 +838,12 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 1.75rem;
   padding-right: 1.75rem;
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .marquee-content b,
@@ -927,14 +927,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Override section title for dark context */
 .featured-products-section .section-title {
   color: rgba(255, 255, 255, 0.4);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.6875rem;
   letter-spacing: var(--ls-widest);
 }
 
 .featured-products-section .view-all-link {
   color: rgba(255, 255, 255, 0.35);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.6875rem;
   border-bottom-color: rgba(255, 255, 255, 0.15);
 }
@@ -997,7 +997,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--ff-body);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -1013,10 +1013,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.3;
   color: #FFFFFF;
@@ -1027,20 +1027,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-subtitle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.625rem;
-  color: rgba(255, 255, 255, 0.35);
-  letter-spacing: 0.08em;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.06em;
   margin-top: 3px;
   text-transform: uppercase;
 }
 
 .product-price {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8125rem;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+  font-size: 0.875rem;
   font-weight: 700;
   margin-top: var(--space-sm);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: #FFFFFF;
 }
 
@@ -1157,7 +1158,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .banner-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -1176,7 +1177,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .banner-text {
-  font-family: var(--ff-body);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   color: rgba(255, 255, 255, 0.6);
   max-width: 580px;
@@ -1186,7 +1187,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .banner-cta {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -1347,9 +1348,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-input-wrap input {
   flex: 1;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   color: #FFFFFF;
   background: none;
   border: none;
@@ -1358,7 +1360,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-input-wrap input::placeholder {
   color: rgba(255, 255, 255, 0.35);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
 }
 
 .footer-input-wrap button {
@@ -1366,8 +1368,9 @@ h1, h2, h3, h4, h5, h6 {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.875rem;
+  font-weight: 700;
   transition: color 180ms ease;
 }
 
@@ -1395,7 +1398,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .accordion-icon {
   display: none;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-accent);
@@ -1409,11 +1412,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-link-list a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.1em;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: color 180ms ease, opacity 180ms ease;
 }
@@ -1458,10 +1461,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-copyright {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.625rem;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.08em;
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
