@@ -115,10 +115,22 @@
             <button class="detail-favorite" type="button" data-detail-favorite aria-label="Agregar a favoritos">♡</button>
           </div>
           
+          <!-- Mercado Pago Product Banner -->
+          <div class="mp-product-installments-badge" style="background: rgba(0, 158, 227, 0.08); border: 1px solid rgba(0, 158, 227, 0.25); padding: 0.75rem 1rem; border-radius: 4px; display: flex; align-items: center; gap: 0.75rem; margin-block: 0.75rem 1.25rem;">
+            <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 28px; width: auto; object-fit: contain; border-radius: 4px;">
+            <div style="font-family: var(--ff-body); font-size: 0.8125rem; color: var(--text-primary); line-height: 1.35;">
+              <strong style="color: #009EE3;">Hasta 6 cuotas sin interés</strong> con Mercado Pago
+              <div style="font-size: 0.725rem; color: var(--text-muted);">Todas las tarjetas y dinero en cuenta</div>
+            </div>
+          </div>
+          
           <div class="detail-promises">
             <span>↗ FREE SHIPPING OVER $100</span>
             <span>↺ 30 DAYS TO CHANGE YOUR MIND</span>
-            <span>◌ SECURE CHECKOUT / MERCADO PAGO</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.35rem;">
+              <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 13px; width: auto; object-fit: contain; vertical-align: middle; border-radius: 2px;">
+              SECURE CHECKOUT / MERCADO PAGO
+            </span>
           </div>
           
           <div class="detail-accordions" data-product-details data-detail-accordions>
@@ -227,12 +239,7 @@
         <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
           <!-- Mercado Pago -->
           <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
-            <svg width="44" height="24" viewBox="0 0 44 24" fill="none">
-              <rect width="44" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
-              <path d="M13 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M24 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-              <text x="22" y="18" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">MPAGO</text>
-            </svg>
+            <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 24px; width: auto; max-width: 44px; object-fit: contain; border-radius: 3px; display: block;">
           </span>
           <!-- Visa -->
           <span class="payment-badge-icon" title="Visa" aria-label="Visa">
@@ -315,7 +322,10 @@
             <span class="cart-progress-knob"></span>
           </div>
         </div>
-        <p class="cart-progress-text">¡Tenés 6 cuotas sin interés!</p>
+        <p class="cart-progress-text" style="display: flex; align-items: center; gap: 0.35rem;">
+          <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 14px; width: auto; object-fit: contain; border-radius: 2px; display: inline-block;">
+          <span>¡Tenés 6 cuotas sin interés!</span>
+        </p>
       </div>
     </div>
 

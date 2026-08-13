@@ -159,7 +159,10 @@
         <!-- TOP NOTIFICATION BANNER -->
         <div class="nk-top-promo-bar">
           <span>‹</span>
-          <p>¡Hasta <strong>6 cuotas sin interés</strong> con Mercado Pago y <strong>Envío Gratis</strong> en compras mayores a $90.000! 🇦🇷</p>
+          <p style="display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
+            <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 16px; width: auto; object-fit: contain; border-radius: 2px; vertical-align: middle;">
+            <span>¡Hasta <strong>6 cuotas sin interés</strong> con Mercado Pago y <strong>Envío Gratis</strong> en compras mayores a $90.000! 🇦🇷</span>
+          </p>
           <span>›</span>
         </div>
 
@@ -410,6 +413,10 @@
                   <!-- DETALLE DEL MÉTODO SELECCIONADO -->
                   ${checkoutState.payment.method === 'mercadopago' ? `
                     <div class="nk-mp-selected-view">
+                      <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 26px; width: auto; object-fit: contain; border-radius: 4px;">
+                        <span style="font-weight: 600; font-size: 0.875rem; color: #009EE3;">Cuenta Mercado Pago y Tarjetas</span>
+                      </div>
                       <div class="nk-mp-features-list">
                         <div class="nk-mp-feature-row">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009EE3" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
@@ -554,8 +561,9 @@
               </p>
 
               <!-- BOTÓN PRINCIPAL DE PAGO CON MERCADO PAGO -->
-              <button type="button" class="nk-main-btn-submit-pay" id="btn-nk-submit-final-pay">
-                Pagar a través de Mercado Pago
+              <button type="button" class="nk-main-btn-submit-pay" id="btn-nk-submit-final-pay" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem;">
+                <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 20px; width: auto; object-fit: contain; border-radius: 3px;">
+                <span>Pagar a través de Mercado Pago</span>
               </button>
 
               <a href="#" class="nk-return-cart-link" id="btn-nk-back-to-cart">
@@ -743,7 +751,10 @@
           <div class="nk-feedback-success-card">
             <div class="nk-success-check">✓</div>
             <h3>¡PAGO CONFIRMADO CON ÉXITO!</h3>
-            <p>Orden <strong>#${orderId}</strong> aprobada por Mercado Pago.</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 22px; width: auto; object-fit: contain; border-radius: 4px;">
+              <p style="margin: 0;">Orden <strong>#${orderId}</strong> aprobada por Mercado Pago.</p>
+            </div>
             <p class="nk-sub">Enviamos el comprobante a <strong>${checkoutState.customer.email}</strong>.</p>
             <a href="store.html" class="nk-return-shop-btn">EXPLORAR MÁS DROPS ↗</a>
           </div>
