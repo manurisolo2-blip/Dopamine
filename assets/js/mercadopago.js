@@ -387,7 +387,7 @@
                     </button>
 
                     <button type="button" class="nk-pay-method-btn ${checkoutState.payment.method === 'mercadopago' ? 'is-selected' : ''}" data-pay-target="mercadopago">
-                      <svg width="28" height="18" viewBox="0 0 44 24" fill="none"><rect width="44" height="24" rx="3" fill="#009EE3"/><path d="M13 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/><path d="M24 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/><text x="22" y="19" font-family="'Montserrat', sans-serif" font-size="7" font-weight="800" fill="#FFFFFF" text-anchor="middle">MERCADO PAGO</text></svg>
+                      <img src="assets/Branding/Logos/mercadopago-icon.svg" alt="Mercado Pago" style="height: 24px; width: auto; object-fit: contain;">
                       <strong>Mercado Pago</strong>
                     </button>
 
