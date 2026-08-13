@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter &amp; Club — Dopamine Streetwear</title>
-  <meta name="description" content="Suscribite al club de Dopamine Streetwear. Recibí acceso anticipado a drops exclusivos y promociones.">
+  <meta name="description" content="Dopamine Store — streetwear hecho para moverte.">
+  <title>Dopamine Store — Find Your Energy</title>
   <meta name="theme-color" content="#060608">
+
+  <!-- Dynamic Favicon (Dark & Light Isotipos) -->
   <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+
   <!-- Core Fonts Architecture (Bebas Neue + JetBrains Mono + Space Grotesk) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,25 +17,32 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/products.css">
   <style>
-    .shop-form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+    .particle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 20;
+      pointer-events: none !important;
+      overflow: hidden;
     }
-    @media (max-width: 640px) {
-      .shop-form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-    .floating-field input:focus ~ label,
-    .floating-field input:not(:placeholder-shown) ~ label {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transform: translateY(-50%) scale(0.9) !important;
+
+    .particle-container canvas,
+    #particle-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none !important;
     }
   </style>
 </head>
 <body class="shop-page">
+
+  <!-- ===== CAPA ATMOSFÉRICA (z-index: 20) ===== -->
+  <div class="particle-container">
+    <canvas id="particle-canvas"></canvas>
+  </div>
 
   <!-- ===== HEADER (3-COLUMN STREETWEAR ARCHITECTURE) ===== -->
   <header class="site-header" id="site-header">
@@ -47,10 +57,9 @@
       <!-- Center Column: Navigation (Middle) -->
       <nav class="desktop-nav header-nav-center" aria-label="Main navigation">
         <ul class="nav-list">
-          <li class="nav-item"><a href="store.html" class="nav-link">DROPS</a></li>
+          <li class="nav-item"><a href="store.html" class="nav-link active">DROPS</a></li>
           <li class="nav-item"><a href="index.html#brand-story" class="nav-link">ABOUT US</a></li>
-          <li class="nav-item"><a href="contacto.html" class="nav-link active">CONTACT</a></li>
-          <li class="nav-item"><a href="login.html" class="nav-link">ENTRAR</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACT</a></li>
         </ul>
       </nav>
 
@@ -77,50 +86,147 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <section class="shop-page-content shop-pure-newsletter-section">
+    <!-- 3. SHOP HERO & CONTROL HEADER -->
+    <section class="shop-hero">
       <div class="shop-container">
-        <div class="shop-pure-newsletter-box">
-          <p class="shop-breadcrumb"><a href="index.html">HOME</a> <span>/</span> NEWSLETTER &amp; CLUB</p>
-          <span class="shop-eyebrow">EARLY ACCESS // PRIVATE CLUB</span>
-          <h1>UNITE AL CLUB.<br>NUNCA TE PIERDAS UN DROP.</h1>
-          <p class="shop-pure-newsletter-desc">
-            Suscribite para recibir acceso anticipado exclusivo a cada lanzamiento limitado, códigos de descuento privados e información sobre ofertas y colecciones antes que nadie.
-          </p>
-
-          <form class="shop-pure-newsletter-form" id="pure-newsletter-form">
-            <div class="shop-form-row">
-              <div class="floating-field" style="position: relative; margin-bottom: 1.25rem;">
-                <input id="pure-news-name" type="text" placeholder=" " autocomplete="name" style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; outline: none;">
-                <label for="pure-news-name" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;">NOMBRE COMPLETO</label>
-              </div>
-              <div class="floating-field" style="position: relative; margin-bottom: 1.25rem;">
-                <input id="pure-news-email" type="email" placeholder=" " autocomplete="email" required style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; outline: none;">
-                <label for="pure-news-email" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;">CORREO ELECTRÓNICO *</label>
-              </div>
-            </div>
-
-            <div class="shop-newsletter-consent">
-              <label class="shop-check" style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; min-height: 44px;">
-                <input type="checkbox" checked required style="min-width: 20px; min-height: 20px; margin-top: 0.2rem; cursor: pointer;">
-                <span style="font-size: 0.8125rem; line-height: 1.5; color: var(--text-secondary);">Acepto recibir novedades sobre drops exclusivos, ofertas y lanzamientos de Dopamine.</span>
-              </label>
-            </div>
-
-            <button class="shop-full-button shop-newsletter-submit" type="submit" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">
-              <span>UNIRME AL CLUB →</span>
+        <p class="shop-breadcrumb">
+          <a href="index.html">HOME</a> <span>/</span> DROPS
+        </p>
+        
+        <div class="shop-header-row">
+          <div class="shop-header-left">
+            <h1 class="shop-display">DROPS</h1>
+            <button class="shop-filter-toggle-btn" type="button" data-toggle-sidebar aria-expanded="true">
+              <span data-toggle-text>OCULTAR FILTROS</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 13V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
             </button>
+          </div>
 
-            <div class="shop-form-feedback" id="pure-news-feedback" hidden></div>
-          </form>
+          <div class="shop-header-right">
+            <div class="shop-toolbar-count">
+              <span data-result-count>0</span> PRODUCTOS
+            </div>
+            <div class="shop-sort-wrap">
+              <label for="shop-sort-select">ORDENAR POR</label>
+              <select class="shop-sort" id="shop-sort-select" data-sort aria-label="Ordenar productos">
+                <option value="featured">DESTACADOS</option>
+                <option value="price-low">PRECIO: MENOR A MAYOR</option>
+                <option value="price-high">PRECIO: MAYOR A MENOR</option>
+                <option value="newest">LO MÁS NUEVO</option>
+                <option value="stock">STOCK DISPONIBLE</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- 4. CATALOG SECTION (ACCORDION FILTERS & 3-COLUMN PRODUCT GRID) -->
+    <section class="shop-catalog" aria-label="Catálogo de productos">
+      <div class="shop-container shop-catalog-layout" id="shop-layout">
+        <!-- Sidebar Filters Accordion -->
+        <aside class="shop-sidebar" id="shop-sidebar" aria-label="Filtros de catálogo">
+          <div class="shop-sidebar-head">
+            <h2 class="shop-sidebar-title">FILTROS</h2>
+            <button class="shop-clear-link" type="button" data-clear-filters>LIMPIAR FILTROS</button>
+          </div>
+          
+          <!-- Categoría Filter Accordion -->
+          <details class="shop-filter-accordion">
+            <summary class="shop-filter-summary">
+              <span>CATEGORÍA</span>
+              <span class="chevron">↓</span>
+            </summary>
+            <div class="shop-filter-options">
+              <label class="shop-check">
+                <input type="checkbox" value="tops" data-filter-value="category">
+                <span>Remeras</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="hoodies" data-filter-value="category">
+                <span>Buzos</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="bottoms" data-filter-value="category">
+                <span>Pantalones</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="accessories" data-filter-value="category">
+                <span>Accesorios</span>
+              </label>
+            </div>
+          </details>
+          
+          <!-- Talle Filter Accordion -->
+          <details class="shop-filter-accordion">
+            <summary class="shop-filter-summary">
+              <span>TALLE</span>
+              <span class="chevron">↓</span>
+            </summary>
+            <div class="shop-filter-options">
+              <label class="shop-check">
+                <input type="checkbox" value="XS" data-filter-value="size">
+                <span>XS</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="S" data-filter-value="size">
+                <span>S</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="M" data-filter-value="size">
+                <span>M</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="L" data-filter-value="size">
+                <span>L</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="XL" data-filter-value="size">
+                <span>XL</span>
+              </label>
+            </div>
+          </details>
+
+          <!-- Disponibilidad Filter Accordion -->
+          <details class="shop-filter-accordion">
+            <summary class="shop-filter-summary">
+              <span>DISPONIBILIDAD</span>
+              <span class="chevron">↓</span>
+            </summary>
+            <div class="shop-filter-options">
+              <label class="shop-check">
+                <input type="checkbox" value="in-stock" data-filter-value="availability">
+                <span>En Stock</span>
+              </label>
+              <label class="shop-check">
+                <input type="checkbox" value="sold-out" data-filter-value="availability">
+                <span>Agotados</span>
+              </label>
+            </div>
+          </details>
+        </aside>
+
+        <!-- Right Main Shop Content -->
+        <div class="shop-main">
+          <!-- Products Grid (3 Columns Layout) -->
+          <div class="shop-products-grid" data-products-grid>
+            <!-- Products rendered dynamically by JS -->
+          </div>
+
+          <!-- Empty State -->
+          <div class="shop-empty-state" data-empty-state hidden style="text-align: center; padding: 4rem 1rem;">
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">No se encontraron productos que coincidan con los filtros seleccionados.</p>
+            <button class="shop-clear" type="button" data-clear-filters style="max-width: 240px; margin: 0 auto;">LIMPIAR FILTROS</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FOOTER -->
   </main>
 
-  <!-- Footer -->
-  <!-- Footer — Compact Dark Navy Technical Footer -->
+  <!-- 6. FOOTER — Compact Dark Navy Technical Footer -->
   <footer class="site-footer" id="footer">
     <div class="container footer-container">
       <!-- Main Columns Grid -->
@@ -147,7 +253,7 @@
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="tienda.html">DROPS</a></li>
+            <li><a href="store.html">DROPS</a></li>
             <li><a href="index.html#brand-story">ABOUT US</a></li>
             <li><a href="contacto.html">CONTACT</a></li>
           </ul>
@@ -251,6 +357,7 @@
     </div>
   </footer>
 
+  <!-- 7. OVERLAYS -->
   <!-- Search Panel -->
   <div class="search-panel" data-search-panel hidden>
     <div class="search-box">
@@ -258,6 +365,61 @@
       <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
     </div>
     <div class="search-results" data-search-results hidden></div>
+  </div>
+
+  <!-- Quick Add Modal -->
+  <div class="shop-quick-modal" data-quick-modal hidden>
+    <div class="shop-quick-card">
+      <header>
+        <h2>QUICK ADD</h2>
+        <button class="shop-close" type="button" data-quick-close aria-label="Cerrar">×</button>
+      </header>
+      <img class="shop-quick-image" data-quick-image alt="">
+      <div class="shop-quick-details">
+        <input type="hidden" data-quick-product>
+        <h3 data-quick-name></h3>
+        <p data-quick-price></p>
+        <div class="shop-quick-options">
+          <label>COLOR</label>
+          <div class="quick-swatches" data-quick-colors></div>
+        </div>
+        <div class="shop-quick-options">
+          <label>TALLE</label>
+          <div class="quick-sizes" data-quick-sizes></div>
+        </div>
+        <button class="shop-full-button" type="button" data-quick-confirm>AGREGAR A LA BOLSA</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Filter Drawer -->
+  <div class="shop-filter-drawer" data-filter-drawer hidden>
+    <div class="shop-filter-sheet">
+      <header>
+        <h2>FILTROS</h2>
+        <button class="shop-close" type="button" data-filters-close aria-label="Cerrar filtros">×</button>
+      </header>
+      <div class="shop-filter-group">
+        <h3 class="shop-filter-heading">CATEGORÍA</h3>
+        <div class="shop-filter-options">
+          <label class="shop-check"><input type="checkbox" value="tops" data-filter-value="category"> <span>Remeras</span></label>
+          <label class="shop-check"><input type="checkbox" value="hoodies" data-filter-value="category"> <span>Buzos</span></label>
+          <label class="shop-check"><input type="checkbox" value="bottoms" data-filter-value="category"> <span>Pantalones</span></label>
+          <label class="shop-check"><input type="checkbox" value="accessories" data-filter-value="category"> <span>Accesorios</span></label>
+        </div>
+      </div>
+      <div class="shop-filter-group">
+        <h3 class="shop-filter-heading">TALLE</h3>
+        <div class="shop-filter-options">
+          <label class="shop-check"><input type="checkbox" value="XS" data-filter-value="size"> <span>XS</span></label>
+          <label class="shop-check"><input type="checkbox" value="S" data-filter-value="size"> <span>S</span></label>
+          <label class="shop-check"><input type="checkbox" value="M" data-filter-value="size"> <span>M</span></label>
+          <label class="shop-check"><input type="checkbox" value="L" data-filter-value="size"> <span>L</span></label>
+          <label class="shop-check"><input type="checkbox" value="XL" data-filter-value="size"> <span>XL</span></label>
+        </div>
+      </div>
+      <button class="shop-full-button" type="button" data-filters-close>APLICAR FILTROS</button>
+    </div>
   </div>
 
   <!-- Cart Overlay -->
@@ -345,9 +507,10 @@
       <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
     </div>
     <nav class="mobile-menu-nav">
-      <a href="tienda.html">DROPS</a>
+      <a href="store.html">DROPS</a>
       <a href="index.html#brand-story">ABOUT US</a>
       <a href="contacto.html">CONTACT</a>
+      <a href="login.html">MI CUENTA</a>
     </nav>
   </aside>
 
@@ -365,17 +528,6 @@
   <script src="assets/js/db.js"></script>
   <script src="assets/js/verification.js"></script>
   <script src="assets/js/auth.js"></script>
-  <script>
-    document.getElementById('pure-newsletter-form')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('pure-news-feedback');
-      if (feedback) {
-        feedback.textContent = '✓ TE SUSCRIBISTE CON ÉXITO AL CLUB DOPAMINE. ¡GRACIAS!';
-        feedback.className = 'shop-form-feedback success';
-        feedback.hidden = false;
-      }
-      this.reset();
-    });
-  </script>
+  <script src="assets/js/scroll-reveal.js"></script>
 </body>
 </html>
