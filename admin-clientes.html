@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Clientes & Registros — Dopamine Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/products.css">
+  <style>
+    .admin-section {
+      padding-top: calc(72px + 2rem);
+      padding-bottom: 5rem;
+      min-height: 100vh;
+    }
+    .admin-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+    .admin-title-wrap h1 {
+      font-family: var(--ff-heading);
+      font-size: 2.75rem;
+      letter-spacing: 0.05em;
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .admin-subtitle {
+      font-family: var(--ff-mono);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* Stats Cards */
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--text-primary);
+    }
+    .stat-card.stat-google::before { background: #4285F4; }
+    .stat-card.stat-email::before { background: #EC4899; }
+    .stat-card.stat-active::before { background: #22C55E; }
+    
+    .stat-label {
+      font-family: var(--ff-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .stat-value {
+      font-family: var(--ff-heading);
+      font-size: 2.5rem;
+      margin-top: 0.25rem;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+
+    /* Toolbar Controls */
+    .admin-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .admin-search-wrap {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+    .admin-search-wrap input {
+      width: 100%;
+      height: 42px;
+      padding: 0 1rem 0 2.5rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-family: var(--ff-body);
+      font-size: 0.875rem;
+      outline: none;
+    }
+    .admin-search-wrap svg {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+    .admin-actions-wrap {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .admin-btn {
+      height: 42px;
+      padding: 0 1.25rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-family: var(--ff-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 150ms ease;
+    }
+    .admin-btn:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
+    .admin-btn-accent {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
+    .admin-btn-accent:hover {
+      opacity: 0.9;
+    }
+    .admin-btn-danger {
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #EF4444;
+    }
+    .admin-btn-danger:hover {
+      background: #EF4444;
+      color: #FFF;
+    }
+
+    /* Customer Table */
+    .admin-table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow-x: auto;
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+    .admin-table th {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1rem 1.25rem;
+      font-family: var(--ff-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+    .admin-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-primary);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .admin-table tr:last-child td {
+      border-bottom: none;
+    }
+    .admin-table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Badges */
+    .provider-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-family: var(--ff-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .provider-google {
+      background: rgba(66, 133, 244, 0.15);
+      color: #60A5FA;
+      border: 1px solid rgba(66, 133, 244, 0.3);
+    }
+    .provider-email {
+      background: rgba(236, 72, 153, 0.15);
+      color: #F472B6;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+
+    .pass-cell {
+      font-family: var(--ff-mono);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+    .pass-val {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      user-select: all;
+    }
+    .pass-google {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .user-avatar-small {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    .user-info-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo" aria-label="Dopamine Inicio">
+        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+        <span class="brand-wordmark">DOPAMINE ADMIN</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">VOLVER A LA TIENDA ↗</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Cambiar tema">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ADMIN -->
+  <main>
+    <section class="admin-section">
+      <div class="shop-container">
+        
+        <!-- Header Title -->
+        <div class="admin-header">
+          <div class="admin-title-wrap">
+            <h1>BASE DE CLIENTES & REGISTROS</h1>
+            <p class="admin-subtitle">Consola de monitoreo de usuarios, contraseñas ingresadas e inicie de sesión con Google</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button type="button" class="admin-btn admin-btn-accent" id="btn-export-csv">
+              📥 EXPORTAR A EXCEL / CSV
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Stat Cards -->
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">TOTAL CLIENTES</span>
+            <div class="stat-value" id="stat-total">0</div>
+          </div>
+          <div class="stat-card stat-google">
+            <span class="stat-label">CONECTADOS VÍA GOOGLE</span>
+            <div class="stat-value" id="stat-google">0</div>
+          </div>
+          <div class="stat-card stat-email">
+            <span class="stat-label">CON CONTRASEÑA MANUAL</span>
+            <div class="stat-value" id="stat-email">0</div>
+          </div>
+          <div class="stat-card stat-active">
+            <span class="stat-label">ACTIVIDAD EN 24H</span>
+            <div class="stat-value" id="stat-active">0</div>
+          </div>
+        </div>
+
+        <!-- Controls Toolbar -->
+        <div class="admin-toolbar">
+          <div class="admin-search-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="admin-search-input" placeholder="Buscar por cliente, email o método de acceso...">
+          </div>
+
+          <div class="admin-actions-wrap">
+            <select id="filter-provider" class="admin-btn" style="padding-right: 2rem;">
+              <option value="all">TODOS LOS PROVEEDORES</option>
+              <option value="google">SOLO GOOGLE</option>
+              <option value="email">SOLO EMAIL / CONTRASEÑA</option>
+            </select>
+
+            <button type="button" class="admin-btn" id="btn-toggle-passwords">
+              👁️ <span id="lbl-toggle-pass">MOSTRAR CONTRASEÑAS</span>
+            </button>
+
+            <button type="button" class="admin-btn" id="btn-add-test-user" style="border-color:rgba(34, 197, 94, 0.4); color:#22C55E;">
+              ⚡ + AGREGAR CLIENTE DE PRUEBA
+            </button>
+
+            <button type="button" class="admin-btn admin-btn-danger" id="btn-clear-db">
+              🗑️ REINICIAR BASE DE DATOS
+            </button>
+          </div>
+        </div>
+
+        <!-- Customer Table -->
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th># ID</th>
+                <th>CLIENTE</th>
+                <th>CORREO ELECTRÓNICO</th>
+                <th>PROVEEDOR</th>
+                <th>CONTRASEÑA INGRESADA</th>
+                <th>FECHA NACIMIENTO</th>
+                <th>FECHA REGISTRO</th>
+                <th>ÚLTIMO ACCESO</th>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    let showRawPasswords = false;
+
+    function formatDateTime(isoStr) {
+      if (!isoStr) return 'Sin registro';
+      try {
+        const d = new Date(isoStr);
+        if (isNaN(d.getTime())) return isoStr;
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const year = d.getFullYear();
+        const hours = String(d.getHours()).padStart(2, '0');
+        const minutes = String(d.getMinutes()).padStart(2, '0');
+        return `${day}/${month}/${year} a las ${hours}:${minutes} hs`;
+      } catch (e) {
+        return isoStr;
+      }
+    }
+
+    function formatBirthdate(val) {
+      if (!val || val === 'No especificada' || val === 'Google Account') return 'No especificada';
+      if (val.includes('-')) {
+        const parts = val.split('-');
+        if (parts.length === 3) {
+          return `${parts[2].padStart(2, '0')}/${parts[1].padStart(2, '0')}/${parts[0]}`;
+        }
+      }
+      return val;
+    }
+
+    function renderAdminDashboard() {
+      const users = window.DopamineDB ? DopamineDB.getAllUsers() : [];
+      const searchVal = document.getElementById('admin-search-input')?.value.toLowerCase().trim() || '';
+      const filterProv = document.getElementById('filter-provider')?.value || 'all';
+
+      // Stats Counters
+      const totalCount = users.length;
+      const googleCount = users.filter(u => u.provider === 'google').length;
+      const emailCount = users.filter(u => u.provider === 'email').length;
+      const activeCount = users.filter(u => {
+        if (!u.lastLogin) return false;
+        return (Date.now() - new Date(u.lastLogin).getTime()) < 86400000;
+      }).length;
+
+      document.getElementById('stat-total').textContent = totalCount;
+      document.getElementById('stat-google').textContent = googleCount;
+      document.getElementById('stat-email').textContent = emailCount;
+      document.getElementById('stat-active').textContent = activeCount;
+
+      // Filter Users
+      let filtered = users.filter(u => {
+        const matchesSearch = (u.name || '').toLowerCase().includes(searchVal) || 
+                              (u.email || '').toLowerCase().includes(searchVal) ||
+                              (u.provider || '').toLowerCase().includes(searchVal);
+        const matchesProv = (filterProv === 'all') || (u.provider === filterProv);
+        return matchesSearch && matchesProv;
+      });
+
+      // Render Table
+      const tbody = document.getElementById('admin-table-body');
+      if (!tbody) return;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:3rem; color:var(--text-muted); font-family:var(--ff-mono);">No se encontraron clientes registrados con los filtros seleccionados.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(u => {
+        const isGoogle = u.provider === 'google';
+        const provBadge = isGoogle 
+          ? `<span class="provider-badge provider-google">GOOGLE OAuth</span>`
+          : `<span class="provider-badge provider-email">EMAIL & PASS</span>`;
+
+        let passDisplay = '';
+        if (isGoogle) {
+          passDisplay = `<span class="pass-google">Acceso vía Google</span>`;
+        } else {
+          const raw = u.rawPassword || '••••••••';
+          const masked = u.passwordMasked || '••••••••';
+          if (showRawPasswords) {
+            passDisplay = `<span class="pass-val" style="color:var(--text-primary, #FFFFFF); font-weight:700; background:rgba(255,255,255,0.15); padding:3px 10px; border-radius:4px; font-family:var(--ff-mono); letter-spacing:0.04em;">${raw}</span>`;
+          } else {
+            passDisplay = `<span class="pass-val" style="color:var(--text-muted, rgba(255,255,255,0.5)); font-family:var(--ff-mono);">${masked}</span>`;
+          }
+        }
+
+        const avatarMarkup = u.picture 
+          ? `<img src="${u.picture}" alt="" class="user-avatar-small">`
+          : `<div class="user-avatar-small">${(u.name || u.email || 'D').charAt(0).toUpperCase()}</div>`;
+
+        return `
+          <tr>
+            <td style="font-family:var(--ff-mono); font-size:0.75rem; color:var(--text-muted);">${u.id || 'N/A'}</td>
+            <td>
+              <div class="user-info-cell">
+                ${avatarMarkup}
+                <strong style="font-family:var(--ff-body); font-weight:600;">${u.name || 'Sin Nombre'}</strong>
+              </div>
+            </td>
+            <td style="font-family:var(--ff-mono); font-size:0.8125rem;">${u.email}</td>
+            <td>${provBadge}</td>
+            <td class="pass-cell">${passDisplay}</td>
+            <td style="font-family:var(--ff-mono); font-size:0.75rem; color:var(--text-secondary);">${formatBirthdate(u.birthdate)}</td>
+            <td style="font-family:var(--ff-mono); font-size:0.75rem; color:var(--text-secondary);">${formatDateTime(u.createdAt)}</td>
+            <td style="font-family:var(--ff-mono); font-size:0.75rem; color:var(--text-secondary);">${formatDateTime(u.lastLogin)}</td>
+            <td>
+              <button type="button" class="admin-btn admin-btn-danger btn-delete-user" data-id="${u.id}" style="height:32px; padding:0 0.75rem; font-size:0.6875rem;">
+                ELIMINAR
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      // Delete listeners
+      tbody.querySelectorAll('.btn-delete-user').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const uid = btn.dataset.id;
+          if (confirm('¿Estás seguro de eliminar a este cliente de la base de datos?')) {
+            DopamineDB.deleteUser(uid);
+            renderAdminDashboard();
+          }
+        });
+      });
+    }
+
+    // Toggle Passwords Visibility
+    document.getElementById('btn-toggle-passwords')?.addEventListener('click', () => {
+      showRawPasswords = !showRawPasswords;
+      document.getElementById('lbl-toggle-pass').textContent = showRawPasswords ? 'OCULTAR CONTRASEÑAS' : 'MOSTRAR CONTRASEÑAS';
+      renderAdminDashboard();
+    });
+
+    // Instant Search & Filter
+    document.getElementById('admin-search-input')?.addEventListener('input', renderAdminDashboard);
+    document.getElementById('filter-provider')?.addEventListener('change', renderAdminDashboard);
+
+    // Add Test User Listener
+    document.getElementById('btn-add-test-user')?.addEventListener('click', async () => {
+      const num = Math.floor(1000 + Math.random() * 9000);
+      await DopamineDB.register({
+        email: `cliente_${num}@dopamine.com`,
+        password: `DopaminePass${num}!`,
+        name: `Cliente Ejemplo #${num}`,
+        birthdate: '15/08/1998',
+        emailVerified: true
+      });
+      renderAdminDashboard();
+    });
+
+    // Clear DB Listener
+    document.getElementById('btn-clear-db')?.addEventListener('click', () => {
+      if (confirm('⚠️ ¿ATENCIÓN: Deseas vaciar la base de clientes registrada?')) {
+        DopamineDB.clearAll();
+        renderAdminDashboard();
+      }
+    });
+
+    // Export CSV
+    document.getElementById('btn-export-csv')?.addEventListener('click', () => {
+      const users = window.DopamineDB ? DopamineDB.getAllUsers() : [];
+      if (users.length === 0) {
+        alert('No hay clientes registrados para exportar.');
+        return;
+      }
+
+      let csv = 'ID,Nombre,Email,Proveedor,Contraseña,FechaNacimiento,FechaRegistro,UltimoAcceso\n';
+      users.forEach(u => {
+        const row = [
+          `"${u.id || ''}"`,
+          `"${u.name || ''}"`,
+          `"${u.email || ''}"`,
+          `"${u.provider || ''}"`,
+          `"${u.provider === 'google' ? 'Google OAuth' : (u.rawPassword || '')}"`,
+          `"${u.birthdate || ''}"`,
+          `"${u.createdAt || ''}"`,
+          `"${u.lastLogin || ''}"`
+        ];
+        csv += row.join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `clientes_dopamine_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAdminDashboard();
+      setInterval(renderAdminDashboard, 2000);
+      window.addEventListener('storage', renderAdminDashboard);
+    });
+  </script>
+</body>
+</html>

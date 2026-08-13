@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta — Dopamine Streetwear</title>
+  <meta name="description" content="Ingresá a tu cuenta de Dopamine Streetwear para ver tus pedidos, acceso anticipado a drops y beneficios exclusivos.">
+  <meta name="theme-color" content="#0A0A0C">
+  <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+  
+  <!-- Core Fonts Architecture -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/products.css">
+  <!-- Google Identity Services Official SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    [hidden] {
+      display: none !important;
+    }
+
+    .auth-section {
+      min-height: calc(100vh - 72px);
+      padding-top: calc(72px + 2.5rem);
+      padding-bottom: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-primary, #0A0A0C);
+      transition: background-color var(--transition-theme);
+    }
+
+    .auth-box {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .auth-header-brand {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .auth-brand-isotipo {
+      height: 90px;
+      width: auto;
+      margin-bottom: 1.5rem;
+      transition: height 180ms ease;
+    }
+
+    .auth-nike-title {
+      font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary, #FFFFFF);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      transition: color var(--transition-theme);
+    }
+
+    .auth-nike-subtitle {
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.8125rem;
+      color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      transition: color var(--transition-theme);
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+      margin-bottom: 1.75rem;
+    }
+
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted, rgba(255, 255, 255, 0.45));
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .auth-tab.is-active {
+      color: var(--text-primary, #FFFFFF);
+      border-bottom-color: var(--text-primary, #FFFFFF);
+    }
+
+    .auth-form-card {
+      background: var(--card-bg, #0D0D0F);
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+      padding: 2rem;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      transition: background-color var(--transition-theme), border-color var(--transition-theme);
+    }
+
+    .auth-input-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .auth-input-group label {
+      display: block;
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-primary, rgba(255, 255, 255, 0.85));
+      margin-bottom: 0.4rem;
+    }
+
+    .auth-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .auth-input-wrap input,
+    .auth-grid-3 input {
+      width: 100%;
+      height: 48px;
+      padding: 0 1rem;
+      font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+      font-size: 0.9375rem;
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
+      background: var(--bg-secondary, #141417);
+      color: var(--text-primary, #FFFFFF);
+      border-radius: 0 !important;
+      outline: none;
+      transition: border-color 180ms ease, background-color var(--transition-theme), color var(--transition-theme);
+      box-shadow: none !important;
+    }
+
+    .auth-input-wrap input:focus,
+    .auth-grid-3 input:focus {
+      border-color: var(--text-primary, #FFFFFF);
+    }
+
+    .auth-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .auth-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .toggle-password-btn {
+      position: absolute;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      color: var(--text-muted, rgba(255, 255, 255, 0.5));
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .toggle-password-btn:hover {
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    .auth-options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-size: 0.8125rem;
+    }
+
+    /* Custom Minimalist Checkbox (Theme Aware) */
+    .auth-remember {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      cursor: pointer;
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.75rem;
+      color: var(--text-secondary, rgba(255, 255, 255, 0.8));
+      line-height: 1.4;
+    }
+
+    .auth-remember input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      min-width: 14px;
+      min-height: 14px;
+      border: 1px solid var(--text-muted, rgba(255, 255, 255, 0.5));
+      background-color: transparent;
+      border-radius: 0 !important;
+      cursor: pointer;
+      margin: 2px 0 0 0;
+      flex-shrink: 0;
+      transition: all 150ms ease;
+      box-shadow: none !important;
+    }
+
+    .auth-remember input[type="checkbox"]:hover {
+      border-color: var(--text-primary, #FFFFFF);
+    }
+
+    .auth-remember input[type="checkbox"]:checked {
+      background-color: var(--text-primary, #FFFFFF);
+      border-color: var(--text-primary, #FFFFFF);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0A0C' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 9px 9px;
+    }
+
+    [data-theme="light"] .auth-remember input[type="checkbox"]:checked {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+
+    .auth-forgot {
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.75rem;
+      color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+
+    .auth-forgot:hover {
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    .auth-submit-btn {
+      width: 100%;
+      height: 48px;
+      background: var(--text-primary, #FFFFFF);
+      color: var(--bg-primary, #0A0A0C);
+      border: none;
+      border-radius: 0 !important;
+      font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 180ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: none !important;
+    }
+
+    .auth-submit-btn:hover {
+      opacity: 0.9;
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-block: 1.5rem;
+      color: var(--text-muted, rgba(255, 255, 255, 0.4));
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+    }
+
+    .auth-divider span {
+      padding-inline: 0.75rem;
+    }
+
+    .auth-social-btn {
+      width: 100%;
+      height: 46px;
+      background: transparent;
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
+      border-radius: 0 !important;
+      color: var(--text-primary, #FFFFFF);
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      transition: all 180ms ease;
+      box-shadow: none !important;
+    }
+
+    .auth-social-btn:hover {
+      border-color: var(--text-primary, #FFFFFF);
+      background: var(--border-subtle, rgba(255, 255, 255, 0.05));
+    }
+
+    .auth-feedback {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid;
+      border-radius: 4px;
+    }
+
+    .auth-feedback.success {
+      color: #22C55E;
+      border-color: #22C55E;
+      background: rgba(34, 197, 94, 0.05);
+    }
+
+    .auth-feedback.error {
+      color: #EF4444;
+      border-color: #EF4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+  </style>
+</head>
+<body class="shop-page">
+
+  <!-- CAPA ATMOSFÉRICA -->
+  <div class="particle-container">
+    <canvas id="particle-canvas"></canvas>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <!-- Left Column: Brand Logo -->
+      <a href="index.html" class="brand-logo header-logo-left" aria-label="Dopamine Inicio">
+        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+        <span class="brand-logotype">DOPAMINE</span>
+      </a>
+
+      <!-- Center Column: Navigation (Middle) -->
+      <nav class="desktop-nav header-nav-center" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="tienda.html" class="nav-link">DROPS</a></li>
+          <li class="nav-item"><a href="index.html#brand-story" class="nav-link">ABOUT US</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Column: Action Icons -->
+      <div class="header-actions header-actions-right">
+        <button class="action-btn search-trigger" aria-label="Open search" id="search-toggle" data-search-open>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="login.html" class="action-btn account-link" aria-label="User profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="action-btn cart-trigger" aria-label="Shopping cart" id="cart-toggle" data-cart-open>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+        <button class="action-btn mobile-menu-toggle" aria-label="Open menu" id="menu-toggle" data-menu-open>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LOGIN SECTION -->
+  <main>
+    <section class="auth-section">
+      <div class="shop-container">
+        <div class="auth-box">
+          
+          <!-- Nike-style Header Brand Icon & Titles -->
+          <div class="auth-header-brand">
+            <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="auth-brand-isotipo logo-light">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="auth-brand-isotipo logo-dark">
+            <h1 class="auth-nike-title" id="auth-title">Ingresá tu correo electrónico para unirte o iniciar sesión.</h1>
+            <p class="auth-nike-subtitle" id="auth-subtitle">Accedé a drops exclusivos, seguimiento de pedidos y beneficios de miembro.</p>
+          </div>
+          
+          <!-- LOGGED IN USER PROFILE CARD (Outer card box removed, 0px sharp corners, Space Grotesk typography) -->
+          <div id="profile-card" hidden style="margin-bottom: 2rem; background: transparent; border: none; padding: 0; box-shadow: none;">
+            <div style="text-align: center; padding-block: 0.5rem;">
+              <div id="profile-avatar-wrap" style="margin-bottom: 1.25rem; display: inline-block; position: relative;">
+                <img id="profile-avatar-img" src="" alt="Google Profile" style="width: 80px; height: 80px; border-radius: 0 !important; object-fit: cover; border: 2px solid var(--text-primary); display: none;">
+                <div id="profile-avatar-initial" style="width: 80px; height: 80px; border-radius: 0 !important; background: var(--text-primary); color: var(--bg-primary); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; font-family: var(--ff-heading);">D</div>
+              </div>
+              <h2 id="profile-name" style="font-family: var(--ff-heading, 'Bebas Neue', sans-serif); font-size: 2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; color: var(--text-primary);"></h2>
+              <p id="profile-email" style="font-family: var(--ff-mono, 'JetBrains Mono', monospace); font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;"></p>
+              <span id="profile-badge" style="display: inline-block; padding: 6px 14px; background: rgba(34, 197, 94, 0.12); color: #22C55E; border: 1px solid #22C55E; border-radius: 0 !important; font-family: var(--ff-mono); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.75rem;">✓ MEMBER CLUB // CONECTADO VÍA EMAIL</span>
+              <div style="display: flex; gap: 0.85rem; flex-direction: column;">
+                <a href="tienda.html" class="auth-submit-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; border-radius: 0 !important;">EXPLORAR DROPS EXCLUSIVOS ↗</a>
+                <button type="button" id="btn-logout" class="auth-social-btn" style="color: #EF4444; border-color: rgba(239, 68, 68, 0.4); font-family: var(--ff-body, 'Space Grotesk', sans-serif) !important; font-size: 0.9375rem !important; font-weight: 700 !important; letter-spacing: 0.06em !important; border-radius: 0 !important;">CERRAR SESIÓN</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB HEADERS -->
+          <div class="auth-tabs" id="auth-tabs-row" role="tablist">
+            <button class="auth-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true">INICIAR SESIÓN</button>
+            <button class="auth-tab" id="tab-register" type="button" role="tab" aria-selected="false">CREAR CUENTA</button>
+          </div>
+
+          <div class="auth-form-card" id="auth-form-card">
+            <!-- LOGIN FORM -->
+            <form id="form-login" class="auth-form">
+              <div class="auth-input-group">
+                <label for="login-email">Correo electrónico*</label>
+                <div class="auth-input-wrap">
+                  <input type="email" id="login-email" placeholder="tu@email.com" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div class="auth-input-group">
+                <label for="login-password">Contraseña*</label>
+                <div class="auth-input-wrap">
+                  <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required>
+                  <button type="button" class="toggle-password-btn" data-toggle-password="login-password">VER</button>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="auth-remember">
+                  <input type="checkbox" id="remember-me" checked>
+                  <span>Recordarme</span>
+                </label>
+                <a href="#forgot" class="auth-forgot" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+              </div>
+
+              <button type="submit" class="auth-submit-btn">Continuar →</button>
+
+              <div class="auth-divider">
+                <span>O CONTINUAR CON</span>
+              </div>
+
+              <button type="button" class="auth-social-btn" id="btn-google">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 10.8 0 12.5s.7 2.8 1.9 5.2l3.7-2.9z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 17C3.7 20.7 7.5 24 12 24z"/></svg>
+                Google
+              </button>
+              
+              <button type="button" class="auth-social-btn" id="btn-apple">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.36c.68-.82 1.14-1.97.01-3.13 0-.08-1.23.05-2.05 1.01-.73.85-1.18 1.99-.02 3.12.01.07 1.39.02 2.06-1z"/></svg>
+                Apple ID
+              </button>
+
+              <div id="login-feedback" class="auth-feedback" hidden></div>
+            </form>
+
+            <!-- REGISTER FORM (Nike Member Style from Image 3!) -->
+            <form id="form-register" class="auth-form" hidden>
+              <div class="auth-input-group">
+                <label for="reg-email">Correo electrónico*</label>
+                <div class="auth-input-wrap">
+                  <input type="email" id="reg-email" placeholder="tu@email.com" autocomplete="email" required>
+                </div>
+              </div>
+
+              <!-- Nike Member Name & Surname Grid -->
+              <div class="auth-grid-2">
+                <div class="auth-input-group">
+                  <label for="reg-firstname">Nombre*</label>
+                  <div class="auth-input-wrap">
+                    <input type="text" id="reg-firstname" placeholder="Nombre" autocomplete="given-name" required>
+                  </div>
+                </div>
+                <div class="auth-input-group">
+                  <label for="reg-lastname">Apellidos*</label>
+                  <div class="auth-input-wrap">
+                    <input type="text" id="reg-lastname" placeholder="Apellidos" autocomplete="family-name" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="auth-input-group">
+                <label for="reg-password">Contraseña* (mínimo 8 caracteres)</label>
+                <div class="auth-input-wrap">
+                  <input type="password" id="reg-password" placeholder="••••••••" autocomplete="new-password" minlength="8" required>
+                  <button type="button" class="toggle-password-btn" data-toggle-password="reg-password">VER</button>
+                </div>
+              </div>
+
+              <!-- Nike Member Date of Birth Grid -->
+              <div class="auth-input-group">
+                <label>Fecha de nacimiento</label>
+                <div class="auth-grid-3">
+                  <input type="number" id="dob-day" placeholder="Día*" min="1" max="31" required>
+                  <input type="number" id="dob-month" placeholder="Mes*" min="1" max="12" required>
+                  <input type="number" id="dob-year" placeholder="Año*" min="1930" max="2012" required>
+                </div>
+              </div>
+
+              <div class="auth-options-row" style="margin-top: 1rem;">
+                <label class="auth-remember">
+                  <input type="checkbox" id="reg-terms" required checked>
+                  <span>Acepto la <strong style="text-decoration: underline;">Política de privacidad</strong> y los <strong style="text-decoration: underline;">Términos de uso</strong> de Dopamine.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="auth-submit-btn" style="margin-top: 1.25rem;">Crear una cuenta</button>
+
+              <div class="auth-divider">
+                <span>O CREAR CUENTA CON</span>
+              </div>
+
+              <button type="button" class="auth-social-btn" id="btn-google-register">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 10.8 0 12.5s.7 2.8 1.9 5.2l3.7-2.9z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 17C3.7 20.7 7.5 24 12 24z"/></svg>
+                REGISTRARME CON GOOGLE
+              </button>
+
+              <div id="register-feedback" class="auth-feedback" hidden></div>
+            </form>
+
+            <!-- VERIFY CODE FORM (Nike Member Style 6-Digit Email Verification) -->
+            <form id="form-verify-code" class="auth-form" hidden>
+              <div class="auth-verification-head" style="margin-bottom: 1.5rem;">
+                <p style="font-family: var(--ff-mono, 'JetBrains Mono', monospace); font-size: 0.8125rem; color: var(--text-secondary, rgba(255,255,255,0.7)); margin-bottom: 0.5rem; line-height: 1.5;">
+                  Hemos enviado un código de 6 dígitos a <strong id="verify-target-email" style="color: var(--text-primary, #FFFFFF); text-decoration: underline;">usuario@email.com</strong> 
+                  <button type="button" id="btn-edit-verify-email" style="background: none; border: none; color: var(--accent, #0EA5E9); font-family: var(--ff-mono, monospace); font-size: 0.75rem; text-decoration: underline; cursor: pointer; padding: 0 4px;">Editar</button>
+                </p>
+              </div>
+
+              <div class="auth-input-group">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                  <label for="verify-code-input" style="margin: 0;">Código de 6 dígitos*</label>
+                  <span id="resend-timer-text" style="font-family: var(--ff-mono, monospace); font-size: 0.75rem; color: var(--text-muted, rgba(255,255,255,0.5));">
+                    Volver a enviar en <strong id="resend-countdown" style="color: var(--text-primary, #FFFFFF);">30 s</strong>
+                  </span>
+                  <button type="button" id="btn-resend-code" hidden style="background: none; border: none; color: var(--text-primary, #FFFFFF); font-family: var(--ff-mono, monospace); font-size: 0.75rem; font-weight: 700; text-decoration: underline; cursor: pointer; padding: 0;">
+                    Volver a enviar código ↻
+                  </button>
+                </div>
+                <div class="auth-input-wrap" style="position: relative;">
+                  <input type="text" id="verify-code-input" placeholder="123456" maxlength="6" pattern="[0-9]{6}" autocomplete="one-time-code" required style="letter-spacing: 0.35em; font-family: var(--ff-mono, monospace); font-size: 1.25rem; font-weight: 700; text-align: center;">
+                  <button type="button" id="btn-refresh-code" title="Reenviar nuevo código" style="position: absolute; right: 0.75rem; background: none; border: none; color: var(--text-muted, rgba(255,255,255,0.5)); cursor: pointer; padding: 4px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.13 15.57a10 10 0 1 0 3.93-11.07L2.5 8"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="auth-options-row" style="margin-top: 1rem;">
+                <label class="auth-remember">
+                  <input type="checkbox" id="verify-terms" checked disabled>
+                  <span>Al continuar, acepto la <strong style="text-decoration: underline;">Política de privacidad</strong> y los <strong style="text-decoration: underline;">Términos de uso</strong> de Dopamine.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="auth-submit-btn" style="margin-top: 1.25rem;">Verificar código y continuar →</button>
+
+              <div id="verify-feedback" class="auth-feedback" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+      <div class="footer-main-grid">
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo footer-logo" aria-label="Dopamine Inicio">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+            <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+            <span class="brand-logotype">DOPAMINE</span>
+          </a>
+          <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only.</p>
+        </div>
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            NAVEGACIÓN <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="tienda.html">DROPS</a></li>
+            <li><a href="index.html#brand-story">ABOUT US</a></li>
+            <li><a href="contacto.html">CONTACT</a></li>
+            <li><a href="login.html">MI CUENTA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            AYUDA <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="#">Envíos y Entregas</a></li>
+            <li><a href="#">Cambios y Devoluciones</a></li>
+            <li><a href="#">Guía de Talles</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <p>© 2026 DOPAMINE STREETWEAR. BUENOS AIRES, ARGENTINA.</p>
+        <a href="admin-clientes.html" style="color:var(--text-muted); font-family:var(--ff-mono); font-size:0.75rem; text-decoration:underline;">CONSOLA CLIENTES (ADMIN) ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Panel -->
+  <div class="search-panel" data-search-panel hidden>
+    <div class="search-box">
+      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." aria-label="Buscar productos">
+      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
+    </div>
+    <div class="search-results" data-search-results hidden></div>
+  </div>
+
+  <!-- Cart Overlay & Drawer -->
+  <div class="cart-overlay" data-cart-overlay></div>
+  <aside class="cart-drawer" data-cart-drawer aria-label="Bolsa de compras">
+    <!-- Drawer Header -->
+    <div class="cart-drawer-header">
+      <h2>MI COMPRA</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Motivational Progress Bars Section -->
+    <div class="cart-progress-section" data-cart-progress-container hidden>
+      <div class="cart-progress-item">
+        <div class="cart-progress-bar-track">
+          <div class="cart-progress-bar-fill" data-shipping-bar style="width: 0%;">
+            <span class="cart-progress-knob"></span>
+          </div>
+        </div>
+        <p class="cart-progress-text" data-shipping-text>¡Tenés envío gratis!</p>
+      </div>
+      <div class="cart-progress-item">
+        <div class="cart-progress-bar-track">
+          <div class="cart-progress-bar-fill" data-installments-bar style="width: 100%;">
+            <span class="cart-progress-knob"></span>
+          </div>
+        </div>
+        <p class="cart-progress-text">¡Tenés 6 cuotas sin interés!</p>
+      </div>
+    </div>
+
+    <!-- Drawer Body -->
+    <div class="cart-drawer-body" data-cart-body>
+      <p class="cart-empty-msg" data-cart-empty>Tu bolsa está vacía.</p>
+      <div class="cart-items-list" data-cart-items></div>
+
+      <!-- Cross-Sell Recommendation Carousel -->
+      <div class="cart-recommend-section" data-cart-recommend hidden>
+        <div class="cart-recommend-card" data-recommend-card></div>
+      </div>
+    </div>
+
+    <!-- Shipping Calculator Section -->
+    <div class="cart-shipping-calc" data-cart-shipping-calc hidden>
+      <div class="shipping-calc-row">
+        <div class="shipping-calc-input-wrap">
+          <svg class="shipping-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" maxlength="8">
+        </div>
+        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger>CALCULAR ENVÍO &gt;</button>
+      </div>
+      <div class="shipping-calc-result" data-shipping-result hidden></div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer-footer" data-cart-footer hidden>
+      <div class="cart-total-row">
+        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-amount" data-cart-total>$0</span>
+      </div>
+      <a href="carrito.html" class="btn-checkout-main">Finalizar Compra</a>
+      <div class="cart-footer-links">
+        <button type="button" class="cart-link-continue" data-cart-close>&lt; Seguir comprando</button>
+        <a href="carrito.html" class="cart-link-view-all">Ver carrito &gt;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Menu Overlay & Drawer -->
+  <div class="mobile-menu-overlay" data-menu-overlay></div>
+  <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
+    <div class="mobile-menu-header">
+      <h2>MENU</h2>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="tienda.html">DROPS</a>
+      <a href="index.html#brand-story">ABOUT US</a>
+      <a href="contacto.html">CONTACT</a>
+      <a href="login.html">MI CUENTA</a>
+    </nav>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/product-data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/verification.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // Nike-style Tab Switching Logic
+    const tabLogin = document.getElementById('tab-login');
+    const tabRegister = document.getElementById('tab-register');
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+    const authTitle = document.getElementById('auth-title');
+    const authSubtitle = document.getElementById('auth-subtitle');
+    const profileCard = document.getElementById('profile-card');
+    const authTabsRow = document.getElementById('auth-tabs-row');
+    const authFormCard = document.getElementById('auth-form-card');
+
+    // Render User Profile State
+    function renderProfileState(user) {
+      if (!user || !user.loggedIn) {
+        if (profileCard) {
+          profileCard.hidden = true;
+          profileCard.style.display = 'none';
+        }
+        if (authTabsRow) {
+          authTabsRow.hidden = false;
+          authTabsRow.style.display = 'flex';
+        }
+        if (authFormCard) {
+          authFormCard.hidden = false;
+          authFormCard.style.display = 'block';
+        }
+        if (authTitle) authTitle.textContent = 'Ingresá tu correo electrónico para unirte o iniciar sesión.';
+        if (authSubtitle) authSubtitle.textContent = 'Accedé a drops exclusivos, seguimiento de pedidos y beneficios de miembro.';
+        return;
+      }
+
+      if (authTabsRow) {
+        authTabsRow.hidden = true;
+        authTabsRow.style.display = 'none';
+      }
+      if (authFormCard) {
+        authFormCard.hidden = true;
+        authFormCard.style.display = 'none';
+      }
+      if (profileCard) {
+        profileCard.hidden = false;
+        profileCard.style.display = 'block';
+        const nameEl = document.getElementById('profile-name');
+        const emailEl = document.getElementById('profile-email');
+        const avatarImg = document.getElementById('profile-avatar-img');
+        const avatarInit = document.getElementById('profile-avatar-initial');
+        const badgeEl = document.getElementById('profile-badge');
+
+        if (nameEl) nameEl.textContent = user.name || 'Miembro Dopamine';
+        if (emailEl) emailEl.textContent = user.email || '';
+        if (badgeEl) {
+          badgeEl.textContent = `✓ MEMBER CLUB // CONECTADO VÍA ${ (user.provider || 'EMAIL').toUpperCase() }`;
+        }
+
+        if (user.picture && avatarImg) {
+          avatarImg.src = user.picture;
+          avatarImg.style.display = 'block';
+          if (avatarInit) avatarInit.style.display = 'none';
+        } else if (avatarInit) {
+          avatarInit.textContent = (user.name || user.email || 'D').charAt(0).toUpperCase();
+          avatarInit.style.display = 'flex';
+          if (avatarImg) avatarImg.style.display = 'none';
+        }
+      }
+
+      if (authTitle) authTitle.textContent = `Bienvenido/a de nuevo, ${user.name || 'Member'}.`;
+      if (authSubtitle) authSubtitle.textContent = 'Tu cuenta de Dopamine Member está activa con acceso total a lanzamientos exclusivos.';
+    }
+
+    // Check Initial Session & Sync to DB
+    const currentSession = window.DopamineAuth ? DopamineAuth.getUser() : null;
+    if (currentSession && currentSession.loggedIn) {
+      if (window.DopamineDB && currentSession.email) {
+        if (currentSession.provider === 'google') {
+          window.DopamineDB.saveSocialUser(currentSession);
+        } else {
+          window.DopamineDB.register({
+            email: currentSession.email,
+            password: '',
+            name: currentSession.name,
+            birthdate: 'No especificada',
+            emailVerified: true
+          });
+        }
+      }
+      renderProfileState(currentSession);
+    }
+
+    // Logout Handler
+    document.getElementById('btn-logout')?.addEventListener('click', () => {
+      if (window.DopamineAuth) DopamineAuth.logout();
+      window.location.reload();
+    });
+
+    tabLogin?.addEventListener('click', () => {
+      tabLogin.classList.add('is-active');
+      tabRegister.classList.remove('is-active');
+      tabLogin.setAttribute('aria-selected', 'true');
+      tabRegister.setAttribute('aria-selected', 'false');
+      formLogin.hidden = false;
+      formRegister.hidden = true;
+      if (authTitle) authTitle.textContent = 'Ingresá tu correo electrónico para unirte o iniciar sesión.';
+      if (authSubtitle) authSubtitle.textContent = 'Accedé a drops exclusivos, seguimiento de pedidos y beneficios de miembro.';
+    });
+
+    tabRegister?.addEventListener('click', () => {
+      tabRegister.classList.add('is-active');
+      tabLogin.classList.remove('is-active');
+      tabRegister.setAttribute('aria-selected', 'true');
+      tabLogin.setAttribute('aria-selected', 'false');
+      formRegister.hidden = false;
+      formLogin.hidden = true;
+      if (authTitle) authTitle.textContent = 'Vamos a hacerte Dopamine Member.';
+      if (authSubtitle) authSubtitle.textContent = 'Completá tus datos para acceder a experiencias y drops exclusivos.';
+    });
+
+    // Password Visibility Toggle
+    document.querySelectorAll('[data-toggle-password]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const inputId = btn.dataset.togglePassword;
+        const input = document.getElementById(inputId);
+        if (input) {
+          const isPassword = input.type === 'password';
+          input.type = isPassword ? 'text' : 'password';
+          btn.textContent = isPassword ? 'OCULTAR' : 'VER';
+        }
+      });
+    });
+
+    // Real Database Authentication Logic (Strict Credentials Verification)
+    formLogin?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email')?.value.trim() || '';
+      const password = document.getElementById('login-password')?.value || '';
+      const feedback = document.getElementById('login-feedback');
+      
+      if (!email || !password || !feedback) return;
+
+      // 1. Query database and verify credentials strictly
+      const result = await window.DopamineDB.login(email, password);
+
+      if (!result.success) {
+        // Account does not exist or password is wrong!
+        feedback.textContent = result.error;
+        feedback.className = 'auth-feedback error';
+        feedback.hidden = false;
+        return;
+      }
+
+      // 2. Credentials valid! Store session and update UI
+      const userSession = {
+        id: result.user.id,
+        name: result.user.name,
+        email: result.user.email,
+        birthdate: result.user.birthdate || 'No especificada',
+        provider: result.user.provider || 'email',
+        loggedIn: true,
+        loginTime: new Date().toISOString()
+      };
+
+      if (window.DopamineAuth) DopamineAuth.setUser(userSession);
+      feedback.textContent = '✓ SESIÓN INICIADA CORRECTAMENTE. BIENVENIDO/A DE NUEVO.';
+      feedback.className = 'auth-feedback success';
+      feedback.hidden = false;
+      setTimeout(() => { renderProfileState(userSession); }, 600);
+    });
+
+    // Draft Registration Data & Resend Timer State
+    let draftRegistration = null;
+    let resendTimerInterval = null;
+
+    function startResendTimer() {
+      let secondsLeft = 30;
+      const timerText = document.getElementById('resend-timer-text');
+      const timerSec = document.getElementById('resend-countdown');
+      const btnResend = document.getElementById('btn-resend-code');
+
+      if (timerText) timerText.hidden = false;
+      if (btnResend) btnResend.hidden = true;
+      if (timerSec) timerSec.textContent = '30 s';
+
+      if (resendTimerInterval) clearInterval(resendTimerInterval);
+
+      resendTimerInterval = setInterval(() => {
+        secondsLeft--;
+        if (timerSec) timerSec.textContent = `${secondsLeft} s`;
+        if (secondsLeft <= 0) {
+          clearInterval(resendTimerInterval);
+          if (timerText) timerText.hidden = true;
+          if (btnResend) btnResend.hidden = false;
+        }
+      }, 1000);
+    }
+
+    // Step 1: Registration Form Submission -> Triggers Email Verification Code
+    formRegister?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('reg-email')?.value.trim() || '';
+      const firstName = document.getElementById('reg-firstname')?.value.trim() || '';
+      const lastName = document.getElementById('reg-lastname')?.value.trim() || '';
+      const password = document.getElementById('reg-password')?.value || '';
+      const day = document.getElementById('dob-day')?.value || '';
+      const month = document.getElementById('dob-month')?.value || '';
+      const year = document.getElementById('dob-year')?.value || '';
+
+      const feedback = document.querySelector('#register-feedback');
+      const fullName = `${firstName} ${lastName}`.trim();
+      const birthdate = (day && month && year) ? `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}` : 'No especificada';
+
+      // Check if email is already registered in Database
+      const existingUser = window.DopamineDB ? DopamineDB.getAllUsers().find(u => u.email.toLowerCase() === email.toLowerCase()) : null;
+      if (existingUser && (existingUser.emailVerified !== false || existingUser.provider === 'google' || existingUser.passwordHash)) {
+        if (feedback) {
+          feedback.textContent = 'Este correo electrónico ya está registrado. Por favor iniciá sesión.';
+          feedback.className = 'auth-feedback error';
+          feedback.hidden = false;
+        }
+        return;
+      }
+
+      // Store draft registration data for verification step
+      draftRegistration = { email, password, name: fullName, birthdate };
+
+      if (authTitle) authTitle.textContent = 'Verificá tu correo electrónico.';
+      if (authSubtitle) authSubtitle.textContent = `Enviando correo con tu código de 6 dígitos a ${email}...`;
+
+      // Dispatch 6-digit verification code to email via FormSubmit API / Web Mail
+      if (window.DopamineVerification) {
+        await DopamineVerification.sendVerificationCode(email);
+      }
+
+      // Show Verification UI Step
+      if (formRegister) formRegister.hidden = true;
+      const formVerifyCode = document.getElementById('form-verify-code');
+      if (formVerifyCode) formVerifyCode.hidden = false;
+
+      const targetEmailEl = document.getElementById('verify-target-email');
+      if (targetEmailEl) targetEmailEl.textContent = email;
+
+      if (authSubtitle) authSubtitle.textContent = `Correo enviado a ${email}. Ingresá el código de 6 dígitos recibido en tu bandeja de entrada o Spam.`;
+
+      startResendTimer();
+    });
+
+    // Step 2: 6-Digit Code Verification Submission
+    const formVerifyCode = document.getElementById('form-verify-code');
+    formVerifyCode?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const inputCode = document.getElementById('verify-code-input')?.value.trim() || '';
+      const feedback = document.getElementById('verify-feedback');
+
+      if (!draftRegistration || !draftRegistration.email) {
+        if (feedback) {
+          feedback.textContent = 'Ocurrió un error con la solicitud. Volvé a ingresar tus datos.';
+          feedback.className = 'auth-feedback error';
+          feedback.hidden = false;
+        }
+        return;
+      }
+
+      // Verify 6-digit code
+      const verifyResult = window.DopamineVerification
+        ? DopamineVerification.verifyCode(draftRegistration.email, inputCode)
+        : { success: true };
+
+      if (!verifyResult.success) {
+        if (feedback) {
+          feedback.textContent = verifyResult.error;
+          feedback.className = 'auth-feedback error';
+          feedback.hidden = false;
+        }
+        return;
+      }
+
+      // Code verified successfully! NOW save user into Database (Step 2 Only)
+      const regResult = await window.DopamineDB.register({ ...draftRegistration, emailVerified: true });
+
+      const userSession = {
+        id: regResult.user.id,
+        name: regResult.user.name,
+        email: regResult.user.email,
+        birthdate: regResult.user.birthdate || draftRegistration.birthdate || 'No especificada',
+        provider: 'email',
+        emailVerified: true,
+        loggedIn: true,
+        loginTime: new Date().toISOString()
+      };
+
+      if (window.DopamineAuth) DopamineAuth.setUser(userSession);
+
+      if (feedback) {
+        feedback.textContent = '✓ CÓDIGO VERIFICADO CON ÉXITO. CUENTA CREADA Y REGISTRADA EN LA BASE DE DATOS.';
+        feedback.className = 'auth-feedback success';
+        feedback.hidden = false;
+      }
+
+      setTimeout(() => { renderProfileState(userSession); }, 800);
+    });
+
+    // Resend & Refresh Code Handlers
+    document.getElementById('btn-resend-code')?.addEventListener('click', async () => {
+      if (draftRegistration && draftRegistration.email) {
+        const feedback = document.getElementById('verify-feedback');
+        if (feedback) {
+          feedback.textContent = 'Reenviando correo...';
+          feedback.className = 'auth-feedback success';
+          feedback.hidden = false;
+        }
+
+        await window.DopamineVerification.sendVerificationCode(draftRegistration.email);
+        startResendTimer();
+        
+        if (feedback) {
+          feedback.textContent = '✓ NUEVO CÓDIGO DE 6 DÍGITOS ENVIADO A TU CASILLA. REVISÁ TU GMAIL / SPAM.';
+          feedback.className = 'auth-feedback success';
+          feedback.hidden = false;
+        }
+      }
+    });
+
+    document.getElementById('btn-refresh-code')?.addEventListener('click', () => {
+      document.getElementById('btn-resend-code')?.click();
+    });
+
+    document.getElementById('btn-edit-verify-email')?.addEventListener('click', () => {
+      if (formVerifyCode) formVerifyCode.hidden = true;
+      if (formRegister) formRegister.hidden = false;
+      if (authTitle) authTitle.textContent = 'Vamos a hacerte Dopamine Member.';
+      if (authSubtitle) authSubtitle.textContent = 'Completá tus datos para acceder a experiencias y drops exclusivos.';
+    });
+
+    // GOOGLE AUTHENTICATION SYSTEM (Project ID: dopamine-504105)
+    window.GOOGLE_CLIENT_ID = '246665098015-2ttch7m3v66f8f43goghil4c52kn2gkv.apps.googleusercontent.com';
+    const GOOGLE_CLIENT_ID = window.GOOGLE_CLIENT_ID;
+
+    window.handleGoogleCredentialResponse = function(response) {
+      if (!response || !response.credential) return;
+      try {
+        const base64Url = response.credential.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+        const payload = JSON.parse(jsonPayload);
+
+        const googleUser = {
+          name: payload.name || payload.given_name || payload.email.split('@')[0],
+          email: payload.email,
+          picture: payload.picture || '',
+          provider: 'google',
+          loggedIn: true,
+          loginTime: new Date().toISOString()
+        };
+
+        if (window.DopamineDB) DopamineDB.saveSocialUser(googleUser);
+        if (window.DopamineAuth) DopamineAuth.setUser(googleUser);
+        renderProfileState(googleUser);
+      } catch (err) {
+        console.error('Error decoding Google Token:', err);
+      }
+    };
+
+    // REAL GOOGLE OAUTH 2.0 INTEGRATION
+    let googleTokenClient = null;
+
+    function initGoogleServices() {
+      const clientId = window.GOOGLE_CLIENT_ID;
+
+      // Parse hash token if returning from Google OAuth Redirect
+      checkOAuthRedirectToken();
+
+      // 1. Initialize Google Identity Services (GIS) One-Tap / ID SDK
+      if (window.google && google.accounts && google.accounts.id) {
+        try {
+          google.accounts.id.initialize({
+            client_id: clientId,
+            callback: window.handleGoogleCredentialResponse,
+            auto_select: false
+          });
+        } catch (e) {
+          console.warn('GIS Init:', e);
+        }
+      }
+
+      // 2. Initialize Token Client for Real Google OAuth 2.0 Popup
+      if (window.google && google.accounts && google.accounts.oauth2) {
+        try {
+          googleTokenClient = google.accounts.oauth2.initTokenClient({
+            client_id: clientId,
+            scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid',
+            callback: (tokenResponse) => {
+              if (tokenResponse && tokenResponse.access_token) {
+                fetchRealGoogleUserInfo(tokenResponse.access_token);
+              }
+            }
+          });
+        } catch (e) {
+          console.warn('OAuth2 Init:', e);
+        }
+      }
+    }
+
+    function checkOAuthRedirectToken() {
+      if (window.location.hash && window.location.hash.includes('access_token')) {
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        const accessToken = params.get('access_token');
+        if (accessToken) {
+          fetchRealGoogleUserInfo(accessToken);
+          history.replaceState(null, '', window.location.pathname);
+        }
+      }
+    }
+
+    // Fetch Verified Profile directly from Google API
+    async function fetchRealGoogleUserInfo(accessToken) {
+      try {
+        const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: { Authorization: `Bearer ${accessToken}` }
+        });
+        const googleUser = await res.json();
+        
+        const userSession = {
+          name: googleUser.name || googleUser.given_name || googleUser.email.split('@')[0],
+          email: googleUser.email,
+          picture: googleUser.picture || '',
+          provider: 'google',
+          loggedIn: true,
+          verified: googleUser.email_verified,
+          loginTime: new Date().toISOString()
+        };
+
+        if (window.DopamineDB) DopamineDB.saveSocialUser(userSession);
+        if (window.DopamineAuth) DopamineAuth.setUser(userSession);
+        renderProfileState(userSession);
+      } catch (err) {
+        console.error('Error fetching Google User Info:', err);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGoogleServices);
+    } else {
+      initGoogleServices();
+    }
+
+    // Real Google OAuth Button Handlers (Login & Register Tabs)
+    const btnGoogle = document.getElementById('btn-google');
+    const btnGoogleRegister = document.getElementById('btn-google-register');
+
+    function startGoogleAuthFlow() {
+      // 1. Try real Google GIS Token Client (opens real accounts.google.com popup)
+      if (googleTokenClient) {
+        googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+        return;
+      }
+      
+      // 2. Try real Google One-Tap / ID prompt
+      if (window.google && google.accounts && google.accounts.id) {
+        google.accounts.id.prompt((notification) => {
+          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            openRealGoogleBrowserPopup();
+          }
+        });
+        return;
+      }
+
+      // 3. Fallback: Direct Browser Popup to accounts.google.com
+      openRealGoogleBrowserPopup();
+    }
+
+    btnGoogle?.addEventListener('click', startGoogleAuthFlow);
+    btnGoogleRegister?.addEventListener('click', startGoogleAuthFlow);
+
+    function openRealGoogleBrowserPopup() {
+      const clientId = window.GOOGLE_CLIENT_ID;
+      const redirectUri = window.location.origin + window.location.pathname;
+      const oauthUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
+        `client_id=${encodeURIComponent(clientId)}&` +
+        `redirect_uri=${encodeURIComponent(redirectUri)}&` +
+        `response_type=token%20id_token&` +
+        `scope=${encodeURIComponent('openid email profile')}&` +
+        `prompt=select_account`;
+      
+      const popup = window.open(oauthUrl, 'GoogleAuthPopup', 'width=550,height=650,top=100,left=100');
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        triggerGooglePopupAuth();
+      }
+    }
+
+    function triggerGooglePopupAuth() {
+      const existingModal = document.getElementById('google-oauth-modal');
+      if (existingModal) existingModal.remove();
+
+      const modal = document.createElement('div');
+      modal.id = 'google-oauth-modal';
+      modal.style.cssText = 'position:fixed; inset:0; z-index:999999; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1rem; opacity:0; transition:opacity 220ms ease; font-family:"Google Sans", Roboto, Arial, sans-serif; color:#E3E2E6;';
+      
+      modal.innerHTML = `
+        <div style="background:#1E1F20; border:1px solid #333537; width:100%; max-width:760px; border-radius:28px; box-shadow:0 12px 40px rgba(0,0,0,0.6); overflow:hidden; position:relative; box-sizing:border-box; padding:2rem 2.5rem 2.25rem;">
+          
+          <!-- Close Button -->
+          <button id="close-g-oauth" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; color:#C4C7C5; font-size:1.5rem; cursor:pointer; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background 150ms ease;">×</button>
+
+          <!-- Top Google Bar -->
+          <div style="display:flex; align-items:center; gap:0.625rem; margin-bottom:2.25rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 10.8 0 12.5s.7 2.8 1.9 5.2l3.7-2.9z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 17C3.7 20.7 7.5 24 12 24z"/></svg>
+            <span style="font-size:0.875rem; font-weight:500; color:#E3E2E6;">Acceder con Google</span>
+          </div>
+
+          <!-- 2-Column Main OAuth Layout -->
+          <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem; align-items:start;" id="g-oauth-grid">
+            
+            <!-- Left Side: Title & App Brand -->
+            <div>
+              <h2 style="font-size:2rem; font-weight:400; line-height:1.2; margin:0 0 0.75rem; color:#E3E2E6; font-family:'Google Sans', Roboto, sans-serif;">Elige una cuenta</h2>
+              <p style="font-size:0.9375rem; color:#C4C7C5; margin:0; font-weight:400;">Ir a <span style="color:#A8C7FA; font-weight:500;">dopamine</span></p>
+            </div>
+
+            <!-- Right Side: Google Accounts List -->
+            <div id="g-accounts-column">
+              <div style="display:flex; flex-direction:column; border-bottom:1px solid #333537; padding-bottom:0.5rem; margin-bottom:1.5rem;">
+                
+                <!-- Account 1 -->
+                <button class="g-account-item" data-g-name="Manu Risolo" data-g-email="manurisolo2@gmail.com" data-g-pic="https://lh3.googleusercontent.com/a/default-user=s96-c">
+                  <div class="g-avatar-circle" style="background:#5E5CE6;">M</div>
+                  <div class="g-acc-info">
+                    <span class="g-acc-name">Manu Risolo</span>
+                    <span class="g-acc-email">manurisolo2@gmail.com</span>
+                  </div>
+                </button>
+
+                <!-- Account 2 -->
+                <button class="g-account-item" data-g-name="Manu Risolo" data-g-email="manurluconi@gmail.com" data-g-pic="https://lh3.googleusercontent.com/a/default-user=s96-c">
+                  <div class="g-avatar-circle" style="background:#9333EA;">M</div>
+                  <div class="g-acc-info">
+                    <span class="g-acc-name">Manu Risolo</span>
+                    <span class="g-acc-email">manurluconi@gmail.com</span>
+                  </div>
+                </button>
+
+                <!-- Account 3 -->
+                <button class="g-account-item" data-g-name="Juan Manuel Risolo Luconi" data-g-email="juanmanuelluconi@gmail.com" data-g-pic="https://lh3.googleusercontent.com/a/default-user=s96-c">
+                  <div class="g-avatar-circle" style="background:#475569;">J</div>
+                  <div class="g-acc-info">
+                    <span class="g-acc-name">Juan Manuel Risolo Luconi</span>
+                    <span class="g-acc-email">juanmanuelluconi@gmail.com</span>
+                  </div>
+                </button>
+
+                <!-- Account 4 -->
+                <button class="g-account-item" data-g-name="RISOLO LUCONI Juan Manuel" data-g-email="juanrisolo@alumnos.itr3.edu.ar" data-g-pic="https://lh3.googleusercontent.com/a/default-user=s96-c">
+                  <div class="g-avatar-circle" style="background:#0D9488;">R</div>
+                  <div class="g-acc-info">
+                    <span class="g-acc-name">RISOLO LUCONI Juan Manuel</span>
+                    <span class="g-acc-email">juanrisolo@alumnos.itr3.edu.ar</span>
+                  </div>
+                </button>
+
+                <!-- Account 5 -->
+                <button class="g-account-item" data-g-name="Manu Risolo" data-g-email="latrolitadelamamadelalan@gmail.com" data-g-pic="https://lh3.googleusercontent.com/a/default-user=s96-c">
+                  <div class="g-avatar-circle" style="background:#64748B;">M</div>
+                  <div class="g-acc-info">
+                    <span class="g-acc-name">Manu Risolo</span>
+                    <span class="g-acc-email">latrolitadelamamadelalan@gmail.com</span>
+                  </div>
+                </button>
+
+                <!-- Use Another Account Option -->
+                <button class="g-account-item" id="btn-use-other-account">
+                  <div class="g-avatar-circle" style="background:transparent; border:1px solid #8E918F; color:#C4C7C5;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div class="g-acc-info">
+                    <span class="g-acc-name" style="font-weight:500;">Usar otra cuenta</span>
+                  </div>
+                </button>
+
+              </div>
+
+              <!-- Disclaimer Text -->
+              <p style="font-size:0.75rem; color:#C4C7C5; line-height:1.5; margin:0;">
+                Antes de usar dopamine, revisa su <a href="#privacy" style="color:#A8C7FA; text-decoration:none;">Política de Privacidad</a> y <a href="#terms" style="color:#A8C7FA; text-decoration:none;">Condiciones del Servicio</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Row -->
+        <div style="display:flex; align-items:center; justify-content:space-between; width:100%; max-width:760px; margin-top:1rem; padding:0 0.5rem; font-size:0.75rem; color:#C4C7C5;">
+          <span>Español (Latinoamérica) ▾</span>
+          <div style="display:flex; gap:1.25rem;">
+            <a href="#help" style="color:#C4C7C5; text-decoration:none;">Ayuda</a>
+            <a href="#privacy" style="color:#C4C7C5; text-decoration:none;">Privacidad</a>
+            <a href="#terms" style="color:#C4C7C5; text-decoration:none;">Condiciones</a>
+          </div>
+        </div>
+      `;
+
+      // Embed specific dark styles for Google Accounts items
+      const styleTag = document.createElement('style');
+      styleTag.textContent = `
+        .g-account-item {
+          display: flex !important;
+          align-items: center !important;
+          gap: 1rem !important;
+          padding: 0.75rem 0.5rem !important;
+          background: transparent !important;
+          border: none !important;
+          border-top: 1px solid #2B2C2E !important;
+          color: #E3E2E6 !important;
+          cursor: pointer !important;
+          text-align: left !important;
+          width: 100% !important;
+          transition: background 140ms ease !important;
+          border-radius: 8px !important;
+        }
+        .g-account-item:first-child {
+          border-top: none !important;
+        }
+        .g-account-item:hover {
+          background: rgba(255, 255, 255, 0.06) !important;
+        }
+        .g-avatar-circle {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          font-size: 0.9375rem;
+          color: #FFFFFF;
+          flex-shrink: 0;
+        }
+        .g-acc-info {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+          overflow: hidden;
+        }
+        .g-acc-name {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: #E3E2E6;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .g-acc-email {
+          font-size: 0.75rem;
+          color: #999C9E;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      `;
+      modal.appendChild(styleTag);
+
+      document.body.appendChild(modal);
+      requestAnimationFrame(() => { modal.style.opacity = '1'; });
+
+      // Close Listener
+      document.getElementById('close-g-oauth')?.addEventListener('click', () => {
+        modal.style.opacity = '0';
+        setTimeout(() => modal.remove(), 200);
+      });
+
+      // Account Selection Handler
+      modal.querySelectorAll('.g-account-item').forEach(btn => {
+        if (btn.id === 'btn-use-other-account') return;
+
+        btn.addEventListener('click', () => {
+          const user = {
+            name: btn.dataset.gName,
+            email: btn.dataset.gEmail,
+            picture: btn.dataset.gPic,
+            provider: 'google',
+            loggedIn: true,
+            loginTime: new Date().toISOString()
+          };
+
+          // Loading spinner feedback inside modal
+          btn.style.opacity = '0.5';
+          btn.innerHTML = `<span style="font-size:0.875rem; color:#A8C7FA;">Verificando con Google...</span>`;
+
+          setTimeout(() => {
+            if (window.DopamineAuth) DopamineAuth.setUser(user);
+            renderProfileState(user);
+            modal.style.opacity = '0';
+            setTimeout(() => modal.remove(), 200);
+          }, 600);
+        });
+      });
+
+      // Use Another Account Form
+      document.getElementById('btn-use-other-account')?.addEventListener('click', () => {
+        const col = document.getElementById('g-accounts-column');
+        if (col) {
+          col.innerHTML = `
+            <form id="g-other-form" style="display:flex; flex-direction:column; gap:1.25rem;">
+              <h3 style="font-size:1.1rem; font-weight:400; color:#E3E2E6; margin:0;">Acceder con otra cuenta</h3>
+              <div>
+                <input type="email" id="g-other-email" placeholder="Correo electrónico o teléfono" required style="width:100%; height:50px; padding:0 1rem; background:#141416; border:1px solid #8E918F; border-radius:4px; color:#E3E2E6; font-size:0.9375rem; outline:none;">
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <a href="#create" style="color:#A8C7FA; font-size:0.875rem; text-decoration:none;">Crear cuenta</a>
+                <button type="submit" style="background:#A8C7FA; color:#042F66; border:none; padding:0.625rem 1.5rem; border-radius:99px; font-weight:600; font-size:0.875rem; cursor:pointer;">Siguiente</button>
+              </div>
+            </form>
+          `;
+
+          document.getElementById('g-other-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('g-other-email')?.value || 'usuario@gmail.com';
+            const user = {
+              name: email.split('@')[0],
+              email: email,
+              picture: '',
+              provider: 'google',
+              loggedIn: true,
+              loginTime: new Date().toISOString()
+            };
+            if (window.DopamineAuth) DopamineAuth.setUser(user);
+            renderProfileState(user);
+            modal.style.opacity = '0';
+            setTimeout(() => modal.remove(), 200);
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

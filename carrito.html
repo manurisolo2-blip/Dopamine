@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu bolsa — Dopamine Streetwear</title>
+  <meta name="description" content="Tu bolsa de compras Dopamine Streetwear.">
+  <meta name="theme-color" content="#060608">
+  <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+  <!-- Core Fonts Architecture (Bebas Neue + JetBrains Mono + Space Grotesk) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/products.css">
+</head>
+<body class="shop-page">
+
+  <!-- ===== HEADER (3-COLUMN STREETWEAR ARCHITECTURE) ===== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <!-- Left Column: Brand Logo -->
+      <a href="index.html" class="brand-logo header-logo-left" aria-label="Dopamine Inicio">
+        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+        <span class="brand-logotype">DOPAMINE</span>
+      </a>
+
+      <!-- Center Column: Navigation (Middle) -->
+      <nav class="desktop-nav header-nav-center" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="tienda.html" class="nav-link">DROPS</a></li>
+          <li class="nav-item"><a href="index.html#brand-story" class="nav-link">ABOUT US</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Column: Action Icons -->
+      <div class="header-actions header-actions-right">
+        <button class="action-btn search-trigger" aria-label="Open search" id="search-toggle" data-search-open>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="login.html" class="action-btn account-link" aria-label="User profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="action-btn cart-trigger" aria-label="Shopping cart" id="cart-toggle" data-cart-open>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+        <button class="action-btn mobile-menu-toggle" aria-label="Open menu" id="menu-toggle" data-menu-open>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="shop-page-content">
+      <div class="shop-container">
+        <div class="shop-page-heading">
+          <p class="shop-breadcrumb">
+            <a href="index.html">HOME</a> <span>/</span> TU BOLSA
+          </p>
+          <h1>TU<br>BOLSA.</h1>
+          <p>Revisá tus piezas antes de finalizar la compra. Tus productos quedan guardados en este dispositivo.</p>
+        </div>
+        <div class="shop-cart-page-layout">
+          <section class="shop-cart-page-items" aria-label="Productos en tu bolsa">
+            <p class="shop-cart-empty" data-cart-empty>
+              Tu bolsa está vacía.<br>
+              <a href="tienda.html">Encontrá tu energía.</a>
+            </p>
+            <div data-cart-items></div>
+          </section>
+          <aside class="shop-cart-page-summary">
+            <h2>Resumen de Compra</h2>
+            <p class="shop-shipping-copy">ENVÍO GRATIS EN COMPRAS MAYORES A $100</p>
+            <div class="shop-progress" aria-label="Progreso de envío gratis">
+              <span data-shipping-progress></span>
+            </div>
+
+            <!-- Fast Frictionless Shipping Estimator / Discount Form -->
+            <form class="shop-checkout-quick-form" onsubmit="event.preventDefault();" style="margin-block: 1.5rem 1rem;">
+              <div class="floating-field" style="position: relative; margin-bottom: 1rem;">
+                <input type="text" id="cart-postal-code" placeholder=" " inputmode="numeric" pattern="[0-9]*" autocomplete="postal-code" style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; font-weight: 500; outline: none;">
+                <label for="cart-postal-code" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;">CÓDIGO POSTAL / CP *</label>
+              </div>
+              <div class="floating-field" style="position: relative; margin-bottom: 1.25rem;">
+                <input type="tel" id="cart-phone" placeholder=" " inputmode="numeric" autocomplete="tel" style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; font-weight: 500; outline: none;">
+                <label for="cart-phone" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;">TELÉFONO MÓVIL (NOTIFICACIONES SMS) *</label>
+              </div>
+            </form>
+
+            <div class="shop-subtotal">
+              <span>Subtotal</span>
+              <span data-cart-subtotal>$0</span>
+            </div>
+
+            <!-- Primary Isolated CTA with High White Space & Bold Weight -->
+            <button class="shop-full-button" type="button" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">FINALIZAR COMPRA →</button>
+            <a class="size-guide" href="tienda.html" style="display: block; text-align: center; margin-top: 0.75rem;">SEGUIR COMPRANDO →</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer — Compact Dark Navy Technical Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+      <!-- Main Columns Grid -->
+      <div class="footer-main-grid">
+        <!-- Brand & Newsletter Column -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo footer-logo" aria-label="Dopamine Inicio">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo">
+            <span class="brand-logotype">DOPAMINE</span>
+          </a>
+          <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only.</p>
+          <form class="footer-email-form" id="footer-signup-form">
+            <div class="footer-input-wrap">
+              <input type="email" placeholder="ENTER EMAIL FOR DROPS" aria-label="Email subscription" required>
+              <button type="submit" aria-label="Subscribe">→</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>NAVIGATION</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="tienda.html">DROPS</a></li>
+            <li><a href="index.html#brand-story">ABOUT US</a></li>
+            <li><a href="contacto.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>CUSTOMER CARE</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="#">SHIPPING & RETURNS</a></li>
+            <li><a href="#">SIZE GUIDE</a></li>
+            <li><a href="#">ORDER TRACKING</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal & Social -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>LEGAL & SOCIAL</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="#">TERMS OF SERVICE</a></li>
+            <li><a href="#">PRIVACY POLICY</a></li>
+            <li><a href="#">COOKIE PREFERENCES</a></li>
+          </ul>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Instagram" class="social-icon-btn" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok" class="social-icon-btn" title="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+            <a href="#" aria-label="X / Twitter" class="social-icon-btn" title="X / Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M13.232 10.768L20 4"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-icon-btn" title="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar: Copyright & Payment Methods Logos -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">© 2026 DOPAMINE APPARATUS INC. ALL RIGHTS RESERVED.</p>
+        <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
+          <!-- Mercado Pago -->
+          <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
+            <svg width="44" height="24" viewBox="0 0 44 24" fill="none">
+              <rect width="44" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <path d="M13 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M24 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="22" y="18" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">MPAGO</text>
+            </svg>
+          </span>
+          <!-- Visa -->
+          <span class="payment-badge-icon" title="Visa" aria-label="Visa">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <text x="19" y="16" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">VISA</text>
+            </svg>
+          </span>
+          <!-- Mastercard -->
+          <span class="payment-badge-icon" title="Mastercard" aria-label="Mastercard">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <circle cx="15" cy="12" r="6" fill="#EB001B" fill-opacity="0.85"/>
+              <circle cx="23" cy="12" r="6" fill="#F79E1B" fill-opacity="0.85"/>
+            </svg>
+          </span>
+          <!-- AMEX -->
+          <span class="payment-badge-icon" title="American Express" aria-label="American Express">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <text x="19" y="15" font-family="'JetBrains Mono', sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">AMEX</text>
+            </svg>
+          </span>
+          <!-- Apple Pay -->
+          <span class="payment-badge-icon" title="Apple Pay" aria-label="Apple Pay">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+              <rect width="40" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <path d="M15 14.5c-.4.5-1-.2-1.6-.3.1-.7.4-1.3.9-1.6.4-.4 1.1-.7 1.7-.7-.1.7-.4 1.2-.9 1.6zM15.9 15c-.8 0-1.2-.3-1.6-.3-.5 0-1 .3-1.5.3-.7 0-1.4-.4-1.8-1.1-.9-1.5-.2-3.7 1.2-3.7.6 0 1 .3 1.5.3.4 0 1-.3 1.6-.3.4 0 1.3.1 1.9 1-.1.1-1.1.7-1.1 2 0 1.6 1.3 2.1 1.4 2.1-.1.4-.4 1.1-1.4 1.1z" fill="#FFFFFF"/>
+              <text x="26" y="15" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700" fill="#FFFFFF">Pay</text>
+            </svg>
+          </span>
+          <!-- Crypto -->
+          <span class="payment-badge-icon" title="Crypto" aria-label="Crypto">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <circle cx="19" cy="12" r="6" stroke="#FFFFFF" stroke-width="1.2"/>
+              <path d="M17.5 9.5h2.5c.8 0 1.5.4 1.5 1.2s-.5 1.1-1.2 1.2c.8.1 1.4.6 1.4 1.4 0 .9-.7 1.4-1.7 1.4h-2.5V9.5zm1.2 2.2h1c.4 0 .7-.2.7-.5s-.3-.5-.7-.5h-1v1zm0 1.9h1.1c.4 0 .8-.2.8-.6s-.4-.6-.8-.6h-1.1v1.2z" fill="#FFFFFF"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Panel -->
+  <div class="search-panel" data-search-panel hidden>
+    <div class="search-box">
+      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." aria-label="Buscar productos">
+      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
+    </div>
+    <div class="search-results" data-search-results hidden></div>
+  </div>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" data-cart-overlay></div>
+
+  <!-- Cart Drawer -->
+  <aside class="cart-drawer" data-cart-drawer aria-label="Bolsa de compras">
+    <!-- Drawer Header -->
+    <div class="cart-drawer-header">
+      <h2>MI COMPRA</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Motivational Progress Bars Section -->
+    <div class="cart-progress-section" data-cart-progress-container hidden>
+      <div class="cart-progress-item">
+        <div class="cart-progress-bar-track">
+          <div class="cart-progress-bar-fill" data-shipping-bar style="width: 0%;">
+            <span class="cart-progress-knob"></span>
+          </div>
+        </div>
+        <p class="cart-progress-text" data-shipping-text>¡Tenés envío gratis!</p>
+      </div>
+      <div class="cart-progress-item">
+        <div class="cart-progress-bar-track">
+          <div class="cart-progress-bar-fill" data-installments-bar style="width: 100%;">
+            <span class="cart-progress-knob"></span>
+          </div>
+        </div>
+        <p class="cart-progress-text">¡Tenés 6 cuotas sin interés!</p>
+      </div>
+    </div>
+
+    <!-- Drawer Body -->
+    <div class="cart-drawer-body" data-cart-body>
+      <p class="cart-empty-msg" data-cart-empty>Tu bolsa está vacía.</p>
+      <div class="cart-items-list" data-cart-items></div>
+
+      <!-- Cross-Sell Recommendation Carousel -->
+      <div class="cart-recommend-section" data-cart-recommend hidden>
+        <div class="cart-recommend-card" data-recommend-card></div>
+      </div>
+    </div>
+
+    <!-- Shipping Calculator Section -->
+    <div class="cart-shipping-calc" data-cart-shipping-calc hidden>
+      <div class="shipping-calc-row">
+        <div class="shipping-calc-input-wrap">
+          <svg class="shipping-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" maxlength="8">
+        </div>
+        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger>CALCULAR ENVÍO &gt;</button>
+      </div>
+      <div class="shipping-calc-result" data-shipping-result hidden></div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer-footer" data-cart-footer hidden>
+      <div class="cart-total-row">
+        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-amount" data-cart-total>$0</span>
+      </div>
+      <a href="carrito.html" class="btn-checkout-main">Finalizar Compra</a>
+      <div class="cart-footer-links">
+        <button type="button" class="cart-link-continue" data-cart-close>&lt; Seguir comprando</button>
+        <a href="carrito.html" class="cart-link-view-all">Ver carrito &gt;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" data-menu-overlay></div>
+
+  <!-- Mobile Menu Drawer -->
+  <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
+    <div class="mobile-menu-header">
+      <h2>MENU</h2>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="tienda.html">DROPS</a>
+      <a href="index.html#brand-story">ABOUT US</a>
+      <a href="contacto.html">CONTACT</a>
+    </nav>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" data-toast role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/product-data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/verification.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

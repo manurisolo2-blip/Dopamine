@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOPAMINE — High Performance Streetwear</title>
+  <meta name="description" content="Dopamine streetwear. Siluetas limpias, actitud fuerte y ropa urbana diseñada para el movimiento. Colecciones limitadas desde Buenos Aires.">
+  <meta name="theme-color" content="#0A0A0C">
+  <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Core Web Vitals LCP Preload: Max 2 Font Architecture (Bebas Neue + Space Grotesk) -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg61476nn1c62xA832OVg.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoRfnhjJnar524OM24N8y.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/products.css">
+  <!-- Topología Estricta de 3 Capas Z-Index (Cinematic Scroll & Particles) -->
+  <style>
+    /* Hero section layering — static image (z:0) → video (z:1) → overlay (z:1) → content (z:3) */
+    .hero-video-section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 64px;
+      overflow: hidden;
+      z-index: 1;
+      background: #000;
+    }
+
+    .hero-video-section .hero-bg-video {
+      display: block !important;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-video-section .hero-bg-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Compact Dark Navy Footer */
+    .site-footer {
+      position: relative;
+      z-index: 5;
+      background-color: #0A1628 !important;
+    }
+
+    /* 3. Capa Atmosférica (z-index: 20) */
+    .particle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 20;
+      pointer-events: none !important;
+      overflow: hidden;
+    }
+
+    .particle-container canvas,
+    #particle-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== CAPA BASE DECONSTRUIDA (REMOVED SNEAKER ANIMATION) ===== -->
+
+  <!-- ===== CAPA ATMOSFÉRICA (z-index: 20) ===== -->
+  <div class="particle-container">
+    <canvas id="particle-canvas"></canvas>
+  </div>
+
+  <!-- ===== HEADER (3-COLUMN STREETWEAR ARCHITECTURE) ===== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <!-- Left Column: Brand Logo -->
+      <a href="index.html" class="brand-logo header-logo-left" aria-label="Dopamine Inicio">
+        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+        <span class="brand-logotype">DOPAMINE</span>
+      </a>
+
+      <!-- Center Column: Navigation (Middle) -->
+      <nav class="desktop-nav header-nav-center" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="tienda.html" class="nav-link">DROPS</a></li>
+          <li class="nav-item"><a href="index.html#brand-story" class="nav-link">ABOUT US</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Column: Action Icons -->
+      <div class="header-actions header-actions-right">
+        <button class="action-btn search-trigger" aria-label="Open search" id="search-toggle" data-search-open>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="login.html" class="action-btn account-link" aria-label="User profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="action-btn cart-trigger" aria-label="Shopping cart" id="cart-toggle" data-cart-open>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+        <button class="action-btn mobile-menu-toggle" aria-label="Open menu" id="menu-toggle" data-menu-open>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== 1. HERO SECTION — Cinematic Technical Fabric ===== -->
+    <section class="hero-video-section" id="hero-video">
+      <div class="hero-bg-video">
+        <video autoplay loop muted playsinline poster="assets/Branding/hero-bg.jpg">
+          <source src="assets/Branding/Videos/Cinematic_slow_motion_shot_of.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+      <!-- Static fallback image (visible until video loads) -->
+      <img src="assets/Branding/hero-bg.jpg" alt="" class="hero-bg-static" aria-hidden="true">
+      <div class="container hero-content">
+        <h1 class="hero-headline">
+          ACTIVATE<br>
+          YOUR<br>
+          POTENTIAL.
+        </h1>
+        <p class="hero-tagline">HIGH PERFORMANCE STREETWEAR. BUENOS AIRES.</p>
+        <a href="tienda.html" class="hero-cta">EXPLORE COLLECTION</a>
+      </div>
+    </section>
+
+    <!-- ===== 2. MARQUEE TICKER (SEAMLESS INFINITE LOOP) ===== -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
+          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
+          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
+          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
+          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
+          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
+          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
+          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
+          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
+          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
+          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
+          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
+          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
+          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
+          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
+          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
+          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
+          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
+          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
+          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
+          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
+          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
+          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 3. CATEGORIES ===== -->
+    <section id="categories" class="categories-section section-padding">
+      <div class="container">
+        <div class="section-header-flex">
+          <h2 class="section-title">COLECCIONES</h2>
+        </div>
+        <div class="categories-grid">
+          <a href="tienda.html?category=tops" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" alt="Remeras" loading="lazy">
+            </div>
+            <h3 class="category-title">REMERAS</h3>
+          </a>
+          <a href="tienda.html?category=hoodies" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" alt="Buzos" loading="lazy">
+            </div>
+            <h3 class="category-title">BUZOS</h3>
+          </a>
+          <a href="tienda.html?category=bottoms" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80" alt="Pantalones" loading="lazy">
+            </div>
+            <h3 class="category-title">PANTALONES</h3>
+          </a>
+          <a href="tienda.html?category=accessories" class="category-card">
+            <div class="category-image">
+              <img src="assets/Branding/category-accessories.jpg" alt="Accesorios" loading="lazy">
+            </div>
+            <h3 class="category-title">ACCESORIOS</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. FEATURED PRODUCTS — Technical Grid ===== -->
+    <section id="productos" class="featured-products-section section-padding">
+      <div class="container">
+        <div class="section-header-flex">
+          <h2 class="section-title">FEATURED</h2>
+          <a href="tienda.html" class="view-all-link">VIEW ALL →</a>
+        </div>
+        <div class="products-grid">
+          <!-- Product 1: Synaptic Hoodie -->
+          <article class="product-card">
+            <a href="producto.html?slug=phase-hoodie" class="product-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="Synaptic Hoodie" class="product-image" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-release-badge">RELEASE 001</span>
+              <a href="producto.html?slug=phase-hoodie"><h3 class="product-name">SYNAPTIC HOODIE</h3></a>
+              <p class="product-subtitle">Technical Heavyweight Pullover</p>
+              <p class="product-price">110.00 USD</p>
+            </div>
+          </article>
+          <!-- Product 2: Signal Tee -->
+          <article class="product-card">
+            <a href="producto.html?slug=signal-tee" class="product-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80" alt="Signal Tee" class="product-image" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-release-badge">RELEASE 001</span>
+              <a href="producto.html?slug=signal-tee"><h3 class="product-name">SIGNAL TEE</h3></a>
+              <p class="product-subtitle">Oversized Heavy Cotton Tee</p>
+              <p class="product-price">48.00 USD</p>
+            </div>
+          </article>
+          <!-- Product 3: Vector Pant -->
+          <article class="product-card">
+            <a href="producto.html?slug=vector-pant" class="product-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=80" alt="Vector Pant" class="product-image" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-release-badge">RELEASE 001</span>
+              <a href="producto.html?slug=vector-pant"><h3 class="product-name">VECTOR PANT</h3></a>
+              <p class="product-subtitle">Relaxed Fit Cargo Pant</p>
+              <p class="product-price">96.00 USD</p>
+            </div>
+          </article>
+          <!-- Product 4: Dopamine Cap -->
+          <article class="product-card">
+            <a href="producto.html?slug=dopamine-cap" class="product-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80" alt="Dopamine Cap" class="product-image" loading="lazy">
+            </a>
+            <div class="product-info">
+              <span class="product-release-badge">RELEASE 001</span>
+              <a href="producto.html?slug=dopamine-cap"><h3 class="product-name">DOPAMINE CAP</h3></a>
+              <p class="product-subtitle">Structured 6-Panel Cap</p>
+              <p class="product-price">42.00 USD</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SCROLL TEXT REVEAL BANNER ===== -->
+    <section class="scroll-text-section section-padding" id="reward-system">
+      <div class="container text-center">
+        <h2 class="scroll-reveal-headline" data-scroll-reveal-text>
+          <span class="reveal-line">
+            <span class="char-span">U</span><span class="char-span">N</span><span class="char-span">L</span><span class="char-span">E</span><span class="char-span">A</span><span class="char-span">S</span><span class="char-span">H</span><span class="char-span">I</span><span class="char-span">N</span><span class="char-span">G</span> 
+            <span class="char-span">T</span><span class="char-span">H</span><span class="char-span">E</span> 
+            <span class="char-span">R</span><span class="char-span">E</span><span class="char-span">W</span><span class="char-span">A</span><span class="char-span">R</span><span class="char-span">D</span> 
+            <span class="char-span">S</span><span class="char-span">Y</span><span class="char-span">S</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">M</span><span class="char-span">.</span>
+          </span>
+          <span class="reveal-line reveal-interactive">
+            <span class="char-span">A</span><span class="char-span">C</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">V</span><span class="char-span">A</span><span class="char-span">T</span><span class="char-span">E</span> 
+            <span class="char-span">Y</span><span class="char-span">O</span><span class="char-span">U</span><span class="char-span">R</span> 
+            <span class="char-span">P</span><span class="char-span">O</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">N</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">A</span><span class="char-span">L</span><span class="char-span">.</span>
+          </span>
+        </h2>
+        <div class="floating-particle particle-red p-1"></div>
+        <div class="floating-particle particle-blue p-2"></div>
+        <div class="floating-particle particle-red p-3"></div>
+      </div>
+    </section>
+
+    <!-- ===== 5. COLLECTION BANNER ===== -->
+    <section class="collection-banner">
+      <div class="container banner-content">
+        <span class="banner-eyebrow">DROP 01 / 26</span>
+        <h2 class="banner-title">EL NUEVO UNIFORME URBANO.</h2>
+        <p class="banner-text">Nuestra primera colección define las bases. Diseñada sin compromisos desde Buenos Aires.</p>
+        <a href="tienda.html" class="banner-cta">DESCUBRIR →</a>
+      </div>
+    </section>
+
+    <!-- ===== 6. BRAND STORY ===== -->
+    <section id="brand-story" class="brand-story-section section-padding">
+      <div class="container brand-story-container">
+        <div class="brand-story-text">
+          <h2 class="section-title">NUESTRA HISTORIA</h2>
+          <p>Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito.</p>
+          <p>Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad.</p>
+        </div>
+        <div class="brand-story-stats">
+          <div class="stat-card">
+            <h4 class="stat-number">450</h4>
+            <p class="stat-label">GSM COTTON</p>
+            <p class="stat-desc">Algodón de peso pesado, estructurado y duradero.</p>
+          </div>
+          <div class="stat-card">
+            <h4 class="stat-number">120</h4>
+            <p class="stat-label">LIMITED PIECES</p>
+            <p class="stat-desc">Ediciones limitadas por drop. No hacemos restocks.</p>
+          </div>
+          <div class="stat-card">
+            <h4 class="stat-number">BA</h4>
+            <p class="stat-label">HEADQUARTERS</p>
+            <p class="stat-desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. BENEFITS BAR ===== -->
+    <section class="benefits-bar">
+      <div class="container benefits-container">
+        <div class="benefit-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <span>ENVÍO GRATIS MUNDIAL +$100</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span>CALIDAD PREMIUM GARANTIZADA</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          <span>CAMBIOS Y DEVOLUCIONES 30 DÍAS</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER — Compact Dark Navy Technical Footer ===== -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+      <!-- Main Columns Grid -->
+      <div class="footer-main-grid">
+        <!-- Brand & Newsletter Column -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo footer-logo" aria-label="Dopamine Inicio">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo">
+            <span class="brand-logotype">DOPAMINE</span>
+          </a>
+          <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only.</p>
+          <form class="footer-email-form" id="footer-signup-form">
+            <div class="footer-input-wrap">
+              <input type="email" placeholder="ENTER EMAIL FOR DROPS" aria-label="Email subscription" required>
+              <button type="submit" aria-label="Subscribe">→</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>NAVIGATION</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="tienda.html">DROPS</a></li>
+            <li><a href="index.html#brand-story">ABOUT US</a></li>
+            <li><a href="contacto.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>CUSTOMER CARE</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="#">SHIPPING & RETURNS</a></li>
+            <li><a href="#">SIZE GUIDE</a></li>
+            <li><a href="#">ORDER TRACKING</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal & Social -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>LEGAL & SOCIAL</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="#">TERMS OF SERVICE</a></li>
+            <li><a href="#">PRIVACY POLICY</a></li>
+            <li><a href="#">COOKIE PREFERENCES</a></li>
+          </ul>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Instagram" class="social-icon-btn" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok" class="social-icon-btn" title="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+            <a href="#" aria-label="X / Twitter" class="social-icon-btn" title="X / Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M13.232 10.768L20 4"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-icon-btn" title="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar: Copyright & Payment Methods Logos -->
+      <div class="footer-bottom-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <p class="footer-copyright">© 2026 DOPAMINE APPARATUS INC. ALL RIGHTS RESERVED.</p>
+        <a href="admin-clientes.html" style="color:var(--text-muted); font-family:var(--ff-mono); font-size:0.75rem; text-decoration:underline;">CONSOLA CLIENTES (ADMIN) ↗</a>
+        <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
+          <!-- Mercado Pago -->
+          <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
+            <svg width="44" height="24" viewBox="0 0 44 24" fill="none">
+              <rect width="44" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <path d="M13 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M24 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="22" y="18" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">MPAGO</text>
+            </svg>
+          </span>
+          <!-- Visa -->
+          <span class="payment-badge-icon" title="Visa" aria-label="Visa">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <text x="19" y="16" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">VISA</text>
+            </svg>
+          </span>
+          <!-- Mastercard -->
+          <span class="payment-badge-icon" title="Mastercard" aria-label="Mastercard">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <circle cx="15" cy="12" r="6" fill="#EB001B" fill-opacity="0.85"/>
+              <circle cx="23" cy="12" r="6" fill="#F79E1B" fill-opacity="0.85"/>
+            </svg>
+          </span>
+          <!-- AMEX -->
+          <span class="payment-badge-icon" title="American Express" aria-label="American Express">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <text x="19" y="15" font-family="'JetBrains Mono', sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">AMEX</text>
+            </svg>
+          </span>
+          <!-- Apple Pay -->
+          <span class="payment-badge-icon" title="Apple Pay" aria-label="Apple Pay">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+              <rect width="40" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <path d="M15 14.5c-.4.5-1-.2-1.6-.3.1-.7.4-1.3.9-1.6.4-.4 1.1-.7 1.7-.7-.1.7-.4 1.2-.9 1.6zM15.9 15c-.8 0-1.2-.3-1.6-.3-.5 0-1 .3-1.5.3-.7 0-1.4-.4-1.8-1.1-.9-1.5-.2-3.7 1.2-3.7.6 0 1 .3 1.5.3.4 0 1-.3 1.6-.3.4 0 1.3.1 1.9 1-.1.1-1.1.7-1.1 2 0 1.6 1.3 2.1 1.4 2.1-.1.4-.4 1.1-1.4 1.1z" fill="#FFFFFF"/>
+              <text x="26" y="15" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700" fill="#FFFFFF">Pay</text>
+            </svg>
+          </span>
+          <!-- Crypto -->
+          <span class="payment-badge-icon" title="Crypto" aria-label="Crypto">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <circle cx="19" cy="12" r="6" stroke="#FFFFFF" stroke-width="1.2"/>
+              <path d="M17.5 9.5h2.5c.8 0 1.5.4 1.5 1.2s-.5 1.1-1.2 1.2c.8.1 1.4.6 1.4 1.4 0 .9-.7 1.4-1.7 1.4h-2.5V9.5zm1.2 2.2h1c.4 0 .7-.2.7-.5s-.3-.5-.7-.5h-1v1zm0 1.9h1.1c.4 0 .8-.2.8-.6s-.4-.6-.8-.6h-1.1v1.2z" fill="#FFFFFF"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== OVERLAYS ===== -->
+  <!-- Search Panel -->
+  <div class="search-panel" data-search-panel hidden>
+    <div class="search-box">
+      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." aria-label="Buscar productos">
+      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
+    </div>
+    <div class="search-results" data-search-results hidden></div>
+  </div>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" data-cart-overlay></div>
+
+  <!-- Cart Drawer -->
+  <aside class="cart-drawer" data-cart-drawer aria-label="Bolsa de compras">
+    <!-- Drawer Header -->
+    <div class="cart-drawer-header">
+      <h2>MI COMPRA</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Motivational Progress Bars Section -->
+    <div class="cart-progress-section" data-cart-progress-container hidden>
+      <div class="cart-progress-item">
+        <div class="cart-progress-bar-track">
+          <div class="cart-progress-bar-fill" data-shipping-bar style="width: 0%;">
+            <span class="cart-progress-knob"></span>
+          </div>
+        </div>
+        <p class="cart-progress-text" data-shipping-text>¡Tenés envío gratis!</p>
+      </div>
+      <div class="cart-progress-item">
+        <div class="cart-progress-bar-track">
+          <div class="cart-progress-bar-fill" data-installments-bar style="width: 100%;">
+            <span class="cart-progress-knob"></span>
+          </div>
+        </div>
+        <p class="cart-progress-text">¡Tenés 6 cuotas sin interés!</p>
+      </div>
+    </div>
+
+    <!-- Drawer Body -->
+    <div class="cart-drawer-body" data-cart-body>
+      <p class="cart-empty-msg" data-cart-empty>Tu bolsa está vacía.</p>
+      <div class="cart-items-list" data-cart-items></div>
+
+      <!-- Cross-Sell Recommendation Carousel -->
+      <div class="cart-recommend-section" data-cart-recommend hidden>
+        <div class="cart-recommend-card" data-recommend-card></div>
+      </div>
+    </div>
+
+    <!-- Shipping Calculator Section -->
+    <div class="cart-shipping-calc" data-cart-shipping-calc hidden>
+      <div class="shipping-calc-row">
+        <div class="shipping-calc-input-wrap">
+          <svg class="shipping-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" maxlength="8">
+        </div>
+        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger>CALCULAR ENVÍO &gt;</button>
+      </div>
+      <div class="shipping-calc-result" data-shipping-result hidden></div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer-footer" data-cart-footer hidden>
+      <div class="cart-total-row">
+        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-amount" data-cart-total>$0</span>
+      </div>
+      <a href="carrito.html" class="btn-checkout-main">Finalizar Compra</a>
+      <div class="cart-footer-links">
+        <button type="button" class="cart-link-continue" data-cart-close>&lt; Seguir comprando</button>
+        <a href="carrito.html" class="cart-link-view-all">Ver carrito &gt;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" data-menu-overlay></div>
+
+  <!-- Mobile Menu Drawer -->
+  <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
+    <div class="mobile-menu-header">
+      <h2>MENU</h2>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="tienda.html">DROPS</a>
+      <a href="index.html#brand-story">ABOUT US</a>
+      <a href="contacto.html">CONTACT</a>
+    </nav>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" data-toast role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/product-data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/verification.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/scroll-reveal.js"></script>
+</body>
+</html>
