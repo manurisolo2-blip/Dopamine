@@ -1351,7 +1351,7 @@
 body.shop-page {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
@@ -1411,7 +1411,7 @@ body.shop-page {
 }
 
 .shop-hero-copy p {
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.7;
@@ -1747,7 +1747,7 @@ body.shop-page {
 }
 
 .shop-product-copy p {
-  font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.8125rem;
   color: var(--text-secondary);
 }
