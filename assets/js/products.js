@@ -5,7 +5,7 @@
   const grid = () => document.querySelector('[data-products-grid]');
 
   function esc(value) { return String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char])); }
-  function money(value) { return `$${value}`; }
+  function money(value) { return '$' + Number(value).toLocaleString('es-AR'); }
   function swatches(product) { return product.colors.map((color, index) => `<i class="shop-swatch ${index === 0 ? 'is-active' : ''}" style="--swatch:${color.hex}" title="${esc(color.name)}"></i>`).join(''); }
   function productCard(product, index) {
     const favorite = window.DopamineCart?.isFavorite(product.id);

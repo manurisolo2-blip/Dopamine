@@ -1,7 +1,7 @@
 (function (window) {
   const catalog = window.DopamineCatalog;
   function esc(value) { return String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char])); }
-  function money(value) { return `$${value}`; }
+  function money(value) { return '$' + Number(value).toLocaleString('es-AR'); }
   function getProduct() { return catalog.getProductBySlug(new URLSearchParams(window.location.search).get('slug') || 'signal-tee'); }
   function render(product) {
     if (!product) return;

@@ -1,17 +1,17 @@
 (function (window) {
   const STORAGE_KEY = 'dopamine-cart-v1';
   const FAVORITES_KEY = 'dopamine-favorites-v1';
-  const FREE_SHIPPING_THRESHOLD = 100; // $100 USD threshold for free shipping
+  const FREE_SHIPPING_THRESHOLD = 90000; // $90.000 ARS para envío gratis a todo el país
 
   const cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   const favorites = new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]'));
 
-  // Recommended products list for cross-sell carousel in cart drawer (Prices in USD)
+  // Recommended products list for cross-sell carousel in cart drawer (Prices in ARS)
   const RECOMMENDATIONS = [
     {
       id: 'rec-1',
       name: 'Medias Dopamine Everyday',
-      price: 18,
+      price: 18000,
       image: 'assets/Branding/Logos/Isotipo.png',
       color: 'Black',
       size: 'One Size'
@@ -19,7 +19,7 @@
     {
       id: 'rec-2',
       name: 'Gorra Dopamine Tech Cap',
-      price: 24,
+      price: 24000,
       image: 'assets/Branding/Logos/Isotipo.png',
       color: 'Black',
       size: 'One Size'
@@ -27,7 +27,7 @@
     {
       id: 'rec-3',
       name: 'Llavero Carabiner Dopamine',
-      price: 12,
+      price: 12000,
       image: 'assets/Branding/Logos/Isotipo.png',
       color: 'Silver',
       size: 'One Size'
@@ -35,6 +35,7 @@
   ];
   let activeRecommendIndex = 0;
 
+  function formatARS(value) { return '$' + Number(value).toLocaleString('es-AR'); }
   function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
   function saveFavorites() { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites])); }
   function key(productId, options = {}) { return `${productId}::${options.color || ''}::${options.size || ''}`; }
@@ -138,17 +139,17 @@
           text.textContent = '¡Tenés envío gratis!';
         } else {
           const missing = FREE_SHIPPING_THRESHOLD - currentSubtotal;
-          text.textContent = `¡Te faltan $${missing} para el Envío Gratis!`;
+          text.textContent = `¡Te faltan ${formatARS(missing)} para el Envío Gratis!`;
         }
       });
       document.querySelectorAll('[data-installments-bar]').forEach(bar => {
         bar.style.width = cart.length > 0 ? '100%' : '0%';
       });
 
-      // Cart Items HTML rendering (Prices in USD)
+      // Cart Items HTML rendering (Prices in ARS)
       const itemsHTML = cart.map(item => {
         const itemTotal = item.price * item.quantity;
-        const origPrice = Math.round(item.price * 1.3); // Strikethrough original price in USD
+        const origPrice = Math.round(item.price * 1.3); // Strikethrough original price in ARS
         return `
           <article class="cart-line">
             <img class="cart-line-img" src="${item.image}" alt="${item.name}" loading="lazy">
@@ -170,8 +171,8 @@
                   <button type="button" data-cart-delta="${item.key}" data-delta="1" aria-label="Aumentar">+</button>
                 </div>
                 <div class="cart-line-prices">
-                  <span class="cart-line-price-main">$${itemTotal}</span>
-                  <span class="cart-line-price-old">$${origPrice * item.quantity}</span>
+                  <span class="cart-line-price-main">${formatARS(itemTotal)}</span>
+                  <span class="cart-line-price-old">${formatARS(origPrice * item.quantity)}</span>
                 </div>
               </div>
             </div>
@@ -181,9 +182,9 @@
 
       document.querySelectorAll('[data-cart-items]').forEach(list => { list.innerHTML = itemsHTML; });
 
-      // Subtotal and Total formatting (Prices in USD)
+      // Subtotal and Total formatting (Prices in ARS)
       document.querySelectorAll('[data-cart-subtotal], [data-cart-total]').forEach(node => {
-        node.textContent = `$${currentSubtotal}`;
+        node.textContent = `${formatARS(currentSubtotal)}`;
       });
 
       // Progress bar in cart page (carrito.html)
@@ -213,7 +214,7 @@
             <img class="recommend-item-img" src="${rec.image}" alt="${rec.name}">
             <div class="recommend-item-info">
               <span class="recommend-item-title">${rec.name}</span>
-              <span class="recommend-item-price">$${rec.price}</span>
+              <span class="recommend-item-price">${formatARS(rec.price)}</span>
             </div>
           </div>
           <button type="button" class="btn-recommend-add" data-recommend-add>Agregar</button>
@@ -256,7 +257,7 @@
         return;
       }
 
-      // Shipping calculator click handler (USD rates)
+      // Shipping calculator click handler (ARS rates)
       const shippingBtn = event.target.closest('[data-shipping-calc-trigger]');
       if (shippingBtn) {
         const input = document.querySelector('[data-shipping-zip]');
@@ -271,7 +272,7 @@
           const isFree = subtotal() >= FREE_SHIPPING_THRESHOLD;
           result.textContent = isFree
             ? `CP ${zip}: ¡Envío Estándar GRATIS a tu domicilio!`
-            : `CP ${zip}: Envío Estándar $10 USD (¡Llega en 3 a 5 días hábiles!)`;
+            : `CP ${zip}: Envío Estándar $5.500 (¡Llega en 3 a 5 días hábiles a todo el país!)`;
           result.hidden = false;
         }
       }

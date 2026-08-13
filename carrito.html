@@ -80,7 +80,7 @@
           </section>
           <aside class="shop-cart-page-summary">
             <h2>Resumen de Compra</h2>
-            <p class="shop-shipping-copy">ENVÍO GRATIS EN COMPRAS MAYORES A $100</p>
+            <p class="shop-shipping-copy">ENVÍO GRATIS EN COMPRAS MAYORES A $90.000</p>
             <div class="shop-progress" aria-label="Progreso de envío gratis">
               <span data-shipping-progress></span>
             </div>
@@ -102,9 +102,23 @@
               <span data-cart-subtotal>$0</span>
             </div>
 
+            <!-- Mercado Pago Official Banner -->
+            <div class="mp-cart-summary-badge" style="background: rgba(0, 158, 227, 0.08); border: 1px solid rgba(0, 158, 227, 0.3); padding: 0.85rem 1rem; margin-top: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+              <svg width="34" height="22" viewBox="0 0 44 24" fill="none">
+                <rect width="44" height="24" rx="3" fill="#009EE3"/>
+                <path d="M13 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M24 11c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+                <text x="22" y="19" font-family="'Montserrat', sans-serif" font-size="7" font-weight="800" fill="#FFFFFF" text-anchor="middle">MERCADO PAGO</text>
+              </svg>
+              <div>
+                <strong style="display: block; font-size: 0.8125rem; color: #009EE3;">MERCADO PAGO OFICIAL</strong>
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">Hasta 6 cuotas sin interés y dinero en cuenta</span>
+              </div>
+            </div>
+
             <!-- Primary Isolated CTA with High White Space & Bold Weight -->
-            <button class="shop-full-button" type="button" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">FINALIZAR COMPRA →</button>
-            <a class="size-guide" href="tienda.html" style="display: block; text-align: center; margin-top: 0.75rem;">SEGUIR COMPRANDO →</a>
+            <button class="shop-full-button btn-checkout-main" type="button" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">FINALIZAR COMPRA →</button>
+            <a class="size-guide" href="store.html" style="display: block; text-align: center; margin-top: 0.75rem;">SEGUIR COMPRANDO →</a>
           </aside>
         </div>
       </div>
@@ -357,5 +371,7 @@
   <script src="assets/js/db.js"></script>
   <script src="assets/js/verification.js"></script>
   <script src="assets/js/auth.js"></script>
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="assets/js/mercadopago.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
-// Dopamine product catalog — local data layer ready for a future PHP/MySQL API.
+// Dopamine product catalog — local data layer in Argentine Pesos (ARS).
 (function (window) {
   const products = [
     {
-      id: 'signal-tee', slug: 'signal-tee', name: 'Signal Tee', category: 'tops', price: 48,
+      id: 'signal-tee', slug: 'signal-tee', name: 'Signal Tee', category: 'tops', price: 48000,
       compareAtPrice: null, badge: 'NEW', subtitle: 'Oversized Heavy Cotton Tee', stock: 18,
       description: 'Remera de algodón pesado con fit relajado y gráfica Dopamine. Diseñada para moverte sin perder estructura.',
       details: '100% algodón premium de 260 GSM. Fit oversized, cuello reforzado y estampa de alta densidad.',
@@ -14,8 +14,8 @@
       ]
     },
     {
-      id: 'phase-hoodie', slug: 'phase-hoodie', name: 'Phase Hoodie', category: 'hoodies', price: 110,
-      compareAtPrice: 140, badge: 'BEST SELLER', subtitle: 'Heavyweight Fleece Pullover', stock: 7,
+      id: 'phase-hoodie', slug: 'phase-hoodie', name: 'Phase Hoodie', category: 'hoodies', price: 110000,
+      compareAtPrice: 140000, badge: 'BEST SELLER', subtitle: 'Heavyweight Fleece Pullover', stock: 7,
       description: 'Hoodie premium de algodón pesado con interior afelpado y una silueta limpia para todos los días.',
       details: 'Algodón french terry de 450 GSM. Capucha doble, bolsillo frontal y terminaciones de rib premium.',
       colors: [{ id: 'cement', name: 'Cement Gray', hex: '#8A8A8A' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }],
@@ -26,7 +26,7 @@
       ]
     },
     {
-      id: 'vector-pant', slug: 'vector-pant', name: 'Vector Pant', category: 'bottoms', price: 96,
+      id: 'vector-pant', slug: 'vector-pant', name: 'Vector Pant', category: 'bottoms', price: 96000,
       compareAtPrice: null, badge: 'NEW', subtitle: 'Relaxed Fit Cargo Pant', stock: 12,
       description: 'Pantalón cargo de silueta amplia con detalles utilitarios y construcción pensada para el movimiento.',
       details: 'Gabardina de algodón con bolsillos cargo, cintura ajustable y fit relajado.',
@@ -38,7 +38,7 @@
       ]
     },
     {
-      id: 'dopamine-cap', slug: 'dopamine-cap', name: 'Dopamine Cap', category: 'accessories', price: 42,
+      id: 'dopamine-cap', slug: 'dopamine-cap', name: 'Dopamine Cap', category: 'accessories', price: 42000,
       compareAtPrice: null, badge: 'LIMITED', subtitle: 'Structured 6-Panel Cap', stock: 4,
       description: 'Gorra estructurada con logo Dopamine bordado y ajuste trasero metálico.',
       details: 'Gabardina de algodón, visera curva y bordado frontal de alta definición.',
@@ -50,7 +50,7 @@
       ]
     },
     {
-      id: 'afterhours-tee', slug: 'afterhours-tee', name: 'After Hours Tee', category: 'tops', price: 54,
+      id: 'afterhours-tee', slug: 'afterhours-tee', name: 'After Hours Tee', category: 'tops', price: 54000,
       compareAtPrice: null, badge: 'DROP 01', subtitle: 'Boxy Graphic Tee', stock: 9,
       description: 'Remera gráfica de fit boxy con composición inspirada en la ciudad después de medianoche.',
       details: 'Algodón pesado, estampa frontal y trasera, fit boxy unisex.',
@@ -62,8 +62,8 @@
       ]
     },
     {
-      id: 'grid-overshirt', slug: 'grid-overshirt', name: 'Grid Overshirt', category: 'hoodies', price: 128,
-      compareAtPrice: 160, badge: 'LIMITED', subtitle: 'Technical Overshirt', stock: 3,
+      id: 'grid-overshirt', slug: 'grid-overshirt', name: 'Grid Overshirt', category: 'hoodies', price: 128000,
+      compareAtPrice: 160000, badge: 'LIMITED', subtitle: 'Technical Overshirt', stock: 3,
       description: 'Overshirt técnica de corte amplio para sumar una capa con presencia.',
       details: 'Nylon liviano, bolsillos utilitarios y cierres metálicos.',
       colors: [{ id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }],
@@ -74,7 +74,7 @@
       ]
     },
     {
-      id: 'motion-short', slug: 'motion-short', name: 'Motion Short', category: 'bottoms', price: 68,
+      id: 'motion-short', slug: 'motion-short', name: 'Motion Short', category: 'bottoms', price: 68000,
       compareAtPrice: null, badge: 'CORE', subtitle: 'Utility Nylon Short', stock: 14,
       description: 'Short utilitario de nylon con caída liviana y bolsillos laterales.',
       details: 'Nylon ripstop, cintura elástica y cordón ajustable.',
@@ -86,7 +86,7 @@
       ]
     },
     {
-      id: 'signal-socks', slug: 'signal-socks', name: 'Signal Socks', category: 'accessories', price: 18,
+      id: 'signal-socks', slug: 'signal-socks', name: 'Signal Socks', category: 'accessories', price: 18000,
       compareAtPrice: null, badge: 'CORE', subtitle: 'Ribbed Logo Socks', stock: 28,
       description: 'Medias de algodón con logo tejido y construcción reforzada.',
       details: 'Pack de una unidad. Algodón peinado y puño acanalado.',
