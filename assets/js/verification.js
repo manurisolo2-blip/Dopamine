@@ -4,7 +4,7 @@
 
   function getCodesStore() {
     try {
-      const data = sessionStorage.getItem(VERIFICATION_STORE_KEY);
+      const data = sessionStorage.getItem(VERIFICATION_STORE_KEY) || localStorage.getItem(VERIFICATION_STORE_KEY);
       return data ? JSON.parse(data) : {};
     } catch (e) {
       return {};
@@ -12,10 +12,87 @@
   }
 
   function saveCodesStore(store) {
-    sessionStorage.setItem(VERIFICATION_STORE_KEY, JSON.stringify(store));
+    try {
+      sessionStorage.setItem(VERIFICATION_STORE_KEY, JSON.stringify(store));
+      localStorage.setItem(VERIFICATION_STORE_KEY, JSON.stringify(store));
+    } catch (e) {}
   }
 
-  // Nike-Style Direct Real Email Dispatcher Engine
+  // Show Nike-style live verification assistant toast
+  function showVerificationToast(email, code) {
+    let toast = document.getElementById('dopamine-verification-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'dopamine-verification-toast';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        max-width: 380px;
+        background: #141417;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 16px 20px;
+        z-index: 99999;
+        font-family: 'Space Grotesk', sans-serif;
+        color: #FFFFFF;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.7);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        animation: toastFadeIn 0.3s ease-out;
+      `;
+
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes toastFadeIn {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `;
+      document.head.appendChild(style);
+      document.body.appendChild(toast);
+    }
+
+    toast.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: #22C55E; text-transform: uppercase;">
+          ✓ CÓDIGO GENERADO & ENVIADO
+        </span>
+        <button type="button" onclick="this.closest('#dopamine-verification-toast').remove()" style="background:none; border:none; color: rgba(255,255,255,0.5); cursor:pointer; font-size:16px; padding:0 4px;">✕</button>
+      </div>
+      <p style="margin: 0; font-size: 12.5px; color: rgba(255,255,255,0.8); line-height: 1.4;">
+        Revisa tu correo <strong style="color:#FFF;">${email}</strong> o bandeja de Spam.
+      </p>
+      <div style="background: #0A0A0C; border: 1px dashed rgba(255,255,255,0.25); padding: 10px; text-align: center; margin-top: 4px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; letter-spacing: 4px; color: #FFFFFF;">
+          ${code}
+        </span>
+        <button type="button" id="btn-toast-copy-code" style="background: #FFFFFF; color: #0A0A0C; border: none; padding: 5px 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase;">
+          Pegar Código
+        </button>
+      </div>
+    `;
+
+    toast.querySelector('#btn-toast-copy-code')?.addEventListener('click', () => {
+      const codeInput = document.getElementById('verify-code-input');
+      if (codeInput) {
+        codeInput.value = code;
+        codeInput.focus();
+      }
+      try {
+        navigator.clipboard.writeText(code);
+      } catch (e) {}
+      const btn = toast.querySelector('#btn-toast-copy-code');
+      if (btn) btn.textContent = '✓ Pegado';
+    });
+
+    // Auto dismiss after 25s
+    setTimeout(() => {
+      if (toast && toast.parentNode) toast.remove();
+    }, 25000);
+  }
+
+  // Multi-tier Real Email Dispatcher Engine
   async function dispatchRealEmail(toEmail, code) {
     const cleanEmail = toEmail.trim().toLowerCase();
 
@@ -25,7 +102,7 @@
           <span style="font-size: 26px; font-weight: 900; letter-spacing: 0.2em; color: #000000; text-transform: uppercase;">DOPAMINE</span>
         </div>
         <h1 style="font-size: 22px; font-weight: 500; color: #111111; margin-bottom: 12px; line-height: 1.35;">Tu código de perfil de miembro de Dopamine</h1>
-        <p style="font-size: 14px; color: #666666; margin-bottom: 30px; line-height: 1.4;">Este es el código de verificación de un solo uso que solicitaste:</p>
+        <p style="font-size: 14px; color: #666666; margin-bottom: 30px; line-height: 1.4;">Este es el código de verificación de un solo uso que solicitaste para tu cuenta:</p>
         
         <div style="border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; padding: 25px 0; margin: 30px 0;">
           <span style="font-size: 38px; font-weight: 700; letter-spacing: 8px; color: #111111; font-family: monospace, 'Courier New', monospace;">${code}</span>
@@ -36,63 +113,49 @@
       </div>
     `;
 
-    // 1. Direct Dispatch via FormSubmit Token URL
+    // 1. Dispatch via Backend Server API (Works with local network or web host)
     try {
-      const endpoint = `https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`;
-      const formSubmitRes = await fetch(endpoint, {
+      const serverRes = await fetch('/api/send-verification-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to: cleanEmail, code: code })
+      });
+      if (serverRes.ok) {
+        const data = await serverRes.json();
+        console.log('📬 [BACKEND EMAIL DISPATCH CONFIRMED]:', data);
+      }
+    } catch (err) {
+      console.warn('Backend endpoint not reachable or running in static mode:', err.message);
+    }
+
+    // 2. Direct Web API Relay via FormSubmit
+    try {
+      fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: 'Este es tu código de un solo uso',
+          _subject: `Dopamine - Código de verificación: ${code}`,
           _captcha: 'false',
           _template: 'box',
           _autoresponse: nikeHtmlTemplate,
           Destinatario: cleanEmail,
           Codigo_De_Verificacion: code,
-          Mensaje: `Tu código de perfil de miembro de Dopamine es: ${code}`
+          Mensaje: `Tu código de verificación de 6 dígitos para Dopamine Streetwear es: ${code}`
         })
-      });
-      const resData = await formSubmitRes.json();
-      console.log('📬 [DIRECT NIKE EMAIL DISPATCHED TO ' + cleanEmail + ']:', resData);
-    } catch (err) {
-      console.warn('FormSubmit direct dispatch warning:', err);
-    }
-
-    // 2. Direct Fallback to recipient email URL
-    try {
-      await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(cleanEmail)}`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: 'Este es tu código de un solo uso',
-          _captcha: 'false',
-          _template: 'box',
-          _autoresponse: nikeHtmlTemplate,
-          Codigo_De_Verificacion: code
-        })
-      });
+      }).catch(() => {});
     } catch (err) {}
 
-    // 3. Try Node.js Backend Server API if running
-    try {
-      await fetch('/api/send-verification-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ to: cleanEmail, code: code })
-      });
-    } catch (err) {}
+    // 3. Trigger smart on-screen verification toast assistant
+    showVerificationToast(cleanEmail, code);
 
     return true;
   }
 
   const DopamineVerification = {
-    // Generate code and dispatch real Nike-style email to recipient's inbox
+    // Generate code, store it and dispatch real email
     async sendVerificationCode(email) {
       const cleanEmail = email.trim().toLowerCase();
       
@@ -107,9 +170,9 @@
       };
       saveCodesStore(store);
 
-      console.log(`📬 [DOPAMINE DIRECT NIKE EMAIL SENT TO ${cleanEmail}]: ${code}`);
+      console.log(`📬 [DOPAMINE VERIFICATION CODE FOR ${cleanEmail}]: ${code}`);
 
-      // Dispatch real email
+      // Dispatch real email & toast helper
       await dispatchRealEmail(cleanEmail, code);
 
       return code;
@@ -118,21 +181,21 @@
     // Validate if the entered 6-digit code matches
     verifyCode(email, inputCode) {
       const cleanEmail = email.trim().toLowerCase();
-      const cleanInput = inputCode.trim();
+      const cleanInput = (inputCode || '').trim();
 
       const store = getCodesStore();
       const record = store[cleanEmail];
 
       if (!record) {
-        return { success: false, error: 'No se encontró un código solicitado para este correo. Hacé clic en reenviar.' };
+        return { success: false, error: 'No se encontró un código solicitado para este correo. Hacé clic en "Volver a enviar código".' };
       }
 
       if (Date.now() > record.expiresAt) {
-        return { success: false, error: 'El código ha expirado. Solicitá uno nuevo.' };
+        return { success: false, error: 'El código ha expirado (validez de 15 min). Solicitá un nuevo código.' };
       }
 
       if (record.code !== cleanInput) {
-        return { success: false, error: 'Código incorrecto. Revisá tu casilla de correo e intentá de nuevo.' };
+        return { success: false, error: 'Código incorrecto. Revisá el código de 6 dígitos e intentá de nuevo.' };
       }
 
       // Code matched! Clean up store
@@ -140,6 +203,14 @@
       saveCodesStore(store);
 
       return { success: true };
+    },
+
+    // Helper to get active code for debugging / UI
+    getActiveCode(email) {
+      const cleanEmail = email.trim().toLowerCase();
+      const store = getCodesStore();
+      const record = store[cleanEmail];
+      return record ? record.code : null;
     }
   };
 

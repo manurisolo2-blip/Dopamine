@@ -416,8 +416,11 @@
       return val;
     }
 
-    function renderAdminDashboard() {
-      const users = window.DopamineDB ? DopamineDB.getAllUsers() : [];
+    async function renderAdminDashboard() {
+      let users = [];
+      if (window.DopamineDB) {
+        users = await DopamineDB.fetchAllUsers();
+      }
       const searchVal = document.getElementById('admin-search-input')?.value.toLowerCase().trim() || '';
       const filterProv = document.getElementById('filter-provider')?.value || 'all';
 
@@ -502,10 +505,10 @@
 
       // Delete listeners
       tbody.querySelectorAll('.btn-delete-user').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', async () => {
           const uid = btn.dataset.id;
           if (confirm('¿Estás seguro de eliminar a este cliente de la base de datos?')) {
-            DopamineDB.deleteUser(uid);
+            await DopamineDB.deleteUser(uid);
             renderAdminDashboard();
           }
         });
@@ -537,16 +540,16 @@
     });
 
     // Clear DB Listener
-    document.getElementById('btn-clear-db')?.addEventListener('click', () => {
+    document.getElementById('btn-clear-db')?.addEventListener('click', async () => {
       if (confirm('⚠️ ¿ATENCIÓN: Deseas vaciar la base de clientes registrada?')) {
-        DopamineDB.clearAll();
+        await DopamineDB.clearAll();
         renderAdminDashboard();
       }
     });
 
     // Export CSV
-    document.getElementById('btn-export-csv')?.addEventListener('click', () => {
-      const users = window.DopamineDB ? DopamineDB.getAllUsers() : [];
+    document.getElementById('btn-export-csv')?.addEventListener('click', async () => {
+      const users = window.DopamineDB ? await DopamineDB.fetchAllUsers() : [];
       if (users.length === 0) {
         alert('No hay clientes registrados para exportar.');
         return;

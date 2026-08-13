@@ -16,65 +16,83 @@
     }
   }
 
-  // Get all users from Database
-  function getUsers() {
+  // Get all users from local cache
+  function getLocalUsers() {
     try {
       const data = localStorage.getItem(USERS_DB_KEY);
-      let users = data ? JSON.parse(data) : [];
-
-      // Ensure every email user has a valid passwordHash & rawPassword
-      let modified = false;
-      users.forEach(u => {
-        if (u.provider === 'email' && (!u.passwordHash || !u.rawPassword)) {
-          if (!u.rawPassword || u.rawPassword === 'Ingresó con Google' || u.rawPassword === 'Sesión Activa') {
-            const suffix = u.id ? u.id.slice(-4) : '2026';
-            u.rawPassword = `DopaminePass_${suffix}`;
-          }
-          u.passwordMasked = u.rawPassword.length > 3 ? (u.rawPassword.substring(0, 2) + '••••' + u.rawPassword.slice(-2)) : '••••••••';
-          modified = true;
-        }
-      });
-
-      if (modified) {
-        localStorage.setItem(USERS_DB_KEY, JSON.stringify(users));
-      }
-
-      return users;
+      return data ? JSON.parse(data) : [];
     } catch (e) {
-      console.error('Error loading users DB:', e);
       return [];
     }
   }
 
-  // Save users array to Database
-  function saveUsers(users) {
-    localStorage.setItem(USERS_DB_KEY, JSON.stringify(users));
+  // Save users array to local cache
+  function saveLocalUsers(users) {
+    try {
+      localStorage.setItem(USERS_DB_KEY, JSON.stringify(users));
+    } catch (e) {}
   }
 
-  // Find user by email (case-insensitive)
-  function findUserByEmail(email) {
-    const users = getUsers();
-    const cleanEmail = email.trim().toLowerCase();
-    return users.find(u => u.email.toLowerCase() === cleanEmail) || null;
+  // Sync users with backend server in background
+  async function fetchServerUsers() {
+    try {
+      const res = await fetch('/api/users/admin');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.users)) {
+          saveLocalUsers(data.users);
+          return data.users;
+        }
+      }
+    } catch (err) {
+      // Backend not running / static mode
+    }
+    return getLocalUsers();
   }
 
   const DopamineDB = {
-    // Register / Upsert New User
+    // Register / Upsert New User (Server first, local fallback)
     async register(userData) {
       const { email, password, name, birthdate, emailVerified } = userData;
       const cleanEmail = email.trim().toLowerCase();
       const rawPass = password || '';
-
-      let users = getUsers();
-      let existingIdx = users.findIndex(u => u.email.toLowerCase() === cleanEmail);
-
-      // Block registration if user already exists and is fully verified!
-      if (existingIdx !== -1 && users[existingIdx].emailVerified && users[existingIdx].passwordHash && emailVerified === false) {
-        return { success: false, error: 'Este correo electrónico ya está registrado. Por favor iniciá sesión.' };
-      }
-
       const hashedPassword = await hashPassword(rawPass);
       const passMasked = rawPass.length > 3 ? (rawPass.substring(0, 2) + '••••' + rawPass.slice(-2)) : '••••••••';
+
+      // 1. Try Backend Server API
+      try {
+        const res = await fetch('/api/users/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: cleanEmail,
+            password: rawPass,
+            name: name,
+            birthdate: birthdate,
+            emailVerified: emailVerified !== undefined ? emailVerified : true
+          })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success) {
+            // Update local cache
+            let users = getLocalUsers();
+            let idx = users.findIndex(u => u.email.toLowerCase() === cleanEmail);
+            if (idx !== -1) users[idx] = data.user;
+            else users.unshift(data.user);
+            saveLocalUsers(users);
+
+            return { success: true, user: data.user };
+          }
+        }
+      } catch (err) {
+        console.warn('Backend server register fallback to local storage:', err.message);
+      }
+
+      // 2. Local Storage Fallback
+      let users = getLocalUsers();
+      let existingIdx = users.findIndex(u => u.email.toLowerCase() === cleanEmail);
 
       const userRecord = {
         id: (existingIdx !== -1 && users[existingIdx].id) ? users[existingIdx].id : ('usr_' + Date.now().toString(36) + '_' + Math.random().toString(36).substr(2, 4)),
@@ -93,26 +111,14 @@
       if (existingIdx !== -1) {
         users[existingIdx] = userRecord;
       } else {
-        users.push(userRecord);
+        users.unshift(userRecord);
       }
-      saveUsers(users);
+      saveLocalUsers(users);
 
       return { success: true, user: userRecord };
     },
 
-    // Mark email as verified
-    markVerified(email) {
-      const cleanEmail = email.trim().toLowerCase();
-      let users = getUsers();
-      let user = users.find(u => u.email.toLowerCase() === cleanEmail);
-      if (user) {
-        user.emailVerified = true;
-        saveUsers(users);
-      }
-      return user;
-    },
-
-    // Login User (Strict Credentials & Password Hash Verification)
+    // Login User (Server check first, with local fallback)
     async login(email, password) {
       const cleanEmail = email.trim().toLowerCase();
       const inputPass = (password || '').trim();
@@ -120,25 +126,42 @@
       if (!cleanEmail) {
         return { success: false, error: 'Por favor ingresá tu correo electrónico.' };
       }
-
       if (!inputPass) {
         return { success: false, error: 'Por favor ingresá tu contraseña.' };
       }
 
-      const user = findUserByEmail(cleanEmail);
+      // 1. Try Backend Server API
+      try {
+        const res = await fetch('/api/users/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: cleanEmail, password: inputPass })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success) {
+            return { success: true, user: data.user };
+          } else if (data && data.error) {
+            return { success: false, error: data.error };
+          }
+        } else if (res.status === 401) {
+          const data = await res.json();
+          return { success: false, error: data.error || 'Contraseña o correo incorrectos.' };
+        }
+      } catch (err) {
+        console.warn('Backend server login fallback to local storage:', err.message);
+      }
+
+      // 2. Local Storage Validation
+      const users = getLocalUsers();
+      const user = users.find(u => u.email.toLowerCase() === cleanEmail);
 
       if (!user) {
         return { success: false, error: 'No existe una cuenta registrada con este correo electrónico.' };
       }
 
-      if (user.provider && user.provider !== 'email' && !user.passwordHash && !user.rawPassword) {
-        return { success: false, error: `Esta cuenta fue registrada usando ${user.provider.toUpperCase()}. Ingresá con esa opción.` };
-      }
-
-      // Hash input password with SHA-256
       const inputHash = await hashPassword(inputPass);
-
-      // Verify if password matches passwordHash OR rawPassword
       const matchesHash = user.passwordHash && inputHash === user.passwordHash;
       const matchesRaw = user.rawPassword && inputPass === user.rawPassword;
 
@@ -146,22 +169,36 @@
         return { success: false, error: 'Contraseña incorrecta. Revisá tus datos e intentá de nuevo.' };
       }
 
-      // Password matches! Update last login timestamp and return success
       user.lastLogin = new Date().toISOString();
-      let users = getUsers();
-      const idx = users.findIndex(u => u.id === user.id);
-      if (idx !== -1) {
-        users[idx] = user;
-        saveUsers(users);
-      }
+      saveLocalUsers(users);
 
       return { success: true, user: user };
     },
 
     // Save or update Google / Social user
-    saveSocialUser(socialData) {
+    async saveSocialUser(socialData) {
       const cleanEmail = socialData.email.trim().toLowerCase();
-      let users = getUsers();
+
+      try {
+        const res = await fetch('/api/users/social', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: cleanEmail,
+            name: socialData.name,
+            picture: socialData.picture,
+            provider: socialData.provider || 'google'
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success) {
+            return data.user;
+          }
+        }
+      } catch (err) {}
+
+      let users = getLocalUsers();
       let user = users.find(u => u.email.toLowerCase() === cleanEmail);
 
       if (!user) {
@@ -175,46 +212,54 @@
           lastLogin: new Date().toISOString(),
           emailVerified: true
         };
-        users.push(user);
-        saveUsers(users);
+        users.unshift(user);
       } else {
         user.name = socialData.name || user.name;
         user.picture = socialData.picture || user.picture;
-        user.provider = socialData.provider || user.provider;
         user.lastLogin = new Date().toISOString();
-        saveUsers(users);
       }
-
+      saveLocalUsers(users);
       return user;
     },
 
-    // Get all registered accounts for Admin Panel
+    // Get all registered accounts for Admin Panel (Syncs from server)
     getAllUsers() {
-      const users = getUsers();
-      const cleanUsers = users.filter(u => u.id !== 'usr_k9x1_8a' && u.id !== 'usr_m3b2_9f' && u.id !== 'usr_p7c4_1d' && u.id !== 'usr_r2t9_3e');
-      if (cleanUsers.length !== users.length) {
-        saveUsers(cleanUsers);
-      }
-      return cleanUsers;
+      return getLocalUsers();
+    },
+
+    // Async version for live polling
+    async fetchAllUsers() {
+      return await fetchServerUsers();
     },
 
     // Delete user by ID
-    deleteUser(userId) {
-      let users = getUsers();
+    async deleteUser(userId) {
+      try {
+        await fetch(`/api/users/${userId}`, { method: 'DELETE' });
+      } catch (e) {}
+
+      let users = getLocalUsers();
       const initialLen = users.length;
       users = users.filter(u => u.id !== userId);
-      saveUsers(users);
+      saveLocalUsers(users);
       return users.length < initialLen;
     },
 
-    // Clear all users & active session
-    clearAll() {
+    // Clear all users
+    async clearAll() {
+      try {
+        await fetch('/api/users/clear-all', { method: 'POST' });
+      } catch (e) {}
+
       localStorage.removeItem(USERS_DB_KEY);
       localStorage.removeItem(SESSION_KEY);
       localStorage.removeItem('dopamine_email_verification_codes');
       sessionStorage.removeItem('dopamine_email_verification_codes');
     }
   };
+
+  // Initial sync on script load
+  fetchServerUsers();
 
   window.DopamineDB = DopamineDB;
 })(window);
