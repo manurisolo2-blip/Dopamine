@@ -387,7 +387,16 @@
                     </button>
 
                     <button type="button" class="nk-pay-method-btn ${checkoutState.payment.method === 'mercadopago' ? 'is-selected' : ''}" data-pay-target="mercadopago">
-                      <img src="assets/Branding/Logos/mercadopago-icon.svg" alt="Mercado Pago" style="height: 24px; width: auto; object-fit: contain;">
+                      <svg width="42" height="28" viewBox="0 0 140 96" fill="none" style="display: block; flex-shrink: 0;">
+                        <ellipse cx="70" cy="48" rx="64" ry="40" fill="#009EE3" stroke="#001A72" stroke-width="6"/>
+                        <g fill="#FFFFFF" stroke="#001A72" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M 12 42 C 28 44, 42 32, 58 32 C 72 32, 86 46, 102 54 C 108 57, 108 63, 101 66 C 94 69, 87 64, 82 59 L 73 66 C 68 71, 61 68, 57 63 L 50 69 C 45 73, 38 70, 36 64 C 31 66, 25 64, 24 58 C 16 55, 12 50, 12 42 Z" />
+                          <path d="M 128 42 C 112 44, 98 28, 82 28 C 70 28, 60 36, 54 44 C 50 49, 54 54, 60 52 C 67 50, 77 41, 88 42 C 99 43, 112 51, 128 42 Z" />
+                          <path d="M 64 54 C 69 59, 75 59, 80 54" fill="none" stroke="#001A72" stroke-width="3.5" />
+                          <path d="M 55 60 C 60 65, 66 64, 70 59" fill="none" stroke="#001A72" stroke-width="3.5" />
+                          <path d="M 45 65 C 50 70, 56 69, 60 64" fill="none" stroke="#001A72" stroke-width="3.5" />
+                        </g>
+                      </svg>
                       <strong>Mercado Pago</strong>
                     </button>
 
@@ -1218,20 +1227,22 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.4rem;
-        height: 76px;
+        gap: 0.5rem;
+        height: 84px;
         background: #FFFFFF;
         border: 1px solid #E5E5E5;
         border-radius: 6px;
         cursor: pointer;
         font-family: 'Montserrat', sans-serif;
         font-size: 0.75rem;
-        color: #333;
+        font-weight: 600;
+        color: #222;
         transition: all 150ms ease;
+        padding: 0.5rem;
       }
       .nk-pay-method-btn.is-selected {
         border: 2px solid #111111;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       }
       .nk-mp-selected-view {
         background: #FAFAFA;
