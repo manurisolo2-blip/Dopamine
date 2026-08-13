@@ -817,16 +817,19 @@
         to { opacity: 1; transform: translateY(0); }
       }
       .nk-checkout-wrapper {
-        max-width: 1280px;
+        max-width: 1680px;
+        width: 100%;
         margin: 0 auto;
+        padding-inline: clamp(1rem, 3.5vw, 4rem);
         padding-bottom: 5rem;
+        box-sizing: border-box;
       }
 
       /* PROMO TOP BAR */
       .nk-top-promo-bar {
         background: #F5F5F5;
         border-bottom: 1px solid #E5E5E5;
-        padding: 0.65rem 1rem;
+        padding: 0.65rem 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -834,6 +837,7 @@
         font-size: 0.75rem;
         color: #111111;
         font-weight: 500;
+        margin-inline: calc(-1 * clamp(1rem, 3.5vw, 4rem));
       }
       .nk-top-promo-bar span {
         color: #888;
@@ -846,7 +850,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.25rem 2rem;
+        padding: 1.35rem 0;
         border-bottom: 1px solid #E5E5E5;
         background: #FFFFFF;
       }
@@ -922,13 +926,13 @@
       /* MAIN GRID */
       .nk-checkout-main-grid {
         display: grid;
-        grid-template-columns: 1fr 420px;
-        gap: 3.5rem;
-        padding: 2.5rem 2rem 0 2rem;
+        grid-template-columns: 1.35fr minmax(380px, 480px);
+        gap: clamp(2rem, 3.5vw, 4.5rem);
+        padding: 2.5rem 0 0 0;
         align-items: start;
       }
       @media (max-width: 960px) {
-        .nk-checkout-main-grid { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem 1rem 0 1rem; }
+        .nk-checkout-main-grid { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem 0 0 0; }
       }
 
       /* WIZARD COLUMN */
@@ -941,8 +945,11 @@
         background: #FFFFFF;
         border: 1px solid #E5E5E5;
         border-radius: 8px;
-        padding: 1.5rem;
+        padding: 2rem 2.25rem;
         transition: border-color 150ms ease;
+      }
+      @media (max-width: 640px) {
+        .nk-card-step { padding: 1.25rem 1.1rem; }
       }
       .nk-card-step.is-open {
         border-color: #111;
@@ -1270,7 +1277,7 @@
         background: #FFFFFF;
         border: 1px solid #E5E5E5;
         border-radius: 8px;
-        padding: 1.75rem;
+        padding: 2rem 2.25rem;
         position: sticky;
         top: 2rem;
       }
