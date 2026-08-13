@@ -342,6 +342,43 @@
       border-color: #EF4444;
       background: rgba(239, 68, 68, 0.05);
     }
+
+    /* Mobile Responsive Adjustments (< 768px) */
+    @media (max-width: 767px) {
+      .auth-section {
+        min-height: calc(100vh - 64px);
+        padding-top: calc(64px + 1rem);
+        padding-bottom: 2.5rem;
+      }
+      .auth-box {
+        padding-inline: 0.5rem;
+      }
+      .auth-form-card {
+        padding: 1.5rem 1.15rem;
+      }
+      .auth-brand-isotipo {
+        height: 64px;
+        margin-bottom: 1rem;
+      }
+      .auth-nike-title {
+        font-size: 1.25rem;
+      }
+      .auth-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .auth-grid-3 {
+        gap: 0.35rem;
+      }
+      .auth-grid-3 input {
+        padding: 0 0.5rem;
+        font-size: 0.85rem;
+      }
+      #verify-code-input {
+        font-size: 1.15rem;
+        letter-spacing: 0.22em;
+      }
+    }
   </style>
 </head>
 <body class="shop-page">

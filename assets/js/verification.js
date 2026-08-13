@@ -48,6 +48,15 @@
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @media (max-width: 600px) {
+          #dopamine-verification-toast {
+            bottom: 14px !important;
+            left: 12px !important;
+            right: 12px !important;
+            max-width: calc(100vw - 24px) !important;
+            padding: 12px 14px !important;
+          }
+        }
       `;
       document.head.appendChild(style);
       document.body.appendChild(toast);
