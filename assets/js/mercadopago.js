@@ -390,7 +390,7 @@
                     </button>
 
                     <button type="button" class="nk-pay-method-btn ${checkoutState.payment.method === 'mercadopago' ? 'is-selected' : ''}" data-pay-target="mercadopago">
-                      <img src="assets/Branding/Logos/mercado_pago_log_jpg" alt="Mercado Pago" style="height: 32px; width: auto; max-width: 48px; object-fit: contain; display: block; border-radius: 4px;">
+                      <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 32px; width: auto; max-width: 48px; object-fit: contain; display: block; border-radius: 4px;">
                       <strong>Mercado Pago</strong>
                     </button>
 
