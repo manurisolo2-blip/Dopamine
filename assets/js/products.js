@@ -6,36 +6,46 @@
 
   function esc(value) { return String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char])); }
   function money(value) { return '$' + Number(value).toLocaleString('es-AR'); }
-  function swatches(product) { return product.colors.map((color, index) => `<i class="shop-swatch ${index === 0 ? 'is-active' : ''}" style="--swatch:${color.hex}" title="${esc(color.name)}"></i>`).join(''); }
+  function swatches(product) { return product.colors.map((color, index) => `<i class="shop-swatch ${index === 0 ? 'is-active' : ''}" style="background-color:${color.hex}; --swatch:${color.hex};" title="${esc(color.name)}"></i>`).join(''); }
   function productCard(product, index) {
     const favorite = window.DopamineCart?.isFavorite(product.id);
-    const stock = product.stock <= 5 ? `<span class="stock-warning">${product.stock} LEFT</span>` : '';
-    const priceHTML = product.compareAtPrice
-      ? `<div class="shop-product-prices">
-           <del class="price-old">${money(product.compareAtPrice)}</del>
-           <span class="price-current">${money(product.price)}</span>
-         </div>`
-      : `<div class="shop-product-prices">
-           <span class="price-current">${money(product.price)}</span>
-         </div>`;
+    const stock = product.stock <= 5 && product.stock > 0 ? `<span class="stock-warning">${product.stock} LEFT</span>` : '';
+    const transferPrice = money(Math.round(product.price * 0.9));
+    const installmentPrice = money(Math.round(product.price / 3));
 
-    return `<article class="shop-product-card tilt-card reveal" data-product-card data-product-id="${product.id}" style="--reveal-delay:${index * 60}ms">
-      <div class="shop-product-media">
+    const sizesPill = (product.sizes || ['S', 'M', 'L', 'XL']).map(size => 
+      `<button type="button" class="quick-add-size-btn" data-direct-add-size="${size}" data-product-id="${product.id}">${size}</button>`
+    ).join('');
+
+    return `<article class="shop-product-card tilt-card reveal rounded-card" data-product-card data-product-id="${product.id}" style="--reveal-delay:${index * 60}ms">
+      <div class="shop-product-media rounded-media">
         <a class="shop-product-link" href="producto.html?slug=${product.slug}" aria-label="Ver ${esc(product.name)}">
           <img class="shop-product-image image-primary" src="${product.images[0]}" alt="${esc(product.name)}" loading="lazy">
           <img class="shop-product-image image-secondary" src="${product.images[1] || product.images[0]}" alt="${esc(product.name)} detalle" loading="lazy">
         </a>
-        <span class="shop-product-badge">${esc(product.badge)}</span>
         <button class="shop-favorite ${favorite ? 'is-active' : ''}" type="button" data-favorite="${product.id}" aria-label="${favorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}" aria-pressed="${favorite}">♡</button>
-        <button class="shop-quick-add" type="button" data-quick-add="${product.id}"><span>QUICK ADD</span><b>+</b></button>
+        
+        <!-- Floating Quick Add Pill -->
+        <div class="quick-add-pill" aria-label="Añadir rápido">
+          <span class="quick-add-pill-label">AÑADIR:</span>
+          ${sizesPill}
+        </div>
+
         ${product.stock === 0 ? '<span class="sold-out-label">SOLD OUT</span>' : ''}
       </div>
       <div class="shop-product-copy">
         <div class="shop-product-head">
-          <h3>${esc(product.name)}</h3>
-          ${priceHTML}
+          <a href="producto.html?slug=${product.slug}" style="text-decoration:none; color:inherit;">
+            <h3 class="product-name">${esc(product.name)}</h3>
+          </a>
         </div>
-        <p>${esc(product.subtitle)}</p>
+        <div class="product-price-block">
+          <div class="shop-product-prices">
+            ${product.compareAtPrice ? `<del class="price-old">${money(product.compareAtPrice)}</del>` : ''}
+            <span class="price-current">${money(product.price)}</span>
+          </div>
+          <p class="product-price-transfer">${transferPrice} con Transferencia (10% OFF)</p>
+        </div>
         <div class="shop-product-meta"><div class="shop-swatches">${swatches(product)}</div>${stock}</div>
       </div>
     </article>`;
@@ -61,7 +71,15 @@
 
   function visibleProducts() {
     let result = products.filter(product => {
-      if (state.category && product.category !== state.category) return false;
+      if (state.category && state.category !== 'all') {
+        if (state.category === 'new-drop') {
+          if (!['NEW', 'DROP 01', 'LIMITED'].includes(product.badge)) return false;
+        } else if (state.category === 'sale') {
+          if (!product.compareAtPrice || product.compareAtPrice <= product.price) return false;
+        } else if (product.category !== state.category) {
+          return false;
+        }
+      }
       if (state.size && !product.sizes.includes(state.size)) return false;
       if (state.color && !product.colors.some(color => color.id === state.color)) return false;
       if (state.tag && product.badge.toLowerCase().replaceAll(' ', '-') !== state.tag) return false;
@@ -98,12 +116,36 @@
     const sort = document.querySelector('[data-sort]'); if (sort) sort.value = state.sort;
     const active = Object.values(state).filter(Boolean).length;
     document.querySelectorAll('[data-active-filters]').forEach(node => node.textContent = active ? `${active} ACTIVE` : 'FILTERS');
+
+    // Synchronize active state for category pills/links in header and navigation
+    document.querySelectorAll('.category-nav-link, .category-pill').forEach(pill => {
+      const href = pill.getAttribute('href') || '';
+      const match = href.match(/category=([^&]+)/);
+      const pillCategory = match ? match[1] : '';
+      if ((!state.category && !pillCategory) || (state.category && pillCategory === state.category)) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
   }
 
   function bindCardInteractions() {
     document.querySelectorAll('[data-favorite]').forEach(button => button.addEventListener('click', event => {
       event.preventDefault(); event.stopPropagation(); window.DopamineCart.toggleFavorite(button.dataset.favorite); button.classList.toggle('is-active'); button.setAttribute('aria-pressed', button.classList.contains('is-active')); button.textContent = button.classList.contains('is-active') ? '♥' : '♡';
     }));
+
+    // Direct Size Quick Add Listeners
+    document.querySelectorAll('[data-direct-add-size]').forEach(button => button.addEventListener('click', event => {
+      event.preventDefault(); event.stopPropagation();
+      const productId = button.dataset.productId;
+      const size = button.dataset.directAddSize;
+      const product = catalog.getProductById(productId) || catalog.getProductBySlug(productId);
+      if (product && window.DopamineCart) {
+        window.DopamineCart.add(product, { size: size, color: product.colors[0]?.name || 'Black' });
+      }
+    }));
+
     document.querySelectorAll('[data-quick-add]').forEach(button => button.addEventListener('click', event => {
       event.preventDefault(); event.stopPropagation(); openQuickAdd(catalog.getProductBySlug(button.dataset.quickAdd));
     }));
@@ -134,6 +176,20 @@
   function closeQuickAdd() { const modal = document.querySelector('[data-quick-modal]'); if (!modal) return; modal.classList.remove('is-open'); modal.setAttribute('hidden', ''); document.body.classList.remove('modal-open'); }
 
   function initFilters() {
+    // Intercept category-pill clicks if on shop catalog page for seamless SPA filtering
+    document.querySelectorAll('.category-nav-link, .category-pill').forEach(pill => {
+      pill.addEventListener('click', event => {
+        if (grid()) {
+          event.preventDefault();
+          const href = pill.getAttribute('href') || '';
+          const match = href.match(/category=([^&]+)/);
+          state.category = match ? match[1] : '';
+          writeURL();
+          render();
+        }
+      });
+    });
+
     document.querySelectorAll('[data-filter-value]').forEach(input => input.addEventListener('change', () => { state[input.dataset.filterValue] = input.checked ? input.value : ''; writeURL(); render(); }));
     document.querySelector('[data-sort]')?.addEventListener('change', event => { state.sort = event.target.value; writeURL(); render(); });
     document.querySelector('[data-clear-filters]')?.addEventListener('click', () => { Object.keys(state).forEach(key => { state[key] = key === 'sort' ? 'featured' : ''; }); writeURL(); render(); });

@@ -6,7 +6,7 @@
       compareAtPrice: null, badge: 'NEW', subtitle: 'Oversized Heavy Cotton Tee', stock: 18,
       description: 'Remera de algodón pesado con fit relajado y gráfica Dopamine. Diseñada para moverte sin perder estructura.',
       details: '100% algodón premium de 260 GSM. Fit oversized, cuello reforzado y estampa de alta densidad.',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }],
+      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       images: [
         'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=84',
@@ -18,7 +18,7 @@
       compareAtPrice: 140000, badge: 'BEST SELLER', subtitle: 'Heavyweight Fleece Pullover', stock: 7,
       description: 'Hoodie premium de algodón pesado con interior afelpado y una silueta limpia para todos los días.',
       details: 'Algodón french terry de 450 GSM. Capucha doble, bolsillo frontal y terminaciones de rib premium.',
-      colors: [{ id: 'cement', name: 'Cement Gray', hex: '#8A8A8A' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }],
+      colors: [{ id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'cement', name: 'Cement Gray', hex: '#8A8A8A' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
         'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=84',
@@ -30,7 +30,7 @@
       compareAtPrice: null, badge: 'NEW', subtitle: 'Relaxed Fit Cargo Pant', stock: 12,
       description: 'Pantalón cargo de silueta amplia con detalles utilitarios y construcción pensada para el movimiento.',
       details: 'Gabardina de algodón con bolsillos cargo, cintura ajustable y fit relajado.',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }],
+      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }, { id: 'olive', name: 'Olive', hex: '#3B4A3F' }],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
         'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=84',
@@ -42,7 +42,7 @@
       compareAtPrice: null, badge: 'LIMITED', subtitle: 'Structured 6-Panel Cap', stock: 4,
       description: 'Gorra estructurada con logo Dopamine bordado y ajuste trasero metálico.',
       details: 'Gabardina de algodón, visera curva y bordado frontal de alta definición.',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
+      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'white', name: 'White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
       sizes: ['ONE SIZE'],
       images: [
         'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=84',
@@ -54,7 +54,7 @@
       compareAtPrice: null, badge: 'DROP 01', subtitle: 'Boxy Graphic Tee', stock: 9,
       description: 'Remera gráfica de fit boxy con composición inspirada en la ciudad después de medianoche.',
       details: 'Algodón pesado, estampa frontal y trasera, fit boxy unisex.',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }],
+      colors: [{ id: 'rose', name: 'Rose', hex: '#C47A85' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       images: [
         'https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=1000&q=84',
@@ -66,7 +66,7 @@
       compareAtPrice: 160000, badge: 'LIMITED', subtitle: 'Technical Overshirt', stock: 3,
       description: 'Overshirt técnica de corte amplio para sumar una capa con presencia.',
       details: 'Nylon liviano, bolsillos utilitarios y cierres metálicos.',
-      colors: [{ id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }],
+      colors: [{ id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }, { id: 'olive', name: 'Olive', hex: '#3B4A3F' }],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
         'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=84',
@@ -78,7 +78,7 @@
       compareAtPrice: null, badge: 'CORE', subtitle: 'Utility Nylon Short', stock: 14,
       description: 'Short utilitario de nylon con caída liviana y bolsillos laterales.',
       details: 'Nylon ripstop, cintura elástica y cordón ajustable.',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
+      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
         'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=84',
@@ -90,7 +90,7 @@
       compareAtPrice: null, badge: 'CORE', subtitle: 'Ribbed Logo Socks', stock: 28,
       description: 'Medias de algodón con logo tejido y construcción reforzada.',
       details: 'Pack de una unidad. Algodón peinado y puño acanalado.',
-      colors: [{ id: 'white', name: 'White', hex: '#F5F4EF' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }],
+      colors: [{ id: 'white', name: 'White', hex: '#F5F4EF' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }],
       sizes: ['ONE SIZE'],
       images: [
         'https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=1000&q=84',

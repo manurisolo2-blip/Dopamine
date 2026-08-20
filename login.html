@@ -23,8 +23,8 @@
     }
 
     .auth-section {
-      min-height: calc(100vh - 72px);
-      padding-top: calc(72px + 2.5rem);
+      min-height: calc(100vh - 96px);
+      padding-top: calc(96px + 2.5rem);
       padding-bottom: 4rem;
       display: flex;
       align-items: center;
@@ -383,44 +383,68 @@
 </head>
 <body class="shop-page">
 
-  <!-- HEADER -->
+  <!-- ===== HEADER (ROTTEN FUTURE FLOATING GLASS CAPSULE) ===== -->
   <header class="site-header" id="site-header">
-    <div class="container header-container">
-      <!-- Left Column: Brand Logo -->
-      <a href="index.html" class="brand-logo header-logo-left" aria-label="Dopamine Inicio">
-        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
-        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
-        <span class="brand-logotype">DOPAMINE</span>
-      </a>
+    <div class="header-capsule">
+      <!-- 1. Header Micro-Marquee (Continuous Top Ticker) -->
+      <div class="header-micro-marquee" aria-label="Anuncios Dopamine">
+        <div class="header-micro-marquee-track">
+          <div class="header-micro-marquee-content">
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+          </div>
+          <div class="header-micro-marquee-content" aria-hidden="true">
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Center Column: Navigation (Middle) -->
-      <nav class="desktop-nav header-nav-center" aria-label="Main navigation">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="tienda.html" class="nav-link">DROPS</a></li>
-          <li class="nav-item"><a href="index.html#brand-story" class="nav-link">ABOUT US</a></li>
-          <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACT</a></li>
-        </ul>
-      </nav>
+      <!-- 2. Main Navigation Bar (SHOP | BUNKER [LOGO] LOYALTY | ACTIONS) -->
+      <div class="header-main-nav">
+        <!-- Left: Quick Links & Mobile Toggle -->
+        <div class="header-nav-left">
+          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" id="menu-toggle" data-menu-open>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
+          </button>
+          <a href="tienda.html" class="nav-item-link ui-label">SHOP</a>
+        </div>
 
-      <!-- Right Column: Action Icons -->
-      <div class="header-actions header-actions-right">
-        <button class="action-btn search-trigger" aria-label="Open search" id="search-toggle" data-search-open>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-        <a href="login.html" class="action-btn account-link" aria-label="User profile">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </a>
-        <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
-          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="action-btn cart-trigger" aria-label="Shopping cart" id="cart-toggle" data-cart-open>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-count" data-cart-count>0</span>
-        </button>
-        <button class="action-btn mobile-menu-toggle" aria-label="Open menu" id="menu-toggle" data-menu-open>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
+        <!-- Center: DROPS - ISOTIPO - CONTACTO -->
+        <div class="header-nav-center">
+          <a href="tienda.html?category=new-drop" class="header-center-link ui-label">DROPS</a>
+          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio">
+            <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+          </a>
+          <a href="contacto.html" class="header-center-link ui-label">CONTACTO</a>
+        </div>
+
+        <!-- Right: Actions (Search, Account, Theme, Cart) -->
+        <div class="header-nav-right">
+          <button class="action-btn search-trigger" aria-label="Buscar" id="search-toggle" data-search-open>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          </button>
+          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
+          </a>
+          <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" id="cart-toggle" data-cart-open>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -615,10 +639,15 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER — MONUMENTAL ROTTEN FUTURE FOOTER -->
   <footer class="site-footer" id="footer">
     <div class="container footer-container">
-      <div class="footer-main-grid">
+      <!-- Monumental Brand Title -->
+      <div style="text-align: center; padding: 2rem 0 2.5rem; overflow: hidden; border-bottom: 1px solid var(--border-subtle);">
+        <span class="footer-brand-monumental" style="font-family: var(--ff-heading); font-size: clamp(3.5rem, 14vw, 10rem); letter-spacing: 0.16em; line-height: 0.85; display: inline-block; text-transform: uppercase;">DOPAMINE</span>
+      </div>
+
+      <div class="footer-main-grid" style="padding-top: 2.5rem;">
         <div class="footer-brand-col">
           <a href="index.html" class="brand-logo footer-logo" aria-label="Dopamine Inicio">
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
@@ -750,10 +779,16 @@
       <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
     </div>
     <nav class="mobile-menu-nav">
-      <a href="tienda.html">DROPS</a>
+      <a href="tienda.html">SHOP ALL</a>
+      <a href="tienda.html?category=tops">REMERAS</a>
+      <a href="tienda.html?category=hoodies">BUZOS</a>
+      <a href="tienda.html?category=bottoms">PANTALONES</a>
+      <a href="tienda.html?category=accessories">ACCESORIOS</a>
+      <a href="tienda.html?category=new-drop">NEW DROP</a>
+      <a href="tienda.html?category=sale">SALE</a>
       <a href="index.html#brand-story">ABOUT US</a>
       <a href="contacto.html">CONTACT</a>
-      <a href="login.html">MI CUENTA</a>
+      <a href="login.html">CLUB / MI CUENTA</a>
     </nav>
   </aside>
 

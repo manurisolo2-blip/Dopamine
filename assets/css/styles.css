@@ -64,6 +64,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 body {
@@ -73,7 +74,7 @@ body {
   line-height: var(--lh-body);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
@@ -135,18 +136,33 @@ select {
    ============================================================ */
 
 :root {
-  /* ---- Brand Color Palette ---- */
+  /* ---- Brand Color Palette (Rotten-Future Brutalist / High-End Streetwear) ---- */
+  --color-paper-0:    #FFFFFF;
+  --color-paper-100:  #F5F5F4;
+  --color-paper-200:  #ECECEA;
+  --color-ink-950:    #111111;
+  --color-ink-600:    #4B4B4B;
+  --color-ink-400:    #6B6965;
+  --color-ember-500:  #BF4D26;
+  --color-bg:         #EAEAEA;
+  --color-bg-2:       #EAEAEA;
+  --color-bg-3:       var(--color-paper-200);
+  --color-line:       #E2E2E0;
+  --color-fg:         var(--color-ink-950);
+  --color-fg-soft:    var(--color-ink-600);
+  --color-muted:      var(--color-ink-400);
+  --color-accent:     var(--color-ember-500);
+
   --color-carbon:     #0E0E0E; /* Soft matte black background */
   --color-warm-white: #F8F7F4;
   --color-cement:     #888888; /* Sophisticated medium gray secondary */
   --color-navy:       #0A1628;
-  --color-accent:     #0EA5E9;
-  --color-accent-dim: #0284C7;
+  --color-accent-dim: #9E3E1D;
 
   /* ---- Core Typography Architecture (Display: Bebas Neue, Technical/Nav: JetBrains Mono, Body/Small: Montserrat) ---- */
   --ff-heading: 'Bebas Neue', 'Space Grotesk', sans-serif;
   --ff-body:    'Montserrat', sans-serif, Arial, Helvetica;
-  --ff-sans:    'Montserrat', sans-serif, Arial, Helvetica;
+  --ff-sans:    'Space Grotesk', 'Montserrat', sans-serif, Arial, Helvetica;
   --ff-mono:    'JetBrains Mono', 'SF Mono', monospace;
 
   /* ---- WCAG 2.2 & Fluid Typography Math with clamp() ---- */
@@ -160,13 +176,13 @@ select {
   --fs-3xl:    clamp(2.75rem, 3vw + 2rem, 4rem);
   --fs-hero:   clamp(3.5rem, 7vw + 1rem, 7.5rem);
 
-  /* ---- WCAG Compliant Weights (400-700 strictly, 100-300 restricted) ---- */
+  /* ---- WCAG Compliant Weights ---- */
   --fw-regular:  400;
   --fw-medium:   500;
   --fw-semibold: 600;
   --fw-bold:     700;
 
-  /* ---- Line Heights & Dyslexia Spacing ---- */
+  /* ---- Line Heights & Tracking ---- */
   --lh-body:    1.55;
   --lh-heading: 1.02;
   --ls-dyslexic-critical: 0.12em;
@@ -177,7 +193,18 @@ select {
   --ls-wider:   0.12em;
   --ls-widest:  0.2em;
 
-  /* ---- Generous Streetwear Spacing Tokens (80px to 100px section breathing room) ---- */
+  /* ---- Rotten-Future Specialized Radii ---- */
+  --radius-control: 9999px;   /* Full pill rounded buttons and controls */
+  --radius-media:   0.625rem; /* 10px subtle refined corner */
+  --radius-card:    0.75rem;  /* 12px card outer radius */
+  --radius-panel:   1rem;     /* 16px floating glass capsule panels */
+  --radius-full:    9999px;
+  --radius-sm:      0.375rem;
+  --radius-md:      0.5rem;
+
+  /* ---- Generous Streetwear Spacing Tokens ---- */
+  --spacing-gutter: clamp(1rem, 2.5vw, 2rem);
+  --spacing-grid:   0.75rem;
   --space-2xs:  0.25rem;
   --space-xs:   0.5rem;
   --space-sm:   0.75rem;
@@ -192,20 +219,26 @@ select {
   /* ---- Layout Tokens ---- */
   --max-width:  1800px;
   --gutter:     clamp(1rem, 2.2vw, 2.5rem);
-  --radius-sm:  0px;
-  --radius-md:  2px;
 
-  /* ---- Transitions ---- */
-  --transition-fast:    180ms ease;
-  --transition-base:    280ms ease;
-  --transition-smooth:  350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-drawer:  400ms cubic-bezier(0.16, 1, 0.3, 1);
+  /* ---- Rotten Future Easing & Transitions ---- */
+  --ease-out-quart:     cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast:    150ms var(--ease-out-quart);
+  --transition-base:    250ms var(--ease-out-quart);
+  --transition-smooth:  400ms var(--ease-out-quart);
+  --transition-drawer:  450ms var(--ease-out-quart);
   --transition-theme:   500ms ease;
+
+  /* ---- Shadows & Elevation ---- */
+  --shadow-card:       0 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.16);
+  --shadow-panel:      0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-sheet:      0 -6px 22px -4px rgba(0, 0, 0, 0.22), 0 6px 22px -4px rgba(0, 0, 0, 0.22);
+  --shadow-pill:       0 8px 24px rgba(0, 0, 0, 0.14);
 
   /* ---- Z-Index Topology ---- */
   --z-canvas-base:  -2;
   --z-structural:   1;
-  --z-header:       10;
+  --z-header:       50;
   --z-atmospheric:  20;
   --z-overlay:      200;
   --z-drawer:       300;
@@ -236,23 +269,21 @@ select {
   object-fit: cover;
 }
 
-/* 2. Capa Estructural (z-index: 1 a 10) */
-main,
-.hero-video-section,
-.hero-section,
+/* 2. Capa Estructural */
+main {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
 .marquee-strip,
 .categories-section,
 .featured-section,
 .banner-section,
 .brand-story-section,
-.benefits-section,
-.site-footer {
+.benefits-section {
   position: relative;
-  z-index: 1;
-}
-
-.site-header {
-  z-index: 10;
+  z-index: 2;
 }
 
 .scroll-space {
@@ -264,48 +295,54 @@ main,
 }
 
 
-/* ---- Light Theme (Default - Clean Minimalist High-Contrast) ---- */
+/* ---- Light Theme (Rotten Future Signature Concrete/Warm Minimalist) ---- */
 [data-theme="light"] {
-  --bg-primary:     #FFFFFF;
-  --bg-secondary:   #F8F9FA;
+  --bg-primary:     #EAEAEA;
+  --bg-secondary:   #ECECEA;
   --bg-surface:     #FFFFFF;
   --bg-elevated:    #FFFFFF;
 
-  --text-primary:   #0E0E0E;
-  --text-secondary: #666666;
-  --text-muted:     #888888;
+  --text-primary:   #111111;
+  --text-secondary: #4B4B4B;
+  --text-muted:     #6B6965;
 
   --accent:         var(--color-accent);
   --accent-hover:   var(--color-accent-dim);
 
-  --border-color:   rgba(14, 14, 14, 0.08); /* Ultra-fine border */
-  --border-subtle:  rgba(14, 14, 14, 0.05);
+  --border-color:   rgba(0, 0, 0, 0.08); /* Ultra-fine border */
+  --border-subtle:  rgba(0, 0, 0, 0.05);
 
-  --header-bg:      rgba(255, 255, 255, 0.94);
+  --header-bg:      rgba(234, 234, 234, 0.85);
   --card-bg:        #FFFFFF;
-  --swatch-border:  rgba(14, 14, 14, 0.15);
+  --card-border:    rgba(0, 0, 0, 0.06);
+  --swatch-border:  rgba(17, 17, 17, 0.25);
+  --glass-bg:       rgba(255, 255, 255, 0.75);
+  --glass-border:   rgba(0, 0, 0, 0.06);
 }
 
-/* ---- Dark Theme (Matte Soft Black #0E0E0E) ---- */
+/* ---- Dark Theme (Deep Matte Obsidian/Carbon) ---- */
 [data-theme="dark"] {
-  --bg-primary:     #0E0E0E;
-  --bg-secondary:   #141416;
-  --bg-surface:     #141416;
-  --bg-elevated:    #18181A;
+  --bg-primary:     #0A0A0C;
+  --bg-secondary:   #111114;
+  --bg-surface:     #141418;
+  --bg-elevated:    #18181E;
 
-  --text-primary:   #F8F7F4;
-  --text-secondary: #888888; /* Sophisticated medium gray secondary */
-  --text-muted:     #888888;
+  --text-primary:   #F5F5F4;
+  --text-secondary: #A1A1AA;
+  --text-muted:     #71717A;
 
   --accent:         var(--color-accent);
   --accent-hover:   var(--color-accent-dim);
 
-  --border-color:   rgba(255, 255, 255, 0.1); /* Ultra-fine 1px border */
-  --border-subtle:  rgba(255, 255, 255, 0.05);
+  --border-color:   rgba(255, 255, 255, 0.08); /* Ultra-fine 1px border */
+  --border-subtle:  rgba(255, 255, 255, 0.04);
 
-  --header-bg:      rgba(14, 14, 14, 0.94);
-  --card-bg:        #141416;
-  --swatch-border:  rgba(255, 255, 255, 0.15);
+  --header-bg:      rgba(10, 10, 12, 0.85);
+  --card-bg:        #141418;
+  --card-border:    rgba(255, 255, 255, 0.07);
+  --swatch-border:  rgba(255, 255, 255, 0.2);
+  --glass-bg:       rgba(18, 18, 22, 0.78);
+  --glass-border:   rgba(255, 255, 255, 0.08);
 }
 
 
@@ -415,117 +452,549 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   5. HEADER & NAVIGATION — ULTRA-HIGH CONTRAST DARK TECHNICAL
+   4B. ROTTEN-FUTURE BRUTALIST & GLASS UTILITIES
    ============================================================ */
 
-/* Monospace Nav Font */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2') format('woff2');
+/* UI Label: Refined Technical Micro-Typography */
+.ui-label {
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6875rem; /* 11px */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1;
 }
+
+.ui-label-xs {
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-size: 0.625rem; /* 10px */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Rounded Token Utilities */
+.rounded-control {
+  border-radius: var(--radius-control) !important;
+}
+
+.rounded-media {
+  border-radius: var(--radius-media) !important;
+}
+
+.rounded-card {
+  border-radius: var(--radius-card) !important;
+}
+
+.rounded-panel {
+  border-radius: var(--radius-panel) !important;
+}
+
+/* Glassmorphism Styles */
+.glass-menu {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.75));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border, rgba(0, 0, 0, 0.06));
+  box-shadow: var(--shadow-panel);
+}
+
+.glass-card {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.8));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border, rgba(0, 0, 0, 0.06));
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(191, 77, 38, 0.35);
+}
+
+.glass-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border-radius: var(--radius-control);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--ff-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.glass-button:active {
+  transform: scale(0.98);
+}
+
+/* Floating Quick Add Pill on Product Cards */
+.quick-add-pill {
+  position: absolute;
+  inset-inline: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-pill);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+[data-theme="dark"] .quick-add-pill {
+  background: rgba(18, 18, 22, 0.92);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.product-card:hover .quick-add-pill,
+.product-card:focus-within .quick-add-pill {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.quick-add-pill-label {
+  font-family: var(--ff-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.quick-add-size-btn {
+  font-family: var(--ff-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  color: var(--text-primary);
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.quick-add-size-btn:hover {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+/* Category Pill Navigation */
+.category-pill-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.15rem 0.25rem;
+}
+
+.category-pill-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.95rem;
+  font-family: var(--ff-mono);
+  font-size: 0.625rem; /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 9999px; /* Apple Liquid Pill */
+  border: 1px solid rgba(125, 125, 125, 0.12);
+  color: var(--text-secondary);
+  background: rgba(125, 125, 125, 0.05);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.category-pill:hover {
+  color: var(--text-primary);
+  background: rgba(125, 125, 125, 0.12);
+  border-color: rgba(125, 125, 125, 0.25);
+  transform: translateY(-1px);
+}
+
+.category-pill.active,
+.category-pill.is-active {
+  color: var(--bg-primary);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  font-weight: 700;
+}
+
+/* Micro-Marquee Top Ticker */
+.header-micro-marquee {
+  overflow: hidden;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  background: transparent;
+}
+
+.header-micro-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.header-micro-marquee-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: var(--ff-mono);
+  font-size: 0.625rem; /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Hero Sheet Overlap Container */
+.hero-sheet-cover {
+  position: relative;
+  z-index: 20;
+  margin-top: -2rem;
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+  background-color: var(--bg-primary);
+  box-shadow: var(--shadow-sheet);
+  transition: background-color var(--transition-theme);
+}
+
+/* Monumental Brutalist Brand Banner */
+.glitch-container,
+.footer-monumental-banner {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 0 2rem;
+  user-select: none;
+}
+
+.glitch,
+.footer-brand-monumental {
+  font-family: var(--ff-heading);
+  font-size: clamp(3.5rem, 12vw, 14rem);
+  line-height: 0.85;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  margin: 0 auto;
+  color: var(--text-primary);
+  display: inline-block;
+  user-select: none;
+}
+
+.glitch::before,
+.glitch::after {
+  display: none !important;
+}
+
+
+/* ============================================================
+   5. HEADER & NAVIGATION — ROTTEN FUTURE FLOATING CAPSULE
+   ============================================================ */
 
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-header);
-  /* Dark glassmorphism — forced dark regardless of theme */
-  background-color: rgba(6, 6, 8, 0.88);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  height: 72px;
-  color: #F8F7F4;
-  transition: background-color 350ms ease, border-color 350ms ease;
+  z-index: var(--z-header, 50);
+  padding: 0.65rem 0.85rem 0;
+  pointer-events: none;
+  transition: transform var(--transition-smooth);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-/* Override light theme — header stays dark always */
-[data-theme="light"] .site-header {
-  background-color: rgba(6, 6, 8, 0.92);
-  color: #F8F7F4;
-  border-bottom-color: rgba(255, 255, 255, 0.06);
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0.4rem 0.5rem 0;
+  }
 }
 
-/* Subtle header elevation on scroll (JS adds .is-scrolled) */
-.site-header.is-scrolled {
-  background-color: rgba(6, 6, 8, 0.96);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+.header-capsule {
+  pointer-events: auto;
+  width: 100%;
+  max-width: calc(100vw - 1.7rem);
+  margin: 0 auto;
+  border-radius: 9999px; /* Iconic Apple Liquid Glass Stadium Pill */
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background 350ms cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 350ms cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 350ms cubic-bezier(0.25, 1, 0.5, 1),
+              backdrop-filter 350ms cubic-bezier(0.25, 1, 0.5, 1),
+              -webkit-backdrop-filter 350ms cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* Initial Top State: 100% transparent & adapted seamlessly to the background image/video */
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-/* 3-Column Layout: Logo Left | Nav Center | Actions Right */
-.header-container {
+@media (max-width: 768px) {
+  .header-capsule {
+    border-radius: 9999px;
+    max-width: calc(100vw - 1rem);
+  }
+}
+
+/* Liquid Glass Mode: Activates ONLY when the rising background curtain reaches and covers the header */
+.site-header.is-scrolled .header-capsule,
+.site-header.has-glass .header-capsule {
+  border-radius: 9999px;
+  backdrop-filter: blur(28px) saturate(190%) brightness(105%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(105%);
+  
+  /* Light Theme Apple Liquid Glass */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, rgba(238, 238, 244, 0.45) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .site-header.is-scrolled .header-capsule,
+[data-theme="dark"] .site-header.has-glass .header-capsule {
+  /* Dark Theme Apple Liquid Glass */
+  background: linear-gradient(180deg, rgba(14, 16, 20, 0.48) 0%, rgba(6, 7, 10, 0.38) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 1. Header Micro-Marquee (Continuous Top Ticker) */
+.header-micro-marquee {
+  overflow: hidden;
+  padding: 0.28rem 2.25rem 0.15rem;
+  border-bottom: none;
+  background: transparent;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.header-micro-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: header-marquee 30s linear infinite;
+  gap: 2.75rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.header-micro-marquee-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 2.75rem;
+  padding-right: 2.75rem;
+  font-family: var(--ff-mono);
+  font-size: 0.625rem; /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  user-select: none;
+}
+
+/* 2. Header Main Navigation Row */
+.header-main-nav {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  height: 100%;
-  padding-block: 10px;
-  gap: var(--space-xl);
+  padding: 0.35rem 2.25rem;
+  border-bottom: none;
+  position: relative;
+  min-height: 48px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-/* Left Column: Brand Logo */
-.brand-logo,
-.brand-logo.header-logo-left {
-  justify-self: start;
+@media (max-width: 768px) {
+  .header-main-nav {
+    padding: 0.35rem 1rem;
+    min-height: 46px;
+  }
+}
+
+.header-nav-left {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  justify-self: start;
+}
+
+.header-nav-left .nav-item-link,
+.header-nav-left a,
+.header-nav-left button {
+  font-family: var(--ff-mono);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast), text-shadow var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+}
+
+.header-nav-left .nav-item-link:hover,
+.header-nav-left a:hover {
+  opacity: 1;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.45);
+}
+
+/* Center Group: DROPS - ISOTIPO - CONTACTO */
+.header-nav-center {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   text-decoration: none;
 }
 
-.brand-logo:hover {
-  opacity: 1;
+.header-center-link {
+  font-family: var(--ff-mono);
+  font-size: 0.875rem; /* 14px — larger & prominent */
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  opacity: 0.8;
+  text-decoration: none;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  transition: opacity var(--transition-fast), text-shadow var(--transition-fast);
 }
 
-.brand-isotipo {
-  height: 34px;
+.header-center-link:hover {
+  opacity: 1;
+  color: var(--text-primary);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
+}
+
+.header-center-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+  padding: 0 0.25rem;
+}
+
+.header-center-logo:hover {
+  transform: scale(1.1);
+}
+
+.header-center-logo .brand-isotipo {
+  height: 28px;
   width: auto;
   transition: opacity var(--transition-fast), filter var(--transition-fast);
-  filter: brightness(1.1);
 }
 
-.brand-logo:hover .brand-isotipo {
-  filter: brightness(1.3);
+/* Right Actions Group */
+.header-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: end;
 }
+
+.header-nav-right .action-btn,
+.header-nav-right .account-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  color: var(--text-primary);
+  opacity: 0.85;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.header-nav-right .action-btn:hover,
+.header-nav-right .account-link-btn:hover {
+  opacity: 1;
+  background-color: transparent;
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+}
+
+
 
 /* Theme-aware isotipo toggle */
 [data-theme="light"] .logo-dark,
 [data-theme="dark"] .logo-light { display: none; }
 [data-theme="light"] .logo-light,
 [data-theme="dark"] .logo-dark { display: inline-block; }
-
-/* Force inverted (light) logo always since header is always dark */
-.site-header .logo-light { display: none !important; }
-.site-header .logo-dark { display: inline-block !important; }
-
-.brand-logotype {
-  font-family: var(--ff-heading);
-  font-weight: 400;
-  font-size: 1.75rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  line-height: 1;
-  color: #F8F7F4;
-  transition: color var(--transition-fast);
-}
-
-/* Center Column: Desktop Navigation (Centered in Middle) */
-.header-nav-center {
-  justify-self: center;
-}
-
-.desktop-nav {
-  display: none; /* Shown at min-width: 768px */
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
 
 .nav-link {
   font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
@@ -659,38 +1128,44 @@ h1, h2, h3, h4, h5, h6 {
 
 .account-link { display: none; }
 
-/* Force header text colors in light mode (header always dark) */
-[data-theme="light"] .site-header .brand-logotype,
-[data-theme="light"] .site-header .nav-link {
-  color: rgba(248, 247, 244, 0.75);
-}
-[data-theme="light"] .site-header .nav-link:hover,
-[data-theme="light"] .site-header .nav-link.active {
-  color: #FFFFFF;
-}
-[data-theme="light"] .site-header .action-btn {
-  color: rgba(248, 247, 244, 0.7);
-}
-[data-theme="light"] .site-header .action-btn:hover {
-  color: #FFFFFF;
-}
-
 
 
 /* ============================================================
-   6. HERO SECTION — Cinematic Dark Technical
+   6. HERO SECTION & PARALLAX CURTAIN OVERLAP
    ============================================================ */
 
 .hero-section,
 .hero-video-section {
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
-  padding-top: 64px; /* header height */
+  padding-top: 96px; /* compact header floating capsule height */
   overflow: hidden;
   background: #000;
+  will-change: transform;
+}
+
+/* ROTTEN FUTURE SHEET COVER OVERLAY (CURTAIN RISING OVER HERO) */
+.hero-sheet-cover {
+  position: relative;
+  z-index: 5;
+  background-color: var(--bg-primary, #0A0A0C);
+  box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color var(--transition-theme);
+}
+
+[data-theme="light"] .hero-sheet-cover {
+  background-color: var(--bg-primary, #EAEAEA);
+  box-shadow: 0 -20px 45px -10px rgba(0, 0, 0, 0.18);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Static fallback image — visible instantly before video loads */
@@ -772,22 +1247,35 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.hero-cta {
-  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
-  font-size: var(--fs-xs);
+.hero-cta,
+.hero-text-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--ff-mono);
+  font-size: 0.8125rem; /* 13px */
   font-weight: 700;
-  letter-spacing: var(--ls-wider);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #FFFFFF;
-  border-bottom: 1px solid var(--color-accent);
-  padding-bottom: 6px;
+  text-decoration: none;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0.4rem 0;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 0 !important;
   transition: all var(--transition-fast);
 }
 
-.hero-cta:hover {
-  opacity: 1;
-  color: var(--color-accent);
-  padding-bottom: 10px;
+.hero-cta:hover,
+.hero-text-cta:hover {
+  color: #FFFFFF;
+  border-bottom-color: #FFFFFF !important;
+  letter-spacing: 0.2em;
+  transform: translateX(4px);
 }
 
 
@@ -799,10 +1287,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   overflow: hidden;
   user-select: none;
-  background-color: #060608;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   padding-block: 0.875rem;
+  transition: background-color var(--transition-theme), border-color var(--transition-theme);
 }
 
 .marquee-track {
@@ -823,7 +1312,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-secondary);
 }
 
 .marquee-content b,
@@ -842,6 +1331,12 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================
    8. CATEGORIES SECTION
    ============================================================ */
+
+.categories-section {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-theme), color var(--transition-theme);
+}
 
 .categories-grid {
   display: grid;
@@ -894,29 +1389,30 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   9. FEATURED PRODUCTS — Futuristic Dark Technical Grid
+   9. FEATURED PRODUCTS — Uniform Theme Technical Grid
    ============================================================ */
 
-/* Force pure black background for the entire section */
 .featured-products-section {
-  background-color: #000000;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   position: relative;
   z-index: 1;
+  transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
-/* Override section title for dark context */
 .featured-products-section .section-title {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-secondary);
   font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.6875rem;
   letter-spacing: var(--ls-widest);
 }
 
 .featured-products-section .view-all-link {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-secondary);
   font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.6875rem;
-  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid var(--border-color);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .featured-products-section .view-all-link:hover {
@@ -935,22 +1431,29 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: flex;
   flex-direction: column;
+  background: var(--card-bg, #0A0A0C);
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-card, 0.75rem);
+  padding: 0.5rem 0.5rem 0.85rem;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
 }
 
 .product-media-wrapper {
   position: relative;
   display: block;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
-  background: #0A0A0C;
-  margin-bottom: var(--space-lg);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: border-color 300ms ease, box-shadow 300ms ease;
+  aspect-ratio: 4 / 5; /* Grand 4:5 Streetwear editorial ratio */
+  background: var(--bg-secondary);
+  border-radius: var(--radius-media, 0.625rem); /* 10px subtle refined corner */
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card, 0 4px 20px rgba(0, 0, 0, 0.1));
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
 }
 
 .product-card:hover .product-media-wrapper {
-  border-color: rgba(14, 165, 233, 0.2);
-  box-shadow: 0 8px 32px rgba(14, 165, 233, 0.08);
+  border-color: var(--text-muted);
+  box-shadow: var(--shadow-card-hover, 0 12px 36px rgba(0, 0, 0, 0.18));
 }
 
 .product-image {
@@ -965,64 +1468,109 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-info {
-  padding: 0;
+  padding: 0.25rem 0.4rem 0.2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
 }
 
-/* ---- Circular Blue Release Badge (Asset Tag) ---- */
-.product-release-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: var(--color-accent);
-  padding: 4px 10px;
-  border-radius: 0;
-  margin-bottom: 10px;
-  line-height: 1;
-  box-shadow: none;
-  white-space: nowrap;
+/* ---- Release Badges (Hidden) ---- */
+.product-release-badge,
+.shop-product-badge,
+.badge-release,
+.card-badge {
+  display: none !important;
 }
 
 .product-name {
-  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--ff-heading, 'Bebas Neue', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  line-height: 1.3;
-  color: #FFFFFF;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
 }
 
 .product-name a {
-  color: #FFFFFF;
+  color: inherit;
+  text-decoration: none;
 }
 
-.product-subtitle {
-  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.06em;
-  margin-top: 3px;
-  text-transform: uppercase;
+.product-subtitle,
+.card-subtitle {
+  display: none !important;
 }
 
-.product-price {
-  font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-top: var(--space-sm);
-  letter-spacing: 0.04em;
-  color: #FFFFFF;
+.product-price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.1rem;
+  width: 100%;
+}
+
+.product-price-list,
+.price-old {
+  font-family: var(--ff-body, 'Montserrat', sans-serif);
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.product-price-transfer {
+  font-family: var(--ff-body, 'Montserrat', sans-serif);
+  font-size: 0.725rem; /* 11.5px */
+  font-weight: 600;
+  color: var(--color-accent, #BF4D26);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.product-swatches,
+.shop-swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.product-swatch-dot,
+.shop-swatch {
+  width: 9px;
+  height: 9px;
+  min-width: 9px;
+  min-height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 150ms ease, outline-color 150ms ease;
+  cursor: pointer;
+}
+
+.product-swatch-dot.is-active,
+.shop-swatch.is-active,
+.product-swatch-dot:hover,
+.shop-swatch:hover {
+  outline: 1.5px solid var(--text-primary);
+  outline-offset: 1.5px;
+  transform: scale(1.1);
+}
+
+[data-theme="light"] .product-swatch-dot,
+[data-theme="light"] .shop-swatch {
+  border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+.product-installments,
+.product-price-installments {
+  display: none !important;
 }
 
 
@@ -1109,9 +1657,10 @@ h1, h2, h3, h4, h5, h6 {
 .collection-banner {
   padding-block: var(--space-5xl);
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: #060608;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  transition: background-color var(--transition-theme), border-color var(--transition-theme);
 }
 
 .banner-eyebrow {
@@ -1129,14 +1678,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.05;
   letter-spacing: 0.06em;
   margin-bottom: var(--space-lg);
-  color: #FFFFFF;
+  color: var(--text-primary);
   text-transform: uppercase;
 }
 
 .banner-text {
   font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   max-width: 580px;
   margin-inline: auto;
   margin-bottom: var(--space-2xl);
@@ -1149,7 +1698,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--text-primary);
   border-bottom: 1px solid var(--color-accent);
   padding-bottom: 6px;
   transition: all var(--transition-fast);
@@ -1165,6 +1714,12 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================
    11. BRAND STORY SECTION
    ============================================================ */
+
+.brand-story-section {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-theme), color var(--transition-theme);
+}
 
 .brand-story-container {
   display: grid;
@@ -1196,6 +1751,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: var(--fs-3xl);
   letter-spacing: var(--ls-tight);
   margin-bottom: var(--space-xs);
+  color: var(--text-primary);
 }
 
 .stat-label {
@@ -1218,8 +1774,10 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 
 .benefits-bar {
+  background-color: var(--bg-secondary);
   padding-block: var(--space-2xl);
   border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition-theme), border-color var(--transition-theme);
 }
 
 .benefits-container {
@@ -1242,25 +1800,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .benefit-item svg {
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 
 /* ============================================================
-   13. FOOTER — COMPACT TECHNICAL NAVY FOOTER
+   13. FOOTER — UNIFORM MONUMENTAL FOOTER
    ============================================================ */
 
 .site-footer {
-  background-color: #0A1628 !important;
-  color: rgba(255, 255, 255, 0.85);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   position: relative;
-  z-index: 5;
+  z-index: 10;
   padding-block: 4rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-color);
+  transition: background-color var(--transition-theme), color var(--transition-theme), border-color var(--transition-theme);
+}
+
+/* Opaque backdrop to block canvas/hero bleed-through */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-primary);
+  z-index: -1;
 }
 
 .site-footer::after {
   display: none !important;
+}
+
+.footer-brand-monumental {
+  color: var(--text-primary);
+  opacity: 0.12;
 }
 
 .footer-main-grid {
@@ -1268,7 +1841,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .footer-brand-col {
@@ -1280,7 +1853,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer-brand-desc {
   font-family: var(--ff-body);
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 320px;
 }
@@ -1294,7 +1867,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.35rem;
   transition: border-color 180ms ease;
 }
@@ -1309,19 +1882,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: #FFFFFF;
+  color: var(--text-primary);
   background: none;
   border: none;
   outline: none;
 }
 
 .footer-input-wrap input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted);
   letter-spacing: 0.04em;
 }
 
 .footer-input-wrap button {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   background: none;
   border: none;
   cursor: pointer;
@@ -1341,7 +1914,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -1372,7 +1945,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: color 180ms ease, opacity 180ms ease;
@@ -1396,14 +1969,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 32px;
   height: 32px;
   padding: 0;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-secondary);
   border: none;
   background: transparent;
   transition: color 140ms ease;
 }
 
 .footer-social-icons .social-icon-btn:hover {
-  color: #FFFFFF;
+  color: var(--text-primary);
   border: none;
   background: transparent;
 }
@@ -1421,7 +1994,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
   font-size: 0.6875rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -2268,7 +2841,7 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Mobile Header & Brand Bar */
   .site-header {
-    height: 64px;
+    height: auto;
   }
 
   .header-container {
@@ -2297,18 +2870,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .action-btn {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
     padding: 0;
   }
 
   /* Hero Section on Mobile */
   .hero-section,
   .hero-video-section {
-    min-height: calc(100vh - 64px);
-    padding-top: 64px;
+    min-height: 100vh;
+    padding-top: 96px;
   }
 
   .hero-content {
@@ -2771,38 +3344,4 @@ h1, h2, h3, h4, h5, h6 {
 
 .profile-btn-danger:hover {
   background: rgba(239, 68, 68, 0.1);
-}
-
-/* ==========================================================================
-   SHARP 0PX CORNER STREETWEAR ARCHITECTURE (ZERO BORDER-RADIUS RESET)
-   ========================================================================== */
-*,
-*::before,
-*::after {
-  border-radius: 0 !important;
-}
-
-.user-verified-badge,
-.user-verified-badge svg {
-  border-radius: 50% !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* ==========================================================================
-   FLAT PURE STREETWEAR ARCHITECTURE (ZERO GRADIENT RESET)
-   ========================================================================== */
-*,
-*::before,
-*::after {
-  background-image: none !important;
-}
-
-/* Flat solid overlays for hero and category cards */
-.hero-overlay,
-[data-theme="light"] .hero-overlay,
-.category-card::after {
-  background: rgba(0, 0, 0, 0.45) !important;
-  background-image: none !important;
 }

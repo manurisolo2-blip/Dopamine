@@ -20,6 +20,13 @@
     if (price) price.textContent = money(product.price);
     const old = document.querySelector('[data-detail-old-price]');
     if (old) { old.textContent = product.compareAtPrice ? money(product.compareAtPrice) : ''; old.hidden = !product.compareAtPrice; }
+    
+    const transferPrice = money(Math.round(product.price * 0.9));
+    const installmentPrice = money(Math.round(product.price / 3));
+    const transferEl = document.querySelector('[data-detail-transfer]');
+    if (transferEl) transferEl.textContent = `${transferPrice} con Transferencia (10% OFF)`;
+    const installmentsEl = document.querySelector('[data-detail-installments]');
+    if (installmentsEl) installmentsEl.textContent = `3 cuotas sin interés de ${installmentPrice} o hasta 6 cuotas con Mercado Pago`;
     const stock = document.querySelector('[data-detail-stock]');
     if (stock) stock.textContent = product.stock <= 5 ? `${product.stock} UNITS LEFT` : 'IN STOCK / READY TO SHIP';
     const productInput = document.querySelector('[data-detail-product]');

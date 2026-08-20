@@ -257,6 +257,23 @@
         return;
       }
 
+      // Global Quick-Add Size button handler
+      const quickSizeBtn = event.target.closest('.quick-add-size-btn');
+      if (quickSizeBtn) {
+        event.preventDefault();
+        event.stopPropagation();
+        const slug = quickSizeBtn.dataset.quickAdd || quickSizeBtn.dataset.productId;
+        const size = quickSizeBtn.dataset.size || quickSizeBtn.dataset.directAddSize || 'M';
+        const catalog = window.DopamineCatalog;
+        if (catalog && slug) {
+          const product = catalog.getProductBySlug(slug) || catalog.getProductById(slug);
+          if (product) {
+            CartStore.add(product, { size: size, color: (product.colors && product.colors[0]?.name) || 'Black' });
+          }
+        }
+        return;
+      }
+
       // Shipping calculator click handler (ARS rates)
       const shippingBtn = event.target.closest('[data-shipping-calc-trigger]');
       if (shippingBtn) {

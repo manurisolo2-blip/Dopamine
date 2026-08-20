@@ -73,44 +73,68 @@
 </head>
 <body>
 
-  <!-- ===== HEADER (3-COLUMN STREETWEAR ARCHITECTURE) ===== -->
+  <!-- ===== HEADER (ROTTEN FUTURE FLOATING GLASS CAPSULE) ===== -->
   <header class="site-header" id="site-header">
-    <div class="container header-container">
-      <!-- Left Column: Brand Logo -->
-      <a href="index.html" class="brand-logo header-logo-left" aria-label="Dopamine Inicio">
-        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
-        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
-        <span class="brand-logotype">DOPAMINE</span>
-      </a>
+    <div class="header-capsule">
+      <!-- 1. Header Micro-Marquee (Continuous Top Ticker) -->
+      <div class="header-micro-marquee" aria-label="Anuncios Dopamine">
+        <div class="header-micro-marquee-track">
+          <div class="header-micro-marquee-content">
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+          </div>
+          <div class="header-micro-marquee-content" aria-hidden="true">
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+            <span>10% OFF EXTRA TRANSFERENCIAS</span>
+            <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
+            <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Center Column: Navigation (Middle) -->
-      <nav class="desktop-nav header-nav-center" aria-label="Main navigation">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="store.html" class="nav-link">DROPS</a></li>
-          <li class="nav-item"><a href="index.html#brand-story" class="nav-link">ABOUT US</a></li>
-          <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACT</a></li>
-        </ul>
-      </nav>
+      <!-- 2. Main Navigation Bar (SHOP | BUNKER [LOGO] LOYALTY | ACTIONS) -->
+      <div class="header-main-nav">
+        <!-- Left: Quick Links & Mobile Toggle -->
+        <div class="header-nav-left">
+          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" id="menu-toggle" data-menu-open>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
+          </button>
+          <a href="tienda.html" class="nav-item-link ui-label">SHOP</a>
+        </div>
 
-      <!-- Right Column: Action Icons -->
-      <div class="header-actions header-actions-right">
-        <button class="action-btn search-trigger" aria-label="Open search" id="search-toggle" data-search-open>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-        <a href="login.html" class="action-btn account-link" aria-label="User profile">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </a>
-        <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
-          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="action-btn cart-trigger" aria-label="Shopping cart" id="cart-toggle" data-cart-open>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="cart-count" data-cart-count>0</span>
-        </button>
-        <button class="action-btn mobile-menu-toggle" aria-label="Open menu" id="menu-toggle" data-menu-open>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
+        <!-- Center: DROPS - ISOTIPO - CONTACTO -->
+        <div class="header-nav-center">
+          <a href="tienda.html?category=new-drop" class="header-center-link ui-label">DROPS</a>
+          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio">
+            <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
+          </a>
+          <a href="contacto.html" class="header-center-link ui-label">CONTACTO</a>
+        </div>
+
+        <!-- Right: Actions (Search, Account, Theme, Cart) -->
+        <div class="header-nav-right">
+          <button class="action-btn search-trigger" aria-label="Buscar" id="search-toggle" data-search-open>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          </button>
+          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
+          </a>
+          <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" id="cart-toggle" data-cart-open>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -132,221 +156,300 @@
           YOUR<br>
           POTENTIAL.
         </h1>
-        <p class="hero-tagline">HIGH PERFORMANCE STREETWEAR. BUENOS AIRES.</p>
-        <a href="tienda.html" class="hero-cta">EXPLORE COLLECTION</a>
-      </div>
-    </section>
-
-    <!-- ===== 2. MARQUEE TICKER (SEAMLESS INFINITE LOOP) ===== -->
-    <div class="marquee-strip" aria-hidden="true">
-      <div class="marquee-track">
-        <div class="marquee-content">
-          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
-          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
-          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
-          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
-          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
-          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
-          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
-          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
-          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
-          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
-          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
-          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
-        </div>
-        <div class="marquee-content" aria-hidden="true">
-          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
-          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
-          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
-          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
-          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
-          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
-          <span>DROP 01 / 26</span> <b class="marquee-sep">//</b>
-          <span>DOPAMINE STREETWEAR</span> <b class="marquee-sep">//</b>
-          <span>BUENOS AIRES</span> <b class="marquee-sep">//</b>
-          <span>LIMITED EDITION</span> <b class="marquee-sep">//</b>
-          <span>HIGH PERFORMANCE</span> <b class="marquee-sep">//</b>
-          <span>BUILT FOR MOVEMENT</span> <b class="marquee-sep">//</b>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== 3. CATEGORIES ===== -->
-    <section id="categories" class="categories-section section-padding">
-      <div class="container">
-        <div class="section-header-flex">
-          <h2 class="section-title">COLECCIONES</h2>
-        </div>
-        <div class="categories-grid">
-          <a href="tienda.html?category=tops" class="category-card">
-            <div class="category-image">
-              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" alt="Remeras" loading="lazy">
-            </div>
-            <h3 class="category-title">REMERAS</h3>
-          </a>
-          <a href="tienda.html?category=hoodies" class="category-card">
-            <div class="category-image">
-              <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" alt="Buzos" loading="lazy">
-            </div>
-            <h3 class="category-title">BUZOS</h3>
-          </a>
-          <a href="tienda.html?category=bottoms" class="category-card">
-            <div class="category-image">
-              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80" alt="Pantalones" loading="lazy">
-            </div>
-            <h3 class="category-title">PANTALONES</h3>
-          </a>
-          <a href="tienda.html?category=accessories" class="category-card">
-            <div class="category-image">
-              <img src="assets/Branding/category-accessories.jpg" alt="Accesorios" loading="lazy">
-            </div>
-            <h3 class="category-title">ACCESORIOS</h3>
-          </a>
+        <p class="hero-tagline">HIGH PERFORMANCE STREETWEAR. BUENOS AIRES</p>
+        <div class="hero-actions" style="margin-top: 1.25rem;">
+          <a href="tienda.html" class="hero-text-cta">SHOP COLLECTION →</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== 4. FEATURED PRODUCTS — Technical Grid ===== -->
-    <section id="productos" class="featured-products-section section-padding">
-      <div class="container">
-        <div class="section-header-flex">
-          <h2 class="section-title">FEATURED</h2>
-          <a href="tienda.html" class="view-all-link">VIEW ALL →</a>
-        </div>
-        <div class="products-grid">
-          <!-- Product 1: Synaptic Hoodie -->
-          <article class="product-card">
-            <a href="producto.html?slug=phase-hoodie" class="product-media-wrapper">
-              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="Synaptic Hoodie" class="product-image" loading="lazy">
-            </a>
-            <div class="product-info">
-              <span class="product-release-badge">RELEASE 001</span>
-              <a href="producto.html?slug=phase-hoodie"><h3 class="product-name">SYNAPTIC HOODIE</h3></a>
-              <p class="product-subtitle">Technical Heavyweight Pullover</p>
-              <p class="product-price">$110.000</p>
-            </div>
-          </article>
-          <!-- Product 2: Signal Tee -->
-          <article class="product-card">
-            <a href="producto.html?slug=signal-tee" class="product-media-wrapper">
-              <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80" alt="Signal Tee" class="product-image" loading="lazy">
-            </a>
-            <div class="product-info">
-              <span class="product-release-badge">RELEASE 001</span>
-              <a href="producto.html?slug=signal-tee"><h3 class="product-name">SIGNAL TEE</h3></a>
-              <p class="product-subtitle">Oversized Heavy Cotton Tee</p>
-              <p class="product-price">$48.000</p>
-            </div>
-          </article>
-          <!-- Product 3: Vector Pant -->
-          <article class="product-card">
-            <a href="producto.html?slug=vector-pant" class="product-media-wrapper">
-              <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=80" alt="Vector Pant" class="product-image" loading="lazy">
-            </a>
-            <div class="product-info">
-              <span class="product-release-badge">RELEASE 001</span>
-              <a href="producto.html?slug=vector-pant"><h3 class="product-name">VECTOR PANT</h3></a>
-              <p class="product-subtitle">Relaxed Fit Cargo Pant</p>
-              <p class="product-price">$96.000</p>
-            </div>
-          </article>
-          <!-- Product 4: Dopamine Cap -->
-          <article class="product-card">
-            <a href="producto.html?slug=dopamine-cap" class="product-media-wrapper">
-              <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80" alt="Dopamine Cap" class="product-image" loading="lazy">
-            </a>
-            <div class="product-info">
-              <span class="product-release-badge">RELEASE 001</span>
-              <a href="producto.html?slug=dopamine-cap"><h3 class="product-name">DOPAMINE CAP</h3></a>
-              <p class="product-subtitle">Structured 6-Panel Cap</p>
-              <p class="product-price">$42.000</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- ===== ROTTEN FUTURE SHEET COVER OVERLAY ===== -->
+    <div class="hero-sheet-cover">
 
-    <!-- ===== SCROLL TEXT REVEAL BANNER ===== -->
-    <section class="scroll-text-section section-padding" id="reward-system">
-      <div class="container text-center">
-        <h2 class="scroll-reveal-headline" data-scroll-reveal-text>
-          <span class="reveal-line">
-            <span class="char-span">U</span><span class="char-span">N</span><span class="char-span">L</span><span class="char-span">E</span><span class="char-span">A</span><span class="char-span">S</span><span class="char-span">H</span><span class="char-span">I</span><span class="char-span">N</span><span class="char-span">G</span> 
-            <span class="char-span">T</span><span class="char-span">H</span><span class="char-span">E</span> 
-            <span class="char-span">R</span><span class="char-span">E</span><span class="char-span">W</span><span class="char-span">A</span><span class="char-span">R</span><span class="char-span">D</span> 
-            <span class="char-span">S</span><span class="char-span">Y</span><span class="char-span">S</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">M</span><span class="char-span">.</span>
-          </span>
-          <span class="reveal-line reveal-interactive">
-            <span class="char-span">A</span><span class="char-span">C</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">V</span><span class="char-span">A</span><span class="char-span">T</span><span class="char-span">E</span> 
-            <span class="char-span">Y</span><span class="char-span">O</span><span class="char-span">U</span><span class="char-span">R</span> 
-            <span class="char-span">P</span><span class="char-span">O</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">N</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">A</span><span class="char-span">L</span><span class="char-span">.</span>
-          </span>
-        </h2>
-      </div>
-    </section>
-
-    <!-- ===== 5. COLLECTION BANNER ===== -->
-    <section class="collection-banner">
-      <div class="container banner-content">
-        <span class="banner-eyebrow">DROP 01 / 26</span>
-        <h2 class="banner-title">EL NUEVO UNIFORME URBANO.</h2>
-        <p class="banner-text">Nuestra primera colección define las bases. Diseñada sin compromisos desde Buenos Aires.</p>
-        <a href="tienda.html" class="banner-cta">DESCUBRIR →</a>
-      </div>
-    </section>
-
-    <!-- ===== 6. BRAND STORY ===== -->
-    <section id="brand-story" class="brand-story-section section-padding">
-      <div class="container brand-story-container">
-        <div class="brand-story-text">
-          <h2 class="section-title">NUESTRA HISTORIA</h2>
-          <p>Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito.</p>
-          <p>Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad.</p>
-        </div>
-        <div class="brand-story-stats">
-          <div class="stat-card">
-            <h4 class="stat-number">450</h4>
-            <p class="stat-label">GSM COTTON</p>
-            <p class="stat-desc">Algodón de peso pesado, estructurado y duradero.</p>
+      <!-- ===== 2. MARQUEE TICKER (SEAMLESS INFINITE LOOP) ===== -->
+      <div class="marquee-strip" aria-hidden="true">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span>DROP 01 / 26</span>
+            <span>DOPAMINE STREETWEAR</span>
+            <span>BUENOS AIRES</span>
+            <span>LIMITED EDITION</span>
+            <span>HIGH PERFORMANCE</span>
+            <span>BUILT FOR MOVEMENT</span>
+            <span>DROP 01 / 26</span>
+            <span>DOPAMINE STREETWEAR</span>
+            <span>BUENOS AIRES</span>
+            <span>LIMITED EDITION</span>
+            <span>HIGH PERFORMANCE</span>
+            <span>BUILT FOR MOVEMENT</span>
           </div>
-          <div class="stat-card">
-            <h4 class="stat-number">120</h4>
-            <p class="stat-label">LIMITED PIECES</p>
-            <p class="stat-desc">Ediciones limitadas por drop. No hacemos restocks.</p>
-          </div>
-          <div class="stat-card">
-            <h4 class="stat-number">BA</h4>
-            <p class="stat-label">HEADQUARTERS</p>
-            <p class="stat-desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires.</p>
+          <div class="marquee-content" aria-hidden="true">
+            <span>DROP 01 / 26</span>
+            <span>DOPAMINE STREETWEAR</span>
+            <span>BUENOS AIRES</span>
+            <span>LIMITED EDITION</span>
+            <span>HIGH PERFORMANCE</span>
+            <span>BUILT FOR MOVEMENT</span>
+            <span>DROP 01 / 26</span>
+            <span>DOPAMINE STREETWEAR</span>
+            <span>BUENOS AIRES</span>
+            <span>LIMITED EDITION</span>
+            <span>HIGH PERFORMANCE</span>
+            <span>BUILT FOR MOVEMENT</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ===== 7. BENEFITS BAR ===== -->
-    <section class="benefits-bar">
-      <div class="container benefits-container">
-        <div class="benefit-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-          <span>ENVÍO GRATIS MUNDIAL +$100</span>
+      <!-- ===== 3. CATEGORIES ===== -->
+      <section id="categories" class="categories-section section-padding">
+        <div class="container">
+          <div class="section-header-flex">
+            <h2 class="section-title">COLECCIONES</h2>
+          </div>
+          <div class="categories-grid">
+            <a href="tienda.html?category=tops" class="category-card rounded-media">
+              <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" alt="Remeras" loading="lazy">
+              </div>
+              <h3 class="category-title">REMERAS</h3>
+            </a>
+            <a href="tienda.html?category=hoodies" class="category-card rounded-media">
+              <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" alt="Buzos" loading="lazy">
+              </div>
+              <h3 class="category-title">BUZOS</h3>
+            </a>
+            <a href="tienda.html?category=bottoms" class="category-card rounded-media">
+              <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80" alt="Pantalones" loading="lazy">
+              </div>
+              <h3 class="category-title">PANTALONES</h3>
+            </a>
+            <a href="tienda.html?category=accessories" class="category-card rounded-media">
+              <div class="category-image">
+                <img src="assets/Branding/category-accessories.jpg" alt="Accesorios" loading="lazy">
+              </div>
+              <h3 class="category-title">ACCESORIOS</h3>
+            </a>
+          </div>
         </div>
-        <div class="benefit-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <span>CALIDAD PREMIUM GARANTIZADA</span>
+      </section>
+
+      <!-- ===== 4. FEATURED PRODUCTS — Technical Grid (4:5 Ratio & Quick Add Pill) ===== -->
+      <section id="productos" class="featured-products-section section-padding">
+        <div class="container">
+          <div class="section-header-flex">
+            <h2 class="section-title">FEATURED PIECES</h2>
+            <a href="tienda.html" class="view-all-link">VIEW ALL →</a>
+          </div>
+          <div class="products-grid">
+            <!-- Product 1: Synaptic Hoodie -->
+            <article class="product-card rounded-card">
+              <div class="product-media-wrapper rounded-media">
+                <a href="producto.html?slug=phase-hoodie">
+                  <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="Synaptic Hoodie" class="product-image" loading="lazy">
+                </a>
+                <!-- Floating Quick Add Pill -->
+                <div class="quick-add-pill" aria-label="Añadir rápido">
+                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="phase-hoodie" data-size="S">S</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="phase-hoodie" data-size="M">M</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="phase-hoodie" data-size="L">L</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="phase-hoodie" data-size="XL">XL</button>
+                </div>
+              </div>
+              <div class="product-info">
+                <a href="producto.html?slug=phase-hoodie"><h3 class="product-name">SYNAPTIC HOODIE</h3></a>
+                <div class="product-price-block">
+                  <p class="product-price-list">$110.000</p>
+                  <p class="product-price-transfer">$99.000 con Transferencia (10% OFF)</p>
+                </div>
+                <div class="product-swatches">
+                  <span class="product-swatch-dot is-active" style="background-color: #8B1E1E;" title="Dark Red"></span>
+                  <span class="product-swatch-dot" style="background-color: #F5F4EF;" title="Warm White"></span>
+                  <span class="product-swatch-dot" style="background-color: #8A8A8A;" title="Cement Gray"></span>
+                  <span class="product-swatch-dot" style="background-color: #0D0D0D;" title="Black"></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 2: Signal Tee -->
+            <article class="product-card rounded-card">
+              <div class="product-media-wrapper rounded-media">
+                <a href="producto.html?slug=signal-tee">
+                  <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80" alt="Signal Tee" class="product-image" loading="lazy">
+                </a>
+                <!-- Floating Quick Add Pill -->
+                <div class="quick-add-pill" aria-label="Añadir rápido">
+                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="signal-tee" data-size="S">S</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="signal-tee" data-size="M">M</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="signal-tee" data-size="L">L</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="signal-tee" data-size="XL">XL</button>
+                </div>
+              </div>
+              <div class="product-info">
+                <a href="producto.html?slug=signal-tee"><h3 class="product-name">SIGNAL TEE</h3></a>
+                <div class="product-price-block">
+                  <p class="product-price-list">$48.000</p>
+                  <p class="product-price-transfer">$43.200 con Transferencia (10% OFF)</p>
+                </div>
+                <div class="product-swatches">
+                  <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Black"></span>
+                  <span class="product-swatch-dot" style="background-color: #8B1E1E;" title="Dark Red"></span>
+                  <span class="product-swatch-dot" style="background-color: #F5F4EF;" title="Warm White"></span>
+                  <span class="product-swatch-dot" style="background-color: #B8FF00;" title="Electric Lime"></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 3: Vector Pant -->
+            <article class="product-card rounded-card">
+              <div class="product-media-wrapper rounded-media">
+                <a href="producto.html?slug=vector-pant">
+                  <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=80" alt="Vector Pant" class="product-image" loading="lazy">
+                </a>
+                <!-- Floating Quick Add Pill -->
+                <div class="quick-add-pill" aria-label="Añadir rápido">
+                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="vector-pant" data-size="S">S</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="vector-pant" data-size="M">M</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="vector-pant" data-size="L">L</button>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="vector-pant" data-size="XL">XL</button>
+                </div>
+              </div>
+              <div class="product-info">
+                <a href="producto.html?slug=vector-pant"><h3 class="product-name">VECTOR PANT</h3></a>
+                <div class="product-price-block">
+                  <p class="product-price-list">$96.000</p>
+                  <p class="product-price-transfer">$86.400 con Transferencia (10% OFF)</p>
+                </div>
+                <div class="product-swatches">
+                  <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Black"></span>
+                  <span class="product-swatch-dot" style="background-color: #1A1A1A;" title="Dark Gray"></span>
+                  <span class="product-swatch-dot" style="background-color: #3B4A3F;" title="Olive"></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Product 4: Dopamine Cap -->
+            <article class="product-card rounded-card">
+              <div class="product-media-wrapper rounded-media">
+                <a href="producto.html?slug=dopamine-cap">
+                  <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80" alt="Dopamine Cap" class="product-image" loading="lazy">
+                </a>
+                <!-- Floating Quick Add Pill -->
+                <div class="quick-add-pill" aria-label="Añadir rápido">
+                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <button type="button" class="quick-add-size-btn" data-quick-add="dopamine-cap" data-size="One Size">ONE SIZE</button>
+                </div>
+              </div>
+              <div class="product-info">
+                <a href="producto.html?slug=dopamine-cap"><h3 class="product-name">DOPAMINE CAP</h3></a>
+                <div class="product-price-block">
+                  <p class="product-price-list">$42.000</p>
+                  <p class="product-price-transfer">$37.800 con Transferencia (10% OFF)</p>
+                </div>
+                <div class="product-swatches">
+                  <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Black"></span>
+                  <span class="product-swatch-dot" style="background-color: #8B1E1E;" title="Dark Red"></span>
+                  <span class="product-swatch-dot" style="background-color: #F5F4EF;" title="White"></span>
+                  <span class="product-swatch-dot" style="background-color: #B8FF00;" title="Electric Lime"></span>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="benefit-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-          <span>CAMBIOS Y DEVOLUCIONES 30 DÍAS</span>
+      </section>
+
+      <!-- ===== SCROLL TEXT REVEAL BANNER ===== -->
+      <section class="scroll-text-section section-padding" id="reward-system">
+        <div class="container text-center">
+          <h2 class="scroll-reveal-headline" data-scroll-reveal-text>
+            <span class="reveal-line">
+              <span class="char-span">U</span><span class="char-span">N</span><span class="char-span">L</span><span class="char-span">E</span><span class="char-span">A</span><span class="char-span">S</span><span class="char-span">H</span><span class="char-span">I</span><span class="char-span">N</span><span class="char-span">G</span> 
+              <span class="char-span">T</span><span class="char-span">H</span><span class="char-span">E</span> 
+              <span class="char-span">R</span><span class="char-span">E</span><span class="char-span">W</span><span class="char-span">A</span><span class="char-span">R</span><span class="char-span">D</span> 
+              <span class="char-span">S</span><span class="char-span">Y</span><span class="char-span">S</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">M</span><span class="char-span">.</span>
+            </span>
+            <span class="reveal-line reveal-interactive">
+              <span class="char-span">A</span><span class="char-span">C</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">V</span><span class="char-span">A</span><span class="char-span">T</span><span class="char-span">E</span> 
+              <span class="char-span">Y</span><span class="char-span">O</span><span class="char-span">U</span><span class="char-span">R</span> 
+              <span class="char-span">P</span><span class="char-span">O</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">N</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">A</span><span class="char-span">L</span><span class="char-span">.</span>
+            </span>
+          </h2>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- ===== 5. COLLECTION BANNER ===== -->
+      <section class="collection-banner">
+        <div class="container banner-content">
+          <span class="banner-eyebrow">DROP 01 / 26</span>
+          <h2 class="banner-title">EL NUEVO UNIFORME URBANO.</h2>
+          <p class="banner-text">Nuestra primera colección define las bases. Diseñada sin compromisos desde Buenos Aires.</p>
+          <a href="tienda.html" class="banner-cta">DESCUBRIR →</a>
+        </div>
+      </section>
+
+      <!-- ===== 6. BRAND STORY ===== -->
+      <section id="brand-story" class="brand-story-section section-padding">
+        <div class="container brand-story-container">
+          <div class="brand-story-text">
+            <h2 class="section-title">NUESTRA HISTORIA</h2>
+            <p>Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito.</p>
+            <p>Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad.</p>
+          </div>
+          <div class="brand-story-stats">
+            <div class="stat-card">
+              <h4 class="stat-number">450</h4>
+              <p class="stat-label">GSM COTTON</p>
+              <p class="stat-desc">Algodón de peso pesado, estructurado y duradero.</p>
+            </div>
+            <div class="stat-card">
+              <h4 class="stat-number">120</h4>
+              <p class="stat-label">LIMITED PIECES</p>
+              <p class="stat-desc">Ediciones limitadas por drop. No hacemos restocks.</p>
+            </div>
+            <div class="stat-card">
+              <h4 class="stat-number">BA</h4>
+              <p class="stat-label">HEADQUARTERS</p>
+              <p class="stat-desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 7. BENEFITS BAR ===== -->
+      <section class="benefits-bar">
+        <div class="container benefits-container">
+          <div class="benefit-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>ENVÍO GRATIS MUNDIAL +$100</span>
+          </div>
+          <div class="benefit-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>CALIDAD PREMIUM GARANTIZADA</span>
+          </div>
+          <div class="benefit-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            <span>CAMBIOS Y DEVOLUCIONES 30 DÍAS</span>
+          </div>
+        </div>
+      </section>
+
+    </div> <!-- End .hero-sheet-cover -->
   </main>
 
-  <!-- ===== FOOTER — Compact Dark Navy Technical Footer ===== -->
+  <!-- ===== FOOTER — MONUMENTAL ROTTEN FUTURE FOOTER ===== -->
   <footer class="site-footer" id="footer">
     <div class="container footer-container">
+      <!-- Monumental Brand Title -->
+      <div style="text-align: center; padding: 2rem 0 2.5rem; overflow: hidden; border-bottom: 1px solid var(--border-subtle);">
+        <span class="footer-brand-monumental" style="font-family: var(--ff-heading); font-size: clamp(3.5rem, 14vw, 10rem); letter-spacing: 0.16em; line-height: 0.85; display: inline-block; text-transform: uppercase;">DOPAMINE</span>
+      </div>
+
       <!-- Main Columns Grid -->
-      <div class="footer-main-grid">
+      <div class="footer-main-grid" style="padding-top: 2.5rem;">
         <!-- Brand & Newsletter Column -->
         <div class="footer-brand-col">
           <a href="index.html" class="brand-logo footer-logo" aria-label="Dopamine Inicio">
@@ -567,10 +670,16 @@
       <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
     </div>
     <nav class="mobile-menu-nav">
-      <a href="store.html">DROPS</a>
+      <a href="tienda.html">SHOP ALL</a>
+      <a href="tienda.html?category=tops">REMERAS</a>
+      <a href="tienda.html?category=hoodies">BUZOS</a>
+      <a href="tienda.html?category=bottoms">PANTALONES</a>
+      <a href="tienda.html?category=accessories">ACCESORIOS</a>
+      <a href="tienda.html?category=new-drop">NEW DROP</a>
+      <a href="tienda.html?category=sale">SALE</a>
       <a href="index.html#brand-story">ABOUT US</a>
       <a href="contacto.html">CONTACT</a>
-      <a href="login.html">MI CUENTA</a>
+      <a href="login.html">CLUB / MI CUENTA</a>
     </nav>
   </aside>
 
