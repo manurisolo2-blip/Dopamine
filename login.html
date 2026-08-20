@@ -55,7 +55,7 @@
       font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
       font-size: 1.45rem;
       font-weight: 700;
-      color: var(--text-primary, #FFFFFF);
+      color: var(--text-primary);
       line-height: 1.3;
       margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
@@ -65,7 +65,7 @@
     .auth-nike-subtitle {
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.8125rem;
-      color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+      color: var(--text-secondary);
       line-height: 1.5;
       margin-bottom: 1.5rem;
       transition: color var(--transition-theme);
@@ -73,7 +73,7 @@
 
     .auth-tabs {
       display: flex;
-      border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+      border-bottom: 1px solid var(--border-color);
       margin-bottom: 1.75rem;
     }
 
@@ -86,7 +86,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-muted, rgba(255, 255, 255, 0.45));
+      color: var(--text-muted);
       background: none;
       border: none;
       border-bottom: 2px solid transparent;
@@ -95,16 +95,16 @@
     }
 
     .auth-tab.is-active {
-      color: var(--text-primary, #FFFFFF);
-      border-bottom-color: var(--text-primary, #FFFFFF);
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
     }
 
     .auth-form-card {
-      background: var(--card-bg, #0D0D0F);
-      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       padding: 2rem;
       border-radius: 0 !important;
-      box-shadow: none !important;
+      box-shadow: var(--shadow-card) !important;
       transition: background-color var(--transition-theme), border-color var(--transition-theme);
     }
 
@@ -119,7 +119,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-primary, rgba(255, 255, 255, 0.85));
+      color: var(--text-primary);
       margin-bottom: 0.4rem;
     }
 
@@ -136,9 +136,9 @@
       padding: 0 1rem;
       font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
       font-size: 0.9375rem;
-      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
-      background: var(--bg-secondary, #141417);
-      color: var(--text-primary, #FFFFFF);
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
       border-radius: 0 !important;
       outline: none;
       transition: border-color 180ms ease, background-color var(--transition-theme), color var(--transition-theme);
@@ -147,7 +147,7 @@
 
     .auth-input-wrap input:focus,
     .auth-grid-3 input:focus {
-      border-color: var(--text-primary, #FFFFFF);
+      border-color: var(--text-primary);
     }
 
     .auth-grid-2 {
@@ -167,7 +167,7 @@
       right: 0.75rem;
       background: none;
       border: none;
-      color: var(--text-muted, rgba(255, 255, 255, 0.5));
+      color: var(--text-muted);
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.75rem;
       font-weight: 700;
@@ -177,7 +177,7 @@
     }
 
     .toggle-password-btn:hover {
-      color: var(--text-primary, #FFFFFF);
+      color: var(--text-primary);
     }
 
     .auth-options-row {
@@ -196,7 +196,7 @@
       cursor: pointer;
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.75rem;
-      color: var(--text-secondary, rgba(255, 255, 255, 0.8));
+      color: var(--text-secondary);
       line-height: 1.4;
     }
 
@@ -207,7 +207,7 @@
       height: 14px;
       min-width: 14px;
       min-height: 14px;
-      border: 1px solid var(--text-muted, rgba(255, 255, 255, 0.5));
+      border: 1px solid var(--border-color);
       background-color: transparent;
       border-radius: 0 !important;
       cursor: pointer;
@@ -218,39 +218,39 @@
     }
 
     .auth-remember input[type="checkbox"]:hover {
-      border-color: var(--text-primary, #FFFFFF);
+      border-color: var(--text-primary);
     }
 
     .auth-remember input[type="checkbox"]:checked {
-      background-color: var(--text-primary, #FFFFFF);
-      border-color: var(--text-primary, #FFFFFF);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0A0C' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-color: var(--text-primary);
+      border-color: var(--text-primary);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
       background-position: center;
       background-repeat: no-repeat;
       background-size: 9px 9px;
     }
 
-    [data-theme="light"] .auth-remember input[type="checkbox"]:checked {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    [data-theme="dark"] .auth-remember input[type="checkbox"]:checked {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0A0C' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
     }
 
     .auth-forgot {
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.75rem;
-      color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+      color: var(--text-secondary);
       text-decoration: underline;
       white-space: nowrap;
     }
 
     .auth-forgot:hover {
-      color: var(--text-primary, #FFFFFF);
+      color: var(--text-primary);
     }
 
     .auth-submit-btn {
       width: 100%;
       height: 48px;
-      background: var(--text-primary, #FFFFFF);
-      color: var(--bg-primary, #0A0A0C);
+      background: var(--text-primary);
+      color: var(--bg-primary);
       border: none;
       border-radius: 0 !important;
       font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
@@ -276,7 +276,7 @@
       align-items: center;
       text-align: center;
       margin-block: 1.5rem;
-      color: var(--text-muted, rgba(255, 255, 255, 0.4));
+      color: var(--text-muted);
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.6875rem;
       letter-spacing: 0.14em;
@@ -286,7 +286,7 @@
     .auth-divider::after {
       content: '';
       flex: 1;
-      border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+      border-bottom: 1px solid var(--border-color);
     }
 
     .auth-divider span {
@@ -297,9 +297,9 @@
       width: 100%;
       height: 46px;
       background: transparent;
-      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
+      border: 1px solid var(--border-color);
       border-radius: 0 !important;
-      color: var(--text-primary, #FFFFFF);
+      color: var(--text-primary);
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.75rem;
       font-weight: 700;
@@ -316,8 +316,8 @@
     }
 
     .auth-social-btn:hover {
-      border-color: var(--text-primary, #FFFFFF);
-      background: var(--border-subtle, rgba(255, 255, 255, 0.05));
+      border-color: var(--text-primary);
+      background: var(--border-subtle);
     }
 
     .auth-feedback {
@@ -405,45 +405,89 @@
             <span>BUENOS AIRES STREETWEAR — LIMITED EDITION</span>
             <span>ENVÍOS A TODO EL PAÍS — DROP 01 / 26</span>
           </div>
-        </div>
-      </div>
-
-      <!-- 2. Main Navigation Bar (SHOP | BUNKER [LOGO] LOYALTY | ACTIONS) -->
+           <!-- 2. Main Navigation Bar (DROPS | CONTACTO [LEFT] — LOGO [CENTER] — ACTIONS [RIGHT]) -->
       <div class="header-main-nav">
-        <!-- Left: Quick Links & Mobile Toggle -->
+        <!-- Left: DROPS & CONTACTO + Mobile Toggle -->
         <div class="header-nav-left">
           <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" id="menu-toggle" data-menu-open>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
           </button>
-          <a href="tienda.html" class="nav-item-link ui-label">SHOP</a>
+          <a href="tienda.html" class="nav-item-link ui-label">DROPS</a>
+          <a href="contacto.html" class="nav-item-link ui-label">CONTACTO</a>
         </div>
 
-        <!-- Center: DROPS - ISOTIPO - CONTACTO -->
+        <!-- Center: Iconic Isotipo Logo -->
         <div class="header-nav-center">
-          <a href="tienda.html?category=new-drop" class="header-center-link ui-label">DROPS</a>
           <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio">
             <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
           </a>
-          <a href="contacto.html" class="header-center-link ui-label">CONTACTO</a>
         </div>
 
         <!-- Right: Actions (Search, Account, Theme, Cart) -->
         <div class="header-nav-right">
           <button class="action-btn search-trigger" aria-label="Buscar" id="search-toggle" data-search-open>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
           </button>
           <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
           </a>
           <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
-            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
           <button class="action-btn cart-trigger" aria-label="Bolsa de compras" id="cart-toggle" data-cart-open>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
             <span class="cart-count" data-cart-count>0</span>
           </button>
+        </div>
+      </div>
+
+      <!-- 3. Mega Menu Dropdown Panel (Nude Project / Represent Style) -->
+      <div class="mega-menu-panel" id="header-mega-menu" aria-label="Mega Menú Dopamine">
+        <div class="mega-menu-content">
+          <!-- Col 1: Discounts -->
+          <div class="mega-menu-col">
+            <span class="mega-menu-title">Discounts</span>
+            <ul class="mega-menu-links">
+              <li><a href="tienda.html?filter=sale-20" class="mega-sale-highlight">Up to 20%</a></li>
+              <li><a href="tienda.html?filter=sale-30" class="mega-sale-highlight">Up to 30%</a></li>
+              <li><a href="tienda.html?filter=sale-40" class="mega-sale-highlight">Up to 40%</a></li>
+              <li><a href="tienda.html?filter=sale-50" class="mega-sale-highlight">Up to 50%</a></li>
+            </ul>
+            <span class="mega-menu-subtitle">Colección</span>
+            <ul class="mega-menu-links">
+              <li><a href="tienda.html">Unisex Streetwear</a></li>
+              <li><a href="tienda.html?filter=transfer">10% OFF Transferencia</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 2: Categories with Badges -->
+          <div class="mega-menu-col">
+            <span class="mega-menu-title">Summer Sales</span>
+            <ul class="mega-menu-links">
+              <li><a href="tienda.html" data-preview-img="Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR Modelo.webp">Ver todo</a></li>
+              <li><a href="tienda.html?category=remeras" data-preview-img="Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR Modelo.webp">Camisetas & Remeras</a></li>
+              <li><a href="tienda.html?category=buzos" data-preview-img="Ropa/Buzos/Buzo WIN.webp">Buzos & Hoodies</a></li>
+              <li><a href="tienda.html?category=camisas" data-preview-img="Ropa/Camisas/Camisa Bunny.webp">Camisas <span class="badge-limited">LIMITED UNITS</span></a></li>
+              <li><a href="tienda.html?category=camperas" data-preview-img="Ropa/Camperas/Campera SET.webp">Camperas & Abrigos</a></li>
+              <li><a href="tienda.html?category=jeanes" data-preview-img="Ropa/Jeanes/JEAN BAGGY ICE.webp">Pantalones & Baggy</a></li>
+              <li><a href="tienda.html?category=conjuntos" data-preview-img="Ropa/Conjuntos/CONJUNTO BAGGY MORGAN.webp">Conjuntos <span class="badge-limited">LIMITED UNITS</span></a></li>
+              <li><a href="tienda.html?category=bermudas" data-preview-img="Ropa/Conjuntos/CONJUNTO BAGGY MORGAN Side view.webp">Bermudas <span class="badge-limited">LIMITED UNITS</span></a></li>
+              <li><a href="tienda.html?category=accesorios" data-preview-img="assets/Branding/Products/dopamine-cap.jpg">Accesorios & Caps</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Lookbook Editorial Preview Card -->
+          <div class="mega-menu-col">
+            <div class="mega-preview-box">
+              <img src="Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR Modelo.webp" alt="Dopamine Drop Editorial" class="mega-preview-img" id="mega-preview-img">
+              <div class="mega-preview-glass-info">
+                <span class="mega-preview-badge">DROP 01 / 26 — BUENOS AIRES</span>
+                <span class="mega-preview-name">TECHNICAL STREETWEAR</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -639,49 +683,141 @@
     </section>
   </main>
 
-  <!-- FOOTER — MONUMENTAL ROTTEN FUTURE FOOTER -->
+  <!-- ===== FOOTER — EME STUDIOS MONUMENTAL SIGNATURE FOOTER ===== -->
   <footer class="site-footer" id="footer">
     <div class="container footer-container">
-      <!-- Monumental Brand Title -->
-      <div style="text-align: center; padding: 2rem 0 2.5rem; overflow: hidden; border-bottom: 1px solid var(--border-subtle);">
-        <span class="footer-brand-monumental" style="font-family: var(--ff-heading); font-size: clamp(3.5rem, 14vw, 10rem); letter-spacing: 0.16em; line-height: 0.85; display: inline-block; text-transform: uppercase;">DOPAMINE</span>
-      </div>
-
-      <div class="footer-main-grid" style="padding-top: 2.5rem;">
+      <!-- Main Columns Grid -->
+      <div class="footer-main-grid">
+        <!-- Brand & Newsletter Column -->
         <div class="footer-brand-col">
           <a href="index.html" class="brand-logo footer-logo" aria-label="Dopamine Inicio">
-            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
-            <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
+            <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo">
             <span class="brand-logotype">DOPAMINE</span>
           </a>
           <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
+          <form class="footer-email-form" id="footer-signup-form">
+            <div class="footer-input-wrap">
+              <input type="email" placeholder="ENTER EMAIL FOR DROPS" aria-label="Email subscription" required>
+              <button type="submit" aria-label="Subscribe">→</button>
+            </div>
+          </form>
         </div>
+
+        <!-- Navigation Links -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            NAVEGACIÓN <span class="accordion-icon">+</span>
+            <span>NAVIGATION</span>
+            <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
             <li><a href="tienda.html">DROPS</a></li>
             <li><a href="index.html#brand-story">ABOUT US</a></li>
             <li><a href="contacto.html">CONTACT</a></li>
-            <li><a href="login.html">MI CUENTA</a></li>
           </ul>
         </div>
+
+        <!-- Customer Care -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            AYUDA <span class="accordion-icon">+</span>
+            <span>CUSTOMER CARE</span>
+            <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">Envíos y Entregas</a></li>
-            <li><a href="#">Cambios y Devoluciones</a></li>
-            <li><a href="#">Guía de Talles</a></li>
-            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">SHIPPING & RETURNS</a></li>
+            <li><a href="#">SIZE GUIDE</a></li>
+            <li><a href="#">ORDER TRACKING</a></li>
+            <li><a href="#">FAQ</a></li>
           </ul>
         </div>
+
+        <!-- Legal & Social -->
+        <div class="footer-col" data-footer-accordion>
+          <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
+            <span>LEGAL & SOCIAL</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <ul class="footer-link-list">
+            <li><a href="#">TERMS OF SERVICE</a></li>
+            <li><a href="#">PRIVACY POLICY</a></li>
+            <li><a href="#">COOKIE PREFERENCES</a></li>
+          </ul>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Instagram" class="social-icon-btn" title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok" class="social-icon-btn" title="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+            <a href="#" aria-label="X / Twitter" class="social-icon-btn" title="X / Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M13.232 10.768L20 4"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-icon-btn" title="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-        <p>© 2026 DOPAMINE STREETWEAR. BUENOS AIRES, ARGENTINA</p>
+
+      <!-- Eme Studios Style: Language Row, Copyright & Payment Badges -->
+      <div class="footer-eme-middle-bar">
+        <div class="footer-eme-languages">
+          <span>ESPAÑOL</span>
+          <span>INGLÉS</span>
+          <span>ALEMÁN</span>
+          <span>FRANCÉS</span>
+          <span>ITALIANO</span>
+        </div>
+        <p class="footer-eme-copyright">2026 © DOPAMINE APPARATUS</p>
+        <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
+          <!-- Mercado Pago -->
+          <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
+            <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 22px; width: auto; max-width: 44px; object-fit: contain; border-radius: 3px; display: block;">
+          </span>
+          <!-- Visa -->
+          <span class="payment-badge-icon" title="Visa" aria-label="Visa">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <text x="19" y="16" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">VISA</text>
+            </svg>
+          </span>
+          <!-- Mastercard -->
+          <span class="payment-badge-icon" title="Mastercard" aria-label="Mastercard">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <circle cx="15" cy="12" r="6" fill="#EB001B" fill-opacity="0.85"/>
+              <circle cx="23" cy="12" r="6" fill="#F79E1B" fill-opacity="0.85"/>
+            </svg>
+          </span>
+          <!-- AMEX -->
+          <span class="payment-badge-icon" title="American Express" aria-label="American Express">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <text x="19" y="15" font-family="'JetBrains Mono', sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">AMEX</text>
+            </svg>
+          </span>
+          <!-- Apple Pay -->
+          <span class="payment-badge-icon" title="Apple Pay" aria-label="Apple Pay">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+              <rect width="40" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <path d="M15 14.5c-.4.5-1-.2-1.6-.3.1-.7.4-1.3.9-1.6.4-.4 1.1-.7 1.7-.7-.1.7-.4 1.2-.9 1.6zM15.9 15c-.8 0-1.2-.3-1.6-.3-.5 0-1 .3-1.5.3-.7 0-1.4-.4-1.8-1.1-.9-1.5-.2-3.7 1.2-3.7.6 0 1 .3 1.5.3.4 0 1-.3 1.6-.3.4 0 1.3.1 1.9 1-.1.1-1.1.7-1.1 2 0 1.6 1.3 2.1 1.4 2.1-.1.4-.4 1.1-1.4 1.1z" fill="#FFFFFF"/>
+              <text x="26" y="15" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700" fill="#FFFFFF">Pay</text>
+            </svg>
+          </span>
+          <!-- Crypto -->
+          <span class="payment-badge-icon" title="Crypto" aria-label="Crypto">
+            <svg width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <rect width="38" height="24" rx="3" fill="rgba(255,255,255,0.06)"/>
+              <circle cx="19" cy="12" r="6" stroke="#FFFFFF" stroke-width="1.2"/>
+              <path d="M17.5 9.5h2.5c.8 0 1.5.4 1.5 1.2s-.5 1.1-1.2 1.2c.8.1 1.4.6 1.4 1.4 0 .9-.7 1.4-1.7 1.4h-2.5V9.5zm1.2 2.2h1c.4 0 .7-.2.7-.5s-.3-.5-.7-.5h-1v1zm0 1.9h1.1c.4 0 .8-.2.8-.6s-.4-.6-.8-.6h-1.1v1.2z" fill="#FFFFFF"/>
+            </svg>
+          </span>
+        </div>
       </div>
+    </div>
+
+    <!-- Eme Studios Signature: Monumental Bottom Wordmark (Full-Bleed Edge to Edge) -->
+    <div class="footer-eme-monumental-wrap">
+      <span class="footer-eme-wordmark">DOPAMINE.</span>
     </div>
   </footer>
 
@@ -775,7 +911,9 @@
   <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
     <div class="mobile-menu-header">
       <h2>MENU</h2>
-      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">×</button>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
     <nav class="mobile-menu-nav">
       <a href="tienda.html">SHOP ALL</a>

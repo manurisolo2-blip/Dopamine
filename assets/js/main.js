@@ -99,9 +99,57 @@
     });
   }
 
+  function initMegaMenu() {
+    const megaMenu = document.getElementById('header-mega-menu');
+    const previewImg = document.getElementById('mega-preview-img');
+    const dropsTriggers = document.querySelectorAll('.header-nav-left a[href*="tienda"], .header-nav-left a[href*="store"]');
+    if (!megaMenu) return;
+
+    let closeTimer = null;
+
+    function openMenu() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      megaMenu.classList.add('is-open');
+    }
+
+    function closeMenu() {
+      closeTimer = setTimeout(() => {
+        megaMenu.classList.remove('is-open');
+      }, 160);
+    }
+
+    dropsTriggers.forEach(btn => {
+      btn.addEventListener('mouseenter', openMenu);
+      btn.addEventListener('mouseleave', closeMenu);
+    });
+
+    megaMenu.addEventListener('mouseenter', openMenu);
+    megaMenu.addEventListener('mouseleave', closeMenu);
+
+    if (previewImg) {
+      const categoryLinks = megaMenu.querySelectorAll('[data-preview-img]');
+      categoryLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          const newSrc = link.getAttribute('data-preview-img');
+          if (newSrc && previewImg.src !== newSrc) {
+            previewImg.style.opacity = '0.35';
+            setTimeout(() => {
+              previewImg.src = newSrc;
+              previewImg.style.opacity = '1';
+            }, 120);
+          }
+        });
+      });
+    }
+  }
+
   function init() {
     initCinematicScrollEngine();
     initFooterAccordion();
+    initMegaMenu();
   }
 
   if (document.readyState === 'loading') {
