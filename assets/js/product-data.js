@@ -2,99 +2,179 @@
 (function (window) {
   const products = [
     {
-      id: 'signal-tee', slug: 'signal-tee', name: 'Signal Tee', category: 'tops', price: 48000,
-      compareAtPrice: null, badge: 'NEW', subtitle: 'Oversized Heavy Cotton Tee', stock: 18,
-      description: 'Remera de algodón pesado con fit relajado y gráfica Dopamine. Diseñada para moverte sin perder estructura',
-      details: '100% algodón premium de 260 GSM. Fit oversized, cuello reforzado y estampa de alta densidad',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
+      id: 'buzo-win',
+      slug: 'buzo-win',
+      name: 'Buzo WIN',
+      category: 'hoodies',
+      price: 115000,
+      compareAtPrice: 135000,
+      badge: 'NEW DROP',
+      subtitle: 'Heavyweight Graphic Hoodie',
+      stock: 12,
+      description: 'Buzo con capucha de algodón premium pesado, fit oversized estructurado y estampa gráfica exclusiva Dopamine',
+      details: 'Algodón rústico peinado de 420 GSM. Doble costura reforzada, bolsillo canguro y calce boxy',
+      colors: [
+        { id: 'black', name: 'Black', hex: '#0D0D0D' },
+        { id: 'washed', name: 'Washed Black', hex: '#1C1C1E' }
+      ],
+      sizes: ['S', 'M', 'L', 'XL'],
+      images: [
+        'Ropa/Buzos/Buzo WIN.webp',
+        'Ropa/Buzos/Buzo WIN  back view.webp'
+      ]
+    },
+    {
+      id: 'remera-wireframe-waffle-noir',
+      slug: 'remera-wireframe-waffle-noir',
+      name: 'Remera Wireframe Waffle Noir',
+      category: 'tops',
+      price: 62000,
+      compareAtPrice: null,
+      badge: 'NEW DROP',
+      subtitle: 'Thermal Longsleeve Tee',
+      stock: 16,
+      description: 'Remera manga larga en tejido térmico waffle noir con textura tridimensional y fit boxy relajado',
+      details: 'Algodón waffle de 280 GSM. Puños acanalados, cuello alto ajustado y caída pesada',
+      colors: [
+        { id: 'noir', name: 'Noir', hex: '#0D0D0D' },
+        { id: 'off-black', name: 'Off Black', hex: '#1E1E22' }
+      ],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       images: [
-        'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=84'
+        'Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR.webp',
+        'Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR Modelo.webp'
       ]
     },
     {
-      id: 'phase-hoodie', slug: 'phase-hoodie', name: 'Phase Hoodie', category: 'hoodies', price: 110000,
-      compareAtPrice: 140000, badge: 'BEST SELLER', subtitle: 'Heavyweight Fleece Pullover', stock: 7,
-      description: 'Hoodie premium de algodón pesado con interior afelpado y una silueta limpia para todos los días',
-      details: 'Algodón french terry de 450 GSM. Capucha doble, bolsillo frontal y terminaciones de rib premium',
-      colors: [{ id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'cement', name: 'Cement Gray', hex: '#8A8A8A' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }],
+      id: 'camisa-bunny',
+      slug: 'camisa-bunny',
+      name: 'Camisa Bunny',
+      category: 'tops',
+      price: 82000,
+      compareAtPrice: null,
+      badge: 'LIMITED',
+      subtitle: 'Relaxed Fit Streetwear Shirt',
+      stock: 8,
+      description: 'Camisa urbana de corte relajado con estampa de autor, cuello estructurado y botones al tono',
+      details: 'Poplin de algodón premium 100%. Tacto suave, calce amplio y detalles de confección artesanal',
+      colors: [
+        { id: 'black', name: 'Black', hex: '#0D0D0D' },
+        { id: 'white', name: 'Off White', hex: '#F0EFEA' }
+      ],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
-        'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=84'
+        'Ropa/Camisas/Camisa Bunny.webp',
+        'Ropa/Camisas/Camisa Bunny Back View.webp'
       ]
     },
     {
-      id: 'vector-pant', slug: 'vector-pant', name: 'Vector Pant', category: 'bottoms', price: 96000,
-      compareAtPrice: null, badge: 'NEW', subtitle: 'Relaxed Fit Cargo Pant', stock: 12,
-      description: 'Pantalón cargo de silueta amplia con detalles utilitarios y construcción pensada para el movimiento',
-      details: 'Gabardina de algodón con bolsillos cargo, cintura ajustable y fit relajado',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }, { id: 'olive', name: 'Olive', hex: '#3B4A3F' }],
+      id: 'campera-set',
+      slug: 'campera-set',
+      name: 'Campera SET',
+      category: 'hoodies',
+      price: 138000,
+      compareAtPrice: 160000,
+      badge: 'DROP 01',
+      subtitle: 'Technical Track Jacket',
+      stock: 6,
+      description: 'Campera técnica con cuello alto, cierre completo de doble carro y silueta deportiva contemporánea',
+      details: 'Tejido técnico cortavientos con forrería transpirable. Bolsillos laterales con cierre invisible',
+      colors: [
+        { id: 'black', name: 'Black', hex: '#0D0D0D' },
+        { id: 'cement', name: 'Cement Gray', hex: '#8A8A8A' }
+      ],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
-        'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=1000&q=84'
+        'Ropa/Camperas/Campera SET.webp',
+        'Ropa/Camperas/Campera SET Back view.webp'
       ]
     },
     {
-      id: 'dopamine-cap', slug: 'dopamine-cap', name: 'Dopamine Cap', category: 'accessories', price: 42000,
-      compareAtPrice: null, badge: 'LIMITED', subtitle: 'Structured 6-Panel Cap', stock: 4,
-      description: 'Gorra estructurada con logo Dopamine bordado y ajuste trasero metálico',
-      details: 'Gabardina de algodón, visera curva y bordado frontal de alta definición',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'white', name: 'White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
-      sizes: ['ONE SIZE'],
-      images: [
-        'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=1000&q=84'
-      ]
-    },
-    {
-      id: 'afterhours-tee', slug: 'afterhours-tee', name: 'After Hours Tee', category: 'tops', price: 54000,
-      compareAtPrice: null, badge: 'DROP 01', subtitle: 'Boxy Graphic Tee', stock: 9,
-      description: 'Remera gráfica de fit boxy con composición inspirada en la ciudad después de medianoche',
-      details: 'Algodón pesado, estampa frontal y trasera, fit boxy unisex',
-      colors: [{ id: 'rose', name: 'Rose', hex: '#C47A85' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }],
-      sizes: ['XS', 'S', 'M', 'L', 'XL'],
-      images: [
-        'https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=84'
-      ]
-    },
-    {
-      id: 'grid-overshirt', slug: 'grid-overshirt', name: 'Grid Overshirt', category: 'hoodies', price: 128000,
-      compareAtPrice: 160000, badge: 'LIMITED', subtitle: 'Technical Overshirt', stock: 3,
-      description: 'Overshirt técnica de corte amplio para sumar una capa con presencia',
-      details: 'Nylon liviano, bolsillos utilitarios y cierres metálicos',
-      colors: [{ id: 'dark-gray', name: 'Dark Gray', hex: '#1A1A1A' }, { id: 'stone', name: 'Stone', hex: '#A7A39A' }, { id: 'olive', name: 'Olive', hex: '#3B4A3F' }],
+      id: 'campera-fire-wash-black',
+      slug: 'campera-fire-wash-black',
+      name: 'Campera Fire Wash Black',
+      category: 'hoodies',
+      price: 145000,
+      compareAtPrice: null,
+      badge: 'BEST SELLER',
+      subtitle: 'Washed Denim Jacket',
+      stock: 5,
+      description: 'Campera de denim con proceso de lavado artesanal washed black y terminaciones desgastadas sutiles',
+      details: 'Denim 100% algodón de 13 oz. Proceso acid wash custom y remaches metálicos con logo grabado',
+      colors: [
+        { id: 'washed-black', name: 'Washed Black', hex: '#222225' },
+        { id: 'vintage-black', name: 'Vintage Black', hex: '#161618' }
+      ],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
-        'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=84'
+        'Ropa/Camperas/FIRE CAMPERA WASH BLACK.webp',
+        'Ropa/Camperas/Campera SET Back view.webp'
       ]
     },
     {
-      id: 'motion-short', slug: 'motion-short', name: 'Motion Short', category: 'bottoms', price: 68000,
-      compareAtPrice: null, badge: 'CORE', subtitle: 'Utility Nylon Short', stock: 14,
-      description: 'Short utilitario de nylon con caída liviana y bolsillos laterales',
-      details: 'Nylon ripstop, cintura elástica y cordón ajustable',
-      colors: [{ id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }, { id: 'warm-white', name: 'Warm White', hex: '#F5F4EF' }, { id: 'lime', name: 'Electric Lime', hex: '#B8FF00' }],
+      id: 'conjunto-baggy-morgan',
+      slug: 'conjunto-baggy-morgan',
+      name: 'Conjunto Baggy Morgan',
+      category: 'sets',
+      price: 185000,
+      compareAtPrice: 210000,
+      badge: 'EXCLUSIVO',
+      subtitle: '2-Piece Streetwear Set',
+      stock: 7,
+      description: 'Conjunto coordinado de silueta ultra baggy con textura premium y detalles utilitarios de máxima presencia',
+      details: 'Incluye buzo boxy y pantalón baggy con cordón de ajuste y puños ribelados',
+      colors: [
+        { id: 'noir', name: 'Noir', hex: '#0D0D0D' },
+        { id: 'graphite', name: 'Graphite', hex: '#2A2A2E' }
+      ],
       sizes: ['S', 'M', 'L', 'XL'],
       images: [
-        'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=84'
+        'Ropa/Conjuntos/CONJUNTO BAGGY MORGAN.webp',
+        'Ropa/Conjuntos/CONJUNTO BAGGY MORGAN Side view.webp'
       ]
     },
     {
-      id: 'signal-socks', slug: 'signal-socks', name: 'Signal Socks', category: 'accessories', price: 18000,
-      compareAtPrice: null, badge: 'CORE', subtitle: 'Ribbed Logo Socks', stock: 28,
-      description: 'Medias de algodón con logo tejido y construcción reforzada',
-      details: 'Pack de una unidad. Algodón peinado y puño acanalado',
-      colors: [{ id: 'white', name: 'White', hex: '#F5F4EF' }, { id: 'black', name: 'Black', hex: '#0D0D0D' }, { id: 'dark-red', name: 'Dark Red', hex: '#8B1E1E' }],
-      sizes: ['ONE SIZE'],
+      id: 'jean-baggy-ice',
+      slug: 'jean-baggy-ice',
+      name: 'Jean Baggy Ice',
+      category: 'bottoms',
+      price: 98000,
+      compareAtPrice: null,
+      badge: 'NEW',
+      subtitle: 'Wide Leg Light Wash Denim',
+      stock: 14,
+      description: 'Jean de calce baggy amplio en tono ice wash, tiro medio y caída holgada sobre las zapatillas',
+      details: 'Denim rígido 100% algodón de 12.5 oz. Lavado claro con efecto vintage y 5 bolsillos clásicos',
+      colors: [
+        { id: 'ice-blue', name: 'Ice Blue', hex: '#9BB8D3' },
+        { id: 'light-denim', name: 'Light Denim', hex: '#B2CBE3' }
+      ],
+      sizes: ['38', '40', '42', '44', '46'],
       images: [
-        'https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=1000&q=84',
-        'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1000&q=84'
+        'Ropa/Jeanes/JEAN BAGGY ICE.webp',
+        'Ropa/Jeanes/JEAN BAGGY ICE Back View.webp'
+      ]
+    },
+    {
+      id: 'jean-baggy-soul',
+      slug: 'jean-baggy-soul',
+      name: 'Jean Baggy Soul',
+      category: 'bottoms',
+      price: 98000,
+      compareAtPrice: null,
+      badge: 'CORE',
+      subtitle: 'Wide Leg Dark Wash Denim',
+      stock: 11,
+      description: 'Jean baggy de silueta relaxed en tono dark soul wash, construido para resistir el uso diario',
+      details: 'Denim 100% algodón estructurado. Remaches reforzados, tiro bajo-medio y botamanga ancha',
+      colors: [
+        { id: 'dark-denim', name: 'Dark Soul', hex: '#1C2536' },
+        { id: 'black-denim', name: 'Raw Black', hex: '#121214' }
+      ],
+      sizes: ['38', '40', '42', '44', '46'],
+      images: [
+        'Ropa/Jeanes/JEAN BAGGY SOUL.webp',
+        'Ropa/Jeanes/JEAN BAGGY SOUL back view.webp'
       ]
     }
   ];
@@ -102,6 +182,7 @@
   window.DopamineCatalog = {
     products,
     getProductBySlug(slug) { return products.find(product => product.slug === slug) || products[0]; },
+    getProductById(id) { return products.find(product => product.id === id) || products[0]; },
     getRelated(product, limit = 4) {
       return products.filter(item => item.id !== product.id && (item.category === product.category || item.badge === product.badge)).slice(0, limit);
     }

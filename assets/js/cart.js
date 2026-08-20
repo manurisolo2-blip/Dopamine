@@ -9,28 +9,31 @@
   // Recommended products list for cross-sell carousel in cart drawer (Prices in ARS)
   const RECOMMENDATIONS = [
     {
-      id: 'rec-1',
-      name: 'Medias Dopamine Everyday',
-      price: 18000,
-      image: 'assets/Branding/Logos/Isotipo.png',
-      color: 'Black',
-      size: 'One Size'
+      id: 'remera-wireframe-waffle-noir',
+      slug: 'remera-wireframe-waffle-noir',
+      name: 'Remera Wireframe Waffle Noir',
+      price: 62000,
+      image: 'Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR.webp',
+      color: 'Noir',
+      size: 'M'
     },
     {
-      id: 'rec-2',
-      name: 'Gorra Dopamine Tech Cap',
-      price: 24000,
-      image: 'assets/Branding/Logos/Isotipo.png',
+      id: 'camisa-bunny',
+      slug: 'camisa-bunny',
+      name: 'Camisa Bunny',
+      price: 82000,
+      image: 'Ropa/Camisas/Camisa Bunny.webp',
       color: 'Black',
-      size: 'One Size'
+      size: 'L'
     },
     {
-      id: 'rec-3',
-      name: 'Llavero Carabiner Dopamine',
-      price: 12000,
-      image: 'assets/Branding/Logos/Isotipo.png',
-      color: 'Silver',
-      size: 'One Size'
+      id: 'jean-baggy-ice',
+      slug: 'jean-baggy-ice',
+      name: 'Jean Baggy Ice',
+      price: 98000,
+      image: 'Ropa/Jeanes/JEAN BAGGY ICE.webp',
+      color: 'Ice Blue',
+      size: '40'
     }
   ];
   let activeRecommendIndex = 0;
