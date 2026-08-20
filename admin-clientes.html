@@ -6,6 +6,16 @@
   <title>Panel de Clientes & Registros — Dopamine Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+  <script>
+    // Bloqueo de seguridad: La consola de administración no se permite en entornos de producción (Vercel/dominios externos)
+    (function() {
+      const hostname = window.location.hostname;
+      const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || window.location.protocol === 'file:';
+      if (!isLocal) {
+        window.location.replace('index.html');
+      }
+    })();
+  </script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
