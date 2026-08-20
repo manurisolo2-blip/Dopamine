@@ -245,7 +245,7 @@
                   <div class="nk-checkbox-wrap">
                     <label class="nk-checkbox-label">
                       <input type="checkbox" id="nk-input-newsletter" ${checkoutState.customer.noNewsletter ? 'checked' : ''}>
-                      <span>No quiero recibir el newsletter con promociones.</span>
+                      <span>No quiero recibir el newsletter con promociones</span>
                     </label>
                   </div>
 
@@ -281,7 +281,7 @@
                   <!-- TABS: ENVIO A DOMICILIO / RETIRO EN PUNTO -->
                   <div class="nk-shipping-tabs">
                     <button type="button" class="nk-ship-tab ${checkoutState.shipping.type === 'home' ? 'is-active' : ''}" id="tab-ship-home">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
                       <span>Envío a domicilio</span>
                     </button>
                     <button type="button" class="nk-ship-tab ${checkoutState.shipping.type === 'pickup' ? 'is-active' : ''}" id="tab-ship-pickup">
@@ -312,7 +312,7 @@
                           <input type="radio" name="nk-carrier-radio" value="standard" ${checkoutState.shipping.option === 'standard' ? 'checked' : ''}>
                           <div class="nk-carrier-info">
                             <strong>Correo Argentino / Andreani Clásico</strong>
-                            <span>Llega entre 3 a 5 días hábiles a tu domicilio.</span>
+                            <span>Llega entre 3 a 5 días hábiles a tu domicilio</span>
                           </div>
                           <span class="nk-carrier-price ${subtotal >= 90000 ? 'is-free' : ''}">
                             ${subtotal >= 90000 ? 'Gratis' : '$ 5.500'}
@@ -323,7 +323,7 @@
                           <input type="radio" name="nk-carrier-radio" value="express" ${checkoutState.shipping.option === 'express' ? 'checked' : ''}>
                           <div class="nk-carrier-info">
                             <strong>Envío Moto Express CABA / AMBA</strong>
-                            <span>Entrega prioritaria en 24 a 48 horas hábiles.</span>
+                            <span>Entrega prioritaria en 24 a 48 horas hábiles</span>
                           </div>
                           <span class="nk-carrier-price">$ 8.500</span>
                         </label>
@@ -344,7 +344,7 @@
                         </div>
                         <div class="nk-pickup-ready">
                           <span class="nk-dot-green"></span>
-                          <span>Listo para retirar hoy mismo.</span>
+                          <span>Listo para retirar hoy mismo</span>
                         </div>
                       </div>
                     </div>
@@ -420,11 +420,11 @@
                       <div class="nk-mp-features-list">
                         <div class="nk-mp-feature-row">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009EE3" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                          <span>Usá tus tarjetas guardadas, dinero disponible y mucho más.</span>
+                          <span>Usá tus tarjetas guardadas, dinero disponible y mucho más</span>
                         </div>
                         <div class="nk-mp-feature-row">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009EE3" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                          <span>Accedé a <strong>Cuotas sin Tarjeta</strong> para comprar ahora y pagar después.</span>
+                          <span>Accedé a <strong>Cuotas sin Tarjeta</strong> para comprar ahora y pagar después</span>
                         </div>
                       </div>
 
@@ -438,14 +438,14 @@
 
                       <div class="nk-mp-redirect-notice">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                        <span>Te llevaremos a Mercado Pago; si no tenés una cuenta, podés usar tu e-mail.</span>
+                        <span>Te llevaremos a Mercado Pago; si no tenés una cuenta, podés usar tu e-mail</span>
                       </div>
                     </div>
                   ` : (checkoutState.payment.method === 'transfer' ? `
                     <div class="nk-transfer-box">
                       <div class="nk-transfer-header">
                         <span class="nk-discount-tag">✓ 10% DE DESCUENTO APLICADO</span>
-                        <p>Aboná mediante transferencia y ahorrás en tu total.</p>
+                        <p>Aboná mediante transferencia y ahorrás en tu total</p>
                       </div>
                       <div class="nk-transfer-data">
                         <p><strong>Alias MP:</strong> <code id="nk-btn-copy-alias">dopamine.streetwear.mp 📋</code></p>
@@ -753,9 +753,9 @@
             <h3>¡PAGO CONFIRMADO CON ÉXITO!</h3>
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
               <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 22px; width: auto; object-fit: contain; border-radius: 4px;">
-              <p style="margin: 0;">Orden <strong>#${orderId}</strong> aprobada por Mercado Pago.</p>
+              <p style="margin: 0;">Orden <strong>#${orderId}</strong> aprobada por Mercado Pago</p>
             </div>
-            <p class="nk-sub">Enviamos el comprobante a <strong>${checkoutState.customer.email}</strong>.</p>
+            <p class="nk-sub">Enviamos el comprobante a <strong>${checkoutState.customer.email}</strong></p>
             <a href="store.html" class="nk-return-shop-btn">EXPLORAR MÁS DROPS ↗</a>
           </div>
         `;

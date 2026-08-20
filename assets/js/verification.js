@@ -117,8 +117,8 @@
           <span style="font-size: 38px; font-weight: 700; letter-spacing: 8px; color: #111111; font-family: monospace, 'Courier New', monospace;">${code}</span>
         </div>
 
-        <p style="font-size: 14px; color: #111111; margin-bottom: 15px;">El código caducará después de 15 minutos.</p>
-        <p style="font-size: 13px; color: #8d8d8d; line-height: 1.5;">Si ya recibiste este código o ya no lo necesitas, puedes ignorar este correo electrónico.</p>
+        <p style="font-size: 14px; color: #111111; margin-bottom: 15px;">El código caducará después de 15 minutos</p>
+        <p style="font-size: 13px; color: #8d8d8d; line-height: 1.5;">Si ya recibiste este código o ya no lo necesitas, puedes ignorar este correo electrónico</p>
       </div>
     `;
 
