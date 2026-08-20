@@ -2088,11 +2088,38 @@ body.shop-page {
   .shop-header-row {
     margin-top: 0.5rem !important;
     padding-bottom: 1rem !important;
-    gap: 1rem !important;
+    gap: 0.85rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
 
   .shop-header-left {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
     gap: 0.5rem !important;
+  }
+
+  .shop-header-right {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+
+  .shop-sort-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+  }
+
+  .shop-sort {
+    font-size: 16px !important;
+    padding: 0.4rem 0.6rem !important;
+    border-radius: var(--radius-card, 0.75rem) !important;
   }
 
   .shop-display {
@@ -2123,7 +2150,8 @@ body.shop-page {
 
   .detail-viewer {
     width: 100% !important;
-    aspect-ratio: 3 / 4 !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: var(--radius-card, 0.75rem) !important;
   }
 
   .detail-gallery {
@@ -2225,10 +2253,30 @@ body.shop-page {
     padding: 1.5rem 1.25rem !important;
   }
 
-  /* ===== CONTACT PAGE (MOBILE) ===== */
+  /* ===== CONTACT & NEWSLETTER PAGE (MOBILE) ===== */
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
+  }
+
+  .shop-pure-newsletter-box {
+    padding: 1.5rem 0.5rem !important;
+    text-align: center !important;
+  }
+
+  .shop-pure-newsletter-box h1 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 1 !important;
+  }
+
+  .shop-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .shop-pure-newsletter-submit {
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 
@@ -2254,16 +2302,6 @@ body.shop-page {
   .detail-sizes {
     grid-template-columns: repeat(3, 1fr) !important;
   }
-}
-
-/* SHARP 0PX CORNER ARCHITECTURE */
-*, *::before, *::after {
-  border-radius: 0 !important;
-}
-
-/* ZERO GRADIENT RESET */
-*, *::before, *::after {
-  background-image: none !important;
 }
 
 /* Preserve checkbox SVG icon */

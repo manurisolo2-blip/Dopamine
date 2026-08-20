@@ -2829,9 +2829,10 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 767px) {
   :root {
     --gutter: 1rem;
-    --space-5xl: 3.5rem;
-    --space-4xl: 2.75rem;
-    --space-3xl: 2.25rem;
+    --space-5xl: 3rem;
+    --space-4xl: 2.25rem;
+    --space-3xl: 1.75rem;
+    --space-2xl: 1.5rem;
   }
 
   /* Prevent iOS Safari auto-zoom on input focus */
@@ -2839,80 +2840,167 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 16px !important;
   }
 
-  /* Mobile Header & Brand Bar */
+  /* Container bounds on mobile */
+  .container {
+    padding-inline: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Mobile Floating Header & Capsule */
   .site-header {
-    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.35rem 0.5rem 0 !important;
+    width: 100%;
+    z-index: var(--z-header, 50);
   }
 
-  .header-container {
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem;
-    padding-inline: 0.75rem;
+  .header-capsule {
+    width: 100%;
+    max-width: calc(100vw - 1rem) !important;
+    margin: 0 auto;
+    border-radius: 9999px !important;
   }
 
-  .brand-logo {
-    justify-self: start;
-    gap: 0.5rem;
+  .header-micro-marquee {
+    padding: 0.18rem 0.75rem !important;
+    font-size: 0.5625rem !important;
   }
 
-  .brand-logotype {
-    font-size: 1.35rem;
-    letter-spacing: 0.16em;
+  .header-micro-marquee-content {
+    gap: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    font-size: 0.5625rem !important;
   }
 
-  .brand-isotipo {
-    height: 26px;
+  .header-main-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.25rem 0.65rem !important;
+    min-height: 42px !important;
+    position: relative !important;
   }
 
-  .header-actions-right,
-  .header-actions {
-    gap: 0.15rem;
+  .header-nav-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
   }
 
-  .action-btn {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    min-height: 36px;
-    padding: 0;
+  .header-nav-left .nav-item-link,
+  .header-center-link {
+    display: none !important;
   }
 
-  /* Hero Section on Mobile */
+  .header-nav-center {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    pointer-events: auto !important;
+  }
+
+  .header-center-logo .brand-isotipo {
+    height: 22px !important;
+    width: auto !important;
+  }
+
+  .header-nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.15rem !important;
+  }
+
+  .header-nav-right .action-btn,
+  .header-nav-right .account-link-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  .header-nav-right .action-btn svg,
+  .header-nav-right .account-link-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .cart-count {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 8px !important;
+    top: -1px !important;
+    right: -1px !important;
+  }
+
+  /* Hero Section on Mobile (Cinema Parallax Curtain) */
   .hero-section,
   .hero-video-section {
-    min-height: 100vh;
-    padding-top: 96px;
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    padding-top: 60px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
 
   .hero-content {
-    padding-block: 2.5rem 2rem;
-    text-align: center;
+    padding: 1.5rem 1rem !important;
+    width: 100% !important;
+    text-align: left !important;
   }
 
   .hero-headline {
-    font-size: clamp(2.75rem, 12vw, 4.25rem) !important;
-    line-height: 0.95;
-    margin-bottom: 1.25rem;
+    font-size: clamp(2.4rem, 11vw, 3.4rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 0.85rem !important;
+    word-break: break-word !important;
   }
 
-  .hero-subhead {
-    font-size: 0.875rem;
-    max-width: 320px;
-    margin-inline: auto;
-    margin-bottom: 1.75rem;
+  .hero-tagline {
+    font-size: 0.6875rem !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.25rem !important;
+    max-width: 290px !important;
+    opacity: 0.85 !important;
   }
 
-  .hero-ctas {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    margin-inline: auto;
-    gap: 0.75rem;
+  .hero-text-cta {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.14em !important;
+    padding-bottom: 3px !important;
   }
 
-  .hero-ctas .btn {
-    width: 100%;
-    height: 50px;
+  /* Hero Sheet Overlap Container */
+  .hero-sheet-cover {
+    margin-top: 0 !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+  }
+
+  /* Marquee Strip */
+  .marquee-strip {
+    padding-block: 0.65rem !important;
+  }
+
+  .marquee-content {
+    font-size: 0.625rem !important;
+    gap: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
   /* Categories Grid (2 Columns on Mobile) */
@@ -2922,68 +3010,301 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .category-card {
-    height: 220px !important;
+    position: relative !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    border-radius: var(--radius-card, 0.75rem) !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border-color) !important;
   }
 
-  .category-card-content h3 {
-    font-size: 1.35rem !important;
+  .category-image {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .category-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .category-title {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0.75rem 0.5rem !important;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%) !important;
+    color: #FFFFFF !important;
+    font-family: var(--ff-heading) !important;
+    font-size: 1.15rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
   }
 
   /* Featured Products Grid (2 Columns on Mobile) */
   .products-grid,
   .featured-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem 0.625rem !important;
+    gap: 0.75rem 0.5rem !important;
   }
 
-  /* Benefits Bar (2x2 Grid) */
-  .benefits-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.25rem 0.75rem !important;
+  .product-card {
+    padding: 0.35rem 0.35rem 0.65rem !important;
+    border-radius: var(--radius-card, 0.75rem) !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
 
-  .benefit-item {
-    text-align: center;
-    padding: 0.5rem;
+  .product-media-wrapper {
+    aspect-ratio: 4 / 5 !important;
+    border-radius: var(--radius-media, 0.625rem) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .product-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .product-info {
+    padding: 0.2rem 0.2rem 0 !important;
+  }
+
+  .product-name {
+    font-size: 0.8125rem !important;
+    font-family: var(--ff-heading) !important;
+    letter-spacing: 0.04em !important;
+    margin-bottom: 0.2rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .product-price-list {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  .product-price-transfer {
+    font-size: 0.625rem !important;
+    line-height: 1.25 !important;
+    color: var(--color-accent) !important;
+    font-weight: 600 !important;
+  }
+
+  .product-swatches {
+    display: flex !important;
+    gap: 4px !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .product-swatch-dot {
+    width: 9px !important;
+    height: 9px !important;
+    border-radius: 50% !important;
+  }
+
+  /* On Touch screens, hide hover quick add to prevent touch collision */
+  @media (hover: none) {
+    .quick-add-pill {
+      display: none !important;
+    }
+  }
+
+  /* Scroll Reveal Banner */
+  .scroll-text-section {
+    padding-block: 2.5rem !important;
+  }
+
+  .scroll-reveal-headline {
+    font-size: clamp(1.75rem, 7.5vw, 3rem) !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Collection Banner */
+  .collection-banner {
+    padding: 2.5rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .banner-title {
+    font-size: clamp(1.85rem, 8vw, 2.75rem) !important;
+    line-height: 0.98 !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .banner-text {
+    font-size: 0.78rem !important;
+    max-width: 300px !important;
+    margin-inline: auto !important;
+    margin-bottom: 1.25rem !important;
   }
 
   /* Brand Story (Stacked) */
   .brand-story-container {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
   }
 
   .brand-story-stats {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
   }
 
   .stat-card {
-    padding: 1.25rem 0.75rem !important;
+    padding: 0.85rem 0.4rem !important;
+    text-align: center !important;
+    border-radius: var(--radius-card, 0.75rem) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--card-bg) !important;
+  }
+
+  .stat-number {
+    font-size: 1.6rem !important;
+    font-family: var(--ff-heading) !important;
+    line-height: 1 !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .stat-label {
+    font-size: 0.5625rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .stat-desc {
+    display: none !important;
+  }
+
+  /* Benefits Bar */
+  .benefits-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    padding-inline: 1rem !important;
+  }
+
+  .benefit-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.65rem !important;
+    font-size: 0.6875rem !important;
+    letter-spacing: 0.1em !important;
+    text-align: center !important;
+    padding: 0.25rem !important;
+  }
+
+  .benefit-item svg {
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0 !important;
   }
 
   /* Drawers (Full screen touch friendly) */
   .cart-drawer,
   .mobile-menu-drawer,
   .profile-drawer {
-    width: min(100vw, 380px) !important;
+    width: min(100vw, 360px) !important;
+    max-width: 100vw !important;
   }
 
-  /* Footer Accordions & Bottom Bar */
+  .mobile-menu-nav a {
+    font-family: var(--ff-heading) !important;
+    font-size: 1.6rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 0.6rem 0 !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    display: block !important;
+  }
+
+  /* Monumental Footer */
+  .footer-brand-monumental {
+    font-size: clamp(2.4rem, 14vw, 5rem) !important;
+    letter-spacing: 0.08em !important;
+    line-height: 0.9 !important;
+    max-width: 100% !important;
+  }
+
   .footer-main-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    padding-top: 1.5rem !important;
+  }
+
+  .footer-brand-col {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .footer-brand-desc {
+    max-width: 320px !important;
+    margin-inline: auto !important;
+  }
+
+  .footer-email-form {
+    width: 100% !important;
+    max-width: 340px !important;
+  }
+
+  .footer-input-wrap {
+    display: flex !important;
+    width: 100% !important;
+    border-radius: 9999px !important;
+    border: 1px solid var(--border-color) !important;
+    overflow: hidden !important;
+    background: var(--bg-surface) !important;
+    min-height: 44px !important;
+  }
+
+  .footer-input-wrap input {
+    flex: 1 !important;
+    padding: 0.5rem 0.85rem !important;
+    font-size: 16px !important;
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  .footer-input-wrap button {
+    padding: 0 1.25rem !important;
+    background: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
+    border: none !important;
   }
 
   .footer-col-title.footer-accordion-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    padding-block: 0.85rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 0;
-    font-size: 0.8125rem;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+    padding-block: 0.75rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    margin-bottom: 0 !important;
+    font-size: 0.8125rem !important;
+    min-height: 44px !important;
   }
 
   .accordion-icon {
@@ -3009,10 +3330,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .footer-bottom-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding-top: 1.25rem;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.75rem !important;
+    padding-top: 1.25rem !important;
   }
 
   .section-padding {
@@ -3020,26 +3343,33 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Extra Small Phones (< 380px, e.g. iPhone SE) */
+/* Extra Small Phones (< 380px, e.g. iPhone SE, Galaxy A) */
 @media (max-width: 379px) {
   .brand-logotype {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     letter-spacing: 0.12em;
   }
 
   .brand-isotipo {
-    height: 22px;
-  }
-
-  .action-btn {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    min-height: 36px;
+    height: 20px !important;
   }
 
   .hero-headline {
-    font-size: 2.5rem !important;
+    font-size: 2.25rem !important;
+  }
+
+  .products-grid,
+  .featured-grid,
+  .categories-grid {
+    gap: 0.5rem 0.35rem !important;
+  }
+
+  .brand-story-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stat-desc {
+    display: block !important;
   }
 }
 
