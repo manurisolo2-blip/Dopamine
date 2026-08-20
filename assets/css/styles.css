@@ -2186,26 +2186,27 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: flex-end;
   padding: 0;
-  margin-top: 0.5rem;
-  margin-bottom: -0.05em;
+  margin-top: 1rem;
+  margin-bottom: -0.04em;
   user-select: none;
   -webkit-user-select: none;
   pointer-events: none;
-  line-height: 0.72;
+  line-height: 0.74;
 }
 
 .footer-eme-wordmark {
   font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
-  font-size: clamp(3.8rem, 16.2vw, 17.5rem);
-  line-height: 0.72;
+  font-size: clamp(4.5rem, 17.6vw, 24rem);
+  line-height: 0.74;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   white-space: nowrap;
   margin: 0;
   padding: 0;
   display: block;
   text-align: center;
+  width: 100%;
   color: rgba(255, 255, 255, 0.18);
   transition: color var(--transition-theme);
 }
@@ -3519,9 +3520,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .footer-eme-wordmark {
-    font-size: clamp(2.8rem, 14.5vw, 5.5rem) !important;
-    line-height: 0.75 !important;
-    letter-spacing: 0.02em !important;
+    font-size: clamp(3.4rem, 18.2vw, 8rem) !important;
+    line-height: 0.76 !important;
+    letter-spacing: -0.015em !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 
   .footer-main-grid {
