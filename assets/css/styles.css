@@ -707,7 +707,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   5. HEADER & NAVIGATION — ROTTEN FUTURE FLOATING CAPSULE
+   5. HEADER & NAVIGATION — EME STUDIOS STYLE FROSTED GLASS
    ============================================================ */
 
 .site-header {
@@ -715,8 +715,9 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: var(--z-header, 50);
-  padding: 0.65rem 0.85rem 0;
+  padding: 0;
   pointer-events: none;
   transition: transform var(--transition-smooth);
   user-select: none;
@@ -725,91 +726,58 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .site-header {
-    padding: 0.4rem 0.5rem 0;
+    padding: 0;
   }
 }
 
 .header-capsule {
   pointer-events: auto;
   width: 100%;
-  max-width: calc(100vw - 1.7rem);
-  margin: 0 auto;
-  border-radius: 9999px; /* Iconic Apple Liquid Glass Stadium Pill */
-  overflow: hidden;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  overflow: visible;
   user-select: none;
   -webkit-user-select: none;
   
-  /* Authentic Rotten Future / Apple Liquid Glass */
-  backdrop-filter: blur(28px) saturate(190%) brightness(105%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(105%);
-  background: linear-gradient(180deg, rgba(14, 16, 20, 0.48) 0%, rgba(6, 7, 10, 0.38) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 
-    0 20px 50px -10px rgba(0, 0, 0, 0.5),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-  transition: background 350ms cubic-bezier(0.25, 1, 0.5, 1),
-              border-color 350ms cubic-bezier(0.25, 1, 0.5, 1),
-              box-shadow 350ms cubic-bezier(0.25, 1, 0.5, 1),
-              backdrop-filter 350ms cubic-bezier(0.25, 1, 0.5, 1),
-              -webkit-backdrop-filter 350ms cubic-bezier(0.25, 1, 0.5, 1);
+  /* Eme Studios Signature Frosted Glass Blur & Natural Translucency */
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(10, 10, 12, 0.65);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: background 250ms ease, border-color 250ms ease, backdrop-filter 250ms ease, box-shadow 250ms ease;
 }
 
 [data-theme="light"] .header-capsule {
-  backdrop-filter: blur(28px) saturate(190%) brightness(105%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(105%);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, rgba(238, 238, 244, 0.45) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 
-    0 16px 40px -8px rgba(0, 0, 0, 0.08),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(255, 255, 255, 0.65);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 @media (max-width: 768px) {
   .header-capsule {
-    border-radius: 9999px;
-    max-width: calc(100vw - 1rem);
+    border-radius: 0;
+    max-width: 100%;
   }
-}
-
-/* Liquid Glass Intensification Mode: When scrolled or on sub-pages */
-.site-header.is-scrolled .header-capsule,
-.site-header.has-glass .header-capsule {
-  backdrop-filter: blur(32px) saturate(200%) brightness(108%);
-  -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(108%);
-}
-
-[data-theme="dark"] .site-header.is-scrolled .header-capsule,
-[data-theme="dark"] .site-header.has-glass .header-capsule {
-  background: linear-gradient(180deg, rgba(14, 16, 20, 0.68) 0%, rgba(6, 7, 10, 0.58) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 
-    0 24px 60px -10px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35);
-}
-
-[data-theme="light"] .site-header.is-scrolled .header-capsule,
-[data-theme="light"] .site-header.has-glass .header-capsule {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(240, 240, 246, 0.72) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 
-    0 18px 45px -8px rgba(0, 0, 0, 0.12),
-    inset 0 1px 1px 0 #FFFFFF,
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 /* 1. Header Micro-Marquee (Continuous Top Ticker) */
 .header-micro-marquee {
   overflow: hidden;
-  padding: 0.35rem 2.5rem 0.22rem;
-  border-bottom: none;
+  padding: 0.32rem 2.5rem 0.28rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   background: transparent;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
   width: 100%;
+}
+
+[data-theme="light"] .header-micro-marquee {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .header-micro-marquee-track {
@@ -853,7 +821,7 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 0.5rem 2.5rem;
+  padding: 0.65rem 2.5rem;
   border-bottom: none;
   position: relative;
   min-height: 56px;
@@ -863,7 +831,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .header-main-nav {
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1rem;
     min-height: 52px;
   }
 }
@@ -3863,19 +3831,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .mega-menu-panel {
   position: absolute;
-  top: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-8px);
-  width: min(900px, calc(100vw - 2rem));
-  background: rgba(12, 14, 18, 0.90);
-  backdrop-filter: blur(36px) saturate(190%);
-  -webkit-backdrop-filter: blur(36px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  box-shadow: 
-    0 30px 60px -12px rgba(0, 0, 0, 0.65),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
-  padding: 2.25rem 2.5rem;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: translateY(-6px);
+  background: rgba(12, 14, 18, 0.88);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+  padding: 2.25rem 3.5rem;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -3884,11 +3852,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .mega-menu-panel {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 
-    0 24px 50px -10px rgba(0, 0, 0, 0.12),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.88);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.1);
 }
 
 .mega-menu-panel.is-open,
@@ -3899,7 +3866,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 .mega-menu-content {
