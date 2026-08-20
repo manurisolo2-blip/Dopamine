@@ -1155,7 +1155,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ROTTEN FUTURE SHEET COVER OVERLAY (CURTAIN RISING OVER HERO) */
 .hero-sheet-cover {
   position: relative;
-  z-index: 5;
+  z-index: 20;
   background-color: var(--bg-primary, #0A0A0C);
   box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.85);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
