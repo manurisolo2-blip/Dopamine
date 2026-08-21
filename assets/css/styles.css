@@ -767,6 +767,44 @@ h1, h2, h3, h4, h5, h6 {
     inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
+/* ============================================================
+   INITIAL HERO STATE (100% Seamless Transparent — No Box / No Border)
+   When at the top of the video hero, the capsule border & background are hidden.
+   Only when scrolling down and covered by the background does the floating liquid glass appear!
+   ============================================================ */
+.site-header:not(.is-scrolled):not(.has-glass) .header-capsule {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .header-micro-marquee {
+  border-bottom-color: transparent !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .header-micro-marquee-content {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .header-nav-left .nav-item-link,
+.site-header:not(.is-scrolled):not(.has-glass) .header-nav-left a,
+.site-header:not(.is-scrolled):not(.has-glass) .header-nav-right .action-btn,
+.site-header:not(.is-scrolled):not(.has-glass) .header-nav-right .account-link-btn,
+.site-header:not(.is-scrolled):not(.has-glass) .mobile-menu-toggle {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .logo-dark {
+  display: inline-block !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .logo-light {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .header-capsule {
     border-radius: 9999px;
