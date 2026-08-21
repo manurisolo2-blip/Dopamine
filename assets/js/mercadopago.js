@@ -8,6 +8,399 @@
   const MP_PUBLIC_KEY = 'TEST-12345678-abcd-1234-abcd-1234567890ab';
   let mpInstance = null;
   
+  function escapeHTML(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // Base de datos de Provincias, Localidades Principales y Códigos Postales de Argentina
+  const ARGENTINA_LOCATIONS = [
+    {
+      id: 'caba',
+      name: 'Ciudad Autónoma de Buenos Aires (CABA)',
+      isAmba: true,
+      cities: [
+        { name: 'Palermo', zip: '1414' },
+        { name: 'Recoleta', zip: '1113' },
+        { name: 'Belgrano', zip: '1426' },
+        { name: 'Caballito', zip: '1405' },
+        { name: 'Puerto Madero', zip: '1107' },
+        { name: 'San Telmo', zip: '1063' },
+        { name: 'Núñez', zip: '1429' },
+        { name: 'Villa Urquiza', zip: '1431' },
+        { name: 'Almagro', zip: '1199' },
+        { name: 'Colegiales', zip: '1426' },
+        { name: 'Villa Crespo', zip: '1414' },
+        { name: 'Balvanera / Once', zip: '1032' },
+        { name: 'Flores', zip: '1406' },
+        { name: 'Villa Devoto', zip: '1419' },
+        { name: 'Microcentro / San Nicolás', zip: '1001' },
+        { name: 'Retiro', zip: '1002' },
+        { name: 'Barracas', zip: '1272' },
+        { name: 'Saavedra', zip: '1430' },
+        { name: 'Parque Patricios', zip: '1264' },
+        { name: 'Villa del Parque', zip: '1417' }
+      ]
+    },
+    {
+      id: 'gba_norte',
+      name: 'Buenos Aires (GBA Norte / AMBA)',
+      isAmba: true,
+      cities: [
+        { name: 'Vicente López', zip: '1638' },
+        { name: 'Olivos', zip: '1636' },
+        { name: 'San Isidro', zip: '1642' },
+        { name: 'Martínez', zip: '1640' },
+        { name: 'Tigre', zip: '1648' },
+        { name: 'San Fernando', zip: '1646' },
+        { name: 'Pilar', zip: '1629' },
+        { name: 'San Martín', zip: '1650' },
+        { name: 'Nordelta', zip: '1670' },
+        { name: 'Villa Ballester', zip: '1653' },
+        { name: 'Escobar', zip: '1625' }
+      ]
+    },
+    {
+      id: 'gba_oeste',
+      name: 'Buenos Aires (GBA Oeste / AMBA)',
+      isAmba: true,
+      cities: [
+        { name: 'Ramos Mejía', zip: '1704' },
+        { name: 'Morón', zip: '1708' },
+        { name: 'Castelar', zip: '1712' },
+        { name: 'Haedo', zip: '1706' },
+        { name: 'San Justo', zip: '1754' },
+        { name: 'Ituzaingó', zip: '1714' },
+        { name: 'Moreno', zip: '1744' },
+        { name: 'Merlo', zip: '1722' },
+        { name: 'Caseros (Tres de Febrero)', zip: '1678' },
+        { name: 'Hurlingham', zip: '1686' },
+        { name: 'Ciudad Jardín', zip: '1684' }
+      ]
+    },
+    {
+      id: 'gba_sur',
+      name: 'Buenos Aires (GBA Sur / AMBA)',
+      isAmba: true,
+      cities: [
+        { name: 'Avellaneda', zip: '1870' },
+        { name: 'Lanús', zip: '1824' },
+        { name: 'Lomas de Zamora', zip: '1832' },
+        { name: 'Banfield', zip: '1828' },
+        { name: 'Quilmes', zip: '1878' },
+        { name: 'Bernal', zip: '1876' },
+        { name: 'Adrogué', zip: '1846' },
+        { name: 'Temperley', zip: '1834' },
+        { name: 'Berazategui', zip: '1884' },
+        { name: 'Ezeiza', zip: '1804' },
+        { name: 'Monte Grande', zip: '1842' }
+      ]
+    },
+    {
+      id: 'bsas_interior',
+      name: 'Buenos Aires (Interior)',
+      isAmba: false,
+      cities: [
+        { name: 'La Plata', zip: '1900' },
+        { name: 'Mar del Plata', zip: '7600' },
+        { name: 'Bahía Blanca', zip: '8000' },
+        { name: 'Tandil', zip: '7000' },
+        { name: 'San Nicolás de los Arroyos', zip: '2900' },
+        { name: 'Pergamino', zip: '2700' },
+        { name: 'Olavarría', zip: '7400' },
+        { name: 'Junín', zip: '6000' },
+        { name: 'Zárate', zip: '2800' },
+        { name: 'Campana', zip: '2804' },
+        { name: 'Necochea', zip: '7630' },
+        { name: 'Azul', zip: '7300' },
+        { name: 'Chivilcoy', zip: '6620' },
+        { name: 'Mercedes', zip: '6600' },
+        { name: 'Pinamar', zip: '7167' },
+        { name: 'Villa Gesell', zip: '7165' }
+      ]
+    },
+    {
+      id: 'cordoba',
+      name: 'Córdoba',
+      isAmba: false,
+      cities: [
+        { name: 'Córdoba Capital', zip: '5000' },
+        { name: 'Villa Carlos Paz', zip: '5152' },
+        { name: 'Río Cuarto', zip: '5800' },
+        { name: 'Villa María', zip: '5900' },
+        { name: 'San Francisco', zip: '2400' },
+        { name: 'Alta Gracia', zip: '5186' },
+        { name: 'Río Tercero', zip: '5850' },
+        { name: 'Bell Ville', zip: '2550' },
+        { name: 'La Falda', zip: '5172' },
+        { name: 'Jesús María', zip: '5220' },
+        { name: 'Mina Clavero', zip: '5889' }
+      ]
+    },
+    {
+      id: 'santa_fe',
+      name: 'Santa Fe',
+      isAmba: false,
+      cities: [
+        { name: 'Rosario', zip: '2000' },
+        { name: 'Santa Fe Capital', zip: '3000' },
+        { name: 'Rafaela', zip: '2300' },
+        { name: 'Venado Tuerto', zip: '2600' },
+        { name: 'Reconquista', zip: '3560' },
+        { name: 'Santo Tomé', zip: '3016' },
+        { name: 'Villa Gobernador Gálvez', zip: '2124' },
+        { name: 'Esperanza', zip: '3080' },
+        { name: 'San Lorenzo', zip: '2200' },
+        { name: 'Funes', zip: '2132' }
+      ]
+    },
+    {
+      id: 'mendoza',
+      name: 'Mendoza',
+      isAmba: false,
+      cities: [
+        { name: 'Mendoza Capital', zip: '5500' },
+        { name: 'Godoy Cruz', zip: '5501' },
+        { name: 'Guaymallén', zip: '5519' },
+        { name: 'Las Heras', zip: '5539' },
+        { name: 'San Rafael', zip: '5600' },
+        { name: 'Luján de Cuyo', zip: '5507' },
+        { name: 'Maipú', zip: '5515' },
+        { name: 'San Martín', zip: '5570' },
+        { name: 'Chacras de Coria', zip: '5505' },
+        { name: 'Tunuyán', zip: '5560' }
+      ]
+    },
+    {
+      id: 'tucuman',
+      name: 'Tucumán',
+      isAmba: false,
+      cities: [
+        { name: 'San Miguel de Tucumán', zip: '4000' },
+        { name: 'Yerba Buena', zip: '4107' },
+        { name: 'Tafí Viejo', zip: '4103' },
+        { name: 'Concepción', zip: '4146' },
+        { name: 'Banda del Río Salí', zip: '4109' },
+        { name: 'Aguilares', zip: '4152' }
+      ]
+    },
+    {
+      id: 'entre_rios',
+      name: 'Entre Ríos',
+      isAmba: false,
+      cities: [
+        { name: 'Paraná', zip: '3100' },
+        { name: 'Concordia', zip: '3200' },
+        { name: 'Gualeguaychú', zip: '2820' },
+        { name: 'Concepción del Uruguay', zip: '3260' },
+        { name: 'Gualeguay', zip: '2840' },
+        { name: 'Colón', zip: '3280' }
+      ]
+    },
+    {
+      id: 'salta',
+      name: 'Salta',
+      isAmba: false,
+      cities: [
+        { name: 'Salta Capital', zip: '4400' },
+        { name: 'San Ramón de la Nueva Orán', zip: '4530' },
+        { name: 'Tartagal', zip: '4560' },
+        { name: 'Cafayate', zip: '4427' },
+        { name: 'General Güemes', zip: '4432' }
+      ]
+    },
+    {
+      id: 'misiones',
+      name: 'Misiones',
+      isAmba: false,
+      cities: [
+        { name: 'Posadas', zip: '3300' },
+        { name: 'Oberá', zip: '3360' },
+        { name: 'Eldorado', zip: '3380' },
+        { name: 'Puerto Iguazú', zip: '3370' },
+        { name: 'Apóstoles', zip: '3350' }
+      ]
+    },
+    {
+      id: 'chaco',
+      name: 'Chaco',
+      isAmba: false,
+      cities: [
+        { name: 'Resistencia', zip: '3500' },
+        { name: 'Presidencia Roque Sáenz Peña', zip: '3700' },
+        { name: 'Villa Ángela', zip: '3540' },
+        { name: 'Barranqueras', zip: '3503' }
+      ]
+    },
+    {
+      id: 'corrientes',
+      name: 'Corrientes',
+      isAmba: false,
+      cities: [
+        { name: 'Corrientes Capital', zip: '3400' },
+        { name: 'Goya', zip: '3450' },
+        { name: 'Paso de los Libres', zip: '3230' },
+        { name: 'Curuzú Cuatiá', zip: '3460' },
+        { name: 'Mercedes', zip: '3470' }
+      ]
+    },
+    {
+      id: 'santiago',
+      name: 'Santiago del Estero',
+      isAmba: false,
+      cities: [
+        { name: 'Santiago del Estero Capital', zip: '4200' },
+        { name: 'La Banda', zip: '4300' },
+        { name: 'Termas de Río Hondo', zip: '4220' },
+        { name: 'Frías', zip: '4230' }
+      ]
+    },
+    {
+      id: 'san_juan',
+      name: 'San Juan',
+      isAmba: false,
+      cities: [
+        { name: 'San Juan Capital', zip: '5400' },
+        { name: 'Rawson', zip: '5425' },
+        { name: 'Rivadavia', zip: '5400' },
+        { name: 'Chimbas', zip: '5413' },
+        { name: 'Caucete', zip: '5442' }
+      ]
+    },
+    {
+      id: 'jujuy',
+      name: 'Jujuy',
+      isAmba: false,
+      cities: [
+        { name: 'San Salvador de Jujuy', zip: '4600' },
+        { name: 'San Pedro de Jujuy', zip: '4500' },
+        { name: 'Palpalá', zip: '4612' },
+        { name: 'Libertador General San Martín', zip: '4512' },
+        { name: 'Perico', zip: '4610' }
+      ]
+    },
+    {
+      id: 'rio_negro',
+      name: 'Río Negro',
+      isAmba: false,
+      cities: [
+        { name: 'San Carlos de Bariloche', zip: '8400' },
+        { name: 'General Roca', zip: '8332' },
+        { name: 'Cipolletti', zip: '8324' },
+        { name: 'Viedma', zip: '8500' },
+        { name: 'Villa Regina', zip: '8336' },
+        { name: 'Las Grutas', zip: '8521' }
+      ]
+    },
+    {
+      id: 'neuquen',
+      name: 'Neuquén',
+      isAmba: false,
+      cities: [
+        { name: 'Neuquén Capital', zip: '8300' },
+        { name: 'San Martín de los Andes', zip: '8370' },
+        { name: 'Cutral Có', zip: '8322' },
+        { name: 'Zapala', zip: '8340' },
+        { name: 'Plottier', zip: '8316' },
+        { name: 'Villa La Angostura', zip: '8407' }
+      ]
+    },
+    {
+      id: 'chubut',
+      name: 'Chubut',
+      isAmba: false,
+      cities: [
+        { name: 'Comodoro Rivadavia', zip: '9000' },
+        { name: 'Trelew', zip: '9100' },
+        { name: 'Puerto Madryn', zip: '9120' },
+        { name: 'Esquel', zip: '9200' },
+        { name: 'Rawson', zip: '9103' }
+      ]
+    },
+    {
+      id: 'san_luis',
+      name: 'San Luis',
+      isAmba: false,
+      cities: [
+        { name: 'San Luis Capital', zip: '5700' },
+        { name: 'Villa Mercedes', zip: '5730' },
+        { name: 'Merlo', zip: '5881' },
+        { name: 'La Punta', zip: '5710' }
+      ]
+    },
+    {
+      id: 'catamarca',
+      name: 'Catamarca',
+      isAmba: false,
+      cities: [
+        { name: 'San Fernando del Valle de Catamarca', zip: '4700' },
+        { name: 'Valle Viejo', zip: '4707' },
+        { name: 'Andalgalá', zip: '4740' },
+        { name: 'Belén', zip: '4750' }
+      ]
+    },
+    {
+      id: 'la_pampa',
+      name: 'La Pampa',
+      isAmba: false,
+      cities: [
+        { name: 'Santa Rosa', zip: '6300' },
+        { name: 'General Pico', zip: '6360' },
+        { name: 'Toay', zip: '6303' },
+        { name: 'Realicó', zip: '6200' }
+      ]
+    },
+    {
+      id: 'la_rioja',
+      name: 'La Rioja',
+      isAmba: false,
+      cities: [
+        { name: 'La Rioja Capital', zip: '5300' },
+        { name: 'Chilecito', zip: '5360' },
+        { name: 'Aimogasta', zip: '5310' },
+        { name: 'Chamical', zip: '5380' }
+      ]
+    },
+    {
+      id: 'formosa',
+      name: 'Formosa',
+      isAmba: false,
+      cities: [
+        { name: 'Formosa Capital', zip: '3600' },
+        { name: 'Clorinda', zip: '3610' },
+        { name: 'Pirané', zip: '3606' },
+        { name: 'El Colorado', zip: '3603' }
+      ]
+    },
+    {
+      id: 'santa_cruz',
+      name: 'Santa Cruz',
+      isAmba: false,
+      cities: [
+        { name: 'Río Gallegos', zip: '9400' },
+        { name: 'Caleta Olivia', zip: '9011' },
+        { name: 'El Calafate', zip: '9405' },
+        { name: 'Pico Truncado', zip: '9015' },
+        { name: 'Puerto Deseado', zip: '9050' }
+      ]
+    },
+    {
+      id: 'tierra_del_fuego',
+      name: 'Tierra del Fuego',
+      isAmba: false,
+      cities: [
+        { name: 'Ushuaia', zip: '9410' },
+        { name: 'Río Grande', zip: '9420' },
+        { name: 'Tolhuin', zip: '9412' }
+      ]
+    }
+  ];
+
   // Estado del Checkout Wizard
   const checkoutState = {
     step: 1, // 1: Datos Personales, 2: Envío, 3: Pago
@@ -21,9 +414,12 @@
     },
     shipping: {
       type: 'home', // 'home' | 'pickup'
-      option: 'standard', // 'standard' | 'express' | 'pickup_flagship' | 'pickup_interior'
+      option: 'standard', // 'standard' | 'express'
       address: '',
-      city: '',
+      apartment: '',
+      province: 'caba',
+      city: 'Palermo',
+      isCustomCity: false,
       zip: '1414',
       cost: 0
     },
@@ -83,6 +479,10 @@
     if (checkoutState.shipping.type === 'pickup') {
       shippingCost = 0;
     } else {
+      const currentProv = ARGENTINA_LOCATIONS.find(p => p.id === checkoutState.shipping.province) || ARGENTINA_LOCATIONS[0];
+      if (!currentProv.isAmba && checkoutState.shipping.option === 'express') {
+        checkoutState.shipping.option = 'standard';
+      }
       if (checkoutState.shipping.option === 'express') {
         shippingCost = 8500;
       } else {
@@ -294,15 +694,45 @@
                     <div class="nk-home-delivery-box">
                       <div class="nk-form-fields">
                         <div class="nk-field full">
-                          <input type="text" id="nk-ship-address" placeholder=" " value="${checkoutState.shipping.address}" required>
-                          <label for="nk-ship-address">Dirección de Entrega (Calle y Número) *</label>
+                          <input type="text" id="nk-ship-address" placeholder=" " value="${escapeHTML(checkoutState.shipping.address)}" required>
+                          <label for="nk-ship-address">Dirección de Entrega (Calle y Altura) *</label>
                         </div>
                         <div class="nk-field half">
-                          <input type="text" id="nk-ship-city" placeholder=" " value="${checkoutState.shipping.city}" required>
+                          <input type="text" id="nk-ship-apartment" placeholder=" " value="${escapeHTML(checkoutState.shipping.apartment || '')}">
+                          <label for="nk-ship-apartment">Piso / Depto / Unidad (Opcional)</label>
+                        </div>
+                        <div class="nk-field half">
+                          <select id="nk-ship-province" aria-label="Provincia">
+                            ${ARGENTINA_LOCATIONS.map(prov => `
+                              <option value="${prov.id}" ${checkoutState.shipping.province === prov.id ? 'selected' : ''}>
+                                ${prov.name}
+                              </option>
+                            `).join('')}
+                          </select>
+                          <label for="nk-ship-province">Provincia *</label>
+                        </div>
+                        <div class="nk-field half">
+                          <select id="nk-ship-city" aria-label="Ciudad / Localidad">
+                            ${(() => {
+                              const currentProv = ARGENTINA_LOCATIONS.find(p => p.id === checkoutState.shipping.province) || ARGENTINA_LOCATIONS[0];
+                              const isCustom = checkoutState.shipping.isCustomCity || !currentProv.cities.some(c => c.name.toLowerCase() === (checkoutState.shipping.city || '').toLowerCase());
+                              let optionsHtml = currentProv.cities.map(c => `
+                                <option value="${c.name}" data-zip="${c.zip}" ${!isCustom && (checkoutState.shipping.city || '').toLowerCase() === c.name.toLowerCase() ? 'selected' : ''}>
+                                  ${c.name} (CP ${c.zip})
+                                </option>
+                              `).join('');
+                              optionsHtml += `<option value="__custom__" ${isCustom ? 'selected' : ''}>+ Otra localidad de ${currentProv.name}...</option>`;
+                              return optionsHtml;
+                            })()}
+                          </select>
                           <label for="nk-ship-city">Ciudad / Localidad *</label>
                         </div>
+                        <div class="nk-field half" id="nk-custom-city-wrap" style="${checkoutState.shipping.isCustomCity ? 'display:block;' : 'display:none;'}">
+                          <input type="text" id="nk-ship-custom-city" placeholder=" " value="${escapeHTML(checkoutState.shipping.city || '')}">
+                          <label for="nk-ship-custom-city">Nombre de Localidad *</label>
+                        </div>
                         <div class="nk-field half">
-                          <input type="text" id="nk-ship-zip" placeholder=" " value="${checkoutState.shipping.zip}" required>
+                          <input type="text" id="nk-ship-zip" placeholder=" " maxlength="8" value="${escapeHTML(checkoutState.shipping.zip || '')}" required>
                           <label for="nk-ship-zip">Código Postal (CP) *</label>
                         </div>
                       </div>
@@ -312,21 +742,27 @@
                           <input type="radio" name="nk-carrier-radio" value="standard" ${checkoutState.shipping.option === 'standard' ? 'checked' : ''}>
                           <div class="nk-carrier-info">
                             <strong>Correo Argentino / Andreani Clásico</strong>
-                            <span>Llega entre 3 a 5 días hábiles a tu domicilio</span>
+                            <span>Envío nacional a domicilio (3 a 5 días hábiles)</span>
                           </div>
                           <span class="nk-carrier-price ${subtotal >= 90000 ? 'is-free' : ''}">
                             ${subtotal >= 90000 ? 'Gratis' : '$ 5.500'}
                           </span>
                         </label>
 
-                        <label class="nk-carrier-choice ${checkoutState.shipping.option === 'express' ? 'is-selected' : ''}">
-                          <input type="radio" name="nk-carrier-radio" value="express" ${checkoutState.shipping.option === 'express' ? 'checked' : ''}>
-                          <div class="nk-carrier-info">
-                            <strong>Envío Moto Express CABA / AMBA</strong>
-                            <span>Entrega prioritaria en 24 a 48 horas hábiles</span>
-                          </div>
-                          <span class="nk-carrier-price">$ 8.500</span>
-                        </label>
+                        ${(() => {
+                          const currentProv = ARGENTINA_LOCATIONS.find(p => p.id === checkoutState.shipping.province) || ARGENTINA_LOCATIONS[0];
+                          const isAmba = currentProv.isAmba;
+                          return `
+                            <label class="nk-carrier-choice ${checkoutState.shipping.option === 'express' && isAmba ? 'is-selected' : ''} ${!isAmba ? 'is-disabled' : ''}">
+                              <input type="radio" name="nk-carrier-radio" value="express" ${checkoutState.shipping.option === 'express' && isAmba ? 'checked' : ''} ${!isAmba ? 'disabled' : ''}>
+                              <div class="nk-carrier-info">
+                                <strong>Envío Moto Express CABA / AMBA</strong>
+                                <span>${isAmba ? 'Entrega prioritaria en 24 a 48 horas hábiles' : 'Disponible exclusivamente para CABA y Gran Buenos Aires'}</span>
+                              </div>
+                              <span class="nk-carrier-price" style="${!isAmba ? 'opacity: 0.45;' : ''}">$ 8.500</span>
+                            </label>
+                          `;
+                        })()}
                       </div>
                     </div>
                   ` : `
@@ -357,9 +793,9 @@
               ` : (checkoutState.step > 2 ? `
                 <div class="nk-card-step-summary">
                   <p class="nk-summary-text">
-                    <strong>${checkoutState.shipping.type === 'pickup' ? 'Retiro en Showroom Dopamine (Palermo)' : 'Envío a domicilio: ' + (checkoutState.shipping.address || 'Honduras 4920, CABA')}</strong>
+                    <strong>${checkoutState.shipping.type === 'pickup' ? 'Retiro en Showroom Dopamine (Palermo Soho)' : 'Envío a: ' + escapeHTML(checkoutState.shipping.address) + (checkoutState.shipping.apartment ? ' (' + escapeHTML(checkoutState.shipping.apartment) + ')' : '') + ', ' + escapeHTML(checkoutState.shipping.city) + ' (' + (ARGENTINA_LOCATIONS.find(p => p.id === checkoutState.shipping.province)?.name || checkoutState.shipping.province) + ', CP ' + escapeHTML(checkoutState.shipping.zip) + ')'}</strong>
                   </p>
-                  <p class="nk-summary-sub">Costo: ${shippingCost === 0 ? 'Gratis' : formatARS(shippingCost)} • Listo en 3 a 5 días hábiles</p>
+                  <p class="nk-summary-sub">Método: ${checkoutState.shipping.option === 'express' ? 'Moto Express CABA/AMBA' : 'Correo Argentino / Andreani'} • Costo: ${shippingCost === 0 ? 'Gratis' : formatARS(shippingCost)} • Listo en ${checkoutState.shipping.option === 'express' ? '24 a 48 hs' : '3 a 5 días hábiles'}</p>
                 </div>
               ` : '')}
             </div>
@@ -652,6 +1088,66 @@
       renderCheckoutWizard(hub);
     });
 
+    // Guardar cambios en vivo en dirección y piso/depto
+    document.getElementById('nk-ship-address')?.addEventListener('input', (e) => {
+      checkoutState.shipping.address = e.target.value;
+    });
+    document.getElementById('nk-ship-apartment')?.addEventListener('input', (e) => {
+      checkoutState.shipping.apartment = e.target.value;
+    });
+
+    // Selector de Provincia inteligente
+    document.getElementById('nk-ship-province')?.addEventListener('change', (e) => {
+      const provId = e.target.value;
+      const found = ARGENTINA_LOCATIONS.find(p => p.id === provId) || ARGENTINA_LOCATIONS[0];
+      checkoutState.shipping.province = provId;
+      checkoutState.shipping.isCustomCity = false;
+      if (found && found.cities && found.cities.length > 0) {
+        checkoutState.shipping.city = found.cities[0].name;
+        checkoutState.shipping.zip = found.cities[0].zip;
+      }
+      if (found && !found.isAmba && checkoutState.shipping.option === 'express') {
+        checkoutState.shipping.option = 'standard';
+      }
+      renderCheckoutWizard(hub);
+    });
+
+    // Selector de Ciudad / Localidad
+    document.getElementById('nk-ship-city')?.addEventListener('change', (e) => {
+      const val = e.target.value;
+      if (val === '__custom__') {
+        checkoutState.shipping.isCustomCity = true;
+        const customWrap = document.getElementById('nk-custom-city-wrap');
+        if (customWrap) customWrap.style.display = 'block';
+        const customInput = document.getElementById('nk-ship-custom-city');
+        if (customInput) customInput.focus();
+      } else {
+        checkoutState.shipping.isCustomCity = false;
+        checkoutState.shipping.city = val;
+        const citySelect = document.getElementById('nk-ship-city');
+        const opt = citySelect ? citySelect.options[citySelect.selectedIndex] : null;
+        if (opt && opt.dataset.zip) {
+          checkoutState.shipping.zip = opt.dataset.zip;
+          const zipInput = document.getElementById('nk-ship-zip');
+          if (zipInput) zipInput.value = opt.dataset.zip;
+        }
+        const customWrap = document.getElementById('nk-custom-city-wrap');
+        if (customWrap) customWrap.style.display = 'none';
+      }
+    });
+
+    // Campo de Localidad personalizada
+    document.getElementById('nk-ship-custom-city')?.addEventListener('input', (e) => {
+      checkoutState.shipping.city = e.target.value.trim();
+    });
+
+    // Campo de Código Postal inteligente (4 dígitos numéricos)
+    document.getElementById('nk-ship-zip')?.addEventListener('input', (e) => {
+      const digits = e.target.value.replace(/\D/g, '').slice(0, 4);
+      e.target.value = digits;
+      checkoutState.shipping.zip = digits;
+    });
+
     // Opciones de carrier
     hub.querySelectorAll('input[name="nk-carrier-radio"]').forEach(radio => {
       radio.addEventListener('change', (e) => {
@@ -660,19 +1156,45 @@
       });
     });
 
-    // Continuar Paso 2 -> Paso 3
+    // Continuar Paso 2 -> Paso 3 con validación de coherencia
     document.getElementById('btn-continue-step-2')?.addEventListener('click', () => {
       if (checkoutState.shipping.type === 'home') {
-        const address = document.getElementById('nk-ship-address')?.value.trim();
-        const city = document.getElementById('nk-ship-city')?.value.trim();
-        const zip = document.getElementById('nk-ship-zip')?.value.trim();
-        if (!address || !city || !zip) {
-          alert('Por favor ingresá tu dirección de entrega y código postal.');
+        const address = document.getElementById('nk-ship-address')?.value.trim() || checkoutState.shipping.address;
+        const apartment = document.getElementById('nk-ship-apartment')?.value.trim() || '';
+        let city = checkoutState.shipping.city;
+        if (checkoutState.shipping.isCustomCity) {
+          city = document.getElementById('nk-ship-custom-city')?.value.trim() || '';
+        }
+        const zip = document.getElementById('nk-ship-zip')?.value.trim() || checkoutState.shipping.zip;
+
+        if (!address) {
+          alert('Por favor ingresá tu dirección de entrega (calle y número de altura).');
+          document.getElementById('nk-ship-address')?.focus();
           return;
         }
+
+        if (!/\d+/.test(address)) {
+          alert('Por favor incluí la numeración o altura de la calle en la dirección (ej: 2 de Abril 1420).');
+          document.getElementById('nk-ship-address')?.focus();
+          return;
+        }
+
+        if (!city) {
+          alert('Por favor seleccioná o ingresá tu ciudad o localidad.');
+          return;
+        }
+
+        const cleanZip = zip.replace(/\D/g, '');
+        if (!cleanZip || cleanZip.length !== 4) {
+          alert('Por favor ingresá un código postal argentino válido de 4 dígitos (ej: 1414, 5000, 2000).');
+          document.getElementById('nk-ship-zip')?.focus();
+          return;
+        }
+
         checkoutState.shipping.address = address;
+        checkoutState.shipping.apartment = apartment;
         checkoutState.shipping.city = city;
-        checkoutState.shipping.zip = zip;
+        checkoutState.shipping.zip = cleanZip;
       }
       checkoutState.step = 3;
       renderCheckoutWizard(hub);
@@ -1024,7 +1546,8 @@
       .nk-field {
         position: relative;
       }
-      .nk-field input {
+      .nk-field input,
+      .nk-field select {
         width: 100%;
         height: 52px;
         padding: 1.25rem 1rem 0.35rem 1rem;
@@ -1033,10 +1556,22 @@
         font-family: 'Montserrat', sans-serif, Arial, Helvetica;
         font-size: 0.9375rem;
         color: #111111;
+        background-color: #FFFFFF;
         outline: none;
         transition: border-color 150ms ease;
+        box-sizing: border-box;
       }
-      .nk-field input:focus {
+      .nk-field select {
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-right: 2.25rem;
+      }
+      .nk-field input:focus,
+      .nk-field select:focus {
         border-color: #111111;
       }
       .nk-field label {
@@ -1050,7 +1585,8 @@
         transition: all 150ms ease;
       }
       .nk-field input:focus ~ label,
-      .nk-field input:not(:placeholder-shown) ~ label {
+      .nk-field input:not(:placeholder-shown) ~ label,
+      .nk-field select ~ label {
         top: 0.85rem;
         font-size: 0.6875rem;
         color: #555555;
@@ -1145,6 +1681,15 @@
       .nk-carrier-choice.is-selected {
         border-color: #111;
         background: #FAFAFA;
+      }
+      .nk-carrier-choice.is-disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        background: #F9F9F9;
+        border-color: #EFEFEF;
+      }
+      .nk-carrier-choice.is-disabled input {
+        cursor: not-allowed;
       }
       .nk-carrier-info {
         display: flex;
