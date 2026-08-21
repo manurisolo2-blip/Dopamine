@@ -2160,32 +2160,64 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.55;
-  transition: opacity 140ms ease;
+  opacity: 0.75;
+  transition: opacity 140ms ease, transform 140ms ease;
   cursor: default;
 }
 
 .payment-badge-icon:hover {
   opacity: 1;
+  transform: translateY(-1px);
+}
+
+.payment-badge-icon img {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  transition: border-color var(--transition-theme);
+}
+
+[data-theme="light"] .payment-badge-icon img {
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .payment-badge-icon svg rect {
-  stroke: none !important;
+  stroke: rgba(255, 255, 255, 0.12) !important;
+  stroke-width: 1px !important;
   fill: rgba(255, 255, 255, 0.06);
-  transition: fill 140ms ease;
+  transition: fill 140ms ease, stroke 140ms ease;
 }
 
 [data-theme="light"] .payment-badge-icon svg rect {
-  fill: rgba(0, 0, 0, 0.06);
+  stroke: rgba(0, 0, 0, 0.12) !important;
+  fill: rgba(0, 0, 0, 0.05);
 }
 
 .payment-badge-icon:hover svg rect {
-  stroke: none !important;
+  stroke: rgba(255, 255, 255, 0.25) !important;
   fill: rgba(255, 255, 255, 0.12);
 }
 
 [data-theme="light"] .payment-badge-icon:hover svg rect {
-  fill: rgba(0, 0, 0, 0.12);
+  stroke: rgba(0, 0, 0, 0.25) !important;
+  fill: rgba(0, 0, 0, 0.10);
+}
+
+/* Badge text (VISA, AMEX, Pay) adapts dynamically to light/dark theme */
+.payment-badge-icon svg text {
+  fill: var(--text-primary) !important;
+  transition: fill var(--transition-theme);
+}
+
+/* Badge vector paths (Apple logo, Crypto B) - preserving brand fills */
+.payment-badge-icon svg path:not([fill*="#EB"]):not([fill*="#F7"]) {
+  fill: var(--text-primary) !important;
+  transition: fill var(--transition-theme);
+}
+
+/* Badge stroked elements (Crypto outer circle) */
+.payment-badge-icon svg circle[stroke] {
+  stroke: var(--text-primary) !important;
+  transition: stroke var(--transition-theme);
 }
 
 /* Eme Studios Signature Bottom Monumental Wordmark (Full-Bleed Edge to Edge) */
