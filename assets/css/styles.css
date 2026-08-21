@@ -312,12 +312,12 @@ main {
   --border-color:   rgba(0, 0, 0, 0.12); /* Clean, crisp border */
   --border-subtle:  rgba(0, 0, 0, 0.06);
 
-  --header-bg:      rgba(244, 244, 246, 0.88);
+  --header-bg:      rgba(255, 255, 255, 0.35);
   --card-bg:        #FFFFFF;
   --card-border:    rgba(0, 0, 0, 0.08);
   --swatch-border:  rgba(10, 10, 12, 0.25);
-  --glass-bg:       rgba(255, 255, 255, 0.88);
-  --glass-border:   rgba(0, 0, 0, 0.08);
+  --glass-bg:       rgba(255, 255, 255, 0.38);
+  --glass-border:   rgba(255, 255, 255, 0.65);
 }
 
 /* ---- Dark Theme (Deep Matte Obsidian/Carbon) ---- */
@@ -337,12 +337,12 @@ main {
   --border-color:   rgba(255, 255, 255, 0.08); /* Ultra-fine 1px border */
   --border-subtle:  rgba(255, 255, 255, 0.04);
 
-  --header-bg:      rgba(10, 10, 12, 0.85);
+  --header-bg:      rgba(10, 10, 12, 0.28);
   --card-bg:        #141418;
   --card-border:    rgba(255, 255, 255, 0.07);
   --swatch-border:  rgba(255, 255, 255, 0.2);
-  --glass-bg:       rgba(18, 18, 22, 0.78);
-  --glass-border:   rgba(255, 255, 255, 0.08);
+  --glass-bg:       rgba(18, 18, 22, 0.32);
+  --glass-border:   rgba(255, 255, 255, 0.18);
 }
 
 
@@ -740,15 +740,17 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none;
   -webkit-user-select: none;
   
-  /* Rotten Future High Transparency & Deep Frosted Glass Blur */
-  backdrop-filter: blur(26px) saturate(190%) brightness(104%);
-  -webkit-backdrop-filter: blur(26px) saturate(190%) brightness(104%);
-  background: rgba(10, 12, 16, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Rotten Future Ultra-Transparent Crystalline Liquid Glass */
+  backdrop-filter: blur(20px) saturate(210%) brightness(108%) contrast(102%);
+  -webkit-backdrop-filter: blur(20px) saturate(210%) brightness(108%) contrast(102%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(10, 12, 16, 0.22) 100%), rgba(10, 12, 16, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 
-    0 16px 40px -10px rgba(0, 0, 0, 0.45),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.25);
+    0 16px 36px -10px rgba(0, 0, 0, 0.38),
+    0 4px 16px -2px rgba(0, 0, 0, 0.2),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.08);
   transition: background 320ms cubic-bezier(0.25, 1, 0.5, 1),
               border-color 320ms cubic-bezier(0.25, 1, 0.5, 1),
               box-shadow 320ms cubic-bezier(0.25, 1, 0.5, 1),
@@ -757,13 +759,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .header-capsule {
-  backdrop-filter: blur(26px) saturate(190%) brightness(104%);
-  -webkit-backdrop-filter: blur(26px) saturate(190%) brightness(104%);
-  background: rgba(255, 255, 255, 0.48);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(210%) brightness(106%) contrast(102%);
+  -webkit-backdrop-filter: blur(20px) saturate(210%) brightness(106%) contrast(102%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.22) 50%, rgba(240, 240, 244, 0.25) 100%), rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.70);
   box-shadow: 
-    0 12px 36px -10px rgba(0, 0, 0, 0.08),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    0 12px 32px -10px rgba(0, 0, 0, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 1.5px 0 #FFFFFF,
+    inset 0 0 18px 0 rgba(255, 255, 255, 0.35),
     inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
@@ -815,33 +819,39 @@ h1, h2, h3, h4, h5, h6 {
 /* Intensification on scroll / when covered by background */
 .site-header.is-scrolled .header-capsule,
 .site-header.has-glass .header-capsule {
-  backdrop-filter: blur(28px) saturate(200%) brightness(108%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(108%);
+  backdrop-filter: blur(22px) saturate(220%) brightness(108%) contrast(104%);
+  -webkit-backdrop-filter: blur(22px) saturate(220%) brightness(108%) contrast(104%);
 }
 
 [data-theme="dark"] .site-header.is-scrolled .header-capsule,
 [data-theme="dark"] .site-header.has-glass .header-capsule {
-  background: rgba(10, 12, 16, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.03) 40%, rgba(10, 12, 16, 0.30) 100%), rgba(10, 12, 16, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: 
-    0 20px 50px -10px rgba(0, 0, 0, 0.55),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+    0 20px 48px -10px rgba(0, 0, 0, 0.45),
+    0 6px 20px -2px rgba(0, 0, 0, 0.25),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.40),
+    inset 0 0 24px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.10);
 }
 
 [data-theme="light"] .site-header.is-scrolled .header-capsule,
 [data-theme="light"] .site-header.has-glass .header-capsule {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(240, 240, 244, 0.32) 100%), rgba(255, 255, 255, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.80);
   box-shadow: 
-    0 16px 45px -10px rgba(0, 0, 0, 0.12),
-    inset 0 1px 1px 0 #FFFFFF;
+    0 16px 40px -10px rgba(0, 0, 0, 0.10),
+    0 4px 14px -2px rgba(0, 0, 0, 0.05),
+    inset 0 1.5px 1.5px 0 #FFFFFF,
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 /* 1. Header Micro-Marquee (Continuous Top Ticker) */
 .header-micro-marquee {
   overflow: hidden;
   padding: 0.32rem 2.25rem 0.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: transparent;
   pointer-events: none;
   user-select: none;
@@ -851,7 +861,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .header-micro-marquee {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .header-micro-marquee-track {
