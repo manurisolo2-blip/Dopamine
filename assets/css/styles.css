@@ -2235,9 +2235,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-eme-svg-text {
   font-family: var(--ff-heading, 'Bebas Neue', 'Space Grotesk', sans-serif);
-  font-size: 220px;
+  font-size: 210px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.085em;
   text-transform: uppercase;
   fill: rgba(255, 255, 255, 0.18);
   transition: fill var(--transition-theme);
@@ -3572,8 +3572,8 @@ body.drawer-open {
     padding: 0.75rem 0.25rem 0.25rem !important;
   }
   .footer-eme-svg-text {
-    font-size: 220px !important;
-    letter-spacing: 0.05em !important;
+    font-size: 210px !important;
+    letter-spacing: 0.085em !important;
   }
 
   .footer-main-grid {
