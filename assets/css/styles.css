@@ -1060,14 +1060,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Compact Mobile Right Action Items (Smaller size & tighter spacing) */
 @media (max-width: 768px) {
   .header-nav-right {
-    gap: 0.15rem;
+    gap: 4px;
   }
   .header-nav-right .action-btn,
   .header-nav-right .account-link-btn {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
   }
   .header-nav-right .action-btn svg,
   .header-nav-right .account-link-btn svg {
@@ -1075,26 +1075,28 @@ h1, h2, h3, h4, h5, h6 {
     height: 16px;
   }
   .header-nav-right .cart-count {
-    top: -1px;
-    right: -1px;
+    width: 14px;
+    height: 14px;
+    top: -2px;
+    right: -2px;
     font-size: 8.5px;
-    padding: 0 4px;
+    padding: 0;
   }
 }
 
 @media (max-width: 440px) {
   .header-main-nav {
-    padding: 0.3rem 0.5rem;
+    padding: 0.25rem 0.5rem;
   }
   .header-nav-right {
-    gap: 0.06rem;
+    gap: 2px;
   }
   .header-nav-right .action-btn,
   .header-nav-right .account-link-btn {
-    width: 29px;
-    height: 29px;
-    min-width: 29px;
-    min-height: 29px;
+    width: 27px;
+    height: 27px;
+    min-width: 27px;
+    min-height: 27px;
   }
   .header-nav-right .action-btn svg,
   .header-nav-right .account-link-btn svg {
@@ -3219,17 +3221,31 @@ body.drawer-open {
   .header-nav-right {
     display: flex !important;
     align-items: center !important;
-    gap: 0.35rem !important;
+    gap: 4px !important;
+    margin-left: auto !important;
   }
 
   .header-nav-left .action-btn,
-  .header-nav-left .mobile-menu-toggle,
+  .header-nav-left .mobile-menu-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--text-primary) !important;
+    opacity: 0.9 !important;
+  }
+
   .header-nav-right .action-btn,
   .header-nav-right .account-link-btn {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    min-height: 40px !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
     padding: 0 !important;
     border-radius: 50% !important;
     display: inline-flex !important;
@@ -3240,21 +3256,30 @@ body.drawer-open {
   }
 
   .header-nav-left .action-btn svg,
-  .header-nav-left .mobile-menu-toggle svg,
+  .header-nav-left .mobile-menu-toggle svg {
+    width: 19px !important;
+    height: 19px !important;
+    flex-shrink: 0 !important;
+  }
+
   .header-nav-right .action-btn svg,
   .header-nav-right .account-link-btn svg {
-    width: 22px !important;
-    height: 22px !important;
+    width: 16px !important;
+    height: 16px !important;
     flex-shrink: 0 !important;
   }
 
   .cart-count {
-    width: 16px !important;
-    height: 16px !important;
-    font-size: 9.5px !important;
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 8.5px !important;
     font-weight: 700 !important;
     top: -2px !important;
     right: -2px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   /* Hero Section on Mobile (Cinema Parallax Curtain & Wide Video Framing) */
