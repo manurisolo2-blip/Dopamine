@@ -526,6 +526,23 @@
       }
     }
 
+    // Si el drawer del carrito está abierto, cerrarlo inmediatamente
+    if (window.CartStore && typeof window.CartStore.close === 'function') {
+      window.CartStore.close();
+    }
+    const cartDrawer = document.querySelector('.cart-drawer, [data-cart-drawer]');
+    if (cartDrawer) {
+      cartDrawer.classList.remove('is-open', 'is-active');
+      cartDrawer.setAttribute('hidden', '');
+    }
+    const cartOverlay = document.querySelector('.cart-overlay, [data-cart-overlay]');
+    if (cartOverlay) {
+      cartOverlay.classList.remove('is-visible', 'is-active');
+      cartOverlay.setAttribute('hidden', '');
+    }
+    document.documentElement.classList.remove('cart-open');
+    document.body.classList.remove('cart-open');
+
     let hub = document.getElementById('dopamine-nike-checkout');
     if (!hub) {
       hub = document.createElement('div');
@@ -536,15 +553,18 @@
 
     renderCheckoutWizard(hub);
     hub.classList.add('is-active');
+    document.documentElement.classList.add('nk-checkout-open');
     document.body.classList.add('nk-checkout-open');
+    hub.scrollTop = 0;
   }
 
   function closeFullPageCheckout() {
     const hub = document.getElementById('dopamine-nike-checkout');
     if (hub) {
       hub.classList.remove('is-active');
-      document.body.classList.remove('nk-checkout-open');
     }
+    document.documentElement.classList.remove('nk-checkout-open');
+    document.body.classList.remove('nk-checkout-open');
   }
 
   // RENDER PRINCIPAL DEL WIZARD (PIXEL-PERFECT A LOS SCREENSHOTS)
@@ -1244,6 +1264,33 @@
 
     // Botón Final de Pago
     document.getElementById('btn-nk-submit-final-pay')?.addEventListener('click', executeFinalCheckoutPayment);
+
+    // Soporte fluido para scroll con rueda de mouse en toda la pantalla de checkout
+    if (!hub._hasWheelListener) {
+      hub._hasWheelListener = true;
+      hub.addEventListener('wheel', (e) => {
+        let target = e.target;
+        let innerScrollable = null;
+        while (target && target !== hub) {
+          if (target.scrollHeight > target.clientHeight) {
+            const overflowY = window.getComputedStyle(target).overflowY;
+            if (overflowY === 'auto' || overflowY === 'scroll') {
+              const atTop = target.scrollTop <= 0 && e.deltaY < 0;
+              const atBottom = target.scrollTop + target.clientHeight >= target.scrollHeight - 1 && e.deltaY > 0;
+              if (!atTop && !atBottom) {
+                innerScrollable = target;
+                break;
+              }
+            }
+          }
+          target = target.parentElement;
+        }
+
+        if (!innerScrollable) {
+          hub.scrollTop += e.deltaY;
+        }
+      }, { passive: true });
+    }
   }
 
   // EJECUCIÓN DEL PAGO MERCADO PAGO SDK
@@ -1320,21 +1367,46 @@
     const style = document.createElement('style');
     style.id = 'dpm-nike-checkout-styles';
     style.textContent = `
+      html.nk-checkout-open,
       body.nk-checkout-open {
         overflow: hidden !important;
+        scrollbar-gutter: auto !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        touch-action: none;
       }
       .nk-checkout-screen {
         position: fixed;
         inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100vw;
         height: 100vh;
         background: #FFFFFF;
         color: #111111;
         z-index: 999999;
-        overflow-y: auto;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
         display: none;
         font-family: 'Montserrat', sans-serif, Arial, Helvetica;
         -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
+      }
+      .nk-checkout-screen::-webkit-scrollbar {
+        width: 8px;
+      }
+      .nk-checkout-screen::-webkit-scrollbar-track {
+        background: #F4F4F5;
+      }
+      .nk-checkout-screen::-webkit-scrollbar-thumb {
+        background: #BBBBBC;
+        border-radius: 4px;
+      }
+      .nk-checkout-screen::-webkit-scrollbar-thumb:hover {
+        background: #888889;
       }
       .nk-checkout-screen.is-active {
         display: block;
@@ -1850,6 +1922,21 @@
         border-bottom: 1px solid #E5E5E5;
         padding-bottom: 1.25rem;
         margin-bottom: 1.25rem;
+        max-height: 320px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding-right: 0.35rem;
+      }
+      .nk-summary-products-list::-webkit-scrollbar {
+        width: 5px;
+      }
+      .nk-summary-products-list::-webkit-scrollbar-track {
+        background: #F5F5F5;
+        border-radius: 3px;
+      }
+      .nk-summary-products-list::-webkit-scrollbar-thumb {
+        background: #D1D1D1;
+        border-radius: 3px;
       }
       .nk-summary-product-item {
         display: flex;

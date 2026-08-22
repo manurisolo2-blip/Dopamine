@@ -103,6 +103,7 @@
     count: totalQuantity,
     subtotal,
     open() {
+      document.documentElement.classList.add('cart-open');
       document.body.classList.add('cart-open');
       const drawer = document.querySelector('[data-cart-drawer]');
       const overlay = document.querySelector('[data-cart-overlay]');
@@ -111,6 +112,7 @@
       startRecommendAutoPlay();
     },
     close() {
+      document.documentElement.classList.remove('cart-open');
       document.body.classList.remove('cart-open');
       const drawer = document.querySelector('[data-cart-drawer]');
       const overlay = document.querySelector('[data-cart-overlay]');

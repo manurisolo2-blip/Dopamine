@@ -2235,9 +2235,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-eme-svg-text {
   font-family: var(--ff-heading, 'Bebas Neue', 'Space Grotesk', sans-serif);
-  font-size: 160px;
+  font-size: 220px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   fill: rgba(255, 255, 255, 0.18);
   transition: fill var(--transition-theme);
@@ -2332,6 +2332,19 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================
    CART DRAWER — HIGH-END NIKE/STREETWEAR INPIRED
    ============================================================ */
+html.cart-open,
+body.cart-open,
+html.nk-checkout-open,
+body.nk-checkout-open,
+html.drawer-open,
+body.drawer-open {
+  overflow: hidden !important;
+  scrollbar-gutter: auto !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  touch-action: none;
+}
+
 .cart-drawer {
   position: fixed;
   top: 0;
@@ -2347,6 +2360,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   box-shadow: none !important;
+  overscroll-behavior: contain;
 }
 
 .cart-drawer.is-active,
@@ -2483,6 +2497,9 @@ h1, h2, h3, h4, h5, h6 {
 .cart-drawer-body {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   padding: 1.35rem 1.5rem;
   background: var(--bg-primary);
 }
@@ -3555,8 +3572,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.75rem 0.25rem 0.25rem !important;
   }
   .footer-eme-svg-text {
-    font-size: 160px !important;
-    letter-spacing: 0.22em !important;
+    font-size: 220px !important;
+    letter-spacing: 0.05em !important;
   }
 
   .footer-main-grid {
