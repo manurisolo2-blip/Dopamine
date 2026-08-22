@@ -785,7 +785,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header:not(.is-scrolled):not(.has-glass) .header-micro-marquee-content {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  opacity: 0.95 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .site-header:not(.is-scrolled):not(.has-glass) .header-nav-left .nav-item-link,
@@ -870,13 +873,13 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   gap: 3rem;
   padding-right: 3rem;
-  font-family: var(--ff-mono);
-  font-size: 0.6875rem; /* 11px */
-  font-weight: 600;
+  font-family: var(--ff-body, 'Montserrat', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  opacity: 0.8;
+  color: var(--text-primary);
+  opacity: 0.92;
   user-select: none;
   flex-shrink: 0;
 }
@@ -3173,14 +3176,16 @@ body.drawer-open {
   }
 
   .header-micro-marquee {
-    padding: 0.18rem 0.75rem !important;
-    font-size: 0.5625rem !important;
+    padding: 0.2rem 0.75rem !important;
+    font-size: 0.625rem !important;
   }
 
   .header-micro-marquee-content {
     gap: 1.5rem !important;
     padding-right: 1.5rem !important;
-    font-size: 0.5625rem !important;
+    font-size: 0.625rem !important;
+    font-weight: 800 !important;
+    opacity: 0.92 !important;
   }
 
   .header-main-nav {
