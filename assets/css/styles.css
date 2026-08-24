@@ -1060,7 +1060,103 @@ h1, h2, h3, h4, h5, h6 {
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
 }
 
-/* Compact Mobile Right Action Items (Smaller size & tighter spacing) */
+/* Language Toggle Button (Cyberpunk / Rotten-Future Minimalist Capsule Pill) */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 0.35rem !important;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lang-toggle-btn .lang-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: rgba(125, 125, 125, 0.08);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+  transition: all var(--transition-fast);
+}
+
+.lang-toggle-btn:hover .lang-text {
+  border-color: var(--text-primary);
+  background: rgba(125, 125, 125, 0.18);
+  transform: translateY(-1px);
+}
+
+.lang-toggle-btn .lang-opt {
+  color: var(--text-muted);
+  opacity: 0.6;
+  transition: color var(--transition-fast), opacity var(--transition-fast), font-weight var(--transition-fast);
+}
+
+.lang-toggle-btn .lang-opt.active,
+.lang-toggle-btn .lang-opt.is-active {
+  color: var(--text-primary);
+  opacity: 1;
+  font-weight: 800;
+}
+
+.lang-toggle-btn .lang-divider {
+  color: var(--text-muted);
+  opacity: 0.4;
+  font-size: 0.65rem;
+  margin-inline: 1px;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-text {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-opt.active,
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-opt.is-active {
+  color: #FFFFFF !important;
+}
+
+/* Footer Language Buttons */
+.footer-lang-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 140ms ease, font-weight 140ms ease;
+  user-select: none;
+}
+
+.footer-lang-btn:hover,
+.footer-lang-btn.active {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .header-nav-right {
     gap: 4px;
@@ -1076,6 +1172,17 @@ h1, h2, h3, h4, h5, h6 {
   .header-nav-right .account-link-btn svg {
     width: 16px;
     height: 16px;
+  }
+  .header-nav-right .lang-toggle-btn {
+    height: 30px;
+    min-height: 30px;
+    min-width: auto;
+    padding: 0 0.15rem !important;
+    font-size: 0.62rem;
+  }
+  .header-nav-right .lang-toggle-btn .lang-text {
+    padding: 2px 4px;
+    gap: 1px;
   }
   .header-nav-right .cart-count {
     width: 14px;
@@ -1105,6 +1212,15 @@ h1, h2, h3, h4, h5, h6 {
   .header-nav-right .account-link-btn svg {
     width: 15px;
     height: 15px;
+  }
+  .header-nav-right .lang-toggle-btn {
+    height: 27px;
+    min-height: 27px;
+    padding: 0 0.1rem !important;
+    font-size: 0.58rem;
+  }
+  .header-nav-right .lang-toggle-btn .lang-text {
+    padding: 1px 3px;
   }
 }
 
@@ -4051,5 +4167,93 @@ body.drawer-open {
 
 .profile-btn-danger:hover {
   background: rgba(239, 68, 68, 0.1);
+}
+
+/* ============================================================
+   17. INTERNATIONALIZATION (i18n) SELECTOR STYLES
+   ============================================================ */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0 0.55rem;
+  height: 38px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 180ms ease;
+  user-select: none;
+}
+
+.lang-toggle-btn:hover {
+  border-color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .lang-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.lang-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.lang-opt {
+  color: var(--text-muted);
+  transition: color 150ms ease, font-weight 150ms ease;
+}
+
+.lang-opt.active,
+.lang-opt.is-active {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.lang-divider {
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-size: 0.7rem;
+}
+
+/* Footer Language Buttons */
+.footer-eme-languages {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 2px;
+  transition: all 150ms ease;
+}
+
+.footer-lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.footer-lang-btn.active {
+  color: var(--text-primary);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 

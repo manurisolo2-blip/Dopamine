@@ -1,5 +1,6 @@
 (function (window) {
   const catalog = window.DopamineCatalog;
+  function t(key, params) { return window.DopamineI18n ? window.DopamineI18n.t(key, params) : key; }
   function esc(value) { return String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char])); }
   function money(value) { return '$' + Number(value).toLocaleString('es-AR'); }
   function getProduct() { return catalog.getProductBySlug(new URLSearchParams(window.location.search).get('slug') || 'buzo-win'); }
@@ -7,7 +8,7 @@
     if (!product) return;
     document.title = `${product.name} — Dopamine Streetwear`;
     const breadcrumb = document.querySelector('[data-detail-breadcrumb]');
-    if (breadcrumb) breadcrumb.textContent = `HOME / SHOP / ${product.category.toUpperCase()}`;
+    if (breadcrumb) breadcrumb.textContent = `${t('product.breadcrumb_prefix')}${product.category.toUpperCase()}`;
     const badge = document.querySelector('[data-detail-badge]');
     if (badge) badge.textContent = product.badge;
     const name = document.querySelector('[data-detail-name]');
@@ -24,11 +25,11 @@
     const transferPrice = money(Math.round(product.price * 0.9));
     const installmentPrice = money(Math.round(product.price / 3));
     const transferEl = document.querySelector('[data-detail-transfer]');
-    if (transferEl) transferEl.textContent = `${transferPrice} con Transferencia (10% OFF)`;
+    if (transferEl) transferEl.textContent = `${transferPrice} ${t('product.transfer_discount')}`;
     const installmentsEl = document.querySelector('[data-detail-installments]');
-    if (installmentsEl) installmentsEl.textContent = `3 cuotas sin interés de ${installmentPrice} o hasta 6 cuotas con Mercado Pago`;
+    if (installmentsEl) installmentsEl.textContent = t('product.installments_text', { amount: installmentPrice });
     const stock = document.querySelector('[data-detail-stock]');
-    if (stock) stock.textContent = product.stock <= 5 ? `${product.stock} UNITS LEFT` : 'IN STOCK / READY TO SHIP';
+    if (stock) stock.textContent = product.stock <= 5 ? t('product.units_left', { count: product.stock }) : t('product.in_stock');
     const productInput = document.querySelector('[data-detail-product]');
     if (productInput) productInput.value = product.id;
     const colors = document.querySelector('[data-detail-colors]');
@@ -61,7 +62,7 @@
     document.querySelector('[data-quantity-plus]')?.addEventListener('click', () => { if (quantity) quantity.value = Math.min(product.stock || 99, Number(quantity.value) + 1); });
     document.querySelector('[data-quantity-minus]')?.addEventListener('click', () => { if (quantity) quantity.value = Math.max(1, Number(quantity.value) - 1); });
     document.querySelector('[data-detail-favorite]')?.addEventListener('click', event => { window.DopamineCart.toggleFavorite(product.id); event.currentTarget.classList.toggle('is-active'); event.currentTarget.textContent = event.currentTarget.classList.contains('is-active') ? '♥' : '♡'; });
-    document.querySelector('[data-detail-add]')?.addEventListener('click', () => { const color = document.querySelector('[data-detail-color].is-selected')?.dataset.detailColor; const size = document.querySelector('[data-detail-size].is-selected')?.dataset.detailSize; window.DopamineCart.add(product, { color, size, quantity: quantity ? Math.max(1, Number(quantity.value)) : 1 }); showDetailToast(`${product.name.toUpperCase()} ADDED TO BAG`); });
+    document.querySelector('[data-detail-add]')?.addEventListener('click', () => { const color = document.querySelector('[data-detail-color].is-selected')?.dataset.detailColor; const size = document.querySelector('[data-detail-size].is-selected')?.dataset.detailSize; window.DopamineCart.add(product, { color, size, quantity: quantity ? Math.max(1, Number(quantity.value)) : 1 }); showDetailToast(`${product.name.toUpperCase()} ${t('product.added_toast')}`); });
     document.querySelectorAll('[data-accordion]').forEach(button => button.addEventListener('click', () => { const panelId = button.getAttribute('aria-controls'); const panel = panelId ? document.getElementById(panelId) : null; const open = button.getAttribute('aria-expanded') === 'true'; button.setAttribute('aria-expanded', String(!open)); if (panel) panel.hidden = open; }));
   }
   function setupPseudo3D(product) {
@@ -74,5 +75,6 @@
     document.querySelector('[data-reset-view]')?.addEventListener('click', () => { rotation = 0; apply(); });
   }
   function showDetailToast(message) { const toast = document.querySelector('[data-toast]'); if (!toast) return; toast.textContent = message; toast.classList.add('is-visible'); window.clearTimeout(showDetailToast.timer); showDetailToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 2600); }
+  document.addEventListener('dopamine:langchange', () => render(getProduct()));
   document.addEventListener('DOMContentLoaded', () => render(getProduct()));
 })(window);

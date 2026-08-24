@@ -73,12 +73,13 @@
         birthdateVal = dbUser.birthdate;
       }
     }
-    if (!birthdateVal) birthdateVal = 'No especificada';
+    const t = (k, p) => window.DopamineI18n ? window.DopamineI18n.t(k, p) : k;
+    if (!birthdateVal || birthdateVal === 'No especificada') birthdateVal = t('auth.not_specified');
 
     drawer.innerHTML = `
       <div class="profile-drawer-header">
-        <h2>PERFIL VINCULADO</h2>
-        <button type="button" class="drawer-close" id="profile-drawer-close" aria-label="Cerrar perfil">×</button>
+        <h2>${t('auth.profile_title')}</h2>
+        <button type="button" class="drawer-close" id="profile-drawer-close" aria-label="${t('nav.menu_close_aria')}">×</button>
       </div>
 
       <div class="profile-drawer-body">
@@ -95,29 +96,29 @@
 
         <div class="profile-info-card">
           <div class="info-card-row">
-            <span class="info-card-label">ESTADO DE CUENTA:</span>
-            <span class="info-card-val verified-text">✓ VERIFICADA</span>
+            <span class="info-card-label">${t('auth.account_status')}</span>
+            <span class="info-card-val verified-text">${t('auth.verified')}</span>
           </div>
           <div class="info-card-row">
-            <span class="info-card-label">MÉTODO DE INGRESO:</span>
+            <span class="info-card-label">${t('auth.auth_method')}</span>
             <span class="info-card-val">${ (user.provider || 'EMAIL').toUpperCase() }</span>
           </div>
           <div class="info-card-row">
-            <span class="info-card-label">FECHA DE REGISTRO:</span>
+            <span class="info-card-label">${t('auth.reg_date')}</span>
             <span class="info-card-val">${ regDateStr }</span>
           </div>
           <div class="info-card-row">
-            <span class="info-card-label">NACIMIENTO:</span>
+            <span class="info-card-label">${t('auth.birthdate')}</span>
             <span class="info-card-val">${ birthdateVal }</span>
           </div>
         </div>
 
         <div class="profile-standalone-member">
-          DOPAMINE MEMBER CLUB
+          ${t('auth.member_badge')}
         </div>
 
         <div class="profile-drawer-actions">
-          <button type="button" id="profile-btn-logout" class="profile-btn-danger">CERRAR SESIÓN</button>
+          <button type="button" id="profile-btn-logout" class="profile-btn-danger">${t('auth.logout_btn')}</button>
         </div>
       </div>
     `;

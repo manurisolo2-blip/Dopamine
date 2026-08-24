@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu bolsa — Dopamine Streetwear</title>
-  <meta name="description" content="Tu bolsa de compras Dopamine Streetwear.">
+  <title data-i18n="meta.title_cart">DOPAMINE — Bolsa de Compras & Checkout</title>
+  <meta name="description" content="Revisá tus prendas seleccionadas, aplicá cupones de descuento exclusivos y completá tu pedido de forma rápida y segura en Dopamine Streetwear.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="carrito.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DOPAMINE">
+  <meta property="og:title" content="DOPAMINE — Bolsa de Compras & Checkout">
+  <meta property="og:description" content="Revisá tus prendas seleccionadas, aplicá cupones de descuento exclusivos y completá tu pedido de forma rápida y segura en Dopamine Streetwear.">
+  <meta property="og:url" content="carrito.html">
+  <meta property="og:image" content="assets/Branding/hero-bg.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DOPAMINE — Bolsa de Compras & Checkout">
+  <meta name="twitter:description" content="Revisá tus prendas seleccionadas, aplicá cupones de descuento exclusivos y completá tu pedido de forma rápida y segura en Dopamine Streetwear.">
+  <meta name="twitter:image" content="assets/Branding/hero-bg.jpg">
+
   <meta name="theme-color" content="#060608">
   <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
   <!-- Core Fonts Architecture (Bebas Neue + JetBrains Mono + Space Grotesk) -->
@@ -23,86 +40,89 @@
       <div class="header-micro-marquee" aria-label="Anuncios Dopamine">
         <div class="header-micro-marquee-track">
           <div class="header-micro-marquee-content">
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
           </div>
           <div class="header-micro-marquee-content" aria-hidden="true">
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
           </div>
         </div>
       </div>
 
       <!-- 2. Main Navigation Bar (DROPS | CONTACTO [LEFT] — LOGO [CENTER] — ACTIONS [RIGHT]) -->
-      <div class="header-main-nav">
+      <nav class="header-main-nav" aria-label="Navegación principal">
         <!-- Left: DROPS & CONTACTO + Mobile Toggle -->
         <div class="header-nav-left">
-          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" id="menu-toggle" data-menu-open>
+          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.menu_open_aria" id="menu-toggle" data-menu-open>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
           </button>
-          <a href="tienda.html" class="nav-item-link ui-label">DROPS</a>
-          <a href="contacto.html" class="nav-item-link ui-label">CONTACTO</a>
+          <a href="tienda.html" class="nav-item-link ui-label" data-i18n="nav.drops">DROPS</a>
+          <a href="contacto.html" class="nav-item-link ui-label" data-i18n="nav.contact">CONTACTO</a>
         </div>
 
         <!-- Center: Iconic Isotipo Logo -->
         <div class="header-nav-center">
-          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio">
+          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio" data-i18n-aria-label="nav.home_aria">
             <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
           </a>
         </div>
 
-        <!-- Right: Actions (Search, Account, Theme, Cart) -->
+        <!-- Right: Actions (Search, Account, Language, Theme, Cart) -->
         <div class="header-nav-right">
-          <button class="action-btn search-trigger" aria-label="Buscar" id="search-toggle" data-search-open>
+          <button class="action-btn search-trigger" aria-label="Buscar" data-i18n-aria-label="nav.search_aria" id="search-toggle" data-search-open>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
           </button>
-          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta">
+          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta" data-i18n-aria-label="nav.account_aria">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
           </a>
-          <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+          <button class="action-btn lang-toggle-btn" id="lang-toggle" data-lang-toggle aria-label="Cambiar idioma (ES / EN)" title="Cambiar idioma (ES / EN)">
+            <span class="lang-text"><span class="lang-opt lang-es active">ES</span><span class="lang-divider">/</span><span class="lang-opt lang-en">EN</span></span>
+          </button>
+          <button class="action-btn theme-toggle" aria-label="Cambiar tema" data-i18n-aria-label="nav.theme_aria" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" id="cart-toggle" data-cart-open>
+          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" data-i18n-aria-label="nav.cart_aria" id="cart-toggle" data-cart-open>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
             <span class="cart-count" data-cart-count>0</span>
           </button>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 
   <!-- Main Content -->
   <main>
-    <section class="shop-page-content">
+    <section class="shop-page-content" aria-label="Bolsa de compras y checkout">
       <div class="shop-container">
         <div class="shop-page-heading">
           <p class="shop-breadcrumb">
-            <a href="index.html">HOME</a> <span>/</span> TU BOLSA
+            <a href="index.html" data-i18n="cart.home">HOME</a> <span>/</span> <span data-i18n="cart.your_bag">TU BOLSA</span>
           </p>
-          <h1>TU<br>BOLSA</h1>
-          <p>Revisá tus piezas antes de finalizar la compra. Tus productos quedan guardados en este dispositivo</p>
+          <h1 data-i18n-html="cart.bag_heading">TU<br>BOLSA</h1>
+          <p data-i18n="cart.bag_desc">Revisá tus piezas antes de finalizar la compra. Tus productos quedan guardados en este dispositivo</p>
         </div>
         <div class="shop-cart-page-layout">
           <section class="shop-cart-page-items" aria-label="Productos en tu bolsa">
             <p class="shop-cart-empty" data-cart-empty>
-              Tu bolsa está vacía<br>
-              <a href="tienda.html">Encontrá tu energía</a>
+              <span data-i18n="cart.empty_msg">Tu bolsa está vacía</span><br>
+              <a href="tienda.html" data-i18n="cart.find_energy">Encontrá tu energía</a>
             </p>
             <div data-cart-items></div>
           </section>
-          <aside class="shop-cart-page-summary">
-            <h2>Resumen de Compra</h2>
-            <p class="shop-shipping-copy">ENVÍO GRATIS EN COMPRAS MAYORES A $90.000</p>
+          <aside class="shop-cart-page-summary" aria-label="Resumen de compra">
+            <h2 data-i18n="cart.summary_title">Resumen de Compra</h2>
+            <p class="shop-shipping-copy" data-i18n="cart.free_shipping_copy">ENVÍO GRATIS EN COMPRAS MAYORES A $90.000</p>
             <div class="shop-progress" aria-label="Progreso de envío gratis">
               <span data-shipping-progress></span>
             </div>
@@ -111,16 +131,16 @@
             <form class="shop-checkout-quick-form" onsubmit="event.preventDefault();" style="margin-block: 1.5rem 1rem;">
               <div class="floating-field" style="position: relative; margin-bottom: 1rem;">
                 <input type="text" id="cart-postal-code" placeholder=" " inputmode="numeric" pattern="[0-9]*" autocomplete="postal-code" style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; font-weight: 500; outline: none;">
-                <label for="cart-postal-code" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;">CÓDIGO POSTAL / CP *</label>
+                <label for="cart-postal-code" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;" data-i18n="cart.postal_label">CÓDIGO POSTAL / CP *</label>
               </div>
               <div class="floating-field" style="position: relative; margin-bottom: 1.25rem;">
                 <input type="tel" id="cart-phone" placeholder=" " inputmode="numeric" autocomplete="tel" style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; font-weight: 500; outline: none;">
-                <label for="cart-phone" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;">TELÉFONO MÓVIL (NOTIFICACIONES SMS) *</label>
+                <label for="cart-phone" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;" data-i18n="cart.phone_label">TELÉFONO MÓVIL (NOTIFICACIONES SMS) *</label>
               </div>
             </form>
 
             <div class="shop-subtotal">
-              <span>Subtotal</span>
+              <span data-i18n="cart.subtotal">Subtotal</span>
               <span data-cart-subtotal>$0</span>
             </div>
 
@@ -128,13 +148,13 @@
             <div class="mp-cart-summary-badge" style="background: rgba(0, 158, 227, 0.08); border: 1px solid rgba(0, 158, 227, 0.3); padding: 0.85rem 1rem; margin-top: 1rem; display: flex; align-items: center; gap: 0.75rem;">
               <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 30px; width: auto; object-fit: contain; border-radius: 4px;">
               <div style="font-family: var(--ff-body); font-size: 0.75rem; color: var(--text-primary);">
-                <strong>Hasta 6 cuotas sin interés</strong> con Mercado Pago
+                <strong data-i18n="cart.mp_installments">Hasta 6 cuotas sin interés</strong> <span data-i18n="cart.mp_with">con Mercado Pago</span>
               </div>
             </div>
 
             <!-- Primary Isolated CTA with High White Space & Bold Weight -->
-            <button class="shop-full-button btn-checkout-main" type="button" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">FINALIZAR COMPRA →</button>
-            <a class="size-guide" href="store.html" style="display: block; text-align: center; margin-top: 0.75rem;">SEGUIR COMPRANDO →</a>
+            <button class="shop-full-button btn-checkout-main" type="button" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;" data-i18n="cart.checkout_btn">FINALIZAR COMPRA →</button>
+            <a class="size-guide" href="tienda.html" style="display: block; text-align: center; margin-top: 0.75rem;" data-i18n="cart.continue_shopping_btn">SEGUIR COMPRANDO →</a>
           </aside>
         </div>
       </div>
@@ -152,11 +172,11 @@
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo">
             <span class="brand-logotype">DOPAMINE</span>
           </a>
-          <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
+          <p class="footer-brand-desc" data-i18n="footer.brand_desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
           <form class="footer-email-form" id="footer-signup-form">
             <div class="footer-input-wrap">
-              <input type="email" placeholder="ENTER EMAIL FOR DROPS" aria-label="Email subscription" required>
-              <button type="submit" aria-label="Subscribe">→</button>
+              <input type="email" placeholder="ENTER EMAIL FOR DROPS" data-i18n-placeholder="footer.email_placeholder" aria-label="Email subscription" required>
+              <button type="submit" aria-label="Subscribe" data-i18n-aria-label="footer.email_submit_aria">→</button>
             </div>
           </form>
         </div>
@@ -164,40 +184,40 @@
         <!-- Navigation Links -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>NAVIGATION</span>
+            <span data-i18n="footer.nav_title">NAVIGATION</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="tienda.html">DROPS</a></li>
-            <li><a href="index.html#brand-story">ABOUT US</a></li>
-            <li><a href="contacto.html">CONTACT</a></li>
+            <li><a href="tienda.html" data-i18n="footer.nav_drops">DROPS</a></li>
+            <li><a href="index.html#brand-story" data-i18n="footer.nav_about">ABOUT US</a></li>
+            <li><a href="contacto.html" data-i18n="footer.nav_contact">CONTACT</a></li>
           </ul>
         </div>
 
         <!-- Customer Care -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>CUSTOMER CARE</span>
+            <span data-i18n="footer.care_title">CUSTOMER CARE</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">SHIPPING & RETURNS</a></li>
-            <li><a href="#">SIZE GUIDE</a></li>
-            <li><a href="#">ORDER TRACKING</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="#" data-i18n="footer.care_shipping">SHIPPING & RETURNS</a></li>
+            <li><a href="#" data-i18n="footer.care_size_guide">SIZE GUIDE</a></li>
+            <li><a href="#" data-i18n="footer.care_tracking">ORDER TRACKING</a></li>
+            <li><a href="#" data-i18n="footer.care_faq">FAQ</a></li>
           </ul>
         </div>
 
         <!-- Legal & Social -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>LEGAL & SOCIAL</span>
+            <span data-i18n="footer.legal_title">LEGAL & SOCIAL</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">TERMS OF SERVICE</a></li>
-            <li><a href="#">PRIVACY POLICY</a></li>
-            <li><a href="#">COOKIE PREFERENCES</a></li>
+            <li><a href="#" data-i18n="footer.legal_terms">TERMS OF SERVICE</a></li>
+            <li><a href="#" data-i18n="footer.legal_privacy">PRIVACY POLICY</a></li>
+            <li><a href="#" data-i18n="footer.legal_cookies">COOKIE PREFERENCES</a></li>
           </ul>
           <div class="footer-social-icons">
             <a href="#" aria-label="Instagram" class="social-icon-btn" title="Instagram">
@@ -219,13 +239,10 @@
       <!-- Eme Studios Style: Language Row, Copyright & Payment Badges -->
       <div class="footer-eme-middle-bar">
         <div class="footer-eme-languages">
-          <span>ESPAÑOL</span>
-          <span>INGLÉS</span>
-          <span>ALEMÁN</span>
-          <span>FRANCÉS</span>
-          <span>ITALIANO</span>
+          <button type="button" class="footer-lang-btn active" data-set-lang="es">ESPAÑOL</button>
+          <button type="button" class="footer-lang-btn" data-set-lang="en">INGLÉS</button>
         </div>
-        <p class="footer-eme-copyright">2026 © DOPAMINE APPARATUS</p>
+        <p class="footer-eme-copyright" data-i18n="footer.copyright">2026 © DOPAMINE APPARATUS</p>
         <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
           <!-- Mercado Pago -->
           <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
@@ -284,8 +301,8 @@
   <!-- Search Panel -->
   <div class="search-panel" data-search-panel hidden>
     <div class="search-box">
-      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." aria-label="Buscar productos">
-      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
+      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." data-i18n-placeholder="search.placeholder" aria-label="Buscar productos">
+      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda" data-i18n-aria-label="search.close_aria">×</button>
     </div>
     <div class="search-results" data-search-results hidden></div>
   </div>
@@ -297,8 +314,8 @@
   <aside class="cart-drawer" data-cart-drawer aria-label="Bolsa de compras">
     <!-- Drawer Header -->
     <div class="cart-drawer-header">
-      <h2>MI COMPRA</h2>
-      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa">
+      <h2 data-i18n="cart.drawer_title">MI COMPRA</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa" data-i18n-aria-label="cart.drawer_close_aria">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
@@ -311,7 +328,7 @@
             <span class="cart-progress-knob"></span>
           </div>
         </div>
-        <p class="cart-progress-text" data-shipping-text>¡Tenés envío gratis!</p>
+        <p class="cart-progress-text" data-shipping-text data-i18n="cart.free_shipping_success">¡Tenés envío gratis!</p>
       </div>
       <div class="cart-progress-item">
         <div class="cart-progress-bar-track">
@@ -321,14 +338,14 @@
         </div>
         <p class="cart-progress-text" style="display: flex; align-items: center; gap: 0.35rem;">
           <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 14px; width: auto; object-fit: contain; border-radius: 2px; display: inline-block;">
-          <span>¡Tenés 6 cuotas sin interés!</span>
+          <span data-i18n="cart.installments_free">¡Tenés 6 cuotas sin interés!</span>
         </p>
       </div>
     </div>
 
     <!-- Drawer Body -->
     <div class="cart-drawer-body" data-cart-body>
-      <p class="cart-empty-msg" data-cart-empty>Tu bolsa está vacía</p>
+      <p class="cart-empty-msg" data-cart-empty data-i18n="cart.empty_msg">Tu bolsa está vacía</p>
       <div class="cart-items-list" data-cart-items></div>
 
       <!-- Cross-Sell Recommendation Carousel -->
@@ -343,13 +360,13 @@
         <div class="shipping-calc-input-wrap">
           <svg class="shipping-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
             <circle cx="5.5" cy="18.5" r="2.5"></circle>
             <circle cx="18.5" cy="18.5" r="2.5"></circle>
           </svg>
-          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" maxlength="8">
+          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" data-i18n-placeholder="cart.zip_placeholder" maxlength="8">
         </div>
-        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger>CALCULAR ENVÍO &gt;</button>
+        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger data-i18n="cart.calc_shipping_btn">CALCULAR ENVÍO &gt;</button>
       </div>
       <div class="shipping-calc-result" data-shipping-result hidden></div>
     </div>
@@ -357,13 +374,13 @@
     <!-- Drawer Footer -->
     <div class="cart-drawer-footer" data-cart-footer hidden>
       <div class="cart-total-row">
-        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-label" data-i18n="cart.total">TOTAL</span>
         <span class="cart-total-amount" data-cart-total>$0</span>
       </div>
-      <a href="carrito.html" class="btn-checkout-main">Finalizar Compra</a>
+      <a href="carrito.html" class="btn-checkout-main" data-i18n="cart.checkout_btn">FINALIZAR COMPRA →</a>
       <div class="cart-footer-links">
-        <button type="button" class="cart-link-continue" data-cart-close>&lt; Seguir comprando</button>
-        <a href="carrito.html" class="cart-link-view-all">Ver carrito &gt;</a>
+        <button type="button" class="cart-link-continue" data-cart-close data-i18n="cart.continue_shopping">&lt; Seguir comprando</button>
+        <a href="carrito.html" class="cart-link-view-all" data-i18n="cart.view_cart">Ver carrito &gt;</a>
       </div>
     </div>
   </aside>
@@ -374,22 +391,22 @@
   <!-- Mobile Menu Drawer -->
   <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
     <div class="mobile-menu-header">
-      <h2>MENU</h2>
-      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">
+      <h2 data-i18n="menu.title">MENU</h2>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú" data-i18n-aria-label="nav.menu_close_aria">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <nav class="mobile-menu-nav">
-      <a href="tienda.html">SHOP ALL</a>
-      <a href="tienda.html?category=tops">REMERAS & CAMISAS</a>
-      <a href="tienda.html?category=hoodies">BUZOS & CAMPERAS</a>
-      <a href="tienda.html?category=bottoms">JEANES & PANTALONES</a>
-      <a href="tienda.html?category=sets">CONJUNTOS</a>
-      <a href="tienda.html?category=new-drop">NEW DROP</a>
-      <a href="tienda.html?category=sale">SALE</a>
-      <a href="index.html#brand-story">ABOUT US</a>
-      <a href="contacto.html">CONTACT</a>
-      <a href="login.html">CLUB / MI CUENTA</a>
+      <a href="tienda.html" data-i18n="menu.shop_all">SHOP ALL</a>
+      <a href="tienda.html?category=tops" data-i18n="menu.tops">REMERAS & CAMISAS</a>
+      <a href="tienda.html?category=hoodies" data-i18n="menu.hoodies">BUZOS & CAMPERAS</a>
+      <a href="tienda.html?category=bottoms" data-i18n="menu.bottoms">JEANES & PANTALONES</a>
+      <a href="tienda.html?category=sets" data-i18n="menu.sets">CONJUNTOS</a>
+      <a href="tienda.html?category=new-drop" data-i18n="menu.new_drop">NEW DROP</a>
+      <a href="tienda.html?category=sale" data-i18n="menu.sale">SALE</a>
+      <a href="index.html#brand-story" data-i18n="menu.about">ABOUT US</a>
+      <a href="contacto.html" data-i18n="menu.contact">CONTACT</a>
+      <a href="login.html" data-i18n="menu.account">CLUB / MI CUENTA</a>
     </nav>
   </aside>
 
@@ -397,6 +414,7 @@
   <div class="toast-notification" data-toast role="status" aria-live="polite"></div>
 
   <!-- Scripts -->
+  <script src="assets/js/i18n.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>

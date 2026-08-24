@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOPAMINE — High Performance Streetwear</title>
-  <meta name="description" content="Dopamine streetwear. Siluetas limpias, actitud fuerte y ropa urbana diseñada para el movimiento. Colecciones limitadas desde Buenos Aires.">
+  <title>DOPAMINE — High Performance Streetwear | Official Store</title>
+  <meta name="description" content="Dopamine streetwear. Siluetas limpias, actitud fuerte y moda urbana de alto rendimiento. Explorá colecciones y drops limitados desde Buenos Aires.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="index.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DOPAMINE">
+  <meta property="og:title" content="DOPAMINE — High Performance Streetwear | Official Store">
+  <meta property="og:description" content="Dopamine streetwear. Siluetas limpias, actitud fuerte y moda urbana de alto rendimiento. Explorá colecciones y drops limitados desde Buenos Aires.">
+  <meta property="og:url" content="index.html">
+  <meta property="og:image" content="assets/Branding/hero-bg.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DOPAMINE — High Performance Streetwear | Official Store">
+  <meta name="twitter:description" content="Dopamine streetwear. Siluetas limpias, actitud fuerte y moda urbana de alto rendimiento. Explorá colecciones y drops limitados desde Buenos Aires.">
+  <meta name="twitter:image" content="assets/Branding/hero-bg.jpg">
+
   <meta name="theme-color" content="#0A0A0C">
   <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,38 +116,38 @@
       <div class="header-micro-marquee" aria-label="Anuncios Dopamine">
         <div class="header-micro-marquee-track">
           <div class="header-micro-marquee-content">
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
           </div>
           <div class="header-micro-marquee-content" aria-hidden="true">
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
           </div>
         </div>
       </div>
 
       <!-- 2. Main Navigation Bar (DROPS | CONTACTO [LEFT] — LOGO [CENTER] — ACTIONS [RIGHT]) -->
-      <div class="header-main-nav">
+      <nav class="header-main-nav" aria-label="Navegación principal">
         <!-- Left: DROPS & CONTACTO + Mobile Toggle -->
         <div class="header-nav-left">
-          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" id="menu-toggle" data-menu-open>
+          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.menu_open_aria" id="menu-toggle" data-menu-open>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
           </button>
-          <a href="tienda.html" class="nav-item-link ui-label">DROPS</a>
-          <a href="contacto.html" class="nav-item-link ui-label">CONTACTO</a>
+          <a href="tienda.html" class="nav-item-link ui-label" data-i18n="nav.drops">DROPS</a>
+          <a href="contacto.html" class="nav-item-link ui-label" data-i18n="nav.contact">CONTACTO</a>
         </div>
 
         <!-- Center: Iconic Isotipo Logo -->
         <div class="header-nav-center">
-          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio">
+          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio" data-i18n-aria-label="nav.home_aria">
             <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
           </a>
@@ -138,22 +155,25 @@
 
         <!-- Right: Actions (Search, Account, Theme, Cart) -->
         <div class="header-nav-right">
-          <button class="action-btn search-trigger" aria-label="Buscar" id="search-toggle" data-search-open>
+          <button class="action-btn search-trigger" aria-label="Buscar" data-i18n-aria-label="nav.search_aria" id="search-toggle" data-search-open>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
           </button>
-          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta">
+          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta" data-i18n-aria-label="nav.account_aria">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
           </a>
-          <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+          <button class="action-btn lang-toggle-btn" id="lang-toggle" data-lang-toggle aria-label="Cambiar idioma (ES / EN)" title="Cambiar idioma (ES / EN)">
+            <span class="lang-text"><span class="lang-opt lang-es active">ES</span><span class="lang-divider">/</span><span class="lang-opt lang-en">EN</span></span>
+          </button>
+          <button class="action-btn theme-toggle" aria-label="Cambiar tema" data-i18n-aria-label="nav.theme_aria" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" id="cart-toggle" data-cart-open>
+          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" data-i18n-aria-label="nav.cart_aria" id="cart-toggle" data-cart-open>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
             <span class="cart-count" data-cart-count>0</span>
           </button>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -169,14 +189,14 @@
       <!-- Static fallback image (visible until video loads) -->
       <img src="assets/Branding/hero-bg.jpg" alt="" class="hero-bg-static" aria-hidden="true">
       <div class="container hero-content">
-        <h1 class="hero-headline">
+        <h1 class="hero-headline" data-i18n-html="hero.headline">
           ACTIVATE<br>
           YOUR<br>
           POTENTIAL
         </h1>
-        <p class="hero-tagline">HIGH PERFORMANCE STREETWEAR. BUENOS AIRES</p>
+        <p class="hero-tagline" data-i18n="hero.tagline">HIGH PERFORMANCE STREETWEAR. BUENOS AIRES</p>
         <div class="hero-actions" style="margin-top: 1.25rem;">
-          <a href="tienda.html" class="hero-text-cta">SHOP COLLECTION →</a>
+          <a href="tienda.html" class="hero-text-cta" data-i18n="hero.cta">SHOP COLLECTION →</a>
         </div>
       </div>
     </section>
@@ -219,46 +239,46 @@
       </div>
 
       <!-- ===== 3. CATEGORIES ===== -->
-      <section id="categories" class="categories-section section-padding">
+      <section id="categories" class="categories-section section-padding" aria-label="Colecciones">
         <div class="container">
           <div class="section-header-flex">
-            <h2 class="section-title">COLECCIONES</h2>
+            <h2 class="section-title" data-i18n="categories.title">COLECCIONES</h2>
           </div>
           <div class="categories-grid">
             <a href="tienda.html?category=tops" class="category-card rounded-media">
               <div class="category-image">
                 <img src="Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR Modelo.webp" alt="Remeras & Camisas" loading="lazy">
               </div>
-              <h3 class="category-title">REMERAS & CAMISAS</h3>
+              <h3 class="category-title" data-i18n="categories.tops">REMERAS & CAMISAS</h3>
             </a>
             <a href="tienda.html?category=hoodies" class="category-card rounded-media">
               <div class="category-image">
                 <img src="Ropa/Buzos/Buzo WIN.webp" alt="Buzos & Camperas" loading="lazy">
               </div>
-              <h3 class="category-title">BUZOS & CAMPERAS</h3>
+              <h3 class="category-title" data-i18n="categories.hoodies">BUZOS & CAMPERAS</h3>
             </a>
             <a href="tienda.html?category=bottoms" class="category-card rounded-media">
               <div class="category-image">
                 <img src="Ropa/Jeanes/JEAN BAGGY ICE.webp" alt="Jeanes & Pantalones" loading="lazy">
               </div>
-              <h3 class="category-title">JEANES & PANTALONES</h3>
+              <h3 class="category-title" data-i18n="categories.bottoms">JEANES & PANTALONES</h3>
             </a>
             <a href="tienda.html?category=sets" class="category-card rounded-media">
               <div class="category-image">
                 <img src="Ropa/Conjuntos/CONJUNTO BAGGY MORGAN.webp" alt="Conjuntos Streetwear" loading="lazy">
               </div>
-              <h3 class="category-title">CONJUNTOS</h3>
+              <h3 class="category-title" data-i18n="categories.sets">CONJUNTOS</h3>
             </a>
           </div>
         </div>
       </section>
 
       <!-- ===== 4. FEATURED PRODUCTS — Technical Grid (4:5 Ratio & Quick Add Pill) ===== -->
-      <section id="productos" class="featured-products-section section-padding">
+      <section id="productos" class="featured-products-section section-padding" aria-label="Piezas destacadas">
         <div class="container">
           <div class="section-header-flex">
-            <h2 class="section-title">FEATURED PIECES</h2>
-            <a href="tienda.html" class="view-all-link">VIEW ALL →</a>
+            <h2 class="section-title" data-i18n="featured.title">PIEZAS DESTACADAS</h2>
+            <a href="tienda.html" class="view-all-link" data-i18n="featured.view_all">VIEW ALL →</a>
           </div>
           <div class="products-grid">
             <!-- Product 1: Buzo WIN -->
@@ -269,7 +289,7 @@
                 </a>
                 <!-- Floating Quick Add Pill -->
                 <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
                   <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="S">S</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="M">M</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="L">L</button>
@@ -280,7 +300,7 @@
                 <a href="producto.html?slug=buzo-win"><h3 class="product-name">BUZO WIN</h3></a>
                 <div class="product-price-block">
                   <p class="product-price-list">$115.000</p>
-                  <p class="product-price-transfer">$103.500 con Transferencia (10% OFF)</p>
+                  <p class="product-price-transfer">$103.500 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
                 </div>
                 <div class="product-swatches">
                   <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Black"></span>
@@ -297,7 +317,7 @@
                 </a>
                 <!-- Floating Quick Add Pill -->
                 <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
                   <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="XS">XS</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="S">S</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="M">M</button>
@@ -309,7 +329,7 @@
                 <a href="producto.html?slug=remera-wireframe-waffle-noir"><h3 class="product-name">REMERA WAFFLE NOIR</h3></a>
                 <div class="product-price-block">
                   <p class="product-price-list">$62.000</p>
-                  <p class="product-price-transfer">$55.800 con Transferencia (10% OFF)</p>
+                  <p class="product-price-transfer">$55.800 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
                 </div>
                 <div class="product-swatches">
                   <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Noir"></span>
@@ -326,7 +346,7 @@
                 </a>
                 <!-- Floating Quick Add Pill -->
                 <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
                   <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="38">38</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="40">40</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="42">42</button>
@@ -337,7 +357,7 @@
                 <a href="producto.html?slug=jean-baggy-ice"><h3 class="product-name">JEAN BAGGY ICE</h3></a>
                 <div class="product-price-block">
                   <p class="product-price-list">$98.000</p>
-                  <p class="product-price-transfer">$88.200 con Transferencia (10% OFF)</p>
+                  <p class="product-price-transfer">$88.200 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
                 </div>
                 <div class="product-swatches">
                   <span class="product-swatch-dot is-active" style="background-color: #9BB8D3;" title="Ice Blue"></span>
@@ -354,7 +374,7 @@
                 </a>
                 <!-- Floating Quick Add Pill -->
                 <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label">AÑADIR:</span>
+                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
                   <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="S">S</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="M">M</button>
                   <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="L">L</button>
@@ -365,7 +385,7 @@
                 <a href="producto.html?slug=conjunto-baggy-morgan"><h3 class="product-name">CONJUNTO BAGGY MORGAN</h3></a>
                 <div class="product-price-block">
                   <p class="product-price-list">$185.000</p>
-                  <p class="product-price-transfer">$166.500 con Transferencia (10% OFF)</p>
+                  <p class="product-price-transfer">$166.500 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
                 </div>
                 <div class="product-swatches">
                   <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Noir"></span>
@@ -397,57 +417,57 @@
       </section>
 
       <!-- ===== 5. COLLECTION BANNER ===== -->
-      <section class="collection-banner">
+      <section class="collection-banner" aria-label="Colección urbana">
         <div class="container banner-content">
-          <span class="banner-eyebrow">DROP 01 / 26</span>
-          <h2 class="banner-title">EL NUEVO UNIFORME URBANO</h2>
-          <p class="banner-text">Nuestra primera colección define las bases. Diseñada sin compromisos desde Buenos Aires</p>
-          <a href="tienda.html" class="banner-cta">DESCUBRIR →</a>
+          <span class="banner-eyebrow" data-i18n="banner.eyebrow">DROP 01 / 26</span>
+          <h2 class="banner-title" data-i18n="banner.title">EL NUEVO UNIFORME URBANO</h2>
+          <p class="banner-text" data-i18n="banner.desc">Nuestra primera colección define las bases. Diseñada sin compromisos desde Buenos Aires</p>
+          <a href="tienda.html" class="banner-cta" data-i18n="banner.cta">DESCUBRIR →</a>
         </div>
       </section>
 
       <!-- ===== 6. BRAND STORY ===== -->
-      <section id="brand-story" class="brand-story-section section-padding">
+      <section id="brand-story" class="brand-story-section section-padding" aria-label="Historia de la marca">
         <div class="container brand-story-container">
           <div class="brand-story-text">
-            <h2 class="section-title">NUESTRA HISTORIA</h2>
-            <p>Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito</p>
-            <p>Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad</p>
+            <h2 class="section-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
+            <p data-i18n="story.p1">Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito</p>
+            <p data-i18n="story.p2">Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad</p>
           </div>
           <div class="brand-story-stats">
             <div class="stat-card">
-              <h4 class="stat-number">450</h4>
+              <h3 class="stat-number">450</h3>
               <p class="stat-label">GSM COTTON</p>
-              <p class="stat-desc">Algodón de peso pesado, estructurado y duradero</p>
+              <p class="stat-desc" data-i18n="story.stat1_desc">Algodón de peso pesado, estructurado y duradero</p>
             </div>
             <div class="stat-card">
-              <h4 class="stat-number">120</h4>
+              <h3 class="stat-number">120</h3>
               <p class="stat-label">LIMITED PIECES</p>
-              <p class="stat-desc">Ediciones limitadas por drop. No hacemos restocks</p>
+              <p class="stat-desc" data-i18n="story.stat2_desc">Ediciones limitadas por drop. No hacemos restocks</p>
             </div>
             <div class="stat-card">
-              <h4 class="stat-number">BA</h4>
+              <h3 class="stat-number">BA</h3>
               <p class="stat-label">HEADQUARTERS</p>
-              <p class="stat-desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires</p>
+              <p class="stat-desc" data-i18n="story.stat3_desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ===== 7. BENEFITS BAR ===== -->
-      <section class="benefits-bar">
+      <section class="benefits-bar" aria-label="Beneficios de compra">
         <div class="container benefits-container">
           <div class="benefit-item">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-            <span>ENVÍO GRATIS MUNDIAL +$100</span>
+            <span data-i18n="benefits.shipping">ENVÍO GRATIS MUNDIAL +$100</span>
           </div>
           <div class="benefit-item">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span>CALIDAD PREMIUM GARANTIZADA</span>
+            <span data-i18n="benefits.quality">CALIDAD PREMIUM GARANTIZADA</span>
           </div>
           <div class="benefit-item">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-            <span>CAMBIOS Y DEVOLUCIONES 30 DÍAS</span>
+            <span data-i18n="benefits.returns">CAMBIOS Y DEVOLUCIONES 30 DÍAS</span>
           </div>
         </div>
       </section>
@@ -466,11 +486,11 @@
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo">
             <span class="brand-logotype">DOPAMINE</span>
           </a>
-          <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
+          <p class="footer-brand-desc" data-i18n="footer.brand_desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
           <form class="footer-email-form" id="footer-signup-form">
             <div class="footer-input-wrap">
-              <input type="email" placeholder="ENTER EMAIL FOR DROPS" aria-label="Email subscription" required>
-              <button type="submit" aria-label="Subscribe">→</button>
+              <input type="email" placeholder="ENTER EMAIL FOR DROPS" data-i18n-placeholder="footer.email_placeholder" aria-label="Email subscription" required>
+              <button type="submit" aria-label="Subscribe" data-i18n-aria-label="footer.email_submit_aria">→</button>
             </div>
           </form>
         </div>
@@ -478,47 +498,47 @@
         <!-- Navigation Links -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>NAVIGATION</span>
+            <span data-i18n="footer.nav_title">NAVIGATION</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="tienda.html">DROPS</a></li>
-            <li><a href="index.html#brand-story">ABOUT US</a></li>
-            <li><a href="contacto.html">CONTACT</a></li>
+            <li><a href="tienda.html" data-i18n="footer.nav_drops">DROPS</a></li>
+            <li><a href="index.html#brand-story" data-i18n="footer.nav_about">ABOUT US</a></li>
+            <li><a href="contacto.html" data-i18n="footer.nav_contact">CONTACT</a></li>
           </ul>
         </div>
 
         <!-- Customer Care -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>CUSTOMER CARE</span>
+            <span data-i18n="footer.care_title">CUSTOMER CARE</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">SHIPPING & RETURNS</a></li>
-            <li><a href="#">SIZE GUIDE</a></li>
-            <li><a href="#">ORDER TRACKING</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="#" data-i18n="footer.care_shipping">SHIPPING & RETURNS</a></li>
+            <li><a href="#" data-i18n="footer.care_size_guide">SIZE GUIDE</a></li>
+            <li><a href="#" data-i18n="footer.care_tracking">ORDER TRACKING</a></li>
+            <li><a href="#" data-i18n="footer.care_faq">FAQ</a></li>
           </ul>
         </div>
 
         <!-- Legal & Social -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>LEGAL & SOCIAL</span>
+            <span data-i18n="footer.legal_title">LEGAL & SOCIAL</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">TERMS OF SERVICE</a></li>
-            <li><a href="#">PRIVACY POLICY</a></li>
-            <li><a href="#">COOKIE PREFERENCES</a></li>
+            <li><a href="#" data-i18n="footer.legal_terms">TERMS OF SERVICE</a></li>
+            <li><a href="#" data-i18n="footer.legal_privacy">PRIVACY POLICY</a></li>
+            <li><a href="#" data-i18n="footer.legal_cookies">COOKIE PREFERENCES</a></li>
           </ul>
           <div class="footer-social-icons">
             <a href="#" aria-label="Instagram" class="social-icon-btn" title="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
             <a href="#" aria-label="TikTok" class="social-icon-btn" title="TikTok">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
             <a href="#" aria-label="X / Twitter" class="social-icon-btn" title="X / Twitter">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M13.232 10.768L20 4"/></svg>
@@ -533,13 +553,10 @@
       <!-- Eme Studios Style: Language Row, Copyright & Payment Badges -->
       <div class="footer-eme-middle-bar">
         <div class="footer-eme-languages">
-          <span>ESPAÑOL</span>
-          <span>INGLÉS</span>
-          <span>ALEMÁN</span>
-          <span>FRANCÉS</span>
-          <span>ITALIANO</span>
+          <button type="button" class="footer-lang-btn active" data-set-lang="es">ESPAÑOL</button>
+          <button type="button" class="footer-lang-btn" data-set-lang="en">INGLÉS</button>
         </div>
-        <p class="footer-eme-copyright">2026 © DOPAMINE APPARATUS</p>
+        <p class="footer-eme-copyright" data-i18n="footer.copyright">2026 © DOPAMINE APPARATUS</p>
         <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
           <!-- Mercado Pago -->
           <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
@@ -599,8 +616,8 @@
   <!-- Search Panel -->
   <div class="search-panel" data-search-panel hidden>
     <div class="search-box">
-      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." aria-label="Buscar productos">
-      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
+      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." data-i18n-placeholder="search.placeholder" aria-label="Buscar productos">
+      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda" data-i18n-aria-label="search.close_aria">×</button>
     </div>
     <div class="search-results" data-search-results hidden></div>
   </div>
@@ -612,8 +629,8 @@
   <aside class="cart-drawer" data-cart-drawer aria-label="Bolsa de compras">
     <!-- Drawer Header -->
     <div class="cart-drawer-header">
-      <h2>MI COMPRA</h2>
-      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa">
+      <h2 data-i18n="cart.drawer_title">MI COMPRA</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa" data-i18n-aria-label="cart.drawer_close_aria">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
@@ -626,7 +643,7 @@
             <span class="cart-progress-knob"></span>
           </div>
         </div>
-        <p class="cart-progress-text" data-shipping-text>¡Tenés envío gratis!</p>
+        <p class="cart-progress-text" data-shipping-text data-i18n="cart.free_shipping_success">¡Tenés envío gratis!</p>
       </div>
       <div class="cart-progress-item">
         <div class="cart-progress-bar-track">
@@ -636,14 +653,14 @@
         </div>
         <p class="cart-progress-text" style="display: flex; align-items: center; gap: 0.35rem;">
           <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 14px; width: auto; object-fit: contain; border-radius: 2px; display: inline-block;">
-          <span>¡Tenés 6 cuotas sin interés!</span>
+          <span data-i18n="cart.installments_free">¡Tenés 6 cuotas sin interés!</span>
         </p>
       </div>
     </div>
 
     <!-- Drawer Body -->
     <div class="cart-drawer-body" data-cart-body>
-      <p class="cart-empty-msg" data-cart-empty>Tu bolsa está vacía</p>
+      <p class="cart-empty-msg" data-cart-empty data-i18n="cart.empty_msg">Tu bolsa está vacía</p>
       <div class="cart-items-list" data-cart-items></div>
 
       <!-- Cross-Sell Recommendation Carousel -->
@@ -658,13 +675,13 @@
         <div class="shipping-calc-input-wrap">
           <svg class="shipping-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
             <circle cx="5.5" cy="18.5" r="2.5"></circle>
             <circle cx="18.5" cy="18.5" r="2.5"></circle>
           </svg>
-          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" maxlength="8">
+          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" data-i18n-placeholder="cart.zip_placeholder" maxlength="8">
         </div>
-        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger>CALCULAR ENVÍO &gt;</button>
+        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger data-i18n="cart.calc_shipping_btn">CALCULAR ENVÍO &gt;</button>
       </div>
       <div class="shipping-calc-result" data-shipping-result hidden></div>
     </div>
@@ -672,13 +689,13 @@
     <!-- Drawer Footer -->
     <div class="cart-drawer-footer" data-cart-footer hidden>
       <div class="cart-total-row">
-        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-label" data-i18n="cart.total">TOTAL</span>
         <span class="cart-total-amount" data-cart-total>$0</span>
       </div>
-      <a href="carrito.html" class="btn-checkout-main">Finalizar Compra</a>
+      <a href="carrito.html" class="btn-checkout-main" data-i18n="cart.checkout_btn">FINALIZAR COMPRA →</a>
       <div class="cart-footer-links">
-        <button type="button" class="cart-link-continue" data-cart-close>&lt; Seguir comprando</button>
-        <a href="carrito.html" class="cart-link-view-all">Ver carrito &gt;</a>
+        <button type="button" class="cart-link-continue" data-cart-close data-i18n="cart.continue_shopping">&lt; Seguir comprando</button>
+        <a href="carrito.html" class="cart-link-view-all" data-i18n="cart.view_cart">Ver carrito &gt;</a>
       </div>
     </div>
   </aside>
@@ -689,22 +706,22 @@
   <!-- Mobile Menu Drawer -->
   <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
     <div class="mobile-menu-header">
-      <h2>MENU</h2>
-      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">
+      <h2 data-i18n="menu.title">MENU</h2>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú" data-i18n-aria-label="nav.menu_close_aria">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <nav class="mobile-menu-nav">
-      <a href="tienda.html">SHOP ALL</a>
-      <a href="tienda.html?category=tops">REMERAS & CAMISAS</a>
-      <a href="tienda.html?category=hoodies">BUZOS & CAMPERAS</a>
-      <a href="tienda.html?category=bottoms">JEANES & PANTALONES</a>
-      <a href="tienda.html?category=sets">CONJUNTOS</a>
-      <a href="tienda.html?category=new-drop">NEW DROP</a>
-      <a href="tienda.html?category=sale">SALE</a>
-      <a href="index.html#brand-story">ABOUT US</a>
-      <a href="contacto.html">CONTACT</a>
-      <a href="login.html">CLUB / MI CUENTA</a>
+      <a href="tienda.html" data-i18n="menu.shop_all">SHOP ALL</a>
+      <a href="tienda.html?category=tops" data-i18n="menu.tops">REMERAS & CAMISAS</a>
+      <a href="tienda.html?category=hoodies" data-i18n="menu.hoodies">BUZOS & CAMPERAS</a>
+      <a href="tienda.html?category=bottoms" data-i18n="menu.bottoms">JEANES & PANTALONES</a>
+      <a href="tienda.html?category=sets" data-i18n="menu.sets">CONJUNTOS</a>
+      <a href="tienda.html?category=new-drop" data-i18n="menu.new_drop">NEW DROP</a>
+      <a href="tienda.html?category=sale" data-i18n="menu.sale">SALE</a>
+      <a href="index.html#brand-story" data-i18n="menu.about">ABOUT US</a>
+      <a href="contacto.html" data-i18n="menu.contact">CONTACT</a>
+      <a href="login.html" data-i18n="menu.account">CLUB / MI CUENTA</a>
     </nav>
   </aside>
 
@@ -712,6 +729,7 @@
   <div class="toast-notification" data-toast role="status" aria-live="polite"></div>
 
   <!-- Scripts -->
+  <script src="assets/js/i18n.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>

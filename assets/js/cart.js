@@ -38,6 +38,7 @@
   ];
   let activeRecommendIndex = 0;
 
+  function t(key, params) { return window.DopamineI18n ? window.DopamineI18n.t(key, params) : key; }
   function formatARS(value) { return '$' + Number(value).toLocaleString('es-AR'); }
   function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
   function saveFavorites() { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites])); }
@@ -141,10 +142,10 @@
       });
       document.querySelectorAll('[data-shipping-text]').forEach(text => {
         if (currentSubtotal >= FREE_SHIPPING_THRESHOLD) {
-          text.textContent = '¡Tenés envío gratis!';
+          text.textContent = t('cart.free_shipping_success');
         } else {
           const missing = FREE_SHIPPING_THRESHOLD - currentSubtotal;
-          text.textContent = `¡Te faltan ${formatARS(missing)} para el Envío Gratis!`;
+          text.textContent = t('cart.free_shipping_missing', { amount: formatARS(missing) });
         }
       });
       document.querySelectorAll('[data-installments-bar]').forEach(bar => {
@@ -155,20 +156,21 @@
       const itemsHTML = cart.map(item => {
         const itemTotal = item.price * item.quantity;
         const origPrice = Math.round(item.price * 1.3); // Strikethrough original price in ARS
+        const variantText = t('cart.item_variant', { size: item.size, color: item.color });
         return `
           <article class="cart-line">
             <img class="cart-line-img" src="${item.image}" alt="${item.name}" loading="lazy">
             <div class="cart-line-copy">
               <div class="cart-line-head">
                 <h3 class="cart-line-title">${item.name}</h3>
-                <button type="button" class="cart-line-remove" data-cart-remove="${item.key}" aria-label="Eliminar ${item.name}">
+                <button type="button" class="cart-line-remove" data-cart-remove="${item.key}" aria-label="${t('cart.remove_aria', { name: item.name })}">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="3 6 5 6 21 6"></polyline>
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                   </svg>
                 </button>
               </div>
-              <span class="cart-line-variant">Talle: ${item.size} Color: ${item.color}</span>
+              <span class="cart-line-variant">${variantText}</span>
               <div class="cart-line-foot">
                 <div class="qty-control">
                   <button type="button" data-cart-delta="${item.key}" data-delta="-1" aria-label="Disminuir">−</button>
@@ -222,7 +224,7 @@
               <span class="recommend-item-price">${formatARS(rec.price)}</span>
             </div>
           </div>
-          <button type="button" class="btn-recommend-add" data-recommend-add>Agregar</button>
+          <button type="button" class="btn-recommend-add" data-recommend-add>${t('cart.recommend_add')}</button>
         </div>
         <div class="recommend-dots">${dotsHTML}</div>
       `;
@@ -301,6 +303,7 @@
     });
 
     document.addEventListener('keydown', event => { if (event.key === 'Escape') CartStore.close(); });
+    document.addEventListener('dopamine:langchange', () => CartStore.render());
     CartStore.render();
   }
 

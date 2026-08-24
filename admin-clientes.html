@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Clientes & Registros — Dopamine Admin</title>
+  <title data-i18n="admin.meta_title">DOPAMINE — Panel de Gestión de Clientes (Admin)</title>
+  <meta name="description" content="Panel interno de administración y gestión de clientes de Dopamine Streetwear.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
+  <link rel="canonical" href="admin-clientes.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DOPAMINE">
+  <meta property="og:title" content="DOPAMINE — Panel de Gestión de Clientes (Admin)">
+  <meta property="og:description" content="Panel interno de administración y gestión de clientes de Dopamine Streetwear.">
+  <meta property="og:url" content="admin-clientes.html">
+  <meta property="og:image" content="assets/Branding/Logos/Isotipo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DOPAMINE — Panel de Gestión de Clientes (Admin)">
+  <meta name="twitter:description" content="Panel interno de administración y gestión de clientes de Dopamine Streetwear.">
+  <meta name="twitter:image" content="assets/Branding/Logos/Isotipo.png">
+
+  <meta name="theme-color" content="#060608">
+  <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
   <script>
     // Bloqueo de seguridad: La consola de administración no se permite en entornos de producción (Vercel/dominios externos)
     (function() {
@@ -319,19 +337,22 @@
 
   <!-- HEADER -->
   <header class="site-header" id="header">
-    <div class="header-container">
-      <a href="index.html" class="brand-logo" aria-label="Dopamine Inicio">
-        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
-        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
-        <span class="brand-wordmark">DOPAMINE ADMIN</span>
+    <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1400px; margin: 0 auto;">
+      <a href="index.html" class="brand-logo" aria-label="Dopamine Inicio" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+        <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light" style="height: 32px; width: auto;">
+        <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark" style="height: 32px; width: auto;">
+        <span class="brand-wordmark" style="font-family: var(--ff-heading); font-size: 1.5rem; letter-spacing: 0.1em; color: var(--text-primary);">DOPAMINE ADMIN</span>
       </a>
 
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link">VOLVER A LA TIENDA ↗</a>
+      <nav class="main-nav" aria-label="Navegación de administración">
+        <a href="index.html" class="nav-link" data-i18n="admin.back_store" style="font-family: var(--ff-mono); font-size: 0.8125rem; font-weight: 700; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.08em;">VOLVER A LA TIENDA ↗</a>
       </nav>
 
-      <div class="header-actions">
-        <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Cambiar tema">
+      <div class="header-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+        <button class="action-btn lang-toggle-btn" id="lang-toggle" data-lang-toggle aria-label="Cambiar idioma (ES / EN)" title="Cambiar idioma (ES / EN)">
+          <span class="lang-text"><span class="lang-opt lang-es active">ES</span><span class="lang-divider">/</span><span class="lang-opt lang-en">EN</span></span>
+        </button>
+        <button class="theme-toggle-btn action-btn theme-toggle" id="theme-toggle-btn" type="button" aria-label="Cambiar tema" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
           <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
@@ -341,18 +362,18 @@
 
   <!-- MAIN ADMIN -->
   <main>
-    <section class="admin-section">
+    <section class="admin-section" aria-label="Consola de administración de clientes">
       <div class="shop-container">
         
         <!-- Header Title -->
         <div class="admin-header">
           <div class="admin-title-wrap">
-            <h1>BASE DE CLIENTES & REGISTROS</h1>
-            <p class="admin-subtitle">Consola de monitoreo de usuarios, contraseñas ingresadas e inicie de sesión con Google</p>
+            <h1 data-i18n="admin.title">BASE DE CLIENTES & REGISTROS</h1>
+            <p class="admin-subtitle" data-i18n="admin.subtitle">Consola de monitoreo de usuarios, contraseñas ingresadas e inicie de sesión con Google</p>
           </div>
           <div style="display: flex; gap: 0.75rem;">
             <button type="button" class="admin-btn admin-btn-accent" id="btn-export-csv">
-              📥 EXPORTAR A EXCEL / CSV
+              <span data-i18n="admin.export_csv">📥 EXPORTAR A EXCEL / CSV</span>
             </button>
           </div>
         </div>
@@ -360,19 +381,19 @@
         <!-- Dashboard Stat Cards -->
         <div class="admin-stats-grid">
           <div class="stat-card">
-            <span class="stat-label">TOTAL CLIENTES</span>
+            <span class="stat-label" data-i18n="admin.stat_total">TOTAL CLIENTES</span>
             <div class="stat-value" id="stat-total">0</div>
           </div>
           <div class="stat-card stat-google">
-            <span class="stat-label">CONECTADOS VÍA GOOGLE</span>
+            <span class="stat-label" data-i18n="admin.stat_google">CONECTADOS VÍA GOOGLE</span>
             <div class="stat-value" id="stat-google">0</div>
           </div>
           <div class="stat-card stat-email">
-            <span class="stat-label">CON CONTRASEÑA MANUAL</span>
+            <span class="stat-label" data-i18n="admin.stat_manual">CON CONTRASEÑA MANUAL</span>
             <div class="stat-value" id="stat-email">0</div>
           </div>
           <div class="stat-card stat-active">
-            <span class="stat-label">ACTIVIDAD EN 24H</span>
+            <span class="stat-label" data-i18n="admin.stat_active">ACTIVIDAD EN 24H</span>
             <div class="stat-value" id="stat-active">0</div>
           </div>
         </div>
@@ -381,26 +402,26 @@
         <div class="admin-toolbar">
           <div class="admin-search-wrap">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="search" id="admin-search-input" placeholder="Buscar por cliente, email o método de acceso...">
+            <input type="search" id="admin-search-input" placeholder="Buscar por cliente, email o método de acceso..." data-i18n-placeholder="admin.search_placeholder">
           </div>
 
           <div class="admin-actions-wrap">
             <select id="filter-provider" class="admin-btn" style="padding-right: 2rem;">
-              <option value="all">TODOS LOS PROVEEDORES</option>
-              <option value="google">SOLO GOOGLE</option>
-              <option value="email">SOLO EMAIL / CONTRASEÑA</option>
+              <option value="all" data-i18n="admin.filter_all">TODOS LOS PROVEEDORES</option>
+              <option value="google" data-i18n="admin.filter_google">SOLO GOOGLE</option>
+              <option value="email" data-i18n="admin.filter_email">SOLO EMAIL / CONTRASEÑA</option>
             </select>
 
             <button type="button" class="admin-btn" id="btn-toggle-passwords">
-              👁️ <span id="lbl-toggle-pass">MOSTRAR CONTRASEÑAS</span>
+              👁️ <span id="lbl-toggle-pass" data-i18n="admin.show_passwords">MOSTRAR CONTRASEÑAS</span>
             </button>
 
             <button type="button" class="admin-btn" id="btn-add-test-user" style="border-color:rgba(34, 197, 94, 0.4); color:#22C55E;">
-              ⚡ + AGREGAR CLIENTE DE PRUEBA
+              ⚡ + <span data-i18n="admin.add_test_user">AGREGAR CLIENTE DE PRUEBA</span>
             </button>
 
             <button type="button" class="admin-btn admin-btn-danger" id="btn-clear-db">
-              🗑️ REINICIAR BASE DE DATOS
+              🗑️ <span data-i18n="admin.reset_db">REINICIAR BASE DE DATOS</span>
             </button>
           </div>
         </div>
@@ -411,14 +432,14 @@
             <thead>
               <tr>
                 <th># ID</th>
-                <th>CLIENTE</th>
-                <th>CORREO ELECTRÓNICO</th>
-                <th>PROVEEDOR</th>
-                <th>CONTRASEÑA INGRESADA</th>
-                <th>FECHA NACIMIENTO</th>
-                <th>FECHA REGISTRO</th>
-                <th>ÚLTIMO ACCESO</th>
-                <th>ACCIONES</th>
+                <th data-i18n="admin.th_customer">CLIENTE</th>
+                <th data-i18n="admin.th_email">CORREO ELECTRÓNICO</th>
+                <th data-i18n="admin.th_provider">PROVEEDOR</th>
+                <th data-i18n="admin.th_password">CONTRASEÑA INGRESADA</th>
+                <th data-i18n="admin.th_dob">FECHA NACIMIENTO</th>
+                <th data-i18n="admin.th_registered">FECHA REGISTRO</th>
+                <th data-i18n="admin.th_last_login">ÚLTIMO ACCESO</th>
+                <th data-i18n="admin.th_actions">ACCIONES</th>
               </tr>
             </thead>
             <tbody id="admin-table-body">
@@ -432,6 +453,7 @@
   </main>
 
   <!-- Scripts -->
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/theme.js"></script>
   <script src="assets/js/db.js"></script>
@@ -440,7 +462,8 @@
     let showRawPasswords = false;
 
     function formatDateTime(isoStr) {
-      if (!isoStr) return 'Sin registro';
+      const isEn = window.i18n && window.i18n.getLang() === 'en';
+      if (!isoStr) return isEn ? 'No record' : 'Sin registro';
       try {
         const d = new Date(isoStr);
         if (isNaN(d.getTime())) return isoStr;
@@ -449,14 +472,17 @@
         const year = d.getFullYear();
         const hours = String(d.getHours()).padStart(2, '0');
         const minutes = String(d.getMinutes()).padStart(2, '0');
-        return `${day}/${month}/${year} a las ${hours}:${minutes} hs`;
+        return isEn 
+          ? `${month}/${day}/${year} at ${hours}:${minutes}`
+          : `${day}/${month}/${year} a las ${hours}:${minutes} hs`;
       } catch (e) {
         return isoStr;
       }
     }
 
     function formatBirthdate(val) {
-      if (!val || val === 'No especificada' || val === 'Google Account') return 'No especificada';
+      const isEn = window.i18n && window.i18n.getLang() === 'en';
+      if (!val || val === 'No especificada' || val === 'Google Account') return isEn ? 'Not specified' : 'No especificada';
       if (val.includes('-')) {
         const parts = val.split('-');
         if (parts.length === 3) {
@@ -467,6 +493,7 @@
     }
 
     async function renderAdminDashboard() {
+      const isEn = window.i18n && window.i18n.getLang() === 'en';
       let users = [];
       if (window.DopamineDB) {
         users = await DopamineDB.fetchAllUsers();
@@ -502,7 +529,7 @@
       if (!tbody) return;
 
       if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:3rem; color:var(--text-muted); font-family:var(--ff-mono);">No se encontraron clientes registrados con los filtros seleccionados.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:3rem; color:var(--text-muted); font-family:var(--ff-mono);">${isEn ? 'No registered customers found with the selected filters.' : 'No se encontraron clientes registrados con los filtros seleccionados.'}</td></tr>`;
         return;
       }
 
@@ -514,7 +541,7 @@
 
         let passDisplay = '';
         if (isGoogle) {
-          passDisplay = `<span class="pass-google">Acceso vía Google</span>`;
+          passDisplay = `<span class="pass-google">${isEn ? 'Google Sign In' : 'Acceso vía Google'}</span>`;
         } else {
           const raw = u.rawPassword || '••••••••';
           const masked = u.passwordMasked || '••••••••';
@@ -535,7 +562,7 @@
             <td>
               <div class="user-info-cell">
                 ${avatarMarkup}
-                <strong style="font-family:var(--ff-body); font-weight:600;">${u.name || 'Sin Nombre'}</strong>
+                <strong style="font-family:var(--ff-body); font-weight:600;">${u.name || (isEn ? 'No Name' : 'Sin Nombre')}</strong>
               </div>
             </td>
             <td style="font-family:var(--ff-mono); font-size:0.8125rem;">${u.email}</td>
@@ -546,7 +573,7 @@
             <td style="font-family:var(--ff-mono); font-size:0.75rem; color:var(--text-secondary);">${formatDateTime(u.lastLogin)}</td>
             <td>
               <button type="button" class="admin-btn admin-btn-danger btn-delete-user" data-id="${u.id}" style="height:32px; padding:0 0.75rem; font-size:0.6875rem;">
-                ELIMINAR
+                ${isEn ? 'DELETE' : 'ELIMINAR'}
               </button>
             </td>
           </tr>
@@ -557,7 +584,8 @@
       tbody.querySelectorAll('.btn-delete-user').forEach(btn => {
         btn.addEventListener('click', async () => {
           const uid = btn.dataset.id;
-          if (confirm('¿Estás seguro de eliminar a este cliente de la base de datos?')) {
+          const confirmMsg = isEn ? 'Are you sure you want to delete this customer from database?' : '¿Estás seguro de eliminar a este cliente de la base de datos?';
+          if (confirm(confirmMsg)) {
             await DopamineDB.deleteUser(uid);
             renderAdminDashboard();
           }
@@ -568,7 +596,10 @@
     // Toggle Passwords Visibility
     document.getElementById('btn-toggle-passwords')?.addEventListener('click', () => {
       showRawPasswords = !showRawPasswords;
-      document.getElementById('lbl-toggle-pass').textContent = showRawPasswords ? 'OCULTAR CONTRASEÑAS' : 'MOSTRAR CONTRASEÑAS';
+      const isEn = window.i18n && window.i18n.getLang() === 'en';
+      const showText = isEn ? 'SHOW PASSWORDS' : 'MOSTRAR CONTRASEÑAS';
+      const hideText = isEn ? 'HIDE PASSWORDS' : 'OCULTAR CONTRASEÑAS';
+      document.getElementById('lbl-toggle-pass').textContent = showRawPasswords ? hideText : showText;
       renderAdminDashboard();
     });
 
@@ -591,7 +622,9 @@
 
     // Clear DB Listener
     document.getElementById('btn-clear-db')?.addEventListener('click', async () => {
-      if (confirm('⚠️ ¿ATENCIÓN: Deseas vaciar la base de clientes registrada?')) {
+      const isEn = window.i18n && window.i18n.getLang() === 'en';
+      const clearMsg = isEn ? '⚠️ WARNING: Do you want to clear all registered customers?' : '⚠️ ¿ATENCIÓN: Deseas vaciar la base de clientes registrada?';
+      if (confirm(clearMsg)) {
         await DopamineDB.clearAll();
         renderAdminDashboard();
       }
@@ -601,7 +634,8 @@
     document.getElementById('btn-export-csv')?.addEventListener('click', async () => {
       const users = window.DopamineDB ? await DopamineDB.fetchAllUsers() : [];
       if (users.length === 0) {
-        alert('No hay clientes registrados para exportar.');
+        const isEn = window.i18n && window.i18n.getLang() === 'en';
+        alert(isEn ? 'No registered customers to export.' : 'No hay clientes registrados para exportar.');
         return;
       }
 
@@ -634,6 +668,7 @@
       renderAdminDashboard();
       setInterval(renderAdminDashboard, 2000);
       window.addEventListener('storage', renderAdminDashboard);
+      window.addEventListener('dopamine:languageChange', renderAdminDashboard);
     });
   </script>
 </body>

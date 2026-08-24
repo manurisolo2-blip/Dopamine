@@ -4,12 +4,13 @@
   const state = { category: '', size: '', color: '', availability: '', tag: '', sort: 'featured', query: '' };
   const grid = () => document.querySelector('[data-products-grid]');
 
+  function t(key, params) { return window.DopamineI18n ? window.DopamineI18n.t(key, params) : key; }
   function esc(value) { return String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char])); }
   function money(value) { return '$' + Number(value).toLocaleString('es-AR'); }
   function swatches(product) { return product.colors.map((color, index) => `<i class="shop-swatch ${index === 0 ? 'is-active' : ''}" style="background-color:${color.hex}; --swatch:${color.hex};" title="${esc(color.name)}"></i>`).join(''); }
   function productCard(product, index) {
     const favorite = window.DopamineCart?.isFavorite(product.id);
-    const stock = product.stock <= 5 && product.stock > 0 ? `<span class="stock-warning">${product.stock} LEFT</span>` : '';
+    const stock = product.stock <= 5 && product.stock > 0 ? `<span class="stock-warning">${t('shop.stock_left', { count: product.stock })}</span>` : '';
     const transferPrice = money(Math.round(product.price * 0.9));
     const installmentPrice = money(Math.round(product.price / 3));
 
@@ -27,11 +28,11 @@
         
         <!-- Floating Quick Add Pill -->
         <div class="quick-add-pill" aria-label="Añadir rápido">
-          <span class="quick-add-pill-label">AÑADIR:</span>
+          <span class="quick-add-pill-label">${t('shop.quick_add_pill')}</span>
           ${sizesPill}
         </div>
 
-        ${product.stock === 0 ? '<span class="sold-out-label">SOLD OUT</span>' : ''}
+        ${product.stock === 0 ? `<span class="sold-out-label">${t('shop.sold_out_badge')}</span>` : ''}
       </div>
       <div class="shop-product-copy">
         <div class="shop-product-head">
@@ -44,7 +45,7 @@
             ${product.compareAtPrice ? `<del class="price-old">${money(product.compareAtPrice)}</del>` : ''}
             <span class="price-current">${money(product.price)}</span>
           </div>
-          <p class="product-price-transfer">${transferPrice} con Transferencia (10% OFF)</p>
+          <p class="product-price-transfer">${transferPrice} ${t('featured.transfer_note')}</p>
         </div>
         <div class="shop-product-meta"><div class="shop-swatches">${swatches(product)}</div>${stock}</div>
       </div>
@@ -115,7 +116,7 @@
     document.querySelectorAll('[data-filter-value]').forEach(input => { input.checked = input.value === state[input.dataset.filterValue]; });
     const sort = document.querySelector('[data-sort]'); if (sort) sort.value = state.sort;
     const active = Object.values(state).filter(Boolean).length;
-    document.querySelectorAll('[data-active-filters]').forEach(node => node.textContent = active ? `${active} ACTIVE` : 'FILTERS');
+    document.querySelectorAll('[data-active-filters]').forEach(node => node.textContent = active ? t('shop.active_filters', { count: active }) : t('shop.filters'));
 
     // Synchronize active state for category pills/links in header and navigation
     document.querySelectorAll('.category-nav-link, .category-pill').forEach(pill => {
@@ -294,10 +295,21 @@
       const isCollapsed = layout.classList.toggle('sidebar-collapsed');
       toggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
       if (toggleText) {
-        toggleText.textContent = isCollapsed ? 'MOSTRAR FILTROS' : 'OCULTAR FILTROS';
+        toggleText.textContent = isCollapsed ? t('shop.show_filters') : t('shop.hide_filters');
       }
     });
   }
+
+  document.addEventListener('dopamine:langchange', () => {
+    if (grid()) render();
+    const toggleBtn = document.querySelector('[data-toggle-sidebar]');
+    const layout = document.getElementById('shop-layout');
+    const toggleText = document.querySelector('[data-toggle-text]');
+    if (toggleBtn && layout && toggleText) {
+      const isCollapsed = layout.classList.contains('sidebar-collapsed');
+      toggleText.textContent = isCollapsed ? t('shop.show_filters') : t('shop.hide_filters');
+    }
+  });
 
   document.addEventListener('DOMContentLoaded', () => { getStateFromURL(); if (grid()) render(); initFilters(); initSearch(); initQuickModal(); initMobileMenu(); initSidebarToggle(); });
 })(window);

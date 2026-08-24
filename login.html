@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Cuenta — Dopamine Streetwear</title>
-  <meta name="description" content="Ingresá a tu cuenta de Dopamine Streetwear para ver tus pedidos, acceso anticipado a drops y beneficios exclusivos.">
+  <title data-i18n="meta.title_login">DOPAMINE — Acceso de Cuenta & Registro</title>
+  <meta name="description" content="Iniciá sesión o registrate en Dopamine Streetwear para acceder a tu historial de compras, seguimiento de envíos y acceso prioritario a drops.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="login.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DOPAMINE">
+  <meta property="og:title" content="DOPAMINE — Acceso de Cuenta & Registro">
+  <meta property="og:description" content="Iniciá sesión o registrate en Dopamine Streetwear para acceder a tu historial de compras, seguimiento de envíos y acceso prioritario a drops.">
+  <meta property="og:url" content="login.html">
+  <meta property="og:image" content="assets/Branding/hero-bg.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DOPAMINE — Acceso de Cuenta & Registro">
+  <meta name="twitter:description" content="Iniciá sesión o registrate en Dopamine Streetwear para acceder a tu historial de compras, seguimiento de envíos y acceso prioritario a drops.">
+  <meta name="twitter:image" content="assets/Branding/hero-bg.jpg">
+
   <meta name="theme-color" content="#0A0A0C">
   <link rel="icon" id="dynamic-favicon" type="image/png" href="assets/Branding/Logos/Isotipo.png">
   
@@ -231,15 +248,17 @@
     }
 
     [data-theme="dark"] .auth-remember input[type="checkbox"]:checked {
+      background-color: #FFFFFF;
+      border-color: #FFFFFF;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0A0C' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
     }
 
     .auth-forgot {
       font-family: var(--ff-mono, 'JetBrains Mono', monospace);
       font-size: 0.75rem;
-      color: var(--text-secondary);
+      color: var(--text-muted);
       text-decoration: underline;
-      white-space: nowrap;
+      transition: color 180ms ease;
     }
 
     .auth-forgot:hover {
@@ -248,63 +267,63 @@
 
     .auth-submit-btn {
       width: 100%;
-      height: 48px;
+      height: 52px;
       background: var(--text-primary);
       color: var(--bg-primary);
-      border: none;
-      border-radius: 0 !important;
       font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid var(--text-primary);
+      border-radius: 0 !important;
       cursor: pointer;
       transition: all 180ms ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: none !important;
     }
 
     .auth-submit-btn:hover {
-      opacity: 0.9;
+      background: transparent;
+      color: var(--text-primary);
     }
 
     .auth-divider {
       display: flex;
       align-items: center;
-      text-align: center;
-      margin-block: 1.5rem;
-      color: var(--text-muted);
-      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
-      font-size: 0.6875rem;
-      letter-spacing: 0.14em;
+      margin: 1.5rem 0;
     }
 
     .auth-divider::before,
     .auth-divider::after {
-      content: '';
+      content: "";
       flex: 1;
-      border-bottom: 1px solid var(--border-color);
+      height: 1px;
+      background: var(--border-color);
     }
 
     .auth-divider span {
-      padding-inline: 0.75rem;
+      padding: 0 1rem;
+      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
 
     .auth-social-btn {
       width: 100%;
-      height: 46px;
+      height: 48px;
       background: transparent;
       border: 1px solid var(--border-color);
-      border-radius: 0 !important;
       color: var(--text-primary);
-      font-family: var(--ff-mono, 'JetBrains Mono', monospace);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 0 !important;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -312,12 +331,11 @@
       gap: 0.75rem;
       margin-bottom: 0.75rem;
       transition: all 180ms ease;
-      box-shadow: none !important;
     }
 
     .auth-social-btn:hover {
       border-color: var(--text-primary);
-      background: var(--border-subtle);
+      background: var(--surface-hover);
     }
 
     .auth-feedback {
@@ -390,67 +408,70 @@
       <div class="header-micro-marquee" aria-label="Anuncios Dopamine">
         <div class="header-micro-marquee-track">
           <div class="header-micro-marquee-content">
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
           </div>
           <div class="header-micro-marquee-content" aria-hidden="true">
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
-            <span>10% OFF EXTRA TRANSFERENCIAS</span>
-            <span>BUENOS AIRES STREETWEAR LIMITED EDITION</span>
-            <span>ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
+            <span data-i18n="marquee.transfer">10% OFF EXTRA TRANSFERENCIAS</span>
+            <span data-i18n="marquee.edition">BUENOS AIRES STREETWEAR LIMITED EDITION</span>
+            <span data-i18n="marquee.shipping">ENVÍOS A TODO EL PAÍS DROP 01 / 26</span>
           </div>
         </div>
       </div>
       
       <!-- 2. Main Navigation Bar (DROPS | CONTACTO [LEFT] — LOGO [CENTER] — ACTIONS [RIGHT]) -->
-      <div class="header-main-nav">
+      <nav class="header-main-nav" aria-label="Navegación principal">
         <!-- Left: DROPS & CONTACTO + Mobile Toggle -->
         <div class="header-nav-left">
-          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" id="menu-toggle" data-menu-open>
+          <button class="action-btn mobile-menu-toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.menu_open_aria" id="menu-toggle" data-menu-open>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3.5" y1="7" x2="20.5" y2="7"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17" x2="20.5" y2="17"/></svg>
           </button>
-          <a href="tienda.html" class="nav-item-link ui-label">DROPS</a>
-          <a href="contacto.html" class="nav-item-link ui-label">CONTACTO</a>
+          <a href="tienda.html" class="nav-item-link ui-label" data-i18n="nav.drops">DROPS</a>
+          <a href="contacto.html" class="nav-item-link ui-label" data-i18n="nav.contact">CONTACTO</a>
         </div>
 
         <!-- Center: Iconic Isotipo Logo -->
         <div class="header-nav-center">
-          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio">
+          <a href="index.html" class="header-center-logo" aria-label="Dopamine Inicio" data-i18n-aria-label="nav.home_aria">
             <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="brand-isotipo logo-light">
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo logo-dark">
           </a>
         </div>
 
-        <!-- Right: Actions (Search, Account, Theme, Cart) -->
+        <!-- Right: Actions (Search, Account, Language, Theme, Cart) -->
         <div class="header-nav-right">
-          <button class="action-btn search-trigger" aria-label="Buscar" id="search-toggle" data-search-open>
+          <button class="action-btn search-trigger" aria-label="Buscar" data-i18n-aria-label="nav.search_aria" id="search-toggle" data-search-open>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
           </button>
-          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta">
+          <a href="login.html" class="action-btn account-link-btn" aria-label="Mi Cuenta" data-i18n-aria-label="nav.account_aria">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"/></svg>
           </a>
-          <button class="action-btn theme-toggle" aria-label="Cambiar tema" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
+          <button class="action-btn lang-toggle-btn" id="lang-toggle" data-lang-toggle aria-label="Cambiar idioma (ES / EN)" title="Cambiar idioma (ES / EN)">
+            <span class="lang-text"><span class="lang-opt lang-es active">ES</span><span class="lang-divider">/</span><span class="lang-opt lang-en">EN</span></span>
+          </button>
+          <button class="action-btn theme-toggle" aria-label="Cambiar tema" data-i18n-aria-label="nav.theme_aria" id="theme-toggle" data-theme-toggle title="Cambiar tema (Claro / Oscuro)">
             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" id="cart-toggle" data-cart-open>
+          <button class="action-btn cart-trigger" aria-label="Bolsa de compras" data-i18n-aria-label="nav.cart_aria" id="cart-toggle" data-cart-open>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
             <span class="cart-count" data-cart-count>0</span>
           </button>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 
   <!-- MAIN LOGIN SECTION -->
   <main>
-    <section class="auth-section">
+    <section class="auth-section" aria-label="Acceso y registro de cuenta">
       <div class="shop-container">
         <div class="auth-box">
           
@@ -458,8 +479,8 @@
           <div class="auth-header-brand">
             <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine" class="auth-brand-isotipo logo-light">
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="auth-brand-isotipo logo-dark">
-            <h1 class="auth-nike-title" id="auth-title">Ingresá tu correo electrónico para unirte o iniciar sesión</h1>
-            <p class="auth-nike-subtitle" id="auth-subtitle">Accedé a drops exclusivos, seguimiento de pedidos y beneficios de miembro</p>
+            <h1 class="auth-nike-title" id="auth-title" data-i18n="auth.title">Ingresá tu correo electrónico para unirte o iniciar sesión</h1>
+            <p class="auth-nike-subtitle" id="auth-subtitle" data-i18n="auth.subtitle">Accedé a drops exclusivos, seguimiento de pedidos y beneficios de miembro</p>
           </div>
           
           <!-- LOGGED IN USER PROFILE CARD (Outer card box removed, 0px sharp corners, Space Grotesk typography) -->
@@ -471,50 +492,50 @@
               </div>
               <h2 id="profile-name" style="font-family: var(--ff-heading, 'Bebas Neue', sans-serif); font-size: 2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; color: var(--text-primary);"></h2>
               <p id="profile-email" style="font-family: var(--ff-mono, 'JetBrains Mono', monospace); font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;"></p>
-              <span id="profile-badge" style="display: inline-block; padding: 6px 14px; background: rgba(34, 197, 94, 0.12); color: #22C55E; border: 1px solid #22C55E; border-radius: 0 !important; font-family: var(--ff-mono); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.75rem;">✓ MEMBER CLUB // CONECTADO VÍA EMAIL</span>
+              <span id="profile-badge" style="display: inline-block; padding: 6px 14px; background: rgba(34, 197, 94, 0.12); color: #22C55E; border: 1px solid #22C55E; border-radius: 0 !important; font-family: var(--ff-mono); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.75rem;" data-i18n="auth.profile_badge">✓ MEMBER CLUB // CONECTADO VÍA EMAIL</span>
               <div style="display: flex; gap: 0.85rem; flex-direction: column;">
-                <a href="store.html" class="auth-submit-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; border-radius: 0 !important;">EXPLORAR DROPS EXCLUSIVOS ↗</a>
-                <button type="button" id="btn-logout" class="auth-social-btn" style="color: #EF4444; border-color: rgba(239, 68, 68, 0.4); font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important; font-size: 0.9375rem !important; font-weight: 700 !important; letter-spacing: 0.06em !important; border-radius: 0 !important;">CERRAR SESIÓN</button>
+                <a href="store.html" class="auth-submit-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; border-radius: 0 !important;" data-i18n="auth.explore_drops">EXPLORAR DROPS EXCLUSIVOS ↗</a>
+                <button type="button" id="btn-logout" class="auth-social-btn" style="color: #EF4444; border-color: rgba(239, 68, 68, 0.4); font-family: var(--ff-body, 'Montserrat', sans-serif, Arial, Helvetica) !important; font-size: 0.9375rem !important; font-weight: 700 !important; letter-spacing: 0.06em !important; border-radius: 0 !important;" data-i18n="auth.logout_btn">CERRAR SESIÓN</button>
               </div>
             </div>
           </div>
 
           <!-- TAB HEADERS -->
           <div class="auth-tabs" id="auth-tabs-row" role="tablist">
-            <button class="auth-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true">INICIAR SESIÓN</button>
-            <button class="auth-tab" id="tab-register" type="button" role="tab" aria-selected="false">CREAR CUENTA</button>
+            <button class="auth-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true" data-i18n="auth.tab_login">INICIAR SESIÓN</button>
+            <button class="auth-tab" id="tab-register" type="button" role="tab" aria-selected="false" data-i18n="auth.tab_register">CREAR CUENTA</button>
           </div>
 
           <div class="auth-form-card" id="auth-form-card">
             <!-- LOGIN FORM -->
             <form id="form-login" class="auth-form">
               <div class="auth-input-group">
-                <label for="login-email">Correo electrónico*</label>
+                <label for="login-email" data-i18n="auth.email_label">Correo electrónico*</label>
                 <div class="auth-input-wrap">
                   <input type="email" id="login-email" placeholder="tu@email.com" autocomplete="email" required>
                 </div>
               </div>
 
               <div class="auth-input-group">
-                <label for="login-password">Contraseña*</label>
+                <label for="login-password" data-i18n="auth.pass_label">Contraseña*</label>
                 <div class="auth-input-wrap">
                   <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required>
-                  <button type="button" class="toggle-password-btn" data-toggle-password="login-password">VER</button>
+                  <button type="button" class="toggle-password-btn" data-toggle-password="login-password" data-i18n="auth.show_pass">VER</button>
                 </div>
               </div>
 
               <div class="auth-options-row">
                 <label class="auth-remember">
                   <input type="checkbox" id="remember-me" checked>
-                  <span>Recordarme</span>
+                  <span data-i18n="auth.remember_me">Recordarme</span>
                 </label>
-                <a href="#forgot" class="auth-forgot" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                <a href="#forgot" class="auth-forgot" id="forgot-password-link" data-i18n="auth.forgot_pass">¿Olvidaste tu contraseña?</a>
               </div>
 
-              <button type="submit" class="auth-submit-btn">Continuar →</button>
+              <button type="submit" class="auth-submit-btn" data-i18n="auth.btn_continue">Continuar →</button>
 
               <div class="auth-divider">
-                <span>O CONTINUAR CON</span>
+                <span data-i18n="auth.or_continue">O CONTINUAR CON</span>
               </div>
 
               <button type="button" class="auth-social-btn" id="btn-google">
@@ -533,7 +554,7 @@
             <!-- REGISTER FORM (Nike Member Style from Image 3!) -->
             <form id="form-register" class="auth-form" hidden>
               <div class="auth-input-group">
-                <label for="reg-email">Correo electrónico*</label>
+                <label for="reg-email" data-i18n="auth.email_label">Correo electrónico*</label>
                 <div class="auth-input-wrap">
                   <input type="email" id="reg-email" placeholder="tu@email.com" autocomplete="email" required>
                 </div>
@@ -542,53 +563,53 @@
               <!-- Nike Member Name & Surname Grid -->
               <div class="auth-grid-2">
                 <div class="auth-input-group">
-                  <label for="reg-firstname">Nombre*</label>
+                  <label for="reg-firstname" data-i18n="auth.first_name">Nombre*</label>
                   <div class="auth-input-wrap">
-                    <input type="text" id="reg-firstname" placeholder="Nombre" autocomplete="given-name" required>
+                    <input type="text" id="reg-firstname" placeholder="Nombre" data-i18n-placeholder="auth.first_name" autocomplete="given-name" required>
                   </div>
                 </div>
                 <div class="auth-input-group">
-                  <label for="reg-lastname">Apellidos*</label>
+                  <label for="reg-lastname" data-i18n="auth.last_name">Apellidos*</label>
                   <div class="auth-input-wrap">
-                    <input type="text" id="reg-lastname" placeholder="Apellidos" autocomplete="family-name" required>
+                    <input type="text" id="reg-lastname" placeholder="Apellidos" data-i18n-placeholder="auth.last_name" autocomplete="family-name" required>
                   </div>
                 </div>
               </div>
 
               <div class="auth-input-group">
-                <label for="reg-password">Contraseña* (mínimo 8 caracteres)</label>
+                <label for="reg-password" data-i18n="auth.pass_min8">Contraseña* (mínimo 8 caracteres)</label>
                 <div class="auth-input-wrap">
                   <input type="password" id="reg-password" placeholder="••••••••" autocomplete="new-password" minlength="8" required>
-                  <button type="button" class="toggle-password-btn" data-toggle-password="reg-password">VER</button>
+                  <button type="button" class="toggle-password-btn" data-toggle-password="reg-password" data-i18n="auth.show_pass">VER</button>
                 </div>
               </div>
 
               <!-- Nike Member Date of Birth Grid -->
               <div class="auth-input-group">
-                <label>Fecha de nacimiento</label>
+                <label data-i18n="auth.dob_label">Fecha de nacimiento</label>
                 <div class="auth-grid-3">
-                  <input type="number" id="dob-day" placeholder="Día*" min="1" max="31" required>
-                  <input type="number" id="dob-month" placeholder="Mes*" min="1" max="12" required>
-                  <input type="number" id="dob-year" placeholder="Año*" min="1930" max="2012" required>
+                  <input type="number" id="dob-day" placeholder="Día*" data-i18n-placeholder="auth.dob_day" min="1" max="31" required>
+                  <input type="number" id="dob-month" placeholder="Mes*" data-i18n-placeholder="auth.dob_month" min="1" max="12" required>
+                  <input type="number" id="dob-year" placeholder="Año*" data-i18n-placeholder="auth.dob_year" min="1930" max="2012" required>
                 </div>
               </div>
 
               <div class="auth-options-row" style="margin-top: 1rem;">
                 <label class="auth-remember">
                   <input type="checkbox" id="reg-terms" required checked>
-                  <span>Acepto la <strong style="text-decoration: underline;">Política de privacidad</strong> y los <strong style="text-decoration: underline;">Términos de uso</strong> de Dopamine</span>
+                  <span data-i18n-html="auth.terms_accept">Acepto la <strong style="text-decoration: underline;">Política de privacidad</strong> y los <strong style="text-decoration: underline;">Términos de uso</strong> de Dopamine</span>
                 </label>
               </div>
 
-              <button type="submit" class="auth-submit-btn" style="margin-top: 1.25rem;">Crear una cuenta</button>
+              <button type="submit" class="auth-submit-btn" style="margin-top: 1.25rem;" data-i18n="auth.btn_create_account">Crear una cuenta</button>
 
               <div class="auth-divider">
-                <span>O CREAR CUENTA CON</span>
+                <span data-i18n="auth.or_create">O CREAR CUENTA CON</span>
               </div>
 
               <button type="button" class="auth-social-btn" id="btn-google-register">
                 <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 10.8 0 12.5s.7 2.8 1.9 5.2l3.7-2.9z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 17C3.7 20.7 7.5 24 12 24z"/></svg>
-                REGISTRARME CON GOOGLE
+                <span data-i18n="auth.btn_google_reg">REGISTRARME CON GOOGLE</span>
               </button>
 
               <div id="register-feedback" class="auth-feedback" hidden></div>
@@ -598,18 +619,18 @@
             <form id="form-verify-code" class="auth-form" hidden>
               <div class="auth-verification-head" style="margin-bottom: 1.5rem;">
                 <p style="font-family: var(--ff-mono, 'JetBrains Mono', monospace); font-size: 0.8125rem; color: var(--text-secondary, rgba(255,255,255,0.7)); margin-bottom: 0.5rem; line-height: 1.5;">
-                  Hemos enviado un código de 6 dígitos a <strong id="verify-target-email" style="color: var(--text-primary, #FFFFFF); text-decoration: underline;">usuario@email.com</strong> 
-                  <button type="button" id="btn-edit-verify-email" style="background: none; border: none; color: var(--accent, #0EA5E9); font-family: var(--ff-mono, monospace); font-size: 0.75rem; text-decoration: underline; cursor: pointer; padding: 0 4px;">Editar</button>
+                  <span data-i18n="auth.code_sent">Hemos enviado un código de 6 dígitos a</span> <strong id="verify-target-email" style="color: var(--text-primary, #FFFFFF); text-decoration: underline;">usuario@email.com</strong> 
+                  <button type="button" id="btn-edit-verify-email" style="background: none; border: none; color: var(--accent, #0EA5E9); font-family: var(--ff-mono, monospace); font-size: 0.75rem; text-decoration: underline; cursor: pointer; padding: 0 4px;" data-i18n="auth.edit_email">Editar</button>
                 </p>
               </div>
 
               <div class="auth-input-group">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                  <label for="verify-code-input" style="margin: 0;">Código de 6 dígitos*</label>
+                  <label for="verify-code-input" style="margin: 0;" data-i18n="auth.code_label">Código de 6 dígitos*</label>
                   <span id="resend-timer-text" style="font-family: var(--ff-mono, monospace); font-size: 0.75rem; color: var(--text-muted, rgba(255,255,255,0.5));">
-                    Volver a enviar en <strong id="resend-countdown" style="color: var(--text-primary, #FFFFFF);">30 s</strong>
+                    <span data-i18n="auth.resend_in">Volver a enviar en</span> <strong id="resend-countdown" style="color: var(--text-primary, #FFFFFF);">30 s</strong>
                   </span>
-                  <button type="button" id="btn-resend-code" hidden style="background: none; border: none; color: var(--text-primary, #FFFFFF); font-family: var(--ff-mono, monospace); font-size: 0.75rem; font-weight: 700; text-decoration: underline; cursor: pointer; padding: 0;">
+                  <button type="button" id="btn-resend-code" hidden style="background: none; border: none; color: var(--text-primary, #FFFFFF); font-family: var(--ff-mono, monospace); font-size: 0.75rem; font-weight: 700; text-decoration: underline; cursor: pointer; padding: 0;" data-i18n="auth.resend_btn">
                     Volver a enviar código ↻
                   </button>
                 </div>
@@ -624,11 +645,11 @@
               <div class="auth-options-row" style="margin-top: 1rem;">
                 <label class="auth-remember">
                   <input type="checkbox" id="verify-terms" checked disabled>
-                  <span>Al continuar, acepto la <strong style="text-decoration: underline;">Política de privacidad</strong> y los <strong style="text-decoration: underline;">Términos de uso</strong> de Dopamine</span>
+                  <span data-i18n-html="auth.terms_continue">Al continuar, acepto la <strong style="text-decoration: underline;">Política de privacidad</strong> y los <strong style="text-decoration: underline;">Términos de uso</strong> de Dopamine</span>
                 </label>
               </div>
 
-              <button type="submit" class="auth-submit-btn" style="margin-top: 1.25rem;">Verificar código y continuar →</button>
+              <button type="submit" class="auth-submit-btn" style="margin-top: 1.25rem;" data-i18n="auth.btn_verify">Verificar código y continuar →</button>
 
               <div id="verify-feedback" class="auth-feedback" hidden></div>
             </form>
@@ -649,11 +670,11 @@
             <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine" class="brand-isotipo">
             <span class="brand-logotype">DOPAMINE</span>
           </a>
-          <p class="footer-brand-desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
+          <p class="footer-brand-desc" data-i18n="footer.brand_desc">High performance streetwear engineered in Buenos Aires. Limited releases only</p>
           <form class="footer-email-form" id="footer-signup-form">
             <div class="footer-input-wrap">
-              <input type="email" placeholder="ENTER EMAIL FOR DROPS" aria-label="Email subscription" required>
-              <button type="submit" aria-label="Subscribe">→</button>
+              <input type="email" placeholder="ENTER EMAIL FOR DROPS" data-i18n-placeholder="footer.email_placeholder" aria-label="Email subscription" required>
+              <button type="submit" aria-label="Subscribe" data-i18n-aria-label="footer.email_submit_aria">→</button>
             </div>
           </form>
         </div>
@@ -661,40 +682,40 @@
         <!-- Navigation Links -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>NAVIGATION</span>
+            <span data-i18n="footer.nav_title">NAVIGATION</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="tienda.html">DROPS</a></li>
-            <li><a href="index.html#brand-story">ABOUT US</a></li>
-            <li><a href="contacto.html">CONTACT</a></li>
+            <li><a href="tienda.html" data-i18n="footer.nav_drops">DROPS</a></li>
+            <li><a href="index.html#brand-story" data-i18n="footer.nav_about">ABOUT US</a></li>
+            <li><a href="contacto.html" data-i18n="footer.nav_contact">CONTACT</a></li>
           </ul>
         </div>
 
         <!-- Customer Care -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>CUSTOMER CARE</span>
+            <span data-i18n="footer.care_title">CUSTOMER CARE</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">SHIPPING & RETURNS</a></li>
-            <li><a href="#">SIZE GUIDE</a></li>
-            <li><a href="#">ORDER TRACKING</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="#" data-i18n="footer.care_shipping">SHIPPING & RETURNS</a></li>
+            <li><a href="#" data-i18n="footer.care_size_guide">SIZE GUIDE</a></li>
+            <li><a href="#" data-i18n="footer.care_tracking">ORDER TRACKING</a></li>
+            <li><a href="#" data-i18n="footer.care_faq">FAQ</a></li>
           </ul>
         </div>
 
         <!-- Legal & Social -->
         <div class="footer-col" data-footer-accordion>
           <button class="footer-col-title footer-accordion-btn" type="button" aria-expanded="false">
-            <span>LEGAL & SOCIAL</span>
+            <span data-i18n="footer.legal_title">LEGAL & SOCIAL</span>
             <span class="accordion-icon">+</span>
           </button>
           <ul class="footer-link-list">
-            <li><a href="#">TERMS OF SERVICE</a></li>
-            <li><a href="#">PRIVACY POLICY</a></li>
-            <li><a href="#">COOKIE PREFERENCES</a></li>
+            <li><a href="#" data-i18n="footer.legal_terms">TERMS OF SERVICE</a></li>
+            <li><a href="#" data-i18n="footer.legal_privacy">PRIVACY POLICY</a></li>
+            <li><a href="#" data-i18n="footer.legal_cookies">COOKIE PREFERENCES</a></li>
           </ul>
           <div class="footer-social-icons">
             <a href="#" aria-label="Instagram" class="social-icon-btn" title="Instagram">
@@ -716,13 +737,10 @@
       <!-- Eme Studios Style: Language Row, Copyright & Payment Badges -->
       <div class="footer-eme-middle-bar">
         <div class="footer-eme-languages">
-          <span>ESPAÑOL</span>
-          <span>INGLÉS</span>
-          <span>ALEMÁN</span>
-          <span>FRANCÉS</span>
-          <span>ITALIANO</span>
+          <button type="button" class="footer-lang-btn active" data-set-lang="es">ESPAÑOL</button>
+          <button type="button" class="footer-lang-btn" data-set-lang="en">INGLÉS</button>
         </div>
-        <p class="footer-eme-copyright">2026 © DOPAMINE APPARATUS</p>
+        <p class="footer-eme-copyright" data-i18n="footer.copyright">2026 © DOPAMINE APPARATUS</p>
         <div class="footer-payment-methods" aria-label="Métodos de pago aceptados">
           <!-- Mercado Pago -->
           <span class="payment-badge-icon" title="Mercado Pago" aria-label="Mercado Pago">
@@ -781,8 +799,8 @@
   <!-- Search Panel -->
   <div class="search-panel" data-search-panel hidden>
     <div class="search-box">
-      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." aria-label="Buscar productos">
-      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda">×</button>
+      <input data-search-input type="search" placeholder="BUSCAR PRODUCTOS..." data-i18n-placeholder="search.placeholder" aria-label="Buscar productos">
+      <button class="search-close-btn" type="button" data-search-close aria-label="Cerrar búsqueda" data-i18n-aria-label="search.close_aria">×</button>
     </div>
     <div class="search-results" data-search-results hidden></div>
   </div>
@@ -792,8 +810,8 @@
   <aside class="cart-drawer" data-cart-drawer aria-label="Bolsa de compras">
     <!-- Drawer Header -->
     <div class="cart-drawer-header">
-      <h2>MI COMPRA</h2>
-      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa">
+      <h2 data-i18n="cart.drawer_title">MI COMPRA</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Cerrar bolsa" data-i18n-aria-label="cart.drawer_close_aria">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
@@ -806,7 +824,7 @@
             <span class="cart-progress-knob"></span>
           </div>
         </div>
-        <p class="cart-progress-text" data-shipping-text>¡Tenés envío gratis!</p>
+        <p class="cart-progress-text" data-shipping-text data-i18n="cart.free_shipping_success">¡Tenés envío gratis!</p>
       </div>
       <div class="cart-progress-item">
         <div class="cart-progress-bar-track">
@@ -816,14 +834,14 @@
         </div>
         <p class="cart-progress-text" style="display: flex; align-items: center; gap: 0.35rem;">
           <img src="assets/Branding/Logos/mercadopago_logo.jpg" alt="Mercado Pago" style="height: 14px; width: auto; object-fit: contain; border-radius: 2px; display: inline-block;">
-          <span>¡Tenés 6 cuotas sin interés!</span>
+          <span data-i18n="cart.installments_free">¡Tenés 6 cuotas sin interés!</span>
         </p>
       </div>
     </div>
 
     <!-- Drawer Body -->
     <div class="cart-drawer-body" data-cart-body>
-      <p class="cart-empty-msg" data-cart-empty>Tu bolsa está vacía</p>
+      <p class="cart-empty-msg" data-cart-empty data-i18n="cart.empty_msg">Tu bolsa está vacía</p>
       <div class="cart-items-list" data-cart-items></div>
 
       <!-- Cross-Sell Recommendation Carousel -->
@@ -838,13 +856,13 @@
         <div class="shipping-calc-input-wrap">
           <svg class="shipping-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <polygon points="16 8 20 8 23 11 23 16 16 8"></polygon>
             <circle cx="5.5" cy="18.5" r="2.5"></circle>
             <circle cx="18.5" cy="18.5" r="2.5"></circle>
           </svg>
-          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" maxlength="8">
+          <input type="text" class="shipping-zip-input" data-shipping-zip placeholder="5850" data-i18n-placeholder="cart.zip_placeholder" maxlength="8">
         </div>
-        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger>CALCULAR ENVÍO &gt;</button>
+        <button type="button" class="shipping-calc-btn" data-shipping-calc-trigger data-i18n="cart.calc_shipping_btn">CALCULAR ENVÍO &gt;</button>
       </div>
       <div class="shipping-calc-result" data-shipping-result hidden></div>
     </div>
@@ -852,13 +870,13 @@
     <!-- Drawer Footer -->
     <div class="cart-drawer-footer" data-cart-footer hidden>
       <div class="cart-total-row">
-        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-label" data-i18n="cart.total">TOTAL</span>
         <span class="cart-total-amount" data-cart-total>$0</span>
       </div>
-      <a href="carrito.html" class="btn-checkout-main">Finalizar Compra</a>
+      <a href="carrito.html" class="btn-checkout-main" data-i18n="cart.checkout_btn">FINALIZAR COMPRA →</a>
       <div class="cart-footer-links">
-        <button type="button" class="cart-link-continue" data-cart-close>&lt; Seguir comprando</button>
-        <a href="carrito.html" class="cart-link-view-all">Ver carrito &gt;</a>
+        <button type="button" class="cart-link-continue" data-cart-close data-i18n="cart.continue_shopping">&lt; Seguir comprando</button>
+        <a href="carrito.html" class="cart-link-view-all" data-i18n="cart.view_cart">Ver carrito &gt;</a>
       </div>
     </div>
   </aside>
@@ -867,26 +885,27 @@
   <div class="mobile-menu-overlay" data-menu-overlay></div>
   <aside class="mobile-menu-drawer" data-mobile-menu aria-label="Menú de navegación móvil">
     <div class="mobile-menu-header">
-      <h2>MENU</h2>
-      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú">
+      <h2 data-i18n="menu.title">MENU</h2>
+      <button class="drawer-close" type="button" data-menu-close aria-label="Cerrar menú" data-i18n-aria-label="nav.menu_close_aria">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <nav class="mobile-menu-nav">
-      <a href="tienda.html">SHOP ALL</a>
-      <a href="tienda.html?category=tops">REMERAS & CAMISAS</a>
-      <a href="tienda.html?category=hoodies">BUZOS & CAMPERAS</a>
-      <a href="tienda.html?category=bottoms">JEANES & PANTALONES</a>
-      <a href="tienda.html?category=sets">CONJUNTOS</a>
-      <a href="tienda.html?category=new-drop">NEW DROP</a>
-      <a href="tienda.html?category=sale">SALE</a>
-      <a href="index.html#brand-story">ABOUT US</a>
-      <a href="contacto.html">CONTACT</a>
-      <a href="login.html">CLUB / MI CUENTA</a>
+      <a href="tienda.html" data-i18n="menu.shop_all">SHOP ALL</a>
+      <a href="tienda.html?category=tops" data-i18n="menu.tops">REMERAS & CAMISAS</a>
+      <a href="tienda.html?category=hoodies" data-i18n="menu.hoodies">BUZOS & CAMPERAS</a>
+      <a href="tienda.html?category=bottoms" data-i18n="menu.bottoms">JEANES & PANTALONES</a>
+      <a href="tienda.html?category=sets" data-i18n="menu.sets">CONJUNTOS</a>
+      <a href="tienda.html?category=new-drop" data-i18n="menu.new_drop">NEW DROP</a>
+      <a href="tienda.html?category=sale" data-i18n="menu.sale">SALE</a>
+      <a href="index.html#brand-story" data-i18n="menu.about">ABOUT US</a>
+      <a href="contacto.html" data-i18n="menu.contact">CONTACT</a>
+      <a href="login.html" data-i18n="menu.account">CLUB / MI CUENTA</a>
     </nav>
   </aside>
 
   <!-- Scripts -->
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/product-data.js"></script>
   <script src="assets/js/cart.js"></script>
