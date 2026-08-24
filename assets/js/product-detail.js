@@ -51,7 +51,13 @@
       });
     }
     const related = document.querySelector('[data-detail-related]');
-    if (related) related.innerHTML = catalog.getRelated(product).map(item => `<a class="related-product" href="producto.html?slug=${item.slug}"><img src="${item.images[0]}" alt="${esc(item.name)}"><span>${esc(item.name)}</span><b>${money(item.price)}</b></a>`).join('');
+    if (related) {
+      related.innerHTML = catalog.getRelated(product).map(item => `<a class="related-product" href="producto.html?slug=${item.slug}"><img src="${item.images[0]}" alt="${esc(item.name)}"><span>${esc(item.name)}</span><b>${money(item.price)}</b></a>`).join('');
+      if (window.DopamineReveal) {
+        window.DopamineReveal.applyStagger(related);
+        window.DopamineReveal.observe(related);
+      }
+    }
     setupInteractions(product);
     setupPseudo3D(product);
   }

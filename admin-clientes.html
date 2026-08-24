@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/products.css">
@@ -452,12 +452,21 @@
     </section>
   </main>
 
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" type="button" aria-label="Volver arriba" data-i18n-aria-label="nav.back_to_top_aria" data-i18n-title="ui.back_to_top" title="Volver arriba" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+    <span class="back-to-top-text" data-i18n="ui.back_to_top_short">TOP</span>
+  </button>
+
   <!-- Scripts -->
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/theme.js"></script>
   <script src="assets/js/db.js"></script>
   <script src="assets/js/auth.js"></script>
+  <script src="assets/js/scroll-reveal.js"></script>
   <script>
     let showRawPasswords = false;
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
   <!-- Core Fonts Architecture (Bebas Neue + JetBrains Mono + Space Grotesk) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/products.css">
   <style>
@@ -50,6 +50,46 @@
   </style>
 </head>
 <body class="shop-page">
+
+  <!-- ===== DOPAMINE BRAND PRELOADER / SPLASH LOADER ===== -->
+  <div id="dopamine-preloader" class="dopamine-preloader" role="status" aria-live="polite" aria-label="Cargando Dopamine Streetwear" data-i18n-aria-label="loader.aria_label">
+    <div class="dopamine-preloader-backdrop"></div>
+    <div class="dopamine-preloader-content">
+      <!-- Cyberpunk Corner Accents -->
+      <div class="preloader-corner preloader-corner-tl" aria-hidden="true"></div>
+      <div class="preloader-corner preloader-corner-tr" aria-hidden="true"></div>
+      <div class="preloader-corner preloader-corner-bl" aria-hidden="true"></div>
+      <div class="preloader-corner preloader-corner-br" aria-hidden="true"></div>
+
+      <!-- Top Meta Tag -->
+      <div class="preloader-meta-top" aria-hidden="true">
+        <span class="preloader-meta-tag">SYS // DPM-2026</span>
+        <span class="preloader-meta-tag">BA_HQ</span>
+      </div>
+
+      <!-- Center Brand Emblem & Pulse Glow -->
+      <div class="preloader-brand-wrapper">
+        <div class="preloader-glow-orb" aria-hidden="true"></div>
+        <div class="preloader-logo-wrap">
+          <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine Logo" class="brand-isotipo logo-light preloader-logo">
+          <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine Logo" class="brand-isotipo logo-dark preloader-logo">
+        </div>
+        <span class="preloader-brand-title">DOPAMINE</span>
+      </div>
+
+      <!-- High-Performance Cyberpunk Progress Track -->
+      <div class="preloader-progress-track" aria-hidden="true">
+        <div class="preloader-progress-bar"></div>
+        <div class="preloader-progress-glow"></div>
+      </div>
+
+      <!-- Bottom Status Row -->
+      <div class="preloader-status-row" aria-hidden="true">
+        <span class="preloader-status-text" data-i18n="loader.initializing">INITIALIZING SYSTEM // BUENOS AIRES</span>
+        <span class="preloader-status-code" data-i18n="loader.status">DROP 01/26</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== HEADER (ROTTEN FUTURE FLOATING GLASS CAPSULE) ===== -->
   <header class="site-header" id="site-header">
@@ -131,30 +171,33 @@
             Suscribite para recibir acceso anticipado exclusivo a cada lanzamiento limitado, códigos de descuento privados e información sobre ofertas y colecciones antes que nadie
           </p>
 
-          <form class="shop-pure-newsletter-form" id="pure-newsletter-form">
+          <form class="shop-pure-newsletter-form" id="pure-newsletter-form" novalidate>
             <div class="shop-form-row">
-              <div class="floating-field" style="position: relative; margin-bottom: 1.25rem;">
-                <input id="pure-news-name" type="text" placeholder=" " autocomplete="name" style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; outline: none;">
-                <label for="pure-news-name" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;" data-i18n="contact.name_label">NOMBRE COMPLETO</label>
+              <div class="floating-field" id="field-wrap-name" style="position: relative; margin-bottom: 1.25rem;">
+                <input id="pure-news-name" type="text" placeholder=" " autocomplete="name" required style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; outline: none; transition: border-color 180ms ease, box-shadow 180ms ease;">
+                <label for="pure-news-name" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;" data-i18n="contact.name_label">NOMBRE COMPLETO *</label>
+                <span class="dpm-field-error" id="pure-news-name-err" role="alert" style="display: none;"></span>
               </div>
-              <div class="floating-field" style="position: relative; margin-bottom: 1.25rem;">
-                <input id="pure-news-email" type="email" placeholder=" " autocomplete="email" required style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; outline: none;">
+              <div class="floating-field" id="field-wrap-email" style="position: relative; margin-bottom: 1.25rem;">
+                <input id="pure-news-email" type="email" placeholder=" " autocomplete="email" required style="width: 100%; height: 50px; padding: 1.25rem 1rem 0.35rem 1rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: var(--ff-body); font-size: 0.9375rem; outline: none; transition: border-color 180ms ease, box-shadow 180ms ease;">
                 <label for="pure-news-email" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; font-weight: 500; color: var(--text-muted); pointer-events: none; transition: all 180ms ease;" data-i18n="contact.email_label">CORREO ELECTRÓNICO *</label>
+                <span class="dpm-field-error" id="pure-news-email-err" role="alert" style="display: none;"></span>
               </div>
             </div>
 
-            <div class="shop-newsletter-consent">
+            <div class="shop-newsletter-consent" id="field-wrap-consent">
               <label class="shop-check" style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; min-height: 44px;">
-                <input type="checkbox" checked required style="min-width: 20px; min-height: 20px; margin-top: 0.2rem; cursor: pointer;">
+                <input type="checkbox" id="pure-news-consent" checked required style="min-width: 20px; min-height: 20px; margin-top: 0.2rem; cursor: pointer;">
                 <span style="font-size: 0.8125rem; line-height: 1.5; color: var(--text-secondary);" data-i18n="contact.consent">Acepto recibir novedades sobre drops exclusivos, ofertas y lanzamientos de Dopamine</span>
               </label>
+              <span class="dpm-field-error" id="pure-news-consent-err" role="alert" style="display: none; margin-left: 2rem;"></span>
             </div>
 
-            <button class="shop-full-button shop-newsletter-submit" type="submit" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">
+            <button class="shop-full-button shop-newsletter-submit" type="submit" id="pure-news-submit" style="height: 52px; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.16em; margin-block: 1.5rem 1rem;">
               <span data-i18n="contact.submit_btn">UNIRME AL CLUB →</span>
             </button>
 
-            <div class="shop-form-feedback" id="pure-news-feedback" hidden></div>
+            <div class="shop-form-feedback" id="pure-news-feedback" role="status" aria-live="polite" hidden></div>
           </form>
         </div>
       </div>
@@ -410,6 +453,14 @@
     </nav>
   </aside>
 
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" type="button" aria-label="Volver arriba" data-i18n-aria-label="nav.back_to_top_aria" data-i18n-title="ui.back_to_top" title="Volver arriba" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+    <span class="back-to-top-text" data-i18n="ui.back_to_top_short">TOP</span>
+  </button>
+
   <!-- Toast Notification -->
   <div class="toast-notification" data-toast role="status" aria-live="polite"></div>
 
@@ -425,20 +476,172 @@
   <script src="assets/js/db.js"></script>
   <script src="assets/js/verification.js"></script>
   <script src="assets/js/auth.js"></script>
+  <script src="assets/js/scroll-reveal.js"></script>
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <script src="assets/js/mercadopago.js"></script>
   <script>
-    document.getElementById('pure-newsletter-form')?.addEventListener('submit', function(e) {
-      e.preventDefault();
+    (function() {
+      const form = document.getElementById('pure-newsletter-form');
+      if (!form) return;
+
+      const nameInput = document.getElementById('pure-news-name');
+      const emailInput = document.getElementById('pure-news-email');
+      const consentInput = document.getElementById('pure-news-consent');
+      const nameWrap = document.getElementById('field-wrap-name');
+      const emailWrap = document.getElementById('field-wrap-email');
+      const consentWrap = document.getElementById('field-wrap-consent');
+      const nameErr = document.getElementById('pure-news-name-err');
+      const emailErr = document.getElementById('pure-news-email-err');
+      const consentErr = document.getElementById('pure-news-consent-err');
       const feedback = document.getElementById('pure-news-feedback');
-      if (feedback) {
-        const lang = window.i18n ? window.i18n.getLang() : 'es';
-        feedback.textContent = lang === 'en' ? '✓ YOU HAVE SUCCESSFULLY JOINED THE DOPAMINE CLUB. THANK YOU!' : '✓ TE SUSCRIBISTE CON ÉXITO AL CLUB DOPAMINE. ¡GRACIAS!';
-        feedback.className = 'shop-form-feedback success';
-        feedback.hidden = false;
+
+      const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      function t(key, fallback) {
+        if (window.DopamineI18n && typeof window.DopamineI18n.t === 'function') {
+          return window.DopamineI18n.t(key) || fallback;
+        }
+        if (window.i18n && typeof window.i18n.t === 'function') {
+          return window.i18n.t(key) || fallback;
+        }
+        return fallback;
       }
-      this.reset();
-    });
+
+      function setFieldError(input, wrap, errEl, messageKey, fallback) {
+        if (!input || !errEl) return;
+        const msg = t(messageKey, fallback);
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+        if (wrap) {
+          wrap.classList.add('is-invalid', 'shake-error');
+          setTimeout(() => wrap.classList.remove('shake-error'), 450);
+        }
+        input.classList.add('is-invalid');
+        input.classList.remove('is-valid');
+        input.setAttribute('aria-invalid', 'true');
+      }
+
+      function clearFieldError(input, wrap, errEl) {
+        if (!input || !errEl) return;
+        errEl.textContent = '';
+        errEl.style.display = 'none';
+        if (wrap) wrap.classList.remove('is-invalid', 'shake-error');
+        input.classList.remove('is-invalid');
+        input.removeAttribute('aria-invalid');
+      }
+
+      function setFieldValid(input, wrap, errEl) {
+        clearFieldError(input, wrap, errEl);
+        input.classList.add('is-valid');
+      }
+
+      // Real-time interactive input listeners
+      nameInput?.addEventListener('input', () => {
+        if (nameInput.value.trim().length >= 2) {
+          setFieldValid(nameInput, nameWrap, nameErr);
+        } else if (nameInput.classList.contains('is-invalid')) {
+          clearFieldError(nameInput, nameWrap, nameErr);
+        }
+      });
+
+      emailInput?.addEventListener('input', () => {
+        if (EMAIL_REGEX.test(emailInput.value.trim())) {
+          setFieldValid(emailInput, emailWrap, emailErr);
+        } else if (emailInput.classList.contains('is-invalid')) {
+          clearFieldError(emailInput, emailWrap, emailErr);
+        }
+      });
+
+      consentInput?.addEventListener('change', () => {
+        if (consentInput.checked) {
+          clearFieldError(consentInput, consentWrap, consentErr);
+        }
+      });
+
+      // Blur validation
+      emailInput?.addEventListener('blur', () => {
+        const val = emailInput.value.trim();
+        if (val && !EMAIL_REGEX.test(val)) {
+          setFieldError(emailInput, emailWrap, emailErr, 'validation.email_invalid', 'Ingresá un correo electrónico válido');
+        }
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        const nameVal = nameInput ? nameInput.value.trim() : '';
+        const emailVal = emailInput ? emailInput.value.trim() : '';
+        const consentChecked = consentInput ? consentInput.checked : true;
+
+        // Validate Name
+        if (!nameVal) {
+          setFieldError(nameInput, nameWrap, nameErr, 'validation.name_required', 'Ingresá tu nombre completo');
+          isValid = false;
+        } else if (nameVal.length < 2) {
+          setFieldError(nameInput, nameWrap, nameErr, 'validation.name_required', 'El nombre es demasiado corto');
+          isValid = false;
+        } else {
+          setFieldValid(nameInput, nameWrap, nameErr);
+        }
+
+        // Validate Email
+        if (!emailVal) {
+          setFieldError(emailInput, emailWrap, emailErr, 'validation.email_required', 'Ingresá tu correo electrónico');
+          isValid = false;
+        } else if (!EMAIL_REGEX.test(emailVal)) {
+          setFieldError(emailInput, emailWrap, emailErr, 'validation.email_invalid', 'Ingresá un correo electrónico válido');
+          isValid = false;
+        } else {
+          setFieldValid(emailInput, emailWrap, emailErr);
+        }
+
+        // Validate Consent
+        if (!consentChecked) {
+          setFieldError(consentInput, consentWrap, consentErr, 'validation.consent_required', 'Debés aceptar recibir novedades para continuar');
+          isValid = false;
+        } else {
+          clearFieldError(consentInput, consentWrap, consentErr);
+        }
+
+        if (!isValid) {
+          if (feedback) {
+            feedback.hidden = true;
+          }
+          return;
+        }
+
+        // Save member subscription locally
+        const clubMembers = JSON.parse(localStorage.getItem('dopamine_club_members') || '[]');
+        clubMembers.push({
+          name: nameVal,
+          email: emailVal.toLowerCase(),
+          joinedAt: new Date().toISOString()
+        });
+        localStorage.setItem('dopamine_club_members', JSON.stringify(clubMembers));
+
+        const subs = JSON.parse(localStorage.getItem('dopamine_newsletter_subs') || '[]');
+        if (!subs.includes(emailVal.toLowerCase())) {
+          subs.push(emailVal.toLowerCase());
+          localStorage.setItem('dopamine_newsletter_subs', JSON.stringify(subs));
+        }
+
+        // Show Success Feedback
+        if (feedback) {
+          const lang = window.i18n ? window.i18n.getLang() : 'es';
+          feedback.innerHTML = lang === 'en'
+            ? '<strong>✓ ACCESS GRANTED // WELCOME TO DOPAMINE CLUB</strong><br><span style="font-size:0.75rem; text-transform:none; opacity:0.85;">Check your inbox (' + emailVal + ') for your secret drop access code.</span>'
+            : '<strong>✓ ACCESO CONCEDIDO // BIENVENIDO AL CLUB DOPAMINE</strong><br><span style="font-size:0.75rem; text-transform:none; opacity:0.85;">Revisá tu casilla (' + emailVal + ') para recibir tu código de acceso privado.</span>';
+          feedback.className = 'shop-form-feedback success';
+          feedback.hidden = false;
+        }
+
+        // Reset inputs
+        form.reset();
+        nameInput?.classList.remove('is-valid');
+        emailInput?.classList.remove('is-valid');
+      });
+    })();
   </script>
 </body>
 </html>

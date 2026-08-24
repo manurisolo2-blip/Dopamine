@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,7 @@
   <!-- Core Fonts Architecture -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/products.css">
@@ -247,7 +247,7 @@
       background-size: 9px 9px;
     }
 
-    [data-theme="dark"] .auth-remember input[type="checkbox"]:checked {
+    [data-theme="light"] .auth-remember input[type="checkbox"]:checked {
       background-color: #FFFFFF;
       border-color: #FFFFFF;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0A0C' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
@@ -400,6 +400,46 @@
   </style>
 </head>
 <body class="shop-page">
+
+  <!-- ===== DOPAMINE BRAND PRELOADER / SPLASH LOADER ===== -->
+  <div id="dopamine-preloader" class="dopamine-preloader" role="status" aria-live="polite" aria-label="Cargando Dopamine Streetwear" data-i18n-aria-label="loader.aria_label">
+    <div class="dopamine-preloader-backdrop"></div>
+    <div class="dopamine-preloader-content">
+      <!-- Cyberpunk Corner Accents -->
+      <div class="preloader-corner preloader-corner-tl" aria-hidden="true"></div>
+      <div class="preloader-corner preloader-corner-tr" aria-hidden="true"></div>
+      <div class="preloader-corner preloader-corner-bl" aria-hidden="true"></div>
+      <div class="preloader-corner preloader-corner-br" aria-hidden="true"></div>
+
+      <!-- Top Meta Tag -->
+      <div class="preloader-meta-top" aria-hidden="true">
+        <span class="preloader-meta-tag">SYS // DPM-2026</span>
+        <span class="preloader-meta-tag">BA_HQ</span>
+      </div>
+
+      <!-- Center Brand Emblem & Pulse Glow -->
+      <div class="preloader-brand-wrapper">
+        <div class="preloader-glow-orb" aria-hidden="true"></div>
+        <div class="preloader-logo-wrap">
+          <img src="assets/Branding/Logos/Isotipo.png" alt="Dopamine Logo" class="brand-isotipo logo-light preloader-logo">
+          <img src="assets/Branding/Logos/isotipo invertido.png" alt="Dopamine Logo" class="brand-isotipo logo-dark preloader-logo">
+        </div>
+        <span class="preloader-brand-title">DOPAMINE</span>
+      </div>
+
+      <!-- High-Performance Cyberpunk Progress Track -->
+      <div class="preloader-progress-track" aria-hidden="true">
+        <div class="preloader-progress-bar"></div>
+        <div class="preloader-progress-glow"></div>
+      </div>
+
+      <!-- Bottom Status Row -->
+      <div class="preloader-status-row" aria-hidden="true">
+        <span class="preloader-status-text" data-i18n="loader.initializing">INITIALIZING SYSTEM // BUENOS AIRES</span>
+        <span class="preloader-status-code" data-i18n="loader.status">DROP 01/26</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== HEADER (ROTTEN FUTURE FLOATING GLASS CAPSULE) ===== -->
   <header class="site-header" id="site-header">
@@ -904,6 +944,14 @@
     </nav>
   </aside>
 
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" type="button" aria-label="Volver arriba" data-i18n-aria-label="nav.back_to_top_aria" data-i18n-title="ui.back_to_top" title="Volver arriba" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+    <span class="back-to-top-text" data-i18n="ui.back_to_top_short">TOP</span>
+  </button>
+
   <!-- Scripts -->
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
@@ -914,6 +962,7 @@
   <script src="assets/js/db.js"></script>
   <script src="assets/js/verification.js"></script>
   <script src="assets/js/auth.js"></script>
+  <script src="assets/js/scroll-reveal.js"></script>
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <script src="assets/js/mercadopago.js"></script>
   <script>

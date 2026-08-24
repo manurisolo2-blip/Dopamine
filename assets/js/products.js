@@ -109,6 +109,10 @@
     document.querySelector('[data-empty-state]')?.toggleAttribute('hidden', result.length !== 0);
     bindCardInteractions();
     updateFilterUI();
+    if (window.DopamineReveal) {
+      window.DopamineReveal.applyStagger(target);
+      window.DopamineReveal.observe(target);
+    }
     requestAnimationFrame(() => document.querySelectorAll('.reveal').forEach(node => node.classList.add('is-visible')));
   }
 

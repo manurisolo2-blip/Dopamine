@@ -450,6 +450,16 @@ app.post('/api/send-verification-email', async (req, res) => {
   });
 });
 
+// 404 Error Handler - Serve custom 404.html page
+app.use((req, res) => {
+  const notFoundPath = path.join(__dirname, '../404.html');
+  if (fs.existsSync(notFoundPath)) {
+    res.status(404).sendFile(notFoundPath);
+  } else {
+    res.status(404).send('404 // DROP NOT FOUND');
+  }
+});
+
 // START SERVER (Listening on 0.0.0.0 for LAN & Remote access)
 app.listen(PORT, '0.0.0.0', () => {
   const localIp = getLocalIpAddress();

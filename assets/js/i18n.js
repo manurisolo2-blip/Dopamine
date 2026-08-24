@@ -37,11 +37,18 @@
       'meta.desc_login': 'Iniciá sesión o registrate en Dopamine Streetwear para acceder a tu historial de compras, seguimiento de envíos y acceso prioritario a drops.',
       'meta.title_admin': 'DOPAMINE — Panel de Gestión de Clientes (Admin)',
       'meta.desc_admin': 'Panel interno de administración y gestión de clientes de Dopamine Streetwear.',
+      'meta.title_404': 'DOPAMINE — 404 // DROP NO ENCONTRADO',
+      'meta.desc_404': 'La señal se ha perdido en el sistema. La prenda o página que buscas no existe o correspondía a un drop limitado de Dopamine Streetwear.',
 
       // Top Micro-Marquee Ticker
       'marquee.transfer': '10% OFF EXTRA TRANSFERENCIAS',
       'marquee.edition': 'BUENOS AIRES STREETWEAR LIMITED EDITION',
       'marquee.shipping': 'ENVÍOS A TODO EL PAÍS DROP 01 / 26',
+
+      // Preloader / Brand Loading Screen
+      'loader.aria_label': 'Cargando Dopamine Streetwear',
+      'loader.initializing': 'INITIALIZING SYSTEM // BUENOS AIRES',
+      'loader.status': 'DROP 01/26',
 
       // Header Navigation
       'nav.drops': 'DROPS',
@@ -55,11 +62,15 @@
       'nav.lang_toggle_aria': 'Cambiar idioma (ES / EN)',
       'nav.back_to_store': 'VOLVER A LA TIENDA ↗',
       'nav.home_aria': 'Dopamine Inicio',
+      'nav.back_to_top_aria': 'Volver arriba',
+      'ui.back_to_top': 'Volver arriba',
+      'ui.back_to_top_short': 'TOP',
 
       // Hero Section (index.html)
       'hero.headline': 'ACTIVATE<br>YOUR<br>POTENTIAL',
       'hero.tagline': 'HIGH PERFORMANCE STREETWEAR. BUENOS AIRES',
       'hero.cta': 'VER COLECCIÓN →',
+      'hero.cta_drops': 'EXPLORAR DROPS ↗',
 
       // Seamless Marquee Strip
       'marquee.drop': 'DROP 01 / 26',
@@ -71,10 +82,19 @@
 
       // Categories
       'categories.title': 'COLECCIONES',
+      'categories.view_all': 'EXPLORAR TODO →',
+      'categories.explore': 'EXPLORAR →',
       'categories.tops': 'REMERAS & CAMISAS',
       'categories.hoodies': 'BUZOS & CAMPERAS',
       'categories.bottoms': 'JEANES & PANTALONES',
       'categories.sets': 'CONJUNTOS',
+
+      // Pre-Footer CTA Reinforcement Section
+      'prefooter.eyebrow': '// DROP 01 / EDICIÓN LIMITADA',
+      'prefooter.title': 'NO TE QUEDES AFUERA DE LA CULTURA',
+      'prefooter.desc': 'Prendas de alta costura urbana producidas en cantidades estrictamente limitadas. Diseñado y confeccionado en Buenos Aires.',
+      'prefooter.cta_shop': 'EXPLORAR CATÁLOGO COMPLETO →',
+      'prefooter.cta_club': 'UNIRSE AL CLUB PRIVADO ↗',
 
       // Featured Products (index.html)
       'featured.title': 'PIEZAS DESTACADAS',
@@ -152,6 +172,10 @@
       'shop.quick_add_title': 'AÑADIR RÁPIDO',
       'shop.add_to_bag': 'AGREGAR A LA BOLSA',
       'shop.apply_filters': 'APLICAR FILTROS',
+      'shop.club_eyebrow': 'DOPAMINE CLUB // MIEMBROS PRIVADOS',
+      'shop.club_title': 'ACCESO ANTICIPADO A CADA DROP',
+      'shop.club_desc': 'Suscribite al club para enterarte de los próximos lanzamientos antes del sold out global y recibir 10% OFF extra en tu primera compra.',
+      'shop.club_cta': 'UNIRME AL CLUB →',
 
       // Product Detail (producto.html)
       'product.breadcrumb_prefix': 'HOME / TIENDA / ',
@@ -172,6 +196,9 @@
       'product.qty': 'Cantidad',
       'product.add_to_bag': 'AGREGAR A LA BOLSA',
       'product.added_toast': 'AGREGADO A LA BOLSA',
+      'product.sticky_add_to_bag': 'AGREGAR A LA BOLSA →',
+      'product.sticky_select_size': 'Elegir talle',
+      'product.sticky_transfer': '10% OFF Transf.',
       'product.mp_installments': 'Hasta 6 cuotas sin interés con Mercado Pago',
       'product.mp_badge': 'Hasta 6 cuotas sin interés',
       'product.mp_with': 'con Mercado Pago',
@@ -256,8 +283,26 @@
       'contact.consent': 'Acepto recibir novedades sobre drops exclusivos, ofertas y lanzamientos de Dopamine',
       'contact.submit': 'UNIRME AL CLUB →',
       'contact.submit_btn': 'UNIRME AL CLUB →',
+      'contact.back_to_shop': 'EXPLORAR LA TIENDA AHORA ↗',
       'contact.success': '¡Bienvenido al Club Dopamine! Te enviamos un correo de confirmación.',
       'contact.error': 'Por favor ingresá un correo electrónico válido.',
+      'contact.channels_eyebrow': 'DIRECT CONTACT // REDES & ATENCIÓN',
+      'contact.channels_title': 'CANALES OFICIALES DE ATENCIÓN & COMUNIDAD',
+      'contact.wa_desc': 'Atención personalizada directa, consultas sobre pedidos, talles y envíos',
+      'contact.wa_action': 'INICIAR CHAT ↗',
+      'contact.ig_desc': 'Drops exclusivos, adelantos, lookbooks y comunidad streetwear',
+      'contact.tt_desc': 'Fitting guides, backstage de producción, styling y detalles de prendas',
+      'contact.sp_desc': 'Playlists curadas oficialmente con la energía sonora del atelier Dopamine',
+      'contact.sp_action': 'ESCUCHAR SOUNDTRACK ↗',
+      'contact.x_desc': 'Alertas de drops relámpago, comunicados técnicos y actualizaciones de stock',
+
+      // Social Media & Networks
+      'social.instagram': 'Instagram Oficial Dopamine',
+      'social.tiktok': 'TikTok Oficial Dopamine',
+      'social.twitter': 'X (Twitter) Oficial Dopamine',
+      'social.spotify': 'Spotify Oficial Dopamine',
+      'social.whatsapp': 'WhatsApp Soporte & Ventas Dopamine',
+      'social.youtube': 'YouTube Oficial Dopamine',
 
       // Login, Register & Auth (login.html)
       'auth.title': 'Ingresá tu correo electrónico para unirte o iniciar sesión',
@@ -268,6 +313,7 @@
       'auth.subtitle_register': 'Registrate para acceder a preventas, envíos gratis y beneficios',
       'auth.profile_badge': '✓ MEMBER CLUB // CONECTADO VÍA EMAIL',
       'auth.explore_drops': 'EXPLORAR DROPS EXCLUSIVOS ↗',
+      'auth.back_to_shop': 'EXPLORAR LA TIENDA SIN CUENTA ↗',
       'auth.logout_btn': 'CERRAR SESIÓN',
       'auth.tab_login': 'INICIAR SESIÓN',
       'auth.tab_register': 'CREAR CUENTA',
@@ -315,6 +361,30 @@
       'auth.not_specified': 'No especificada',
       'auth.member_badge': 'DOPAMINE MEMBER CLUB',
 
+      // Validation & Interactive Form Feedback
+      'validation.email_required': 'Ingresá tu correo electrónico',
+      'validation.email_invalid': 'Ingresá un correo electrónico válido (ej: usuario@email.com)',
+      'validation.name_required': 'Ingresá tu nombre completo',
+      'validation.firstname_required': 'Ingresá tu nombre',
+      'validation.lastname_required': 'Ingresá tu apellido',
+      'validation.pass_required': 'Ingresá tu contraseña',
+      'validation.pass_min8': 'La contraseña debe tener al menos 8 caracteres',
+      'validation.dob_required': 'Completá tu fecha de nacimiento',
+      'validation.dob_invalid': 'Ingresá una fecha de nacimiento válida',
+      'validation.dob_age': 'Debes tener al menos 13 años para registrarte',
+      'validation.terms_required': 'Debés aceptar la Política de privacidad y los Términos',
+      'validation.consent_required': 'Debés aceptar recibir novedades para continuar',
+      'validation.otp_required': 'Ingresá el código de 6 dígitos',
+      'validation.otp_digits': 'El código debe tener exactamente 6 números',
+      'validation.otp_invalid': 'Código incorrecto. Verificá los 6 dígitos recibidos',
+      'validation.zip_required': 'Ingresá tu código postal',
+      'validation.zip_invalid': 'Ingresá un código postal argentino válido de 4 dígitos (ej: 1414, 5000, 2000)',
+      'validation.phone_required': 'Ingresá tu teléfono móvil para el envío',
+      'validation.phone_invalid': 'Ingresá un teléfono móvil válido de 10 dígitos (ej: 11 2345 6789)',
+      'validation.footer_email_empty': 'Ingresá tu email para suscribirte',
+      'validation.footer_email_invalid': 'Formato de email incorrecto',
+      'validation.footer_success': '✓ ¡TE UNISTE AL CLUB! REVISÁ TU CORREO',
+
       // Admin Dashboard (admin-clientes.html)
       'admin.meta_title': 'DOPAMINE — Panel de Gestión de Clientes (Admin)',
       'admin.back_store': 'VOLVER A LA TIENDA ↗',
@@ -358,6 +428,9 @@
 
       // Mobile Menu
       'menu.title': 'MENU',
+      'menu.drops_eyebrow': 'DROPS // BUENOS AIRES',
+      'menu.categories_eyebrow': 'COLECCIONES & PRENDAS',
+      'menu.info_eyebrow': 'INFO & SOPORTE',
       'menu.shop_all': 'SHOP ALL',
       'menu.tops': 'REMERAS & CAMISAS',
       'menu.hoodies': 'BUZOS & CAMPERAS',
@@ -365,9 +438,17 @@
       'menu.sets': 'CONJUNTOS',
       'menu.new_drop': 'NEW DROP',
       'menu.sale': 'SALE',
-      'menu.about': 'ABOUT US',
-      'menu.contact': 'CONTACT',
+      'menu.about': 'ABOUT US // HISTORIA',
+      'menu.contact': 'CONTACTO & SOPORTE',
       'menu.account': 'CLUB / MI CUENTA',
+      'menu.account_desc': 'Acceso a drops y beneficios',
+      'menu.account_member': 'MEMBER CLUB ACTIVO',
+      'menu.language': 'IDIOMA',
+      'menu.theme': 'TEMA',
+      'menu.theme_dark': 'MODO OSCURO',
+      'menu.theme_light': 'MODO CLARO',
+      'menu.social': 'SIGUENOS // SOCIAL',
+      'menu.social_title': 'REDES & COMUNIDAD',
 
       // Footer
       'footer.brand_desc': 'High performance streetwear engineered in Buenos Aires. Limited releases only',
@@ -386,7 +467,40 @@
       'footer.legal_terms': 'TERMS OF SERVICE',
       'footer.legal_privacy': 'PRIVACY POLICY',
       'footer.legal_cookies': 'COOKIE PREFERENCES',
-      'footer.copyright': '2026 © DOPAMINE APPARATUS'
+      'footer.copyright': '2026 © DOPAMINE APPARATUS',
+
+      // 404 Error Page (404.html)
+      'error404.badge': 'SYS.ERR // 404_NULL_POINTER',
+      'error404.radar': 'RADAR STATUS: SIGNAL LOST [LAT: -34.6037, LON: -58.3816]',
+      'error404.glitch_code': '404',
+      'error404.title': '404 // DROP NO ENCONTRADO',
+      'error404.subtitle': 'LA SEÑAL SE HA PERDIDO EN EL SISTEMA',
+      'error404.desc': 'La coordenada que estás intentando rastrear no existe, fue movida o correspondía a un drop exclusivo de tirada limitada que ya expiró en el inventario.',
+      'error404.btn_home': 'VOLVER AL INICIO',
+      'error404.btn_shop': 'EXPLORAR DROPS',
+      'error404.quick_title': 'RUTAS DIRECTAS AL INVENTARIO:',
+      'error404.cat_tops': 'REMERAS & CAMISAS',
+      'error404.cat_hoodies': 'BUZOS & CAMPERAS',
+      'error404.cat_bottoms': 'JEANES & PANTALONES',
+      'error404.cat_sets': 'CONJUNTOS',
+      'error404.search_label': 'RASTREAR PIEZA DIRECTA:',
+      'error404.search_placeholder': 'Buscar hoodie, remera, cargo...',
+      'error404.search_btn': 'RASTREAR →',
+      'error404.telemetry_host': 'NODO PRINCIPAL: DOPAMINE_APPARATUS_01',
+      'error404.telemetry_status': 'ESTADO: OBJETO NO ENCONTRADO EN SERVIDOR',
+      'error404.telemetry_action': 'ACCIÓN RECOMENDADA: RECONECTAR AL CATÁLOGO',
+
+      // Exit Intent Modal / Recovery
+      'exit.badge': 'DOPAMINE VIP PROTOCOL // ALERTA DE SALIDA',
+      'exit.title': 'ESPERA. NO TE VAYAS CON LAS MANOS VACÍAS',
+      'exit.subtitle': 'DESBLOQUEÁ 10% OFF EXTRA EN TU PRIMER DROP',
+      'exit.desc': 'Acceso prioritario y cupón de beneficio exclusivo para miembros en todas nuestras piezas de alta costura urbana.',
+      'exit.code_label': 'CÓDIGO DE BENEFICIO:',
+      'exit.code': 'DOPAMINE10',
+      'exit.copy_btn': 'COPIAR CÓDIGO',
+      'exit.copied': '¡CÓDIGO COPIADO!',
+      'exit.btn_shop': 'USAR DESCUENTO EN TIENDA →',
+      'exit.dismiss': 'No gracias, prefiero continuar sin descuento'
     },
 
     en: {
@@ -407,11 +521,18 @@
       'meta.desc_login': 'Sign in or create a Dopamine Streetwear account to track shipments, view order history, and access priority member drops.',
       'meta.title_admin': 'DOPAMINE — Customer Management Dashboard (Admin)',
       'meta.desc_admin': 'Internal administration console and customer database for Dopamine Streetwear.',
+      'meta.title_404': 'DOPAMINE — 404 // DROP NOT FOUND',
+      'meta.desc_404': 'The signal has been lost in the system. The garment or page you are tracking does not exist or was part of a limited Dopamine drop.',
 
       // Top Micro-Marquee Ticker
       'marquee.transfer': '10% EXTRA OFF VIA BANK TRANSFER',
       'marquee.edition': 'BUENOS AIRES STREETWEAR LIMITED EDITION',
       'marquee.shipping': 'NATIONWIDE SHIPPING DROP 01 / 26',
+
+      // Preloader / Brand Loading Screen
+      'loader.aria_label': 'Loading Dopamine Streetwear',
+      'loader.initializing': 'INITIALIZING SYSTEM // BUENOS AIRES',
+      'loader.status': 'DROP 01/26',
 
       // Header Navigation
       'nav.drops': 'DROPS',
@@ -425,11 +546,15 @@
       'nav.lang_toggle_aria': 'Switch language (ES / EN)',
       'nav.back_to_store': 'BACK TO STORE ↗',
       'nav.home_aria': 'Dopamine Home',
+      'nav.back_to_top_aria': 'Back to top',
+      'ui.back_to_top': 'Back to top',
+      'ui.back_to_top_short': 'TOP',
 
       // Hero Section (index.html)
       'hero.headline': 'ACTIVATE<br>YOUR<br>POTENTIAL',
       'hero.tagline': 'HIGH PERFORMANCE STREETWEAR. BUENOS AIRES',
       'hero.cta': 'SHOP COLLECTION →',
+      'hero.cta_drops': 'EXPLORE DROPS ↗',
 
       // Seamless Marquee Strip
       'marquee.drop': 'DROP 01 / 26',
@@ -441,10 +566,19 @@
 
       // Categories
       'categories.title': 'COLLECTIONS',
+      'categories.view_all': 'EXPLORE ALL →',
+      'categories.explore': 'EXPLORE →',
       'categories.tops': 'TEES & SHIRTS',
       'categories.hoodies': 'HOODIES & JACKETS',
       'categories.bottoms': 'JEANS & PANTS',
       'categories.sets': 'SETS',
+
+      // Pre-Footer CTA Reinforcement Section
+      'prefooter.eyebrow': '// DROP 01 / LIMITED EDITION',
+      'prefooter.title': "DON'T MISS OUT ON THE CULTURE",
+      'prefooter.desc': 'High-performance streetwear engineered in strictly limited batches. Designed and crafted in Buenos Aires.',
+      'prefooter.cta_shop': 'SHOP FULL CATALOG →',
+      'prefooter.cta_club': 'JOIN THE PRIVATE CLUB ↗',
 
       // Featured Products (index.html)
       'featured.title': 'FEATURED PIECES',
@@ -522,6 +656,10 @@
       'shop.quick_add_title': 'QUICK ADD',
       'shop.add_to_bag': 'ADD TO BAG',
       'shop.apply_filters': 'APPLY FILTERS',
+      'shop.club_eyebrow': 'DOPAMINE CLUB // PRIVATE MEMBERS',
+      'shop.club_title': 'EARLY ACCESS TO EVERY DROP',
+      'shop.club_desc': 'Join the club to get notified of upcoming drops before global sell-out and get an extra 10% OFF on your first order.',
+      'shop.club_cta': 'JOIN THE CLUB →',
 
       // Product Detail (producto.html)
       'product.breadcrumb_prefix': 'HOME / SHOP / ',
@@ -542,6 +680,9 @@
       'product.qty': 'Quantity',
       'product.add_to_bag': 'ADD TO BAG',
       'product.added_toast': 'ADDED TO BAG',
+      'product.sticky_add_to_bag': 'ADD TO BAG →',
+      'product.sticky_select_size': 'Select size',
+      'product.sticky_transfer': '10% OFF Transfer',
       'product.mp_installments': 'Up to 6 interest-free installments with Mercado Pago',
       'product.mp_badge': 'Up to 6 interest-free installments',
       'product.mp_with': 'with Mercado Pago',
@@ -626,8 +767,26 @@
       'contact.consent': 'I agree to receive updates on exclusive drops, special promotions, and Dopamine releases',
       'contact.submit': 'JOIN THE CLUB →',
       'contact.submit_btn': 'JOIN THE CLUB →',
+      'contact.back_to_shop': 'EXPLORE STORE NOW ↗',
       'contact.success': 'Welcome to Dopamine Club! A confirmation email has been dispatched.',
       'contact.error': 'Please provide a valid email address.',
+      'contact.channels_eyebrow': 'DIRECT CONTACT // CHANNELS & SUPPORT',
+      'contact.channels_title': 'OFFICIAL SUPPORT & COMMUNITY CHANNELS',
+      'contact.wa_desc': 'Direct customer care, order tracking, sizing guidance and shipping help',
+      'contact.wa_action': 'START CHAT ↗',
+      'contact.ig_desc': 'Exclusive drop announcements, lookbooks and global streetwear community',
+      'contact.tt_desc': 'Fitting showcases, atelier production behind-the-scenes and styling',
+      'contact.sp_desc': 'Officially curated soundscapes engineered at our Buenos Aires atelier',
+      'contact.sp_action': 'STREAM SOUNDTRACK ↗',
+      'contact.x_desc': 'Flash drop notifications, technical dispatches and real-time inventory updates',
+
+      // Social Media & Networks
+      'social.instagram': 'Dopamine Official Instagram',
+      'social.tiktok': 'Dopamine Official TikTok',
+      'social.twitter': 'Dopamine Official X / Twitter',
+      'social.spotify': 'Dopamine Official Spotify Playlist',
+      'social.whatsapp': 'Dopamine WhatsApp Support & Sales',
+      'social.youtube': 'Dopamine Official YouTube',
 
       // Login, Register & Auth (login.html)
       'auth.title': 'Enter your email to join or sign in',
@@ -638,6 +797,7 @@
       'auth.subtitle_register': 'Sign up for priority drop access, free shipping, and member rewards',
       'auth.profile_badge': '✓ MEMBER CLUB // CONNECTED VIA EMAIL',
       'auth.explore_drops': 'EXPLORE EXCLUSIVE DROPS ↗',
+      'auth.back_to_shop': 'EXPLORE STORE WITHOUT ACCOUNT ↗',
       'auth.logout_btn': 'LOG OUT',
       'auth.tab_login': 'SIGN IN',
       'auth.tab_register': 'CREATE ACCOUNT',
@@ -685,6 +845,30 @@
       'auth.not_specified': 'Not specified',
       'auth.member_badge': 'DOPAMINE MEMBER CLUB',
 
+      // Validation & Interactive Form Feedback
+      'validation.email_required': 'Please enter your email address',
+      'validation.email_invalid': 'Please enter a valid email address (e.g. user@email.com)',
+      'validation.name_required': 'Please enter your full name',
+      'validation.firstname_required': 'Please enter your first name',
+      'validation.lastname_required': 'Please enter your last name',
+      'validation.pass_required': 'Please enter your password',
+      'validation.pass_min8': 'Password must be at least 8 characters long',
+      'validation.dob_required': 'Please complete your date of birth',
+      'validation.dob_invalid': 'Please enter a valid date of birth',
+      'validation.dob_age': 'You must be at least 13 years old to register',
+      'validation.terms_required': 'You must accept the Privacy Policy and Terms',
+      'validation.consent_required': 'You must agree to receive updates to continue',
+      'validation.otp_required': 'Please enter the 6-digit verification code',
+      'validation.otp_digits': 'The code must contain exactly 6 numeric digits',
+      'validation.otp_invalid': 'Invalid code. Check the 6-digit number received',
+      'validation.zip_required': 'Please enter your postal / ZIP code',
+      'validation.zip_invalid': 'Please enter a valid 4-digit postal code (e.g. 1414, 5000)',
+      'validation.phone_required': 'Please enter your mobile phone number for shipping updates',
+      'validation.phone_invalid': 'Please enter a valid mobile number (e.g. 11 2345 6789)',
+      'validation.footer_email_empty': 'Enter your email to subscribe',
+      'validation.footer_email_invalid': 'Invalid email format',
+      'validation.footer_success': '✓ YOU JOINED THE CLUB! CHECK YOUR INBOX',
+
       // Admin Dashboard (admin-clientes.html)
       'admin.meta_title': 'DOPAMINE — Customer Management Dashboard (Admin)',
       'admin.back_store': 'BACK TO STORE ↗',
@@ -728,6 +912,9 @@
 
       // Mobile Menu
       'menu.title': 'MENU',
+      'menu.drops_eyebrow': 'DROPS // BUENOS AIRES',
+      'menu.categories_eyebrow': 'COLLECTIONS & GEAR',
+      'menu.info_eyebrow': 'INFO & SUPPORT',
       'menu.shop_all': 'SHOP ALL',
       'menu.tops': 'TEES & SHIRTS',
       'menu.hoodies': 'HOODIES & JACKETS',
@@ -735,9 +922,17 @@
       'menu.sets': 'SETS',
       'menu.new_drop': 'NEW DROP',
       'menu.sale': 'SALE',
-      'menu.about': 'ABOUT US',
-      'menu.contact': 'CONTACT',
+      'menu.about': 'ABOUT US // STORY',
+      'menu.contact': 'CONTACT & SUPPORT',
       'menu.account': 'CLUB / MY ACCOUNT',
+      'menu.account_desc': 'Access drops & member perks',
+      'menu.account_member': 'ACTIVE CLUB MEMBER',
+      'menu.language': 'LANGUAGE',
+      'menu.theme': 'THEME',
+      'menu.theme_dark': 'DARK MODE',
+      'menu.theme_light': 'LIGHT MODE',
+      'menu.social': 'FOLLOW US // SOCIAL',
+      'menu.social_title': 'SOCIAL & COMMUNITY',
 
       // Footer
       'footer.brand_desc': 'High performance streetwear engineered in Buenos Aires. Limited releases only',
@@ -756,7 +951,40 @@
       'footer.legal_terms': 'TERMS OF SERVICE',
       'footer.legal_privacy': 'PRIVACY POLICY',
       'footer.legal_cookies': 'COOKIE PREFERENCES',
-      'footer.copyright': '2026 © DOPAMINE APPARATUS'
+      'footer.copyright': '2026 © DOPAMINE APPARATUS',
+
+      // 404 Error Page (404.html)
+      'error404.badge': 'SYS.ERR // 404_NULL_POINTER',
+      'error404.radar': 'RADAR STATUS: SIGNAL LOST [LAT: -34.6037, LON: -58.3816]',
+      'error404.glitch_code': '404',
+      'error404.title': '404 // DROP NOT FOUND',
+      'error404.subtitle': 'THE SIGNAL HAS BEEN LOST IN THE SYSTEM',
+      'error404.desc': 'The coordinates you are attempting to track do not exist, were relocated, or belonged to an exclusive limited-run drop that has concluded in inventory.',
+      'error404.btn_home': 'RETURN HOME',
+      'error404.btn_shop': 'EXPLORE DROPS',
+      'error404.quick_title': 'DIRECT INVENTORY PATHS:',
+      'error404.cat_tops': 'TEES & SHIRTS',
+      'error404.cat_hoodies': 'HOODIES & JACKETS',
+      'error404.cat_bottoms': 'JEANS & PANTS',
+      'error404.cat_sets': 'SETS',
+      'error404.search_label': 'TRACK GEAR DIRECTLY:',
+      'error404.search_placeholder': 'Search hoodie, tee, cargo...',
+      'error404.search_btn': 'SEARCH →',
+      'error404.telemetry_host': 'PRIMARY NODE: DOPAMINE_APPARATUS_01',
+      'error404.telemetry_status': 'STATUS: RESOURCE NOT FOUND ON SERVER',
+      'error404.telemetry_action': 'RECOMMENDED ACTION: RECONNECT TO CATALOG',
+
+      // Exit Intent Modal / Recovery
+      'exit.badge': 'DOPAMINE VIP PROTOCOL // EXIT DETECTED',
+      'exit.title': 'WAIT. DO NOT LEAVE EMPTY-HANDED',
+      'exit.subtitle': 'UNLOCK 10% EXTRA OFF ON YOUR FIRST DROP',
+      'exit.desc': 'Priority access and exclusive member promo discount across all high-performance urban silhouettes.',
+      'exit.code_label': 'EXCLUSIVE VOUCHER:',
+      'exit.code': 'DOPAMINE10',
+      'exit.copy_btn': 'COPY CODE',
+      'exit.copied': 'CODE COPIED!',
+      'exit.btn_shop': 'USE DISCOUNT IN STORE →',
+      'exit.dismiss': 'No thanks, I will continue without discount'
     }
   };
 
