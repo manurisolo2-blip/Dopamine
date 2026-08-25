@@ -969,29 +969,17 @@ h1, h2, h3, h4, h5, h6 {
     inset 0 1px 1.5px 0 #FFFFFF;
 }
 
-/* Intensification on scroll / active glass state */
-.site-header.is-scrolled .header-capsule,
-.site-header.has-glass .header-capsule {
-  backdrop-filter: blur(32px) saturate(200%) brightness(104%);
-  -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(104%);
-}
-
-[data-theme="dark"] .site-header.is-scrolled .header-capsule,
-[data-theme="dark"] .site-header.has-glass .header-capsule {
-  background: rgba(14, 16, 22, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 
-    0 14px 40px -6px rgba(0, 0, 0, 0.40),
-    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.32);
-}
-
-[data-theme="light"] .site-header.is-scrolled .header-capsule,
-[data-theme="light"] .site-header.has-glass .header-capsule {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 
-    0 12px 36px -6px rgba(0, 0, 0, 0.10),
-    inset 0 1px 1.5px 0 #FFFFFF;
+/* ============================================================
+   HERO TOP STATE (100% Seamless Transparent — No Glass / No Border)
+   When at the top of the video hero, the capsule border, background & blur are hidden.
+   Only when scrolling down and covered by the background does the floating liquid glass appear!
+   ============================================================ */
+.site-header:not(.is-scrolled):not(.has-glass) .header-capsule {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .site-header:not(.is-scrolled):not(.has-glass) .header-micro-marquee {
@@ -1014,6 +1002,27 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5) !important;
 }
 
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5) !important;
+  opacity: 0.9 !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-opt {
+  color: #FFFFFF !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-opt.active,
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-opt.is-active {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+.site-header:not(.is-scrolled):not(.has-glass) .lang-toggle-btn .lang-divider {
+  color: #FFFFFF !important;
+  opacity: 0.35 !important;
+}
+
 .site-header:not(.is-scrolled):not(.has-glass) .logo-dark {
   display: inline-block !important;
 }
@@ -1032,25 +1041,25 @@ h1, h2, h3, h4, h5, h6 {
 /* Intensification on scroll / when covered by background */
 .site-header.is-scrolled .header-capsule,
 .site-header.has-glass .header-capsule {
-  backdrop-filter: blur(32px) saturate(190%) brightness(104%);
-  -webkit-backdrop-filter: blur(32px) saturate(190%) brightness(104%);
+  backdrop-filter: blur(32px) saturate(200%) brightness(104%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(104%);
 }
 
 [data-theme="dark"] .site-header.is-scrolled .header-capsule,
 [data-theme="dark"] .site-header.has-glass .header-capsule {
-  background: rgba(14, 16, 22, 0.38);
-  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(14, 16, 22, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: 
-    0 14px 40px -6px rgba(0, 0, 0, 0.35),
-    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.30);
+    0 14px 40px -6px rgba(0, 0, 0, 0.40),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.32);
 }
 
 [data-theme="light"] .site-header.is-scrolled .header-capsule,
 [data-theme="light"] .site-header.has-glass .header-capsule {
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 
-    0 12px 36px -6px rgba(0, 0, 0, 0.08),
+    0 12px 36px -6px rgba(0, 0, 0, 0.10),
     inset 0 1px 1.5px 0 #FFFFFF;
 }
 

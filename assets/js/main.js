@@ -94,11 +94,29 @@
     const header = document.getElementById('site-header') || document.getElementById('header');
     if (!header) return;
 
+    const heroSection = document.querySelector('.hero-video-section, .hero-section');
+    const sheetCover = document.querySelector('.hero-sheet-cover');
+
+    if (!heroSection) {
+      // On sub-pages without a hero video, show liquid glass immediately
+      header.classList.add('has-glass');
+    }
+
     let ticking = false;
     function updateHeader() {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-      const isScrolled = scrollY > 15;
-      header.classList.toggle('is-scrolled', isScrolled);
+      if (heroSection && sheetCover) {
+        const headerRect = header.getBoundingClientRect();
+        const sheetRect = sheetCover.getBoundingClientRect();
+        
+        // Active liquid glass ONLY when the rising background curtain reaches and covers the header
+        const isCoveringHeader = sheetRect.top <= (headerRect.bottom || 80);
+        header.classList.toggle('is-scrolled', isCoveringHeader);
+      } else if (heroSection) {
+        const isScrolled = window.scrollY > 40;
+        header.classList.toggle('is-scrolled', isScrolled);
+      } else {
+        header.classList.add('has-glass');
+      }
       ticking = false;
     }
 
