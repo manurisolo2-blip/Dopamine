@@ -1429,6 +1429,35 @@
   </aside>
 
   <!-- Toast Notification -->
+    <!-- ===== EXIT INTENT RECOVERY MODAL (VIP VOUCHER) ===== -->
+  <div class="exit-modal-overlay" data-exit-modal-overlay hidden></div>
+  <div class="exit-modal-box" data-exit-modal role="dialog" aria-modal="true" aria-labelledby="exit-modal-title" hidden>
+    <button class="exit-modal-close" data-exit-close type="button" aria-label="Cerrar modal de beneficio" data-i18n-aria-label="exit.close_aria">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="exit-modal-badge" data-i18n="exit.badge">// BENEFICIO EXCLUSIVO</div>
+    <h2 class="exit-modal-title" id="exit-modal-title" data-i18n="exit.title">ESPERÁ. NO TE VAYAS CON LAS MANOS VACÍAS</h2>
+    <div class="exit-modal-subtitle" data-i18n="exit.subtitle">DESBLOQUEÁ 10% OFF EXTRA EN TU PRIMER DROP</div>
+    <p class="exit-modal-desc" data-i18n="exit.desc">Acceso prioritario y cupón de beneficio exclusivo para miembros en todas nuestras piezas de alta costura urbana.</p>
+    
+    <div class="exit-voucher-box">
+      <span class="exit-voucher-code" data-exit-code>DOPAMINE10</span>
+      <button type="button" class="exit-voucher-copy-btn" data-exit-copy aria-label="Copiar código de descuento">
+        <svg class="exit-copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span class="exit-copy-text" data-exit-copy-text data-i18n="exit.copy_btn">COPIAR CÓDIGO</span>
+      </button>
+    </div>
+
+    <a href="tienda.html" class="exit-modal-shop-btn" data-exit-shop data-i18n="exit.btn_shop">USAR DESCUENTO EN TIENDA →</a>
+    <button type="button" class="exit-modal-dismiss" data-exit-close data-i18n="exit.dismiss">No gracias, prefiero continuar sin descuento</button>
+  </div>
+
   <div class="toast-notification" data-toast role="status" aria-live="polite"></div>
 
   <!-- Scripts -->
@@ -1910,5 +1939,6 @@
   </script>
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <script src="assets/js/mercadopago.js"></script>
+  <script src="assets/js/exit-intent.js"></script>
 </body>
 </html>

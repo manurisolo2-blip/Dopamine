@@ -544,7 +544,7 @@
       'error404.telemetry_action': 'ACCIÓN RECOMENDADA: RECONECTAR AL CATÁLOGO',
 
       // Exit Intent Modal / Recovery
-      'exit.badge': 'DOPAMINE VIP PROTOCOL // ALERTA DE SALIDA',
+      'exit.badge': '// BENEFICIO EXCLUSIVO',
       'exit.title': 'ESPERA. NO TE VAYAS CON LAS MANOS VACÍAS',
       'exit.subtitle': 'DESBLOQUEÁ 10% OFF EXTRA EN TU PRIMER DROP',
       'exit.desc': 'Acceso prioritario y cupón de beneficio exclusivo para miembros en todas nuestras piezas de alta costura urbana.',
@@ -1081,7 +1081,7 @@
       'error404.telemetry_action': 'RECOMMENDED ACTION: RECONNECT TO CATALOG',
 
       // Exit Intent Modal / Recovery
-      'exit.badge': 'DOPAMINE VIP PROTOCOL // EXIT DETECTED',
+      'exit.badge': '// BENEFICIO EXCLUSIVO',
       'exit.title': 'WAIT. DO NOT LEAVE EMPTY-HANDED',
       'exit.subtitle': 'UNLOCK 10% EXTRA OFF ON YOUR FIRST DROP',
       'exit.desc': 'Priority access and exclusive member promo discount across all high-performance urban silhouettes.',

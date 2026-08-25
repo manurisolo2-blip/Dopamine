@@ -1,5 +1,5 @@
 /* ============================================================
-   DOPAMINE — Ultra-Minimalist Design System
+   DOPAMINE â Ultra-Minimalist Design System
    Version: 3.5 (High-Performance Streetwear UI/UX)
    
    Architecture:
@@ -29,7 +29,7 @@
 
 /* High-Performance Local / Preloaded WOFF2 Rules with font-display: swap */
 /* SF Pro Display & SF Pro Text are loaded via system-ui / -apple-system.
-   No @font-face needed — they are native on Apple platforms and fall back
+   No @font-face needed â they are native on Apple platforms and fall back
    gracefully to system-ui on Windows/Android. */
 
 *, *::before, *::after {
@@ -168,9 +168,9 @@ select {
 
 :root {
   /* ---- Brand Color Palette (design.md spec) ---- */
-  --color-primary:           #0066cc;  /* Action Blue — the ONLY interactive color */
+  --color-primary:           #0066cc;  /* Action Blue â the ONLY interactive color */
   --color-primary-focus:     #0071e3;
-  --color-primary-on-dark:   #2997ff;  /* Sky Link Blue — dark surfaces only */
+  --color-primary-on-dark:   #2997ff;  /* Sky Link Blue â dark surfaces only */
   --color-ink:               #1d1d1f;
   --color-ink-muted-80:      #333333;
   --color-ink-muted-48:      #7a7a7a;
@@ -198,10 +198,10 @@ select {
   --ff-sans:    system-ui, -apple-system, sans-serif;
   --ff-mono:    'JetBrains Mono', 'SF Mono', monospace;
 
-  /* ---- Type Scale (design.md spec — fixed sizes, NOT fluid clamp) ---- */
+  /* ---- Type Scale (design.md spec â fixed sizes, NOT fluid clamp) ---- */
   --fs-xs:     10px;   /* micro-legal */
   --fs-sm:     12px;   /* fine-print / nav-link */
-  --fs-base:   17px;   /* body — exactly 17px per spec */
+  --fs-base:   17px;   /* body â exactly 17px per spec */
   --fs-md:     14px;   /* caption */
   --fs-lg:     17px;   /* dense-link / body-strong */
   --fs-xl:     21px;   /* tagline */
@@ -209,14 +209,14 @@ select {
   --fs-3xl:    34px;   /* display-md */
   --fs-hero:   56px;   /* hero-display */
 
-  /* ---- Font Weights (300 / 400 / 600 / 700 — 500 is intentionally absent) ---- */
+  /* ---- Font Weights (300 / 400 / 600 / 700 â 500 is intentionally absent) ---- */
   --fw-light:    300;
   --fw-regular:  400;
   --fw-semibold: 600;
   --fw-bold:     700;
 
   /* ---- Line Heights ---- */
-  --lh-body:    1.47;   /* body copy — must NOT go below 1.47 */
+  --lh-body:    1.47;   /* body copy â must NOT go below 1.47 */
   --lh-heading: 1.07;   /* hero-display */
   --ls-tight:   -0.374px;  /* body letter-spacing */
   --ls-display: -0.28px;   /* hero display letter-spacing */
@@ -226,8 +226,8 @@ select {
   --ls-wider:   0;
   --ls-widest:  0;
 
-  /* ---- Border Radius (design.md grammar — do NOT mix) ---- */
-  --radius-control: 9999px;  /* pill — CTAs, chips, search */
+  /* ---- Border Radius (design.md grammar â do NOT mix) ---- */
+  --radius-control: 9999px;  /* pill â CTAs, chips, search */
   --radius-full:    9999px;
   --radius-pill:    9999px;
   --radius-sm:      8px;     /* compact utility */
@@ -270,7 +270,7 @@ select {
 
   /* ---- Shadows (design.md: ONLY for product imagery) ---- */
   --shadow-product: rgba(0, 0, 0, 0.22) 3px 5px 30px;
-  /* Shadows on cards/buttons are PROHIBITED per spec — no shadow-card tokens */
+  /* Shadows on cards/buttons are PROHIBITED per spec â no shadow-card tokens */
   --shadow-sheet:   0 -6px 22px -4px rgba(0, 0, 0, 0.10), 0 6px 22px -4px rgba(0, 0, 0, 0.10);
   --shadow-pill:    none;
 
@@ -284,7 +284,7 @@ select {
 }
 
 /* ============================================================
-   TOPOLOGÍA DE 3 CAPAS Z-INDEX
+   TOPOLOGÃA DE 3 CAPAS Z-INDEX
    ============================================================ */
 
 /* 1. Capa Base (z-index: -2) con Opacidad 0 Inicial */
@@ -334,7 +334,7 @@ main {
 }
 
 
-/* ---- Light Theme (design.md spec — Apple canvas) ---- */
+/* ---- Light Theme (design.md spec â Apple canvas) ---- */
 [data-theme="light"] {
   --bg-primary:     var(--color-canvas);          /* #ffffff */
   --bg-secondary:   var(--color-canvas-parchment); /* #f5f5f7 */
@@ -359,7 +359,7 @@ main {
   --glass-border:   rgba(255, 255, 255, 0.65);
 }
 
-/* ---- Dark Theme (design.md spec — surface tiles) ---- */
+/* ---- Dark Theme (design.md spec â surface tiles) ---- */
 [data-theme="dark"] {
   --bg-primary:     var(--color-surface-tile-1);   /* #272729 */
   --bg-secondary:   var(--color-surface-tile-2);   /* #2a2a2c */
@@ -493,7 +493,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: none !important;
 }
 
-/* button-primary: Action Blue pill — NO shadow per spec */
+/* button-primary: Action Blue pill â NO shadow per spec */
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-on-primary);
@@ -562,7 +562,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: var(--ls-tight);
   text-transform: none;
   color: var(--color-primary);
-  font-weight: var(--fw-regular); /* 400 — 500 is absent from the spec weight ladder */
+  font-weight: var(--fw-regular); /* 400 â 500 is absent from the spec weight ladder */
   border-bottom: 1px solid var(--color-primary);
   padding-bottom: 2px;
   display: inline-flex;
@@ -910,7 +910,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   5. HEADER & NAVIGATION — ROTTEN FUTURE FLOATING LIQUID GLASS
+   5. HEADER & NAVIGATION â ROTTEN FUTURE FLOATING LIQUID GLASS
    ============================================================ */
 
 .site-header {
@@ -962,13 +962,13 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="light"] .header-capsule {
   backdrop-filter: blur(28px) saturate(180%) brightness(102%);
   -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(102%);
-  background: rgba(0, 0, 0, 0.82); /* surface-black per design.md — nav is the ONLY true black */
+  background: rgba(0, 0, 0, 0.82); /* surface-black per design.md â nav is the ONLY true black */
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: none;
 }
 
 /* ============================================================
-   INITIAL HERO STATE (100% Seamless Transparent — No Box / No Border)
+   INITIAL HERO STATE (100% Seamless Transparent â No Box / No Border)
    When at the top of the video hero, the capsule border & background are hidden.
    Only when scrolling down and covered by the background does the floating liquid glass appear!
    ============================================================ */
@@ -1125,7 +1125,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-nav-left a,
 .header-nav-left button {
   font-family: var(--ff-mono);
-  font-size: 0.9375rem; /* 15px — Larger & Bolder */
+  font-size: 0.9375rem; /* 15px â Larger & Bolder */
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1562,7 +1562,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
-/* Cart Badge — always visible */
+/* Cart Badge â always visible */
 .cart-trigger {
   position: relative;
 }
@@ -1632,7 +1632,7 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Static fallback image — visible instantly before video loads */
+/* Static fallback image â visible instantly before video loads */
 .hero-bg-static {
   position: absolute;
   inset: 0;
@@ -1655,7 +1655,7 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
 }
 
-/* Dark cinematic overlay — aggressive gradient */
+/* Dark cinematic overlay â aggressive gradient */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -1762,7 +1762,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   7. MARQUEE STRIP — SEAMLESS TECHNICAL MONOSPACE LOOP
+   7. MARQUEE STRIP â SEAMLESS TECHNICAL MONOSPACE LOOP
    ============================================================ */
 
 .marquee-strip {
@@ -1871,7 +1871,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   9. FEATURED PRODUCTS — Uniform Theme Technical Grid
+   9. FEATURED PRODUCTS â Uniform Theme Technical Grid
    ============================================================ */
 
 .featured-products-section {
@@ -2287,7 +2287,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   13. FOOTER — EME STUDIOS MONUMENTAL SIGNATURE FOOTER
+   13. FOOTER â EME STUDIOS MONUMENTAL SIGNATURE FOOTER
    ============================================================ */
 
 .site-footer {
@@ -2786,7 +2786,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================
-   CART DRAWER — HIGH-END NIKE/STREETWEAR INPIRED
+   CART DRAWER â HIGH-END NIKE/STREETWEAR INPIRED
    ============================================================ */
 html.cart-open,
 body.cart-open,
@@ -5505,237 +5505,387 @@ body.drawer-open {
 }
 
 /* ============================================================
-   19. EXIT INTENT RECOVERY MODAL (CYBERPUNK VOUCHER)
+   19. EXIT INTENT RECOVERY MODAL (VIP VOUCHER) — APPLE / DOPAMINE SYSTEM
    ============================================================ */
 
+/* 1. Modal Overlay Backdrop */
 .exit-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  z-index: 400;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 260ms var(--ease-out-quart);
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.exit-modal-overlay.is-active {
+[data-theme="light"] .exit-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.exit-modal-overlay.is-active,
+.exit-modal-overlay:not([hidden]) {
   opacity: 1;
   pointer-events: auto;
 }
 
+.exit-modal-overlay[hidden],
+.exit-modal-box[hidden] {
+  display: none !important;
+}
+
+/* 2. Floating Modal Box (Apple Luxury Card Surface) */
 .exit-modal-box {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -46%) scale(0.96);
-  width: 92%;
-  max-width: 520px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-card);
-  padding: 2.75rem 2.25rem 2.25rem;
+  z-index: 10001;
+  width: 90%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px 36px 36px;
+  border-radius: 24px;
+  box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
-  z-index: 401;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-card, #121214);
+  color: var(--text-primary, #ffffff);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.5),
+              0 0 1px rgba(255, 255, 255, 0.12);
   opacity: 0;
   pointer-events: none;
-  transition: all 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 380ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 400ms ease,
+              border-color 400ms ease;
+  will-change: transform, opacity;
 }
 
-.exit-modal-box.is-active {
-  transform: translate(-50%, -50%) scale(1);
+[data-theme="light"] .exit-modal-box {
+  background-color: #ffffff;
+  color: #1d1d1f;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.14),
+              0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.exit-modal-box.is-active,
+.exit-modal-box:not([hidden]) {
   opacity: 1;
   pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
 }
 
+/* 3. Circular Minimalist Close Button */
 .exit-modal-close {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  min-height: 36px;
-  display: flex;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: 50%;
-  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1;
   cursor: pointer;
-  transition: all 180ms ease;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+  transition: background-color 200ms ease, color 200ms ease, transform 180ms ease;
+}
+
+[data-theme="light"] .exit-modal-close {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.55);
 }
 
 .exit-modal-close:hover {
-  color: var(--text-primary);
-  border-color: var(--text-primary);
-  transform: rotate(90deg);
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
+[data-theme="light"] .exit-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000000;
+  transform: scale(1.05);
+}
+
+.exit-modal-close:active {
+  transform: scale(0.92);
+}
+
+/* 4. Minimalist Eyebrow Tag */
 .exit-modal-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(0, 102, 204, 0.12);
-  border: 1px solid rgba(0, 102, 204, 0.3);
-  color: var(--accent);
-  font-family: var(--ff-mono, monospace);
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 12px;
+  font-family: var(--ff-heading, 'Space Grotesk', -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-control);
-  margin-bottom: 1.25rem;
+  color: var(--text-muted, #8E8E93);
 }
 
+[data-theme="light"] .exit-modal-badge {
+  color: #86868b;
+}
+
+/* 5. Typography Hierarchy */
 .exit-modal-title {
-  font-family: var(--ff-heading, 'Bebas Neue', sans-serif);
-  font-size: clamp(1.85rem, 4vw, 2.5rem);
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  line-height: 1.05;
-  margin-bottom: 0.5rem;
+  font-family: var(--ff-heading, 'Space Grotesk', -apple-system, sans-serif);
+  font-size: clamp(24px, 3.8vw, 32px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--text-primary, #ffffff);
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+
+[data-theme="light"] .exit-modal-title {
+  color: #1d1d1f;
 }
 
 .exit-modal-subtitle {
-  font-family: var(--ff-mono, monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--accent);
+  font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  color: #2997ff;
+  margin: 0 0 12px 0;
+}
+
+[data-theme="light"] .exit-modal-subtitle {
+  color: #0066cc;
 }
 
 .exit-modal-desc {
-  font-family: var(--ff-body, 'Montserrat', sans-serif);
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.75rem;
+  font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--text-muted, #8E8E93);
+  margin: 0 auto 24px auto;
+  max-width: 390px;
 }
 
-/* Coupon Box with 1-Click Copy */
+[data-theme="light"] .exit-modal-desc {
+  color: #6e6e73;
+}
+
+/* 6. Luxury Voucher Box (Hairline Solid Container) */
 .exit-voucher-box {
-  background: var(--bg-primary);
-  border: 1px dashed var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
+  gap: 12px;
+  padding: 8px 10px 8px 22px;
+  border-radius: 14px;
+  margin: 0 0 20px 0;
+  background-color: var(--bg-secondary, #18181b);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 400ms ease, border-color 400ms ease;
+}
+
+[data-theme="light"] .exit-voucher-box {
+  background-color: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .exit-voucher-code {
-  font-family: var(--ff-mono, monospace);
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  color: var(--text-primary);
+  font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-primary, #ffffff);
   user-select: all;
 }
 
+[data-theme="light"] .exit-voucher-code {
+  color: #1d1d1f;
+}
+
+/* 7. Minimal Pill/Ghost Copy Button */
 .exit-voucher-copy-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  background: var(--accent);
-  color: #FFFFFF;
-  font-family: var(--ff-mono, monospace);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  min-height: 36px;
+  border-radius: 9999px;
+  font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-control);
-  border: none;
   cursor: pointer;
-  transition: all 180ms ease;
-  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 200ms ease;
+}
+
+[data-theme="light"] .exit-voucher-copy-btn {
+  background-color: #ffffff;
+  color: #1d1d1f;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .exit-voucher-copy-btn:hover {
-  background: var(--accent-hover);
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.24);
 }
 
+[data-theme="light"] .exit-voucher-copy-btn:hover {
+  background-color: #f0f0f2;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.exit-voucher-copy-btn:active {
+  transform: scale(0.95);
+}
+
+.exit-voucher-copy-btn svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* Feedback state when copied */
 .exit-voucher-copy-btn.copied {
-  background: #10B981;
-  color: #FFFFFF;
+  background-color: #34c759 !important;
+  color: #ffffff !important;
+  border-color: #34c759 !important;
+  font-weight: 700;
 }
 
+/* 8. Modern Pill Primary CTA (Apple Action Blue #0066cc) */
 .exit-modal-shop-btn {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  height: 48px;
-  background: var(--text-primary);
-  color: var(--bg-primary);
-  font-family: var(--ff-body, 'Montserrat', sans-serif);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  padding: 14px 28px;
+  min-height: 48px;
+  border-radius: 9999px;
+  font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-radius: var(--radius-control);
-  border: 1px solid var(--text-primary);
-  cursor: pointer;
-  margin-bottom: 1rem;
-  transition: all var(--transition-fast);
+  text-decoration: none;
+  background-color: #0066cc;
+  color: #ffffff;
+  border: 1px solid transparent;
+  margin: 0 0 14px 0;
+  transition: background-color 200ms ease, transform 180ms ease, box-shadow 200ms ease;
 }
 
 .exit-modal-shop-btn:hover {
-  background: transparent;
-  color: var(--text-primary);
+  background-color: #0071e3;
+  transform: translateY(-1px);
 }
 
+.exit-modal-shop-btn:active {
+  transform: scale(0.97);
+}
+
+.exit-modal-shop-btn:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+}
+
+/* 9. Subtle Minimal Dismiss Link */
 .exit-modal-dismiss {
-  display: inline-block;
-  font-family: var(--ff-mono, monospace);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  background: none;
+  background: transparent;
   border: none;
+  padding: 8px 16px;
+  font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-muted, #8E8E93);
   cursor: pointer;
-  transition: color 150ms ease;
+  text-decoration: none;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+[data-theme="light"] .exit-modal-dismiss {
+  color: #6e6e73;
 }
 
 .exit-modal-dismiss:hover {
-  color: var(--text-secondary);
+  color: var(--text-primary, #ffffff);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 3px;
 }
 
+[data-theme="light"] .exit-modal-dismiss:hover {
+  color: #1d1d1f;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 10. Mobile Responsiveness (< 640px) */
 @media (max-width: 640px) {
-  .error404-section {
-    padding-top: calc(72px + 2rem);
-    padding-bottom: 3.5rem;
-  }
-  .error404-terminal {
-    padding: 1rem;
-    font-size: 0.6875rem;
-  }
-  .error404-actions {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .error404-btn-primary,
-  .error404-btn-secondary {
-    width: 100%;
-  }
   .exit-modal-box {
-    padding: 2rem 1.25rem 1.5rem;
+    width: calc(100% - 32px);
+    max-width: 420px;
+    padding: 32px 20px 24px;
+    border-radius: 20px;
   }
+
+  .exit-modal-title {
+    font-size: 24px;
+  }
+
   .exit-voucher-box {
-    flex-direction: column;
-    gap: 0.75rem;
+    padding: 6px 8px 6px 16px;
+    gap: 8px;
+  }
+
+  .exit-voucher-code {
+    font-size: 16px;
+    letter-spacing: 0.08em;
+  }
+
+  .exit-voucher-copy-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+    min-height: 32px;
+  }
+
+  .exit-modal-shop-btn {
+    padding: 13px 20px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  .exit-modal-close {
+    top: 14px;
+    right: 14px;
   }
 }
 
@@ -5934,7 +6084,7 @@ body.drawer-open {
   pointer-events: none !important;
 }
 
-/* DOPAMINE wordmark � SF Pro Display 600, hero scale */
+/* DOPAMINE wordmark  SF Pro Display 600, hero scale */
 .preloader-brand-title {
   font-family: var(--ff-heading, 'SF Pro Display', system-ui, -apple-system, sans-serif);
   font-size: clamp(2.5rem, 8vw, 5rem);
@@ -5945,7 +6095,7 @@ body.drawer-open {
   text-transform: none;
 }
 
-/* Thin progress bar � Action Blue, no shadow */
+/* Thin progress bar  Action Blue, no shadow */
 .preloader-progress-track {
   width: clamp(160px, 40vw, 280px);
   height: 2px;
@@ -6309,4 +6459,4 @@ textarea.is-valid,
 
 
 
-
+
