@@ -936,7 +936,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-capsule {
   pointer-events: auto;
   width: 100%;
-  max-width: min(1400px, calc(100vw - 2.5rem));
+  max-width: min(1760px, calc(100vw - 1.25rem));
   margin: 0 auto;
   border-radius: 9999px; /* Iconic Floating Stadium Capsule */
   overflow: hidden;
@@ -1025,7 +1025,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .header-capsule {
     border-radius: 9999px;
-    max-width: calc(100vw - 1.2rem);
+    max-width: calc(100vw - 0.75rem);
   }
 }
 
