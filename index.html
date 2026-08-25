@@ -1883,8 +1883,8 @@
         const dy = e.clientY - startY;
         startX = e.clientX;
         startY = e.clientY;
-        velY = -dx * 0.005; // Inverted horizontal drag control per user request
-        velX = -dy * 0.005; // Inverted vertical drag control per user request
+        velY = dx * 0.005;
+        velX = dy * 0.005;
         rotY += velY;
         rotX += velX;
         rotX = Math.max(-0.55, Math.min(0.55, rotX));
