@@ -114,7 +114,7 @@
 
       // Brand Story Section
       'story.title': 'NUESTRA HISTORIA',
-      'story.p1': 'Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito',
+      'story.p1': 'Dopamine nació en las calles de Buenos Aires con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito',
       'story.p2': 'Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad',
       'story.stat1_label': 'GSM COTTON',
       'story.stat1_desc': 'Algodón de peso pesado, estructurado y duradero',

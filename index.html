@@ -433,223 +433,267 @@
         </div>
       </section>
 
-      <!-- ===== 6. BRAND STORY ===== -->
+      <!-- ===== 6. BRAND STORY — High Performance Editorial ===== -->
       <section id="brand-story" class="brand-story-section section-padding" aria-label="Historia de la marca">
+        <style>
+          .brand-story-section {
+            position: relative;
+            background-color: var(--bg-primary, #0A0A0C);
+            color: var(--text-primary, #ffffff);
+            padding: 96px 24px;
+            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            overflow: hidden;
+            z-index: 10;
+            transition: background-color var(--transition-theme, 400ms ease), color var(--transition-theme, 400ms ease), border-color var(--transition-theme, 400ms ease);
+          }
+          [data-theme="light"] .brand-story-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          }
+          .brand-story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 56px;
+          }
+          .brand-story-header-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 48px;
+            align-items: start;
+          }
+          .brand-story-title-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+          }
+          .brand-story-eyebrow {
+            font-family: var(--ff-mono, monospace);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-primary, #0066cc);
+          }
+          [data-theme="dark"] .brand-story-eyebrow {
+            color: #2997ff;
+          }
+          .brand-story-title {
+            font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+            font-size: clamp(32px, 3.8vw, 44px);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--text-primary, #ffffff);
+            margin: 0;
+          }
+          [data-theme="light"] .brand-story-title {
+            color: #1d1d1f;
+          }
+          .brand-story-location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--ff-mono, monospace);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: var(--text-muted, #8E8E93);
+            margin-top: 6px;
+          }
+          .location-pulse {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #34c759;
+            box-shadow: 0 0 8px rgba(52, 199, 89, 0.6);
+            display: inline-block;
+          }
+          .brand-story-narrative-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
+          .brand-story-lead {
+            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: -0.015em;
+            color: var(--text-primary, #ffffff);
+            margin: 0;
+          }
+          [data-theme="light"] .brand-story-lead {
+            color: #1d1d1f;
+          }
+          .brand-story-body {
+            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.55;
+            letter-spacing: -0.01em;
+            color: var(--text-muted, #8E8E93);
+            margin: 0;
+          }
+          [data-theme="light"] .brand-story-body {
+            color: #6e6e73;
+          }
+          .brand-story-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          }
+          .brand-story-stats-grid .stat-card {
+            background-color: var(--bg-secondary, #141418);
+            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            border-radius: var(--radius-card, 18px);
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 250ms ease, border-color 250ms ease, background-color var(--transition-theme, 400ms ease);
+          }
+          [data-theme="light"] .brand-story-stats-grid .stat-card {
+            background-color: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+          }
+          .brand-story-stats-grid .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.18);
+          }
+          [data-theme="light"] .brand-story-stats-grid .stat-card:hover {
+            border-color: rgba(0, 0, 0, 0.16);
+          }
+          .stat-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+          }
+          .brand-story-stats-grid .stat-number {
+            font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+            font-size: clamp(34px, 3.2vw, 42px);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            color: var(--text-primary, #ffffff);
+            margin: 0;
+          }
+          [data-theme="light"] .brand-story-stats-grid .stat-number {
+            color: #1d1d1f;
+          }
+          .stat-card-badge {
+            font-family: var(--ff-mono, monospace);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted, #8E8E93);
+          }
+          [data-theme="light"] .brand-story-stats-grid .stat-card-badge {
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: #6e6e73;
+          }
+          .brand-story-stats-grid .stat-label {
+            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-primary, #0066cc);
+            margin: 0;
+          }
+          [data-theme="dark"] .brand-story-stats-grid .stat-label {
+            color: #2997ff;
+          }
+          .brand-story-stats-grid .stat-desc {
+            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-size: 14px;
+            line-height: 1.45;
+            color: var(--text-muted, #8E8E93);
+            margin: 0;
+          }
+          [data-theme="light"] .brand-story-stats-grid .stat-desc {
+            color: #6e6e73;
+          }
+          @media (max-width: 960px) {
+            .brand-story-header-grid {
+              grid-template-columns: 1fr;
+              gap: 28px;
+            }
+            .brand-story-stats-grid {
+              grid-template-columns: 1fr 1fr;
+              gap: 16px;
+            }
+            .brand-story-stats-grid .stat-card:last-child {
+              grid-column: span 2;
+            }
+          }
+          @media (max-width: 640px) {
+            .brand-story-section {
+              padding: 64px 16px;
+            }
+            .brand-story-container {
+              gap: 36px;
+            }
+            .brand-story-stats-grid {
+              grid-template-columns: 1fr;
+              gap: 14px;
+            }
+            .brand-story-stats-grid .stat-card:last-child {
+              grid-column: span 1;
+            }
+            .brand-story-stats-grid .stat-card {
+              padding: 24px 20px;
+            }
+          }
+        </style>
         <div class="container brand-story-container">
-          <div class="brand-story-text">
-            <h2 class="section-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
-            <p data-i18n="story.p1">Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito</p>
-            <p data-i18n="story.p2">Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad</p>
+          <div class="brand-story-header-grid">
+            <div class="brand-story-title-col">
+              <span class="brand-story-eyebrow">// ATELIER & MANIFIESTO</span>
+              <h2 class="section-title brand-story-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
+              <div class="brand-story-location-tag">
+                <span class="location-pulse"></span>
+                <span>BUENOS AIRES, ARGENTINA</span>
+              </div>
+            </div>
+            <div class="brand-story-narrative-col">
+              <p class="brand-story-lead" data-i18n="story.p1">Dopamine nació en las calles de Buenos Aires con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito</p>
+              <p class="brand-story-body" data-i18n="story.p2">Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad</p>
+            </div>
           </div>
-          <div class="brand-story-stats">
+          <div class="brand-story-stats-grid">
             <div class="stat-card">
-              <h3 class="stat-number">450</h3>
-              <p class="stat-label">GSM COTTON</p>
+              <div class="stat-card-header">
+                <h3 class="stat-number">450</h3>
+                <span class="stat-card-badge">HEAVYWEIGHT</span>
+              </div>
+              <p class="stat-label" data-i18n="story.stat1_label">GSM COTTON</p>
               <p class="stat-desc" data-i18n="story.stat1_desc">Algodón de peso pesado, estructurado y duradero</p>
             </div>
             <div class="stat-card">
-              <h3 class="stat-number">120</h3>
-              <p class="stat-label">LIMITED PIECES</p>
-              <p class="stat-desc" data-i18n="story.stat2_desc">Ediciones limitadas por drop. No hacemos restocks</p>
-              <h3 class="category-title" data-i18n="categories.tops">REMERAS & CAMISAS</h3>
-            </a>
-            <a href="tienda.html?category=hoodies" class="category-card rounded-media">
-              <div class="category-image">
-                <img src="Ropa/Buzos/Buzo WIN.webp" alt="Buzos & Camperas" loading="lazy">
+              <div class="stat-card-header">
+                <h3 class="stat-number">120</h3>
+                <span class="stat-card-badge">DROP 01</span>
               </div>
-              <h3 class="category-title" data-i18n="categories.hoodies">BUZOS & CAMPERAS</h3>
-            </a>
-            <a href="tienda.html?category=bottoms" class="category-card rounded-media">
-              <div class="category-image">
-                <img src="Ropa/Jeanes/JEAN BAGGY ICE.webp" alt="Jeanes & Pantalones" loading="lazy">
-              </div>
-              <h3 class="category-title" data-i18n="categories.bottoms">JEANES & PANTALONES</h3>
-            </a>
-            <a href="tienda.html?category=sets" class="category-card rounded-media">
-              <div class="category-image">
-                <img src="Ropa/Conjuntos/CONJUNTO BAGGY MORGAN.webp" alt="Conjuntos Streetwear" loading="lazy">
-              </div>
-              <h3 class="category-title" data-i18n="categories.sets">CONJUNTOS</h3>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== 4. FEATURED PRODUCTS — Technical Grid (4:5 Ratio & Quick Add Pill) ===== -->
-      <section id="productos" class="featured-products-section section-padding" aria-label="Piezas destacadas">
-        <div class="container">
-          <div class="section-header-flex">
-            <h2 class="section-title" data-i18n="featured.title">PIEZAS DESTACADAS</h2>
-            <a href="tienda.html" class="view-all-link" data-i18n="featured.view_all">VIEW ALL →</a>
-          </div>
-          <div class="products-grid">
-            <!-- Product 1: Buzo WIN -->
-            <article class="product-card rounded-card">
-              <div class="product-media-wrapper rounded-media">
-                <a href="producto.html?slug=buzo-win">
-                  <img src="Ropa/Buzos/Buzo WIN.webp" alt="Buzo WIN" class="product-image" loading="lazy">
-                </a>
-                <!-- Floating Quick Add Pill -->
-                <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="S">S</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="M">M</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="L">L</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="buzo-win" data-size="XL">XL</button>
-                </div>
-              </div>
-              <div class="product-info">
-                <a href="producto.html?slug=buzo-win"><h3 class="product-name">BUZO WIN</h3></a>
-                <div class="product-price-block">
-                  <p class="product-price-list">$115.000</p>
-                  <p class="product-price-transfer">$103.500 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
-                </div>
-                <div class="product-swatches">
-                  <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Black"></span>
-                  <span class="product-swatch-dot" style="background-color: #1C1C1E;" title="Washed Black"></span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Product 2: Remera Wireframe Waffle Noir -->
-            <article class="product-card rounded-card">
-              <div class="product-media-wrapper rounded-media">
-                <a href="producto.html?slug=remera-wireframe-waffle-noir">
-                  <img src="Ropa/Remeras/Longsleeve/WIREFRAME WAFFLE NOIR.webp" alt="Remera Wireframe Waffle Noir" class="product-image" loading="lazy">
-                </a>
-                <!-- Floating Quick Add Pill -->
-                <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="XS">XS</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="S">S</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="M">M</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="L">L</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="remera-wireframe-waffle-noir" data-size="XL">XL</button>
-                </div>
-              </div>
-              <div class="product-info">
-                <a href="producto.html?slug=remera-wireframe-waffle-noir"><h3 class="product-name">REMERA WAFFLE NOIR</h3></a>
-                <div class="product-price-block">
-                  <p class="product-price-list">$62.000</p>
-                  <p class="product-price-transfer">$55.800 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
-                </div>
-                <div class="product-swatches">
-                  <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Noir"></span>
-                  <span class="product-swatch-dot" style="background-color: #1E1E22;" title="Off Black"></span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Product 3: Jean Baggy Ice -->
-            <article class="product-card rounded-card">
-              <div class="product-media-wrapper rounded-media">
-                <a href="producto.html?slug=jean-baggy-ice">
-                  <img src="Ropa/Jeanes/JEAN BAGGY ICE.webp" alt="Jean Baggy Ice" class="product-image" loading="lazy">
-                </a>
-                <!-- Floating Quick Add Pill -->
-                <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="38">38</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="40">40</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="42">42</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="jean-baggy-ice" data-size="44">44</button>
-                </div>
-              </div>
-              <div class="product-info">
-                <a href="producto.html?slug=jean-baggy-ice"><h3 class="product-name">JEAN BAGGY ICE</h3></a>
-                <div class="product-price-block">
-                  <p class="product-price-list">$98.000</p>
-                  <p class="product-price-transfer">$88.200 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
-                </div>
-                <div class="product-swatches">
-                  <span class="product-swatch-dot is-active" style="background-color: #9BB8D3;" title="Ice Blue"></span>
-                  <span class="product-swatch-dot" style="background-color: #B2CBE3;" title="Light Denim"></span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Product 4: Conjunto Baggy Morgan -->
-            <article class="product-card rounded-card">
-              <div class="product-media-wrapper rounded-media">
-                <a href="producto.html?slug=conjunto-baggy-morgan">
-                  <img src="Ropa/Conjuntos/CONJUNTO BAGGY MORGAN.webp" alt="Conjunto Baggy Morgan" class="product-image" loading="lazy">
-                </a>
-                <!-- Floating Quick Add Pill -->
-                <div class="quick-add-pill" aria-label="Añadir rápido">
-                  <span class="quick-add-pill-label" data-i18n="featured.quick_add">AÑADIR:</span>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="S">S</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="M">M</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="L">L</button>
-                  <button type="button" class="quick-add-size-btn" data-quick-add="conjunto-baggy-morgan" data-size="XL">XL</button>
-                </div>
-              </div>
-              <div class="product-info">
-                <a href="producto.html?slug=conjunto-baggy-morgan"><h3 class="product-name">CONJUNTO BAGGY MORGAN</h3></a>
-                <div class="product-price-block">
-                  <p class="product-price-list">$185.000</p>
-                  <p class="product-price-transfer">$166.500 <span data-i18n="featured.transfer_note">con Transferencia (10% OFF)</span></p>
-                </div>
-                <div class="product-swatches">
-                  <span class="product-swatch-dot is-active" style="background-color: #0D0D0D;" title="Noir"></span>
-                  <span class="product-swatch-dot" style="background-color: #2A2A2E;" title="Graphite"></span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== SCROLL TEXT REVEAL BANNER ===== -->
-      <section class="scroll-text-section section-padding" id="reward-system">
-        <div class="container text-center">
-          <h2 class="scroll-reveal-headline" data-scroll-reveal-text>
-            <span class="reveal-line">
-              <span class="char-span">U</span><span class="char-span">N</span><span class="char-span">L</span><span class="char-span">E</span><span class="char-span">A</span><span class="char-span">S</span><span class="char-span">H</span><span class="char-span">I</span><span class="char-span">N</span><span class="char-span">G</span> 
-              <span class="char-span">T</span><span class="char-span">H</span><span class="char-span">E</span> 
-              <span class="char-span">R</span><span class="char-span">E</span><span class="char-span">W</span><span class="char-span">A</span><span class="char-span">R</span><span class="char-span">D</span> 
-              <span class="char-span">S</span><span class="char-span">Y</span><span class="char-span">S</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">M</span>
-            </span>
-            <span class="reveal-line reveal-interactive">
-              <span class="char-span">A</span><span class="char-span">C</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">V</span><span class="char-span">A</span><span class="char-span">T</span><span class="char-span">E</span> 
-              <span class="char-span">Y</span><span class="char-span">O</span><span class="char-span">U</span><span class="char-span">R</span> 
-              <span class="char-span">P</span><span class="char-span">O</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">N</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">A</span><span class="char-span">L</span>
-            </span>
-          </h2>
-        </div>
-      </section>
-
-      <!-- ===== 5. COLLECTION BANNER ===== -->
-      <section class="collection-banner" aria-label="Colección urbana">
-        <div class="container banner-content">
-          <span class="banner-eyebrow" data-i18n="banner.eyebrow">DROP 01 / 26</span>
-          <h2 class="banner-title" data-i18n="banner.title">EL NUEVO UNIFORME URBANO</h2>
-          <p class="banner-text" data-i18n="banner.desc">Nuestra primera colección define las bases. Diseñada sin compromisos desde Buenos Aires</p>
-          <a href="tienda.html" class="banner-cta" data-i18n="banner.cta">DESCUBRIR →</a>
-        </div>
-      </section>
-
-      <!-- ===== 6. BRAND STORY ===== -->
-      <section id="brand-story" class="brand-story-section section-padding" aria-label="Historia de la marca">
-        <div class="container brand-story-container">
-          <div class="brand-story-text">
-            <h2 class="section-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
-            <p data-i18n="story.p1">Dopamine nació en las calles de Córdoba con un objetivo claro: crear ropa que te haga sentir invencible. No seguimos tendencias, diseñamos el uniforme del futuro para quienes se mueven con propósito</p>
-            <p data-i18n="story.p2">Cada pieza está meticulosamente construida con materiales premium, prestando atención a cada costura y detalle. Creemos en la calidad sobre la cantidad</p>
-          </div>
-          <div class="brand-story-stats">
-            <div class="stat-card">
-              <h3 class="stat-number">450</h3>
-              <p class="stat-label">GSM COTTON</p>
-              <p class="stat-desc" data-i18n="story.stat1_desc">Algodón de peso pesado, estructurado y duradero</p>
-            </div>
-            <div class="stat-card">
-              <h3 class="stat-number">120</h3>
-              <p class="stat-label">LIMITED PIECES</p>
+              <p class="stat-label" data-i18n="story.stat2_label">LIMITED PIECES</p>
               <p class="stat-desc" data-i18n="story.stat2_desc">Ediciones limitadas por drop. No hacemos restocks</p>
             </div>
             <div class="stat-card">
-              <h3 class="stat-number">BA</h3>
-              <p class="stat-label">HEADQUARTERS</p>
+              <div class="stat-card-header">
+                <h3 class="stat-number">BA</h3>
+                <span class="stat-card-badge">ATELIER</span>
+              </div>
+              <p class="stat-label" data-i18n="story.stat3_label">HEADQUARTERS</p>
               <p class="stat-desc" data-i18n="story.stat3_desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires</p>
             </div>
           </div>
@@ -666,9 +710,13 @@
             padding: 96px 24px;
             border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
             border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            overflow: hidden;
+            overflow: visible;
             z-index: 10;
             transition: background-color var(--transition-theme, 400ms ease), color var(--transition-theme, 400ms ease), border-color var(--transition-theme, 400ms ease);
+          }
+          [data-theme="light"] .global-shipping-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           }
           .globe-container {
             max-width: 1200px;
@@ -679,53 +727,64 @@
           /* Header */
           .globe-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 56px;
           }
           .globe-title {
-            font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
-            font-size: clamp(28px, 4vw, 42px);
+            font-family: var(--ff-heading, 'Space Grotesk', -apple-system, sans-serif);
+            font-size: clamp(32px, 4.5vw, 48px);
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
             text-transform: uppercase;
             color: var(--text-primary, #ffffff);
-            margin-bottom: 14px;
-            line-height: 1.1;
+            margin: 0 0 16px 0;
+            line-height: 1.15;
+            overflow: visible;
+          }
+          [data-theme="light"] .globe-title {
+            color: #1d1d1f;
           }
           .globe-subtitle {
             font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 15px;
-            line-height: 1.5;
+            font-size: 16px;
+            line-height: 1.6;
             color: var(--text-muted, #8E8E93);
-            max-width: 640px;
+            max-width: 660px;
             margin: 0 auto;
+          }
+          [data-theme="light"] .globe-subtitle {
+            color: #6e6e73;
           }
           .globe-subtitle strong {
             color: var(--text-primary, #ffffff);
             font-weight: 600;
           }
+          [data-theme="light"] .globe-subtitle strong {
+            color: #1d1d1f;
+          }
           /* Main Grid */
           .globe-main-grid {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
-            gap: 36px;
+            gap: 48px;
             align-items: center;
-            margin-top: 24px;
+            margin-top: 16px;
           }
           @media (max-width: 960px) {
             .globe-main-grid {
               grid-template-columns: 1fr;
-              gap: 28px;
+              gap: 36px;
             }
           }
-          /* 3D Canvas - Floating directly on background */
+          /* 3D Canvas - Seamless floating */
           .globe-canvas-wrap {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 520px;
             aspect-ratio: 1 / 1;
             margin: 0 auto;
             background: transparent;
             border: none;
+            box-shadow: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -736,98 +795,114 @@
             height: 100%;
             cursor: grab;
             display: block;
+            background: transparent;
           }
           .globe-canvas:active {
             cursor: grabbing;
           }
-          /* Intel Panel & Cards */
+          /* Intel Panel & Floating Content */
           .globe-intel-panel {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 24px;
+            gap: 28px;
           }
           .globe-intel-card {
-            background-color: var(--bg-secondary, #141418);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            border-radius: var(--radius-card, 18px);
-            padding: 24px 28px;
-            transition: background-color var(--transition-theme, 400ms ease), border-color var(--transition-theme, 400ms ease);
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
           }
           [data-theme="light"] .globe-intel-card {
-            background-color: rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: transparent;
+            border: none;
           }
           .globe-intel-header {
             padding-bottom: 16px;
-            border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.06));
+            border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
           }
           [data-theme="light"] .globe-intel-header {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           }
           .globe-intel-hub-name {
             font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
             color: var(--text-primary, #ffffff);
             margin: 0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+          }
+          [data-theme="light"] .globe-intel-hub-name {
+            color: #1d1d1f;
           }
           .globe-intel-code {
             font-family: var(--ff-mono, monospace);
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
-            padding: 3px 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 2px 8px;
+            background: transparent;
+            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.16));
             border-radius: 6px;
-            color: var(--text-primary, #ffffff);
+            color: #2997ff;
+            letter-spacing: 0.05em;
           }
           [data-theme="light"] .globe-intel-code {
-            background: rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            color: var(--text-primary, #000000);
+            border-color: rgba(0, 102, 204, 0.3);
+            color: #0066cc;
+            background: transparent;
           }
           .globe-intel-region {
             font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-muted, #8E8E93);
-            margin-top: 4px;
+            margin-top: 6px;
+            margin-bottom: 0;
           }
+          [data-theme="light"] .globe-intel-region {
+            color: #6e6e73;
+          }
+          /* Metrics Row - Completely Floating */
           .globe-metrics-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 18px 0;
+            gap: 24px;
+            margin: 20px 0;
           }
           .globe-metric-cell {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05));
-            border-radius: 12px;
-            padding: 14px 16px;
+            background: transparent;
+            border: none;
+            padding: 0;
           }
           [data-theme="light"] .globe-metric-cell {
-            background: rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: transparent;
+            border: none;
           }
           .globe-metric-title {
             font-family: var(--ff-mono, monospace);
-            font-size: 10px;
+            font-size: 11px;
             color: var(--text-muted, #8E8E93);
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
           }
+          [data-theme="light"] .globe-metric-title {
+            color: #86868b;
+          }
           .globe-metric-data {
             font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 15px;
+            font-size: 17px;
             font-weight: 600;
+            letter-spacing: -0.01em;
             color: var(--text-primary, #ffffff);
             margin: 0;
           }
+          [data-theme="light"] .globe-metric-data {
+            color: #1d1d1f;
+          }
+          /* Intel Footer */
           .globe-intel-footer {
             display: flex;
             justify-content: space-between;
@@ -835,27 +910,34 @@
             font-family: var(--ff-body, 'Space Grotesk', sans-serif);
             font-size: 13px;
             color: var(--text-muted, #8E8E93);
-            padding-top: 6px;
+            padding-top: 8px;
+          }
+          [data-theme="light"] .globe-intel-footer {
+            color: #6e6e73;
           }
           .globe-intel-footer strong {
             color: var(--text-primary, #ffffff);
             font-weight: 600;
           }
+          [data-theme="light"] .globe-intel-footer strong {
+            color: #1d1d1f;
+          }
           .globe-intel-link {
-            color: var(--color-primary, #0066cc);
+            color: #2997ff;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
           }
-          [data-theme="dark"] .globe-intel-link {
-            color: #2997ff;
+          [data-theme="light"] .globe-intel-link {
+            color: #0066cc;
           }
           .globe-intel-link:hover {
-            opacity: 0.85;
+            opacity: 0.8;
             text-decoration: underline;
+            transform: translateX(2px);
           }
           /* Hub Selector Pills */
           .globe-hubs-menu-title {
@@ -864,7 +946,10 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-muted, #8E8E93);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+          }
+          [data-theme="light"] .globe-hubs-menu-title {
+            color: #86868b;
           }
           .globe-hubs-grid {
             display: flex;
@@ -873,13 +958,13 @@
           }
           .globe-hub-pill {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
             color: var(--text-muted, #8E8E93);
-            padding: 8px 14px;
+            padding: 8px 15px;
             border-radius: 9999px;
             font-family: var(--ff-body, 'Space Grotesk', sans-serif);
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
@@ -887,20 +972,22 @@
             transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                         color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                         border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.1s ease;
+                        transform 0.15s ease,
+                        box-shadow 0.2s ease;
           }
           [data-theme="light"] .globe-hub-pill {
-            background: rgba(0, 0, 0, 0.04);
+            background: rgba(0, 0, 0, 0.03);
             border: 1px solid rgba(0, 0, 0, 0.08);
-            color: var(--text-primary, #1d1d1f);
+            color: #48484a;
           }
           .globe-hub-pill:hover {
             background: rgba(255, 255, 255, 0.08);
             color: var(--text-primary, #ffffff);
-            border-color: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
           }
           [data-theme="light"] .globe-hub-pill:hover {
-            background: rgba(0, 0, 0, 0.08);
+            background: rgba(0, 0, 0, 0.06);
             color: #000000;
             border-color: rgba(0, 0, 0, 0.16);
           }
@@ -911,64 +998,71 @@
             background: #0066cc !important;
             color: #ffffff !important;
             border-color: #0066cc !important;
+            font-weight: 600;
+            box-shadow: 0 2px 12px rgba(0, 102, 204, 0.35);
           }
           .globe-hub-pill .hub-code-mono {
             font-family: var(--ff-mono, monospace);
             font-size: 11px;
-            opacity: 0.75;
+            opacity: 0.8;
           }
-          /* 4 Feature Tiles */
+          /* 4 Clean Feature Items (Floating with zero background) */
           .globe-features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-top: 56px;
+            gap: 32px;
+            margin-top: 64px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+          }
+          [data-theme="light"] .globe-features-grid {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
           }
           @media (max-width: 960px) {
             .globe-features-grid {
               grid-template-columns: repeat(2, 1fr);
+              gap: 28px;
+              margin-top: 48px;
+              padding-top: 36px;
             }
           }
           @media (max-width: 520px) {
             .globe-features-grid {
               grid-template-columns: 1fr;
+              gap: 24px;
             }
           }
           .globe-feature-box {
-            background-color: var(--bg-secondary, #141418);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            border-radius: var(--radius-card, 18px);
-            padding: 24px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            transition: background-color var(--transition-theme, 400ms ease), border-color var(--transition-theme, 400ms ease);
           }
           [data-theme="light"] .globe-feature-box {
-            background-color: rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: transparent;
+            border: none;
           }
           .globe-feature-box:hover {
-            border-color: rgba(255, 255, 255, 0.16);
-          }
-          [data-theme="light"] .globe-feature-box:hover {
-            border-color: rgba(0, 0, 0, 0.16);
+            border: none;
           }
           .globe-feature-icon-chip {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            width: 32px;
+            height: 32px;
+            border-radius: 0;
+            background: transparent;
+            border: none;
             color: #2997ff;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
+            justify-content: flex-start;
+            margin-bottom: 14px;
           }
           [data-theme="light"] .globe-feature-icon-chip {
-            background: rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: transparent;
+            border: none;
             color: #0066cc;
           }
           .globe-feature-heading {
@@ -978,16 +1072,22 @@
             letter-spacing: -0.01em;
             color: var(--text-primary, #ffffff);
             margin: 0 0 8px 0;
+            line-height: 1.3;
+          }
+          [data-theme="light"] .globe-feature-heading {
+            color: #1d1d1f;
           }
           .globe-feature-text {
             font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 13px;
-            line-height: 1.48;
+            font-size: 14px;
+            line-height: 1.5;
             color: var(--text-muted, #8E8E93);
             margin: 0;
           }
+          [data-theme="light"] .globe-feature-text {
+            color: #6e6e73;
+          }
         </style>
-
         <div class="globe-container">
           <!-- Header -->
           <div class="globe-header">
@@ -1056,7 +1156,7 @@
           <div class="globe-features-grid">
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
               </div>
               <h4 class="globe-feature-heading">Origen Buenos Aires</h4>
               <p class="globe-feature-text">Diseño, confección y control de calidad riguroso en nuestro taller central argentino.</p>
@@ -1064,7 +1164,7 @@
 
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
               </div>
               <h4 class="globe-feature-heading">Despachos Express 48h</h4>
               <p class="globe-feature-text">Alianzas con DHL Express y FedEx para entregas prioritarias en las principales capitales.</p>
@@ -1072,7 +1172,7 @@
 
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <h4 class="globe-feature-heading">Tracking Satelital</h4>
               <p class="globe-feature-text">Seguimiento en tiempo real vía WhatsApp y correo desde el minuto cero del despacho.</p>
@@ -1080,7 +1180,7 @@
 
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
               <h4 class="globe-feature-heading">Free Worldwide Shipping</h4>
               <p class="globe-feature-text">Envío 100% bonificado en órdenes superiores a $150 USD o $120.000 ARS en todo el país.</p>
