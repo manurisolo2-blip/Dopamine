@@ -461,6 +461,479 @@
         </div>
       </section>
 
+      <!-- ===== WORLDWIDE SHIPPING & 3D LOGISTICS GLOBE SECTION ===== -->
+      <section class="global-shipping-section section-padding" id="global-shipping" aria-label="Red logística global y envíos">
+        <style>
+          .global-shipping-section {
+            position: relative;
+            background: #111114;
+            color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            z-index: 10;
+          }
+          .global-shipping-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.12) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: 1;
+          }
+          .globe-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+          }
+          .globe-header {
+            text-align: center;
+            margin-bottom: 48px;
+          }
+          .globe-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: #272729;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #2997ff;
+            margin-bottom: 16px;
+          }
+          .globe-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2997ff;
+            box-shadow: 0 0 8px #2997ff;
+            animation: pulseDot 2s infinite;
+          }
+          @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+          }
+          .globe-title {
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            font-size: clamp(28px, 4.5vw, 46px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 16px;
+          }
+          .globe-subtitle {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #a1a1a6;
+            max-width: 680px;
+            margin: 0 auto;
+          }
+          .globe-subtitle strong {
+            color: #ffffff;
+            font-weight: 600;
+          }
+          .globe-main-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+          }
+          @media (max-width: 991px) {
+            .globe-main-grid {
+              grid-template-columns: 1fr;
+              gap: 32px;
+            }
+          }
+          .globe-canvas-card {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            background: rgba(28, 28, 32, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+          }
+          .globe-canvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            cursor: grab;
+            touch-action: none;
+          }
+          .globe-canvas:active {
+            cursor: grabbing;
+          }
+          .globe-hint-pill {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+          }
+          .globe-hq-pill {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: #0066cc;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+            pointer-events: none;
+          }
+          .globe-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+          }
+          .globe-dest-card {
+            background: #1c1c20;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+          }
+          .globe-dest-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          }
+          .globe-dest-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+          .globe-dest-icon-wrap {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #272729;
+            color: #2997ff;
+          }
+          .globe-dest-icon-wrap.is-hq {
+            background: #0066cc;
+            color: #ffffff;
+          }
+          .globe-dest-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 2px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          .globe-dest-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            padding: 2px 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.85);
+          }
+          .globe-dest-region {
+            font-size: 12px;
+            color: #86868b;
+            margin: 0;
+          }
+          .globe-dest-status-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+          }
+          .globe-dest-status-badge.is-hq {
+            background: rgba(0, 102, 204, 0.2);
+            color: #2997ff;
+            border: 1px solid rgba(0, 102, 204, 0.4);
+          }
+          .globe-metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+          }
+          .globe-metric-box {
+            background: rgba(39, 39, 41, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 14px;
+          }
+          .globe-metric-label {
+            font-size: 11px;
+            color: #86868b;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+          .globe-metric-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+          }
+          .globe-selector-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #86868b;
+            margin-bottom: 10px;
+          }
+          .globe-tabs-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+          .globe-tab-btn {
+            background: #272729;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #a1a1a6;
+            padding: 8px 14px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+          }
+          .globe-tab-btn:hover {
+            background: #323236;
+            color: #ffffff;
+          }
+          .globe-tab-btn.active {
+            background: #0066cc;
+            color: #ffffff;
+            border-color: #0066cc;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+            transform: scale(1.02);
+          }
+          .globe-cards-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 56px;
+          }
+          @media (max-width: 991px) {
+            .globe-cards-row {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+          @media (max-width: 575px) {
+            .globe-cards-row {
+              grid-template-columns: 1fr;
+            }
+          }
+          .globe-feature-card {
+            background: #1c1c20;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+          .globe-feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 102, 204, 0.18);
+            color: #2997ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+          }
+          .globe-feature-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+          }
+          .globe-feature-desc {
+            font-size: 12px;
+            line-height: 1.45;
+            color: #86868b;
+            margin: 0;
+          }
+        </style>
+
+        <div class="globe-container">
+          <!-- Header -->
+          <div class="globe-header">
+            <div class="globe-badge">
+              <span class="globe-badge-dot"></span>
+              Red Logística Global • Live Dispatch
+            </div>
+            <h2 class="globe-title">Desde Buenos Aires hacia el mundo.</h2>
+            <p class="globe-subtitle">
+              Cada prenda de <strong>DOPAMINE</strong> es confeccionada y despachada desde nuestro atelier central en Buenos Aires con cobertura prioritaria y seguimiento satelital a más de 180 destinos internacionales.
+            </p>
+          </div>
+
+          <!-- Main Grid: 3D Globe + Logistics Interactive Intel -->
+          <div class="globe-main-grid">
+            <!-- 3D Globe Canvas -->
+            <div class="globe-canvas-card">
+              <canvas id="dopamine-cobe-globe" class="globe-canvas" width="600" height="600"></canvas>
+              
+              <div class="globe-hint-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2997ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg>
+                <span>Arrastrar para rotar</span>
+              </div>
+
+              <div class="globe-hq-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                <span>HQ: Buenos Aires (-34.60° S)</span>
+              </div>
+            </div>
+
+            <!-- Interactive Info Panel -->
+            <div class="globe-info-panel">
+              <!-- Active Hub Details Card -->
+              <div class="globe-dest-card" id="globe-active-card">
+                <div class="globe-dest-header">
+                  <div class="globe-dest-main">
+                    <div class="globe-dest-icon-wrap is-hq" id="globe-hub-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                    </div>
+                    <div>
+                      <h3 class="globe-dest-title" id="globe-hub-title">
+                        Buenos Aires, Argentina
+                        <span class="globe-dest-code" id="globe-hub-code">BUE</span>
+                      </h3>
+                      <p class="globe-dest-region" id="globe-hub-region">Atelier Central & Global HQ</p>
+                    </div>
+                  </div>
+                  <span class="globe-dest-status-badge is-hq" id="globe-hub-status">CENTRO DE OPERACIONES</span>
+                </div>
+
+                <div class="globe-metrics-grid">
+                  <div class="globe-metric-box">
+                    <div class="globe-metric-label">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2997ff" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      Tiempo de Tránsito
+                    </div>
+                    <p class="globe-metric-val" id="globe-hub-time">Despacho Inmediato</p>
+                  </div>
+                  <div class="globe-metric-box">
+                    <div class="globe-metric-label">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      Courier Certificado
+                    </div>
+                    <p class="globe-metric-val" id="globe-hub-courier">DHL Express / FedEx</p>
+                  </div>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#a1a1a6; padding-top:4px;">
+                  <span>Frecuencia: <strong style="color:#ffffff;">Despacho Diario 24/7</strong></span>
+                  <span style="color:#2997ff; display:flex; align-items:center; gap:2px; cursor:pointer;">
+                    Cobertura 180+ países →
+                  </span>
+                </div>
+              </div>
+
+              <!-- Hub Selector Tabs -->
+              <div>
+                <p class="globe-selector-title">Seleccionar Destino de Envío:</p>
+                <div class="globe-tabs-wrap" id="globe-tabs">
+                  <button type="button" class="globe-tab-btn active" data-hub="bue">📍 Buenos Aires (BUE)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="mia">✈️ Miami (MIA)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="nyc">✈️ Nueva York (NYC)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="mad">✈️ Madrid (MAD)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="lon">✈️ Londres (LON)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="sao">✈️ São Paulo (GRU)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="scl">✈️ Santiago (SCL)</button>
+                  <button type="button" class="globe-tab-btn" data-hub="tok">✈️ Tokio (TYO)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Advantage Cards -->
+          <div class="globe-cards-row">
+            <div class="globe-feature-card">
+              <div class="globe-feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              </div>
+              <h4 class="globe-feature-title">Origen Buenos Aires</h4>
+              <p class="globe-feature-desc">Diseño, confección y control de calidad riguroso en nuestro taller central argentino.</p>
+            </div>
+
+            <div class="globe-feature-card">
+              <div class="globe-feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </div>
+              <h4 class="globe-feature-title">Despachos Express 48h</h4>
+              <p class="globe-feature-desc">Alianzas con DHL Express y FedEx para entregas ultra rápidas en las principales capitales.</p>
+            </div>
+
+            <div class="globe-feature-card">
+              <div class="globe-feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4 class="globe-feature-title">Tracking Satelital</h4>
+              <p class="globe-feature-desc">Seguimiento en tiempo real vía WhatsApp y correo desde el despacho del pedido.</p>
+            </div>
+
+            <div class="globe-feature-card">
+              <div class="globe-feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+              <h4 class="globe-feature-title">Free Worldwide Shipping</h4>
+              <p class="globe-feature-desc">Envío 100% bonificado en órdenes superiores a $150 USD o $120.000 ARS en todo el país.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ===== 7. BENEFITS BAR ===== -->
       <section class="benefits-bar" aria-label="Beneficios de compra">
         <div class="container benefits-container">
@@ -748,6 +1221,236 @@
   <script src="assets/js/verification.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/scroll-reveal.js"></script>
+  <!-- 3D Cobe Globe & Logistics Controller -->
+  <script type="module">
+    import createGlobe from "https://esm.sh/cobe@0.1.3";
+
+    const HUB_DATA = {
+      bue: {
+        city: "Buenos Aires, Argentina",
+        code: "BUE",
+        region: "Atelier Central & Global HQ",
+        status: "CENTRO DE OPERACIONES",
+        isHQ: true,
+        time: "Despacho Inmediato",
+        courier: "DHL Express / FedEx",
+        location: [-34.6037, -58.3816]
+      },
+      mia: {
+        city: "Miami, Estados Unidos",
+        code: "MIA",
+        region: "North America Gateway",
+        status: "Ruta Express Activa",
+        isHQ: false,
+        time: "24 — 48 Horas",
+        courier: "DHL Express Priority",
+        location: [25.7617, -80.1918]
+      },
+      nyc: {
+        city: "Nueva York, Estados Unidos",
+        code: "NYC",
+        region: "East Coast Hub",
+        status: "Ruta Express Activa",
+        isHQ: false,
+        time: "48 — 72 Horas",
+        courier: "DHL Express / FedEx",
+        location: [40.7128, -74.0060]
+      },
+      mad: {
+        city: "Madrid, España",
+        code: "MAD",
+        region: "Europe Central Gateway",
+        status: "Ruta Express Activa",
+        isHQ: false,
+        time: "48 — 72 Horas",
+        courier: "DHL Express Priority",
+        location: [40.4168, -3.7038]
+      },
+      lon: {
+        city: "Londres, Reino Unido",
+        code: "LON",
+        region: "UK Direct Line",
+        status: "Ruta Express Activa",
+        isHQ: false,
+        time: "48 — 72 Horas",
+        courier: "DHL Express / FedEx",
+        location: [51.5074, -0.1278]
+      },
+      sao: {
+        city: "São Paulo, Brasil",
+        code: "GRU",
+        region: "LatAm South Hub",
+        status: "Ruta Directa Activa",
+        isHQ: false,
+        time: "24 — 48 Horas",
+        courier: "FedEx International Priority",
+        location: [-23.5505, -46.6333]
+      },
+      scl: {
+        city: "Santiago, Chile",
+        code: "SCL",
+        region: "LatAm Andes Line",
+        status: "Ruta Directa Activa",
+        isHQ: false,
+        time: "24 — 48 Horas",
+        courier: "DHL Express Direct",
+        location: [-33.4489, -70.6693]
+      },
+      tok: {
+        city: "Tokio, Japón",
+        code: "TYO",
+        region: "Asia Pacific Line",
+        status: "Ruta Express Activa",
+        isHQ: false,
+        time: "3 — 5 Días Hábiles",
+        courier: "DHL Express Worldwide",
+        location: [35.6762, 139.6503]
+      }
+    };
+
+    const markers = [
+      { location: [-34.6037, -58.3816], size: 0.06 }, // Buenos Aires HQ
+      { location: [25.7617, -80.1918], size: 0.035 },  // Miami
+      { location: [40.7128, -74.0060], size: 0.035 },  // NYC
+      { location: [40.4168, -3.7038], size: 0.035 },   // Madrid
+      { location: [51.5074, -0.1278], size: 0.035 },   // London
+      { location: [-23.5505, -46.6333], size: 0.035 }, // São Paulo
+      { location: [-33.4489, -70.6693], size: 0.035 }, // Santiago
+      { location: [35.6762, 139.6503], size: 0.035 },  // Tokyo
+    ];
+
+    const arcs = [
+      { from: [-34.6037, -58.3816], to: [25.7617, -80.1918] },
+      { from: [-34.6037, -58.3816], to: [40.7128, -74.0060] },
+      { from: [-34.6037, -58.3816], to: [40.4168, -3.7038] },
+      { from: [-34.6037, -58.3816], to: [51.5074, -0.1278] },
+      { from: [-34.6037, -58.3816], to: [-23.5505, -46.6333] },
+      { from: [-34.6037, -58.3816], to: [-33.4489, -70.6693] },
+      { from: [-34.6037, -58.3816], to: [35.6762, 139.6503] },
+    ];
+
+    const canvas = document.getElementById("dopamine-cobe-globe");
+    if (canvas) {
+      let phi = 0;
+      let phiOffset = 0;
+      let thetaOffset = 0;
+      let dragOffset = { phi: 0, theta: 0 };
+      let pointerInteracting = null;
+      let globe = null;
+
+      function initGlobe() {
+        const width = canvas.offsetWidth || 500;
+        if (globe || width === 0) return;
+
+        try {
+          globe = createGlobe(canvas, {
+            devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+            width: width * 2,
+            height: width * 2,
+            phi: 0,
+            theta: -0.35,
+            dark: 1,
+            diffuse: 1.4,
+            mapSamples: 16000,
+            mapBrightness: 8.5,
+            baseColor: [0.16, 0.16, 0.2],
+            markerColor: [0.0, 0.45, 0.95],
+            glowColor: [0.08, 0.22, 0.45],
+            markerElevation: 0,
+            markers: markers,
+            arcs: arcs,
+            arcColor: [0.16, 0.59, 1.0],
+            arcWidth: 0.6,
+            arcHeight: 0.35,
+            opacity: 0.85,
+            onRender: (state) => {
+              if (!pointerInteracting) {
+                phi += 0.003;
+              }
+              state.phi = phi + phiOffset + dragOffset.phi;
+              state.theta = -0.35 + thetaOffset + dragOffset.theta;
+            }
+          });
+          canvas.style.opacity = "1";
+        } catch (e) {
+          console.warn("Cobe Globe init fallback:", e);
+        }
+      }
+
+      canvas.addEventListener("pointerdown", (e) => {
+        pointerInteracting = { x: e.clientX, y: e.clientY };
+        canvas.style.cursor = "grabbing";
+      });
+
+      window.addEventListener("pointermove", (e) => {
+        if (pointerInteracting !== null) {
+          dragOffset.phi = (e.clientX - pointerInteracting.x) / 250;
+          dragOffset.theta = (e.clientY - pointerInteracting.y) / 750;
+        }
+      });
+
+      window.addEventListener("pointerup", () => {
+        if (pointerInteracting !== null) {
+          phiOffset += dragOffset.phi;
+          thetaOffset += dragOffset.theta;
+          dragOffset = { phi: 0, theta: 0 };
+        }
+        pointerInteracting = null;
+        canvas.style.cursor = "grab";
+      });
+
+      initGlobe();
+      const ro = new ResizeObserver(() => {
+        if (!globe && canvas.offsetWidth > 0) initGlobe();
+      });
+      ro.observe(canvas);
+    }
+
+    // Hub Switcher Tabs Logic
+    const tabButtons = document.querySelectorAll(".globe-tab-btn");
+    const titleEl = document.getElementById("globe-hub-title");
+    const codeEl = document.getElementById("globe-hub-code");
+    const regionEl = document.getElementById("globe-hub-region");
+    const statusEl = document.getElementById("globe-hub-status");
+    const timeEl = document.getElementById("globe-hub-time");
+    const courierEl = document.getElementById("globe-hub-courier");
+    const iconWrapEl = document.getElementById("globe-hub-icon");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const hubKey = btn.getAttribute("data-hub");
+        const data = HUB_DATA[hubKey];
+        if (!data) return;
+
+        if (titleEl && codeEl) {
+          titleEl.innerHTML = `${data.city} <span class="globe-dest-code" id="globe-hub-code">${data.code}</span>`;
+        }
+        if (regionEl) regionEl.textContent = data.region;
+        if (statusEl) {
+          statusEl.textContent = data.status;
+          if (data.isHQ) {
+            statusEl.className = "globe-dest-status-badge is-hq";
+          } else {
+            statusEl.className = "globe-dest-status-badge";
+          }
+        }
+        if (timeEl) timeEl.textContent = data.time;
+        if (courierEl) courierEl.textContent = data.courier;
+        if (iconWrapEl) {
+          if (data.isHQ) {
+            iconWrapEl.className = "globe-dest-icon-wrap is-hq";
+            iconWrapEl.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`;
+          } else {
+            iconWrapEl.className = "globe-dest-icon-wrap";
+            iconWrapEl.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>`;
+          }
+        }
+      });
+    });
+  </script>
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <script src="assets/js/mercadopago.js"></script>
 </body>
