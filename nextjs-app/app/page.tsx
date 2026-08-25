@@ -4,6 +4,7 @@ import {
   SparklesPreviewColorful,
 } from "@/components/demo/sparkles-demo";
 import { DemoOne } from "@/components/ui/demo";
+import { ShippingGlobeSection } from "@/components/ui/shipping-globe-section";
 
 export default function Home() {
   return (
@@ -42,6 +43,11 @@ export default function Home() {
           <SparklesPreviewColorful />
         </section>
       </div>
+
+      {/* Worldwide Shipping & Global Logistics Globe Section (Debajo de los productos antes del footer) */}
+      <section className="w-full">
+        <ShippingGlobeSection />
+      </section>
     </main>
   );
 }
