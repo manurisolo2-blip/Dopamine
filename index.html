@@ -108,12 +108,13 @@
   </style>
 </head>
 <body>
-  <!-- ===== DOPAMINE BRAND PRELOADER / SPLASH LOADER ===== -->
-  <div id="dopamine-preloader" class="dopamine-preloader" role="status" aria-live="polite" aria-label="Cargando Dopamine Streetwear">
+    <!-- ===== DOPAMINE BRAND PRELOADER / SPLASH LOADER ===== -->
+  <div id="dopamine-preloader" class="dopamine-preloader" role="status" aria-live="polite" aria-label="Cargando Dopamine Streetwear" data-i18n-aria-label="loader.aria_label">
     <span class="preloader-brand-title">DOPAMINE</span>
     <div class="preloader-progress-track" aria-hidden="true">
       <div class="preloader-progress-bar"></div>
     </div>
+  </div>
   </div>
 
   <!-- ===== HEADER (ROTTEN FUTURE FLOATING GLASS CAPSULE) ===== -->
@@ -1065,8 +1066,8 @@
         <div class="globe-container">
           <!-- Header -->
           <div class="globe-header">
-            <h2 class="globe-title">Desde Buenos Aires hacia el mundo</h2>
-            <p class="globe-subtitle">
+            <h2 class="globe-title" data-i18n="globe.title">Desde Buenos Aires hacia el mundo</h2>
+            <p class="globe-subtitle" data-i18n-html="globe.subtitle">
               Cada drop de <strong>DOPAMINE</strong> es confeccionado y despachado desde nuestro atelier central en Buenos Aires con cobertura prioritaria y tracking en tiempo real a más de 180 destinos.
             </p>
           </div>
@@ -1083,23 +1084,23 @@
               <!-- Active Hub Details -->
               <div class="globe-intel-card">
                 <div class="globe-intel-header">
-                  <h3 class="globe-intel-hub-name" id="globe-active-title">Buenos Aires, Argentina</h3>
-                  <p class="globe-intel-region" id="globe-active-region">Atelier Central & Global HQ</p>
+                  <h3 class="globe-intel-hub-name" id="globe-active-title" data-i18n="globe.hub_bue_city">Buenos Aires, Argentina</h3>
+                  <p class="globe-intel-region" id="globe-active-region" data-i18n="globe.hub_bue_region">Atelier Central & Global HQ</p>
                 </div>
 
                 <div class="globe-metrics-row">
                   <div class="globe-metric-cell">
-                    <div class="globe-metric-title">TIEMPO DE TRÁNSITO</div>
-                    <p class="globe-metric-data" id="globe-active-time">24 — 48 hs hábiles</p>
+                    <div class="globe-metric-title" data-i18n="globe.transit_label">TIEMPO DE TRÁNSITO</div>
+                    <p class="globe-metric-data" id="globe-active-time" data-i18n="globe.hub_bue_time">24 — 48 hs hábiles</p>
                   </div>
                   <div class="globe-metric-cell">
-                    <div class="globe-metric-title">COURIER ASIGNADO</div>
-                    <p class="globe-metric-data" id="globe-active-courier">Andreani Express / Envíos CABA</p>
+                    <div class="globe-metric-title" data-i18n="globe.courier_label">COURIER ASIGNADO</div>
+                    <p class="globe-metric-data" id="globe-active-courier" data-i18n="globe.hub_bue_courier">Andreani Express / Envíos CABA</p>
                   </div>
                 </div>
 
                 <div class="globe-intel-footer">
-                  <a href="contacto.html" class="globe-intel-link">
+                  <a href="contacto.html" class="globe-intel-link" data-i18n="globe.coverage_link">
                     Cobertura y tracking a 180+ países →
                   </a>
                 </div>
@@ -1107,13 +1108,13 @@
 
               <!-- Selector Tabs -->
               <div>
-                <p class="globe-hubs-menu-title">SELECCIONAR DESTINO:</p>
+                <p class="globe-hubs-menu-title" data-i18n="globe.select_destination">SELECCIONAR DESTINO:</p>
                 <div class="globe-hubs-grid" id="globe-hubs-container">
-                  <button type="button" class="globe-hub-pill active" data-hub-key="bue">Buenos Aires</button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="mia">Miami</button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="mad">Madrid</button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="lon">Londres</button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="tok">Tokio</button>
+                  <button type="button" class="globe-hub-pill active" data-hub-key="bue" data-i18n="globe.hub_bue_tab">Buenos Aires</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="mia" data-i18n="globe.hub_mia_tab">Miami</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="mad" data-i18n="globe.hub_mad_tab">Madrid</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="lon" data-i18n="globe.hub_lon_tab">Londres</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="tok" data-i18n="globe.hub_tok_tab">Tokio</button>
                 </div>
               </div>
             </div>
@@ -1125,32 +1126,32 @@
               <div class="globe-feature-icon-chip">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
               </div>
-              <h4 class="globe-feature-heading">Origen Buenos Aires</h4>
-              <p class="globe-feature-text">Diseño, confección y control de calidad riguroso en nuestro taller central argentino.</p>
+              <h4 class="globe-feature-heading" data-i18n="globe.feature_origin_title">Origen Buenos Aires</h4>
+              <p class="globe-feature-text" data-i18n="globe.feature_origin_desc">Diseño, confección y control de calidad riguroso en nuestro taller central argentino.</p>
             </div>
 
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
               </div>
-              <h4 class="globe-feature-heading">Despachos Express 48h</h4>
-              <p class="globe-feature-text">Alianzas con DHL Express y FedEx para entregas prioritarias en las principales capitales.</p>
+              <h4 class="globe-feature-heading" data-i18n="globe.feature_express_title">Despachos Express 48h</h4>
+              <p class="globe-feature-text" data-i18n="globe.feature_express_desc">Alianzas con DHL Express y FedEx para entregas prioritarias en las principales capitales.</p>
             </div>
 
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h4 class="globe-feature-heading">Tracking Satelital</h4>
-              <p class="globe-feature-text">Seguimiento en tiempo real vía WhatsApp y correo desde el minuto cero del despacho.</p>
+              <h4 class="globe-feature-heading" data-i18n="globe.feature_tracking_title">Tracking Satelital</h4>
+              <p class="globe-feature-text" data-i18n="globe.feature_tracking_desc">Seguimiento en tiempo real vía WhatsApp y correo desde el minuto cero del despacho.</p>
             </div>
 
             <div class="globe-feature-box">
               <div class="globe-feature-icon-chip">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
-              <h4 class="globe-feature-heading">Free Worldwide Shipping</h4>
-              <p class="globe-feature-text">Envío 100% bonificado en órdenes superiores a $150 USD o $120.000 ARS en todo el país.</p>
+              <h4 class="globe-feature-heading" data-i18n="globe.feature_shipping_title">Free Worldwide Shipping</h4>
+              <p class="globe-feature-text" data-i18n="globe.feature_shipping_desc">Envío 100% bonificado en órdenes superiores a $150 USD o $120.000 ARS en todo el país.</p>
             </div>
           </div>
         </div>
@@ -1448,59 +1449,79 @@
     (function() {
       const HUB_DATA = {
         bue: {
-          city: "Buenos Aires, Argentina",
+          key: "bue",
           code: "BUE",
-          region: "Atelier Central & Global HQ",
-          status: "CENTRO DE OPERACIONES",
           isHQ: true,
-          time: "24 — 48 hs hábiles",
-          courier: "Andreani Express / Envíos CABA",
           lat: -34.6037,
-          lon: -58.3816
+          lon: -58.3816,
+          cityKey: "globe.hub_bue_city",
+          regionKey: "globe.hub_bue_region",
+          timeKey: "globe.hub_bue_time",
+          courierKey: "globe.hub_bue_courier",
+          get city() { return (window.DopamineI18n ? window.DopamineI18n.t(this.cityKey) : "Buenos Aires, Argentina"); },
+          get region() { return (window.DopamineI18n ? window.DopamineI18n.t(this.regionKey) : "Atelier Central & Global HQ"); },
+          get time() { return (window.DopamineI18n ? window.DopamineI18n.t(this.timeKey) : "24 — 48 hs hábiles"); },
+          get courier() { return (window.DopamineI18n ? window.DopamineI18n.t(this.courierKey) : "Andreani Express / Envíos CABA"); }
         },
         mia: {
-          city: "Miami, Estados Unidos",
+          key: "mia",
           code: "MIA",
-          region: "North America Gateway",
-          status: "Ruta Express Activa",
           isHQ: false,
-          time: "3 — 5 días hábiles",
-          courier: "DHL Express Worldwide",
           lat: 25.7617,
-          lon: -80.1918
+          lon: -80.1918,
+          cityKey: "globe.hub_mia_city",
+          regionKey: "globe.hub_mia_region",
+          timeKey: "globe.hub_mia_time",
+          courierKey: "globe.hub_mia_courier",
+          get city() { return (window.DopamineI18n ? window.DopamineI18n.t(this.cityKey) : "Miami, Estados Unidos"); },
+          get region() { return (window.DopamineI18n ? window.DopamineI18n.t(this.regionKey) : "North America Gateway"); },
+          get time() { return (window.DopamineI18n ? window.DopamineI18n.t(this.timeKey) : "3 — 5 días hábiles"); },
+          get courier() { return (window.DopamineI18n ? window.DopamineI18n.t(this.courierKey) : "DHL Express Worldwide"); }
         },
         mad: {
-          city: "Madrid, España",
+          key: "mad",
           code: "MAD",
-          region: "Europe Central Gateway",
-          status: "Ruta Express Activa",
           isHQ: false,
-          time: "4 — 6 días hábiles",
-          courier: "DHL Express Priority",
           lat: 40.4168,
-          lon: -3.7038
+          lon: -3.7038,
+          cityKey: "globe.hub_mad_city",
+          regionKey: "globe.hub_mad_region",
+          timeKey: "globe.hub_mad_time",
+          courierKey: "globe.hub_mad_courier",
+          get city() { return (window.DopamineI18n ? window.DopamineI18n.t(this.cityKey) : "Madrid, España"); },
+          get region() { return (window.DopamineI18n ? window.DopamineI18n.t(this.regionKey) : "Europe Central Gateway"); },
+          get time() { return (window.DopamineI18n ? window.DopamineI18n.t(this.timeKey) : "4 — 6 días hábiles"); },
+          get courier() { return (window.DopamineI18n ? window.DopamineI18n.t(this.courierKey) : "DHL Express Priority"); }
         },
         lon: {
-          city: "Londres, Reino Unido",
+          key: "lon",
           code: "LON",
-          region: "UK & Northern Europe Hub",
-          status: "Ruta Express Activa",
           isHQ: false,
-          time: "4 — 6 días hábiles",
-          courier: "FedEx International Priority",
           lat: 51.5074,
-          lon: -0.1278
+          lon: -0.1278,
+          cityKey: "globe.hub_lon_city",
+          regionKey: "globe.hub_lon_region",
+          timeKey: "globe.hub_lon_time",
+          courierKey: "globe.hub_lon_courier",
+          get city() { return (window.DopamineI18n ? window.DopamineI18n.t(this.cityKey) : "Londres, Reino Unido"); },
+          get region() { return (window.DopamineI18n ? window.DopamineI18n.t(this.regionKey) : "UK & Northern Europe Hub"); },
+          get time() { return (window.DopamineI18n ? window.DopamineI18n.t(this.timeKey) : "4 — 6 días hábiles"); },
+          get courier() { return (window.DopamineI18n ? window.DopamineI18n.t(this.courierKey) : "FedEx International Priority"); }
         },
         tok: {
-          city: "Tokio, Japón",
+          key: "tok",
           code: "TYO",
-          region: "Asia-Pacific Gateway",
-          status: "Ruta Express Activa",
           isHQ: false,
-          time: "5 — 7 días hábiles",
-          courier: "DHL Express Worldwide",
           lat: 35.6762,
-          lon: 139.6503
+          lon: 139.6503,
+          cityKey: "globe.hub_tok_city",
+          regionKey: "globe.hub_tok_region",
+          timeKey: "globe.hub_tok_time",
+          courierKey: "globe.hub_tok_courier",
+          get city() { return (window.DopamineI18n ? window.DopamineI18n.t(this.cityKey) : "Tokio, Japón"); },
+          get region() { return (window.DopamineI18n ? window.DopamineI18n.t(this.regionKey) : "Asia-Pacific Gateway"); },
+          get time() { return (window.DopamineI18n ? window.DopamineI18n.t(this.timeKey) : "5 — 7 días hábiles"); },
+          get courier() { return (window.DopamineI18n ? window.DopamineI18n.t(this.courierKey) : "DHL Express Worldwide"); }
         }
       };
 
@@ -1835,26 +1856,54 @@
       window.addEventListener("pointerup", () => {
         isDragging = false;
       });
+      function updateActiveHubUI(key) {
+        const data = HUB_DATA[key];
+        if (!data) return;
+        const titleEl = document.getElementById("globe-active-title");
+        const regionEl = document.getElementById("globe-active-region");
+        const timeEl = document.getElementById("globe-active-time");
+        const courierEl = document.getElementById("globe-active-courier");
+
+        if (titleEl) {
+          titleEl.textContent = data.city;
+          titleEl.setAttribute("data-i18n", data.cityKey);
+        }
+        if (regionEl) {
+          regionEl.textContent = data.region;
+          regionEl.setAttribute("data-i18n", data.regionKey);
+        }
+        if (timeEl) {
+          timeEl.textContent = data.time;
+          timeEl.setAttribute("data-i18n", data.timeKey);
+        }
+        if (courierEl) {
+          courierEl.textContent = data.courier;
+          courierEl.setAttribute("data-i18n", data.courierKey);
+        }
+      }
+
       const tabButtons = document.querySelectorAll(".globe-hub-pill");
-      const titleEl = document.getElementById("globe-active-title");
-      const regionEl = document.getElementById("globe-active-region");
-      const timeEl = document.getElementById("globe-active-time");
-      const courierEl = document.getElementById("globe-active-courier");
       tabButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           tabButtons.forEach((b) => b.classList.remove("active"));
           btn.classList.add("active");
           const key = btn.getAttribute("data-hub-key");
           activeHubKey = key;
+          updateActiveHubUI(key);
           const data = HUB_DATA[key];
-          if (!data) return;
-          if (titleEl) titleEl.textContent = data.city;
-          if (regionEl) regionEl.textContent = data.region;
-          if (timeEl) timeEl.textContent = data.time;
-          if (courierEl) courierEl.textContent = data.courier;
-          const targetLon = -data.lon * DEG2RAD;
-          velY = (targetLon - rotY) * 0.06;
+          if (data) {
+            const targetLon = -data.lon * DEG2RAD;
+            velY = (targetLon - rotY) * 0.06;
+          }
         });
+      });
+
+      // React to language toggle dynamically
+      document.addEventListener("dopamine:langchange", () => {
+        updateActiveHubUI(activeHubKey);
+      });
+      document.addEventListener("dopamine:languageChange", () => {
+        updateActiveHubUI(activeHubKey);
       });
       requestAnimationFrame(draw);
     })();

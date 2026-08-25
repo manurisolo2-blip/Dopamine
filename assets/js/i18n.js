@@ -123,6 +123,59 @@
       'story.stat3_label': 'HEADQUARTERS',
       'story.stat3_desc': 'Diseñado y desarrollado en nuestro atelier en Buenos Aires',
 
+            // Worldwide Shipping & 3D Logistics Globe Section
+      'globe.title': 'Desde Buenos Aires hacia el mundo',
+      'globe.subtitle': 'Cada drop de <strong>DOPAMINE</strong> es confeccionado y despachado desde nuestro atelier central en Buenos Aires con cobertura prioritaria y tracking en tiempo real a más de 180 destinos.',
+      'globe.transit_label': 'TIEMPO DE TRÁNSITO',
+      'globe.courier_label': 'COURIER ASIGNADO',
+      'globe.coverage_link': 'Cobertura y tracking a 180+ países →',
+      'globe.select_destination': 'SELECCIONAR DESTINO:',
+
+      // Hubs - Short Names (Tabs)
+      'globe.hub_bue_tab': 'Buenos Aires',
+      'globe.hub_mia_tab': 'Miami',
+      'globe.hub_mad_tab': 'Madrid',
+      'globe.hub_lon_tab': 'Londres',
+      'globe.hub_tok_tab': 'Tokio',
+
+      // Hubs - Full City Names
+      'globe.hub_bue_city': 'Buenos Aires, Argentina',
+      'globe.hub_mia_city': 'Miami, Estados Unidos',
+      'globe.hub_mad_city': 'Madrid, España',
+      'globe.hub_lon_city': 'Londres, Reino Unido',
+      'globe.hub_tok_city': 'Tokio, Japón',
+
+      // Hubs - Regions
+      'globe.hub_bue_region': 'Atelier Central & Global HQ',
+      'globe.hub_mia_region': 'North America Gateway',
+      'globe.hub_mad_region': 'Europe Central Gateway',
+      'globe.hub_lon_region': 'UK & Northern Europe Hub',
+      'globe.hub_tok_region': 'Asia-Pacific Gateway',
+
+      // Hubs - Transit Times
+      'globe.hub_bue_time': '24 — 48 hs hábiles',
+      'globe.hub_mia_time': '3 — 5 días hábiles',
+      'globe.hub_mad_time': '4 — 6 días hábiles',
+      'globe.hub_lon_time': '4 — 6 días hábiles',
+      'globe.hub_tok_time': '5 — 7 días hábiles',
+
+      // Hubs - Couriers
+      'globe.hub_bue_courier': 'Andreani Express / Envíos CABA',
+      'globe.hub_mia_courier': 'DHL Express Worldwide',
+      'globe.hub_mad_courier': 'DHL Express Priority',
+      'globe.hub_lon_courier': 'FedEx International Priority',
+      'globe.hub_tok_courier': 'DHL Express Worldwide',
+
+      // Feature Cards (4 Items)
+      'globe.feature_origin_title': 'Origen Buenos Aires',
+      'globe.feature_origin_desc': 'Diseño, confección y control de calidad riguroso en nuestro taller central argentino.',
+      'globe.feature_express_title': 'Despachos Express 48h',
+      'globe.feature_express_desc': 'Alianzas con DHL Express y FedEx para entregas prioritarias en las principales capitales.',
+      'globe.feature_tracking_title': 'Tracking Satelital',
+      'globe.feature_tracking_desc': 'Seguimiento en tiempo real vía WhatsApp y correo desde el minuto cero del despacho.',
+      'globe.feature_shipping_title': 'Free Worldwide Shipping',
+      'globe.feature_shipping_desc': 'Envío 100% bonificado en órdenes superiores a $150 USD o $120.000 ARS en todo el país.',
+
       // Benefits Bar
       'benefits.shipping': 'ENVÍO GRATIS MUNDIAL +$100',
       'benefits.quality': 'CALIDAD PREMIUM GARANTIZADA',
@@ -606,6 +659,59 @@
       'story.stat2_desc': 'Limited release per drop. No restocks',
       'story.stat3_label': 'HEADQUARTERS',
       'story.stat3_desc': 'Designed and tailored at our atelier in Buenos Aires',
+
+            // Worldwide Shipping & 3D Logistics Globe Section
+      'globe.title': 'From Buenos Aires to the World',
+      'globe.subtitle': 'Every <strong>DOPAMINE</strong> drop is crafted and dispatched from our central atelier in Buenos Aires with priority coverage and real-time tracking to over 180 destinations.',
+      'globe.transit_label': 'TRANSIT TIME',
+      'globe.courier_label': 'ASSIGNED COURIER',
+      'globe.coverage_link': 'Worldwide coverage & tracking to 180+ countries →',
+      'globe.select_destination': 'SELECT DESTINATION:',
+
+      // Hubs - Short Names (Tabs)
+      'globe.hub_bue_tab': 'Buenos Aires',
+      'globe.hub_mia_tab': 'Miami',
+      'globe.hub_mad_tab': 'Madrid',
+      'globe.hub_lon_tab': 'London',
+      'globe.hub_tok_tab': 'Tokyo',
+
+      // Hubs - Full City Names
+      'globe.hub_bue_city': 'Buenos Aires, Argentina',
+      'globe.hub_mia_city': 'Miami, United States',
+      'globe.hub_mad_city': 'Madrid, Spain',
+      'globe.hub_lon_city': 'London, United Kingdom',
+      'globe.hub_tok_city': 'Tokyo, Japan',
+
+      // Hubs - Regions
+      'globe.hub_bue_region': 'Central Atelier & Global HQ',
+      'globe.hub_mia_region': 'North America Gateway',
+      'globe.hub_mad_region': 'Europe Central Gateway',
+      'globe.hub_lon_region': 'UK & Northern Europe Hub',
+      'globe.hub_tok_region': 'Asia-Pacific Gateway',
+
+      // Hubs - Transit Times
+      'globe.hub_bue_time': '24 — 48 business hours',
+      'globe.hub_mia_time': '3 — 5 business days',
+      'globe.hub_mad_time': '4 — 6 business days',
+      'globe.hub_lon_time': '4 — 6 business days',
+      'globe.hub_tok_time': '5 — 7 business days',
+
+      // Hubs - Couriers
+      'globe.hub_bue_courier': 'Andreani Express / CABA Delivery',
+      'globe.hub_mia_courier': 'DHL Express Worldwide',
+      'globe.hub_mad_courier': 'DHL Express Priority',
+      'globe.hub_lon_courier': 'FedEx International Priority',
+      'globe.hub_tok_courier': 'DHL Express Worldwide',
+
+      // Feature Cards (4 Items)
+      'globe.feature_origin_title': 'Buenos Aires Origin',
+      'globe.feature_origin_desc': 'Rigorous design, tailoring, and quality control at our central atelier in Argentina.',
+      'globe.feature_express_title': '48h Express Dispatch',
+      'globe.feature_express_desc': 'Strategic alliances with DHL Express and FedEx for priority deliveries to major global capitals.',
+      'globe.feature_tracking_title': 'Satellite Tracking',
+      'globe.feature_tracking_desc': 'Real-time tracking via WhatsApp and email from the exact moment of dispatch.',
+      'globe.feature_shipping_title': 'Free Worldwide Shipping',
+      'globe.feature_shipping_desc': '100% complimentary shipping on orders over $150 USD or $120,000 ARS nationwide.',
 
       // Benefits Bar
       'benefits.shipping': 'FREE WORLDWIDE SHIPPING OVER $100',
