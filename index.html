@@ -408,17 +408,17 @@
       <!-- ===== SCROLL TEXT REVEAL BANNER ===== -->
       <section class="scroll-text-section section-padding" id="reward-system">
         <div class="container text-center">
-          <h2 class="scroll-reveal-headline" data-scroll-reveal-text>
+          <h2 class="scroll-reveal-headline" data-scroll-reveal-text id="scroll-reveal-text">
             <span class="reveal-line">
-              <span class="char-span">U</span><span class="char-span">N</span><span class="char-span">L</span><span class="char-span">E</span><span class="char-span">A</span><span class="char-span">S</span><span class="char-span">H</span><span class="char-span">I</span><span class="char-span">N</span><span class="char-span">G</span> 
-              <span class="char-span">T</span><span class="char-span">H</span><span class="char-span">E</span> 
-              <span class="char-span">R</span><span class="char-span">E</span><span class="char-span">W</span><span class="char-span">A</span><span class="char-span">R</span><span class="char-span">D</span> 
-              <span class="char-span">S</span><span class="char-span">Y</span><span class="char-span">S</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">M</span>
+              <span class="reveal-word"><span class="char-span">U</span><span class="char-span">N</span><span class="char-span">L</span><span class="char-span">E</span><span class="char-span">A</span><span class="char-span">S</span><span class="char-span">H</span><span class="char-span">I</span><span class="char-span">N</span><span class="char-span">G</span></span>
+              <span class="reveal-word"><span class="char-span">T</span><span class="char-span">H</span><span class="char-span">E</span></span>
+              <span class="reveal-word"><span class="char-span">R</span><span class="char-span">E</span><span class="char-span">W</span><span class="char-span">A</span><span class="char-span">R</span><span class="char-span">D</span></span>
+              <span class="reveal-word"><span class="char-span">S</span><span class="char-span">Y</span><span class="char-span">S</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">M</span></span>
             </span>
             <span class="reveal-line reveal-interactive">
-              <span class="char-span">A</span><span class="char-span">C</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">V</span><span class="char-span">A</span><span class="char-span">T</span><span class="char-span">E</span> 
-              <span class="char-span">Y</span><span class="char-span">O</span><span class="char-span">U</span><span class="char-span">R</span> 
-              <span class="char-span">P</span><span class="char-span">O</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">N</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">A</span><span class="char-span">L</span>
+              <span class="reveal-word"><span class="char-span">A</span><span class="char-span">C</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">V</span><span class="char-span">A</span><span class="char-span">T</span><span class="char-span">E</span></span>
+              <span class="reveal-word"><span class="char-span">Y</span><span class="char-span">O</span><span class="char-span">U</span><span class="char-span">R</span></span>
+              <span class="reveal-word"><span class="char-span">P</span><span class="char-span">O</span><span class="char-span">T</span><span class="char-span">E</span><span class="char-span">N</span><span class="char-span">T</span><span class="char-span">I</span><span class="char-span">A</span><span class="char-span">L</span></span>
             </span>
           </h2>
         </div>
@@ -441,10 +441,10 @@
             position: relative;
             background-color: var(--bg-primary, #0A0A0C);
             color: var(--text-primary, #ffffff);
-            padding: 96px 24px;
+            padding: clamp(64px, 8vw, 96px) clamp(16px, 3vw, 24px);
             border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
             border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            overflow: hidden;
+            overflow: visible;
             z-index: 10;
             transition: background-color var(--transition-theme, 400ms ease), color var(--transition-theme, 400ms ease), border-color var(--transition-theme, 400ms ease);
           }
@@ -453,16 +453,17 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           }
           .brand-story-container {
-            max-width: 1200px;
+            max-width: 1280px;
+            width: 100%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 56px;
+            gap: clamp(36px, 5vw, 56px);
           }
           .brand-story-header-grid {
             display: grid;
-            grid-template-columns: 1fr 1.15fr;
-            gap: 48px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: clamp(2rem, 4vw, 3.5rem);
             align-items: start;
           }
           .brand-story-title-col {
@@ -482,14 +483,16 @@
             color: #2997ff;
           }
           .brand-story-title {
-            font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-heading, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: clamp(32px, 3.8vw, 44px);
             font-weight: 700;
-            line-height: 1.08;
+            line-height: 1.18;
             letter-spacing: -0.025em;
             text-transform: uppercase;
             color: var(--text-primary, #ffffff);
             margin: 0;
+            padding-top: 4px;
+            overflow: visible;
           }
           [data-theme="light"] .brand-story-title {
             color: #1d1d1f;
@@ -503,7 +506,7 @@
             font-weight: 500;
             letter-spacing: 0.06em;
             color: var(--text-muted, #8E8E93);
-            margin-top: 6px;
+            margin-top: 4px;
           }
           .location-pulse {
             width: 6px;
@@ -516,13 +519,13 @@
           .brand-story-narrative-col {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
           }
           .brand-story-lead {
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 18px;
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
+            font-size: clamp(16px, 1.8vw, 18px);
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.6;
             letter-spacing: -0.015em;
             color: var(--text-primary, #ffffff);
             margin: 0;
@@ -531,10 +534,10 @@
             color: #1d1d1f;
           }
           .brand-story-body {
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 16px;
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
+            font-size: clamp(14px, 1.5vw, 15px);
             font-weight: 400;
-            line-height: 1.55;
+            line-height: 1.65;
             letter-spacing: -0.01em;
             color: var(--text-muted, #8E8E93);
             margin: 0;
@@ -545,28 +548,28 @@
           .brand-story-stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: clamp(16px, 2.5vw, 24px);
           }
           .brand-story-stats-grid .stat-card {
             background-color: var(--bg-secondary, #141418);
             border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
             border-radius: var(--radius-card, 18px);
-            padding: 32px 28px;
+            padding: clamp(24px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
             display: flex;
             flex-direction: column;
             gap: 8px;
             transition: transform 250ms ease, border-color 250ms ease, background-color var(--transition-theme, 400ms ease);
           }
           [data-theme="light"] .brand-story-stats-grid .stat-card {
-            background-color: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background-color: #f5f5f7;
+            border: 1px solid rgba(0, 0, 0, 0.06);
           }
           .brand-story-stats-grid .stat-card:hover {
             transform: translateY(-2px);
             border-color: rgba(255, 255, 255, 0.18);
           }
           [data-theme="light"] .brand-story-stats-grid .stat-card:hover {
-            border-color: rgba(0, 0, 0, 0.16);
+            border-color: rgba(0, 0, 0, 0.14);
           }
           .stat-card-header {
             display: flex;
@@ -575,7 +578,7 @@
             margin-bottom: 4px;
           }
           .brand-story-stats-grid .stat-number {
-            font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-heading, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: clamp(34px, 3.2vw, 42px);
             font-weight: 700;
             line-height: 1;
@@ -604,7 +607,7 @@
             color: #6e6e73;
           }
           .brand-story-stats-grid .stat-label {
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -616,7 +619,7 @@
             color: #2997ff;
           }
           .brand-story-stats-grid .stat-desc {
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: 14px;
             line-height: 1.45;
             color: var(--text-muted, #8E8E93);
@@ -661,7 +664,7 @@
           <div class="brand-story-header-grid">
             <div class="brand-story-title-col">
               <span class="brand-story-eyebrow">// ATELIER & MANIFIESTO</span>
-              <h2 class="section-title brand-story-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
+              <h2 class="brand-story-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
               <div class="brand-story-location-tag">
                 <span class="location-pulse"></span>
                 <span>BUENOS AIRES, ARGENTINA</span>

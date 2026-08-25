@@ -91,33 +91,14 @@
   // 1.5. HEADER SCROLL & ADAPTIVE LIQUID GLASS ENGINE
   // ============================================================
   function initHeaderScroll() {
-    const header = document.getElementById('site-header');
+    const header = document.getElementById('site-header') || document.getElementById('header');
     if (!header) return;
-
-    const heroSection = document.querySelector('.hero-video-section, .hero-section');
-    const sheetCover = document.querySelector('.hero-sheet-cover');
-
-    if (!heroSection) {
-      // On sub-pages without a hero video (e.g. catalog, cart, login), enable liquid glass by default
-      header.classList.add('has-glass');
-    }
 
     let ticking = false;
     function updateHeader() {
-      if (sheetCover && heroSection) {
-        // Calculate exact point where the rising sheet cover touches/overlaps the header
-        const headerRect = header.getBoundingClientRect();
-        const sheetRect = sheetCover.getBoundingClientRect();
-        
-        // Active ONLY when the rising background curtain reaches and covers the header
-        const isCoveringHeader = sheetRect.top <= (headerRect.bottom || 80);
-        header.classList.toggle('is-scrolled', isCoveringHeader);
-      } else if (!heroSection) {
-        header.classList.add('has-glass');
-      } else {
-        const threshold = window.innerHeight - 80;
-        header.classList.toggle('is-scrolled', window.scrollY >= threshold);
-      }
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const isScrolled = scrollY > 15;
+      header.classList.toggle('is-scrolled', isScrolled);
       ticking = false;
     }
 
