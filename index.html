@@ -500,21 +500,13 @@
           .brand-story-location-tag {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
             font-family: var(--ff-mono, monospace);
             font-size: 11px;
             font-weight: 500;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             color: var(--text-muted, #8E8E93);
             margin-top: 4px;
-          }
-          .location-pulse {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #34c759;
-            box-shadow: 0 0 8px rgba(52, 199, 89, 0.6);
-            display: inline-block;
           }
           .brand-story-narrative-col {
             display: flex;
@@ -571,12 +563,6 @@
           [data-theme="light"] .brand-story-stats-grid .stat-card:hover {
             border-color: rgba(0, 0, 0, 0.14);
           }
-          .stat-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-          }
           .brand-story-stats-grid .stat-number {
             font-family: var(--ff-heading, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: clamp(34px, 3.2vw, 42px);
@@ -584,27 +570,10 @@
             line-height: 1;
             letter-spacing: -0.03em;
             color: var(--text-primary, #ffffff);
-            margin: 0;
+            margin: 0 0 6px 0;
           }
           [data-theme="light"] .brand-story-stats-grid .stat-number {
             color: #1d1d1f;
-          }
-          .stat-card-badge {
-            font-family: var(--ff-mono, monospace);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted, #8E8E93);
-          }
-          [data-theme="light"] .brand-story-stats-grid .stat-card-badge {
-            background: rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            color: #6e6e73;
           }
           .brand-story-stats-grid .stat-label {
             font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
@@ -663,10 +632,9 @@
         <div class="container brand-story-container">
           <div class="brand-story-header-grid">
             <div class="brand-story-title-col">
-              <span class="brand-story-eyebrow">// ATELIER & MANIFIESTO</span>
+              <span class="brand-story-eyebrow">ATELIER & MANIFIESTO</span>
               <h2 class="brand-story-title" data-i18n="story.title">NUESTRA HISTORIA</h2>
               <div class="brand-story-location-tag">
-                <span class="location-pulse"></span>
                 <span>BUENOS AIRES, ARGENTINA</span>
               </div>
             </div>
@@ -677,26 +645,17 @@
           </div>
           <div class="brand-story-stats-grid">
             <div class="stat-card">
-              <div class="stat-card-header">
-                <h3 class="stat-number">450</h3>
-                <span class="stat-card-badge">HEAVYWEIGHT</span>
-              </div>
+              <h3 class="stat-number">450</h3>
               <p class="stat-label" data-i18n="story.stat1_label">GSM COTTON</p>
               <p class="stat-desc" data-i18n="story.stat1_desc">Algodón de peso pesado, estructurado y duradero</p>
             </div>
             <div class="stat-card">
-              <div class="stat-card-header">
-                <h3 class="stat-number">120</h3>
-                <span class="stat-card-badge">DROP 01</span>
-              </div>
+              <h3 class="stat-number">120</h3>
               <p class="stat-label" data-i18n="story.stat2_label">LIMITED PIECES</p>
               <p class="stat-desc" data-i18n="story.stat2_desc">Ediciones limitadas por drop. No hacemos restocks</p>
             </div>
             <div class="stat-card">
-              <div class="stat-card-header">
-                <h3 class="stat-number">BA</h3>
-                <span class="stat-card-badge">ATELIER</span>
-              </div>
+              <h3 class="stat-number">BA</h3>
               <p class="stat-label" data-i18n="story.stat3_label">HEADQUARTERS</p>
               <p class="stat-desc" data-i18n="story.stat3_desc">Diseñado y desarrollado en nuestro atelier en Buenos Aires</p>
             </div>
