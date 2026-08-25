@@ -29,24 +29,18 @@ export interface GlobeBarsProps {
 }
 
 export const defaultMarkers: BarMarker[] = [
-  { id: "hq-bue", location: [-34.6037, -58.3816], value: 100, label: "HQ / BUENOS AIRES", isHQ: true },
-  { id: "bar-nyc", location: [40.7128, -74.0060], value: 92, label: "NEW YORK" },
+  { id: "hq-bue", location: [-34.6037, -58.3816], value: 100, label: "BUENOS AIRES (HQ)", isHQ: true },
+  { id: "bar-mia", location: [25.7617, -80.1918], value: 95, label: "MIAMI" },
   { id: "bar-mad", location: [40.4168, -3.7038], value: 88, label: "MADRID" },
   { id: "bar-lon", location: [51.5074, -0.1278], value: 85, label: "LONDON" },
   { id: "bar-tok", location: [35.6762, 139.6503], value: 78, label: "TOKYO" },
-  { id: "bar-mia", location: [25.7617, -80.1918], value: 95, label: "MIAMI" },
-  { id: "bar-sao", location: [-23.5505, -46.6333], value: 90, label: "SÃO PAULO" },
-  { id: "bar-scl", location: [-33.4489, -70.6693], value: 86, label: "SANTIAGO" },
 ]
 
 export const defaultArcs: GlobeArc[] = [
-  { from: [-34.6037, -58.3816], to: [40.7128, -74.0060] },
+  { from: [-34.6037, -58.3816], to: [25.7617, -80.1918] },
   { from: [-34.6037, -58.3816], to: [40.4168, -3.7038] },
   { from: [-34.6037, -58.3816], to: [51.5074, -0.1278] },
   { from: [-34.6037, -58.3816], to: [35.6762, 139.6503] },
-  { from: [-34.6037, -58.3816], to: [25.7617, -80.1918] },
-  { from: [-34.6037, -58.3816], to: [-23.5505, -46.6333] },
-  { from: [-34.6037, -58.3816], to: [-33.4489, -70.6693] },
 ]
 
 export function GlobeBars({

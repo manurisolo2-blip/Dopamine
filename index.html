@@ -800,12 +800,12 @@
           .globe-canvas:active {
             cursor: grabbing;
           }
-          /* Intel Panel & Floating Content */
+          /* Intel Panel & Minimalist Floating Content */
           .globe-intel-panel {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 28px;
+            gap: 32px;
           }
           .globe-intel-card {
             background: transparent;
@@ -825,37 +825,20 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           }
           .globe-intel-hub-name {
-            font-family: var(--ff-heading, 'Space Grotesk', sans-serif);
-            font-size: 24px;
+            font-family: var(--ff-heading, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
+            font-size: 26px;
             font-weight: 700;
-            letter-spacing: -0.015em;
+            letter-spacing: -0.02em;
             color: var(--text-primary, #ffffff);
             margin: 0;
             display: flex;
             align-items: center;
-            gap: 12px;
           }
           [data-theme="light"] .globe-intel-hub-name {
             color: #1d1d1f;
           }
-          .globe-intel-code {
-            font-family: var(--ff-mono, monospace);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 2px 8px;
-            background: transparent;
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.16));
-            border-radius: 6px;
-            color: #2997ff;
-            letter-spacing: 0.05em;
-          }
-          [data-theme="light"] .globe-intel-code {
-            border-color: rgba(0, 102, 204, 0.3);
-            color: #0066cc;
-            background: transparent;
-          }
           .globe-intel-region {
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: 14px;
             color: var(--text-muted, #8E8E93);
             margin-top: 6px;
@@ -869,7 +852,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
-            margin: 20px 0;
+            margin: 24px 0 16px 0;
           }
           .globe-metric-cell {
             background: transparent;
@@ -881,18 +864,19 @@
             border: none;
           }
           .globe-metric-title {
-            font-family: var(--ff-mono, monospace);
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif);
             font-size: 11px;
+            font-weight: 600;
             color: var(--text-muted, #8E8E93);
             margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
           }
           [data-theme="light"] .globe-metric-title {
             color: #86868b;
           }
           .globe-metric-data {
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
             font-size: 17px;
             font-weight: 600;
             letter-spacing: -0.01em;
@@ -902,27 +886,13 @@
           [data-theme="light"] .globe-metric-data {
             color: #1d1d1f;
           }
-          /* Intel Footer */
+          /* Intel Footer Link */
           .globe-intel-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
-            font-size: 13px;
-            color: var(--text-muted, #8E8E93);
-            padding-top: 8px;
-          }
-          [data-theme="light"] .globe-intel-footer {
-            color: #6e6e73;
-          }
-          .globe-intel-footer strong {
-            color: var(--text-primary, #ffffff);
-            font-weight: 600;
-          }
-          [data-theme="light"] .globe-intel-footer strong {
-            color: #1d1d1f;
+            padding-top: 4px;
           }
           .globe-intel-link {
+            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-size: 13px;
             color: #2997ff;
             font-weight: 600;
             text-decoration: none;
@@ -941,12 +911,13 @@
           }
           /* Hub Selector Pills */
           .globe-hubs-menu-title {
-            font-family: var(--ff-mono, monospace);
-            font-size: 11px;
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif);
+            font-size: 12px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             color: var(--text-muted, #8E8E93);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
           }
           [data-theme="light"] .globe-hubs-menu-title {
             color: #86868b;
@@ -957,18 +928,22 @@
             gap: 8px;
           }
           .globe-hub-pill {
+            appearance: none;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
             color: var(--text-muted, #8E8E93);
-            padding: 8px 15px;
+            padding: 8px 18px;
             border-radius: 9999px;
-            font-family: var(--ff-body, 'Space Grotesk', sans-serif);
+            font-family: var(--ff-body, 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif);
             font-size: 13px;
             font-weight: 500;
+            letter-spacing: 0.01em;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            white-space: nowrap;
+            user-select: none;
             transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                         color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                         border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
@@ -983,13 +958,14 @@
           .globe-hub-pill:hover {
             background: rgba(255, 255, 255, 0.08);
             color: var(--text-primary, #ffffff);
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.22);
             transform: translateY(-1px);
           }
           [data-theme="light"] .globe-hub-pill:hover {
             background: rgba(0, 0, 0, 0.06);
-            color: #000000;
+            color: #1d1d1f;
             border-color: rgba(0, 0, 0, 0.16);
+            transform: translateY(-1px);
           }
           .globe-hub-pill:active {
             transform: scale(0.96);
@@ -1001,10 +977,8 @@
             font-weight: 600;
             box-shadow: 0 2px 12px rgba(0, 102, 204, 0.35);
           }
-          .globe-hub-pill .hub-code-mono {
-            font-family: var(--ff-mono, monospace);
-            font-size: 11px;
-            opacity: 0.8;
+          [data-theme="light"] .globe-hub-pill.active {
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.25);
           }
           /* 4 Clean Feature Items (Floating with zero background) */
           .globe-features-grid {
@@ -1109,44 +1083,37 @@
               <!-- Active Hub Details -->
               <div class="globe-intel-card">
                 <div class="globe-intel-header">
-                  <h3 class="globe-intel-hub-name" id="globe-active-title">
-                    Buenos Aires, Argentina
-                    <span class="globe-intel-code" id="globe-active-code">BUE</span>
-                  </h3>
+                  <h3 class="globe-intel-hub-name" id="globe-active-title">Buenos Aires, Argentina</h3>
                   <p class="globe-intel-region" id="globe-active-region">Atelier Central & Global HQ</p>
                 </div>
 
                 <div class="globe-metrics-row">
                   <div class="globe-metric-cell">
-                    <div class="globe-metric-title">Tiempo de Tránsito</div>
-                    <p class="globe-metric-data" id="globe-active-time">Despacho Inmediato</p>
+                    <div class="globe-metric-title">TIEMPO DE TRÁNSITO</div>
+                    <p class="globe-metric-data" id="globe-active-time">24 — 48 hs hábiles</p>
                   </div>
                   <div class="globe-metric-cell">
-                    <div class="globe-metric-title">Courier Certificado</div>
-                    <p class="globe-metric-data" id="globe-active-courier">DHL Express / FedEx</p>
+                    <div class="globe-metric-title">COURIER ASIGNADO</div>
+                    <p class="globe-metric-data" id="globe-active-courier">Andreani Express / Envíos CABA</p>
                   </div>
                 </div>
 
                 <div class="globe-intel-footer">
-                  <span>Frecuencia: <strong>Despacho Diario 24/7</strong></span>
                   <a href="contacto.html" class="globe-intel-link">
-                    Cobertura 180+ países →
+                    Cobertura y tracking a 180+ países →
                   </a>
                 </div>
               </div>
 
               <!-- Selector Tabs -->
               <div>
-                <p class="globe-hubs-menu-title">Seleccionar Hub de Destino:</p>
+                <p class="globe-hubs-menu-title">SELECCIONAR DESTINO:</p>
                 <div class="globe-hubs-grid" id="globe-hubs-container">
-                  <button type="button" class="globe-hub-pill active" data-hub-key="bue">Buenos Aires <span class="hub-code-mono">(BUE)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="mia">Miami <span class="hub-code-mono">(MIA)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="nyc">Nueva York <span class="hub-code-mono">(NYC)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="mad">Madrid <span class="hub-code-mono">(MAD)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="lon">Londres <span class="hub-code-mono">(LON)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="sao">São Paulo <span class="hub-code-mono">(GRU)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="scl">Santiago <span class="hub-code-mono">(SCL)</span></button>
-                  <button type="button" class="globe-hub-pill" data-hub-key="tok">Tokio <span class="hub-code-mono">(TYO)</span></button>
+                  <button type="button" class="globe-hub-pill active" data-hub-key="bue">Buenos Aires</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="mia">Miami</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="mad">Madrid</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="lon">Londres</button>
+                  <button type="button" class="globe-hub-pill" data-hub-key="tok">Tokio</button>
                 </div>
               </div>
             </div>
@@ -1486,8 +1453,8 @@
           region: "Atelier Central & Global HQ",
           status: "CENTRO DE OPERACIONES",
           isHQ: true,
-          time: "Despacho Inmediato",
-          courier: "DHL Express / FedEx",
+          time: "24 — 48 hs hábiles",
+          courier: "Andreani Express / Envíos CABA",
           lat: -34.6037,
           lon: -58.3816
         },
@@ -1497,21 +1464,10 @@
           region: "North America Gateway",
           status: "Ruta Express Activa",
           isHQ: false,
-          time: "24 — 48 Horas",
-          courier: "DHL Express Priority",
+          time: "3 — 5 días hábiles",
+          courier: "DHL Express Worldwide",
           lat: 25.7617,
           lon: -80.1918
-        },
-        nyc: {
-          city: "Nueva York, Estados Unidos",
-          code: "NYC",
-          region: "East Coast Hub",
-          status: "Ruta Express Activa",
-          isHQ: false,
-          time: "48 — 72 Horas",
-          courier: "DHL Express / FedEx",
-          lat: 40.7128,
-          lon: -74.0060
         },
         mad: {
           city: "Madrid, España",
@@ -1519,7 +1475,7 @@
           region: "Europe Central Gateway",
           status: "Ruta Express Activa",
           isHQ: false,
-          time: "48 — 72 Horas",
+          time: "4 — 6 días hábiles",
           courier: "DHL Express Priority",
           lat: 40.4168,
           lon: -3.7038
@@ -1527,43 +1483,21 @@
         lon: {
           city: "Londres, Reino Unido",
           code: "LON",
-          region: "UK Direct Line",
+          region: "UK & Northern Europe Hub",
           status: "Ruta Express Activa",
           isHQ: false,
-          time: "48 — 72 Horas",
-          courier: "DHL Express / FedEx",
+          time: "4 — 6 días hábiles",
+          courier: "FedEx International Priority",
           lat: 51.5074,
           lon: -0.1278
-        },
-        sao: {
-          city: "São Paulo, Brasil",
-          code: "GRU",
-          region: "LatAm South Hub",
-          status: "Ruta Directa Activa",
-          isHQ: false,
-          time: "24 — 48 Horas",
-          courier: "FedEx International Priority",
-          lat: -23.5505,
-          lon: -46.6333
-        },
-        scl: {
-          city: "Santiago, Chile",
-          code: "SCL",
-          region: "LatAm Andes Line",
-          status: "Ruta Directa Activa",
-          isHQ: false,
-          time: "24 — 48 Horas",
-          courier: "DHL Express Direct",
-          lat: -33.4489,
-          lon: -70.6693
         },
         tok: {
           city: "Tokio, Japón",
           code: "TYO",
-          region: "Asia Pacific Line",
+          region: "Asia-Pacific Gateway",
           status: "Ruta Express Activa",
           isHQ: false,
-          time: "3 — 5 Días Hábiles",
+          time: "5 — 7 días hábiles",
           courier: "DHL Express Worldwide",
           lat: 35.6762,
           lon: 139.6503
@@ -1866,13 +1800,16 @@
             ctx.beginPath();
             ctx.arc(p.x, p.y, isHQ ? 4 : (isActive ? 3.5 : 2.5), 0, Math.PI * 2);
             ctx.fill();
-            ctx.font = "600 10px 'JetBrains Mono', monospace";
-            if (isLight) {
-              ctx.fillStyle = isHQ ? "#0066cc" : (isActive ? "#1d1d1f" : "rgba(0,0,0,0.5)");
-            } else {
-              ctx.fillStyle = isHQ ? "#2997ff" : (isActive ? "#ffffff" : "rgba(255,255,255,0.6)");
+            if (isHQ || isActive) {
+              ctx.font = "600 10px 'Space Grotesk', -apple-system, sans-serif";
+              if (isLight) {
+                ctx.fillStyle = isHQ ? "#0066cc" : (isActive ? "#1d1d1f" : "rgba(0,0,0,0.5)");
+              } else {
+                ctx.fillStyle = isHQ ? "#2997ff" : (isActive ? "#ffffff" : "rgba(255,255,255,0.7)");
+              }
+              const label = hub.city.split(',')[0];
+              ctx.fillText(label, p.x + 8, p.y + 3);
             }
-            ctx.fillText(hub.code, p.x + 8, p.y + 3);
           }
         });
         requestAnimationFrame(draw);
@@ -1900,7 +1837,6 @@
       });
       const tabButtons = document.querySelectorAll(".globe-hub-pill");
       const titleEl = document.getElementById("globe-active-title");
-      const codeEl = document.getElementById("globe-active-code");
       const regionEl = document.getElementById("globe-active-region");
       const timeEl = document.getElementById("globe-active-time");
       const courierEl = document.getElementById("globe-active-courier");
@@ -1912,7 +1848,7 @@
           activeHubKey = key;
           const data = HUB_DATA[key];
           if (!data) return;
-          if (titleEl && codeEl) titleEl.innerHTML = `${data.city} <span class="globe-intel-code" id="globe-active-code">${data.code}</span>`;
+          if (titleEl) titleEl.textContent = data.city;
           if (regionEl) regionEl.textContent = data.region;
           if (timeEl) timeEl.textContent = data.time;
           if (courierEl) courierEl.textContent = data.courier;
