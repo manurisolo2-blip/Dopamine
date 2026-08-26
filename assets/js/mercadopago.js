@@ -2251,6 +2251,8 @@
     bindGlobalTriggers();
   });
 
+  window.DopamineMercadoPago = { openCheckout: openFullPageCheckout, closeCheckout: closeFullPageCheckout, formatARS: formatARS };
+  window.DopamineCheckout = window.DopamineMercadoPago;
   window.DopamineMP = {
     openCheckout: openFullPageCheckout,
     closeCheckout: closeFullPageCheckout,

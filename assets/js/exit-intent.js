@@ -190,6 +190,7 @@
     open: (force = true) => openExitModal(force),
     close: closeExitModal,
     copy: copyVoucherCode,
+    copyCode: copyVoucherCode,
     reset: () => {
       try {
         localStorage.removeItem(STORAGE_KEY);

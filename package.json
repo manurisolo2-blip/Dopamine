@@ -1,0 +1,49 @@
+{
+  "name": "dopamine-streetwear",
+  "version": "2.1.0",
+  "description": "Dopamine — High-End Luxury Streetwear Platform Architecture & Storefront",
+  "main": "backend/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "dev:backend": "nodemon backend/server.js",
+    "test": "node tests/e2e_runner.js",
+    "test:dom": "node tests/dom_validator.js",
+    "test:contracts": "node tests/contracts_validator.js",
+    "test:a11y": "node tests/a11y_validator.js",
+    "test:tier1": "node tests/tier1_feature_tests.js",
+    "test:tier2": "node tests/tier2_boundary_tests.js",
+    "test:tier3": "node tests/tier3_cross_feature_tests.js",
+    "test:tier4": "node tests/tier4_scenario_tests.js",
+    "test:tier5": "node tests/tier5_adversarial_tests.js",
+    "test:all": "node tests/e2e_runner.js",
+    "lint": "eslint backend/ assets/js/ tests/"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mercadopago": "^2.0.15",
+    "mysql2": "^3.12.0",
+    "nodemailer": "^6.10.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^20.19.9",
+    "@types/nodemailer": "^6.4.17",
+    "eslint": "^9.21.0",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

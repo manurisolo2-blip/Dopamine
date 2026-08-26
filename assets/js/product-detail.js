@@ -39,7 +39,7 @@
     }
     
     const transferPrice = money(Math.round(product.price * 0.9));
-    const installmentPrice = money(Math.round(product.price / 3));
+    const installmentPrice = money(Math.round(product.price / 6));
 
     const transferEl = document.querySelector('[data-detail-transfer]');
     if (transferEl) transferEl.textContent = `${transferPrice} ${t('product.transfer_discount')}`;

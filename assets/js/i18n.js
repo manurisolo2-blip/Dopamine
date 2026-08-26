@@ -1117,22 +1117,31 @@
   /**
    * Translate key with variable interpolation (e.g. {count}, {amount})
    */
-  function t(key, params = {}) {
+  function t(key, fallbackOrParams = {}, params = {}) {
+    let fallback = key;
+    let actualParams = params;
+
+    if (typeof fallbackOrParams === 'string') {
+      fallback = fallbackOrParams;
+    } else if (typeof fallbackOrParams === 'object' && fallbackOrParams !== null) {
+      actualParams = fallbackOrParams;
+    }
+
     const langDict = translations[currentLang] || translations[DEFAULT_LANG];
     let template = langDict[key];
     
     if (template === undefined) {
       // Fallback to default language dictionary
-      template = translations[DEFAULT_LANG][key];
+      template = translations[DEFAULT_LANG] ? translations[DEFAULT_LANG][key] : undefined;
     }
     
     if (template === undefined) {
-      return key;
+      return fallback;
     }
 
-    if (typeof params === 'object' && params !== null) {
+    if (typeof actualParams === 'object' && actualParams !== null) {
       return template.replace(/\{(\w+)\}/g, (_, match) => {
-        return params[match] !== undefined ? params[match] : `{${match}}`;
+        return actualParams[match] !== undefined ? actualParams[match] : `{${match}}`;
       });
     }
 

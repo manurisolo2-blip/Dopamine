@@ -227,6 +227,14 @@
       return getLocalUsers();
     },
 
+    getLocalUsers() {
+      return getLocalUsers();
+    },
+
+    getAdminUsers() {
+      return getLocalUsers();
+    },
+
     // Async version for live polling
     async fetchAllUsers() {
       return await fetchServerUsers();

@@ -1,0 +1,767 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dopamine Luxury Streetwear Platform — Formal Data Contracts",
+  "description": "Complete JSON Schema (Draft-07) specification for all core entities, data models, and REST API payloads",
+  "version": "2.1.0-PROD",
+  "definitions": {
+    "ColorVariant": {
+      "type": "object",
+      "required": ["id", "name", "hex"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique color identifier (e.g. 'black', 'washed-grey')"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Display label for the color in localized Spanish/English"
+        },
+        "hex": {
+          "type": "string",
+          "pattern": "^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$",
+          "description": "Valid 3 or 6-digit hex color code"
+        }
+      }
+    },
+    "ProductCategory": {
+      "type": "string",
+      "enum": ["hoodies", "tops", "bottoms", "sets", "accessories", "footwear"],
+      "description": "Authoritative product category"
+    },
+    "ProductBadge": {
+      "type": "string",
+      "enum": ["NEW DROP", "LIMITED", "DROP 01", "BEST SELLER", "CORE", "EXCLUSIVO", "NEW"],
+      "description": "Product merchandising badge"
+    },
+    "ProductDimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chest": { "type": "number", "minimum": 0 },
+        "length": { "type": "number", "minimum": 0 },
+        "sleeve": { "type": "number", "minimum": 0 },
+        "waist": { "type": "number", "minimum": 0 },
+        "hip": { "type": "number", "minimum": 0 }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "category",
+        "price",
+        "subtitle",
+        "stock",
+        "description",
+        "details",
+        "colors",
+        "sizes",
+        "images"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique product ID"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "URL-safe lowercase alphanumeric slug with hyphens"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Product title"
+        },
+        "category": {
+          "$ref": "#/definitions/ProductCategory"
+        },
+        "price": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Authoritative price in Argentine Pesos (ARS)"
+        },
+        "compareAtPrice": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "description": "Strikethrough original price in ARS (null if no discount)"
+        },
+        "badge": {
+          "type": ["string", "null"],
+          "description": "Merchandising tag or null"
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Short subtitle tagline"
+        },
+        "stock": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Available inventory units"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Editorial fashion storytelling and description"
+        },
+        "details": {
+          "type": "string",
+          "minLength": 5,
+          "description": "Technical textile specifications, GSM, and sizing notes"
+        },
+        "colors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ColorVariant" },
+          "minItems": 1
+        },
+        "sizes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "images": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "careInstructions": {
+          "type": "string"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/ProductDimensions"
+        },
+        "weightGsm": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "AuthProvider": {
+      "type": "string",
+      "enum": ["email", "google", "apple"],
+      "description": "Authentication identity provider"
+    },
+    "UserRole": {
+      "type": "string",
+      "enum": ["customer", "admin"],
+      "description": "User security role and permission scope"
+    },
+    "AddressRecord": {
+      "type": "object",
+      "required": ["street", "province", "city", "zip", "phone"],
+      "properties": {
+        "id": { "type": "string" },
+        "street": { "type": "string", "minLength": 3 },
+        "apartment": { "type": "string", "default": "" },
+        "province": { "type": "string", "minLength": 2 },
+        "city": { "type": "string", "minLength": 2 },
+        "zip": { "type": "string", "pattern": "^\\d{4}$" },
+        "phone": { "type": "string", "minLength": 8 },
+        "isDefault": { "type": "boolean", "default": false }
+      }
+    },
+    "CustomerProfile": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "email",
+        "passwordMasked",
+        "birthdate",
+        "provider",
+        "role",
+        "emailVerified",
+        "createdAt",
+        "lastLogin"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "passwordHash": { "type": "string" },
+        "rawPassword": { "type": "string" },
+        "passwordMasked": { "type": "string", "default": "••••••••" },
+        "birthdate": { "type": "string", "default": "No especificada" },
+        "phone": { "type": "string" },
+        "picture": { "type": "string" },
+        "provider": { "$ref": "#/definitions/AuthProvider" },
+        "role": { "$ref": "#/definitions/UserRole" },
+        "emailVerified": { "type": "boolean", "default": false },
+        "createdAt": { "type": "string" },
+        "lastLogin": { "type": "string" },
+        "addresses": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/AddressRecord" },
+          "default": []
+        },
+        "orderHistory": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        }
+      }
+    },
+    "CustomerProfileSafe": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "email",
+        "passwordMasked",
+        "birthdate",
+        "provider",
+        "role",
+        "emailVerified",
+        "createdAt",
+        "lastLogin"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "passwordMasked": { "type": "string", "default": "••••••••" },
+        "birthdate": { "type": "string", "default": "No especificada" },
+        "phone": { "type": "string" },
+        "picture": { "type": "string" },
+        "provider": { "$ref": "#/definitions/AuthProvider" },
+        "role": { "$ref": "#/definitions/UserRole" },
+        "emailVerified": { "type": "boolean", "default": false },
+        "createdAt": { "type": "string" },
+        "lastLogin": { "type": "string" },
+        "addresses": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/AddressRecord" }
+        },
+        "orderHistory": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "AuthSession": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "email",
+        "provider",
+        "role",
+        "emailVerified",
+        "loggedIn",
+        "loginTime"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "birthdate": { "type": "string" },
+        "picture": { "type": "string" },
+        "provider": { "$ref": "#/definitions/AuthProvider" },
+        "role": { "$ref": "#/definitions/UserRole" },
+        "emailVerified": { "type": "boolean" },
+        "loggedIn": { "type": "boolean" },
+        "token": { "type": "string" },
+        "loginTime": { "type": "string" }
+      }
+    },
+    "CartLineItem": {
+      "type": "object",
+      "required": [
+        "key",
+        "id",
+        "slug",
+        "name",
+        "price",
+        "image",
+        "color",
+        "size",
+        "quantity"
+      ],
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Composite variant key formatted as ${id}::${color}::${size}"
+        },
+        "id": { "type": "string", "minLength": 1 },
+        "slug": { "type": "string" },
+        "name": { "type": "string", "minLength": 1 },
+        "price": { "type": "integer", "minimum": 1 },
+        "image": { "type": "string", "minLength": 1 },
+        "color": { "type": "string", "minLength": 1 },
+        "size": { "type": "string", "minLength": 1 },
+        "quantity": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "CartRecommendationItem": {
+      "type": "object",
+      "required": ["id", "slug", "name", "price", "image", "color", "size"],
+      "properties": {
+        "id": { "type": "string" },
+        "slug": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "integer", "minimum": 1 },
+        "image": { "type": "string" },
+        "color": { "type": "string" },
+        "size": { "type": "string" }
+      }
+    },
+    "CartSession": {
+      "type": "object",
+      "required": [
+        "items",
+        "itemCount",
+        "subtotal",
+        "currency",
+        "freeShippingThreshold",
+        "freeShippingQualified",
+        "amountToFreeShipping"
+      ],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CartLineItem" }
+        },
+        "itemCount": { "type": "integer", "minimum": 0 },
+        "subtotal": { "type": "integer", "minimum": 0 },
+        "currency": { "type": "string", "enum": ["ARS"], "default": "ARS" },
+        "freeShippingThreshold": { "type": "integer", "default": 90000 },
+        "freeShippingQualified": { "type": "boolean" },
+        "amountToFreeShipping": { "type": "integer", "minimum": 0 },
+        "recommendations": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CartRecommendationItem" }
+        },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "ShippingType": {
+      "type": "string",
+      "enum": ["home", "pickup"]
+    },
+    "ShippingSpeedOption": {
+      "type": "string",
+      "enum": ["standard", "express"]
+    },
+    "ShippingRateCalculation": {
+      "type": "object",
+      "required": [
+        "provinceId",
+        "provinceName",
+        "city",
+        "zip",
+        "type",
+        "option",
+        "isAmba",
+        "baseRateStandard",
+        "baseRateExpress",
+        "calculatedCost",
+        "freeShippingThreshold",
+        "isFreeShipping",
+        "estimatedDaysMin",
+        "estimatedDaysMax"
+      ],
+      "properties": {
+        "provinceId": { "type": "string" },
+        "provinceName": { "type": "string" },
+        "city": { "type": "string" },
+        "zip": { "type": "string", "pattern": "^\\d{4}$" },
+        "type": { "$ref": "#/definitions/ShippingType" },
+        "option": { "$ref": "#/definitions/ShippingSpeedOption" },
+        "isAmba": { "type": "boolean" },
+        "baseRateStandard": { "type": "integer", "default": 5500 },
+        "baseRateExpress": { "type": "integer", "default": 8500 },
+        "calculatedCost": { "type": "integer", "minimum": 0 },
+        "freeShippingThreshold": { "type": "integer", "default": 90000 },
+        "isFreeShipping": { "type": "boolean" },
+        "estimatedDaysMin": { "type": "integer", "minimum": 1 },
+        "estimatedDaysMax": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "PaymentMethod": {
+      "type": "string",
+      "enum": ["mercadopago", "credit", "debit", "modo", "transfer"]
+    },
+    "OrderStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "in_process",
+        "rejected",
+        "refunded",
+        "cancelled",
+        "shipped",
+        "delivered"
+      ]
+    },
+    "CheckoutCustomer": {
+      "type": "object",
+      "required": ["email", "name", "lastName", "dni", "phone"],
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string", "minLength": 1 },
+        "lastName": { "type": "string", "minLength": 1 },
+        "dni": { "type": "string", "pattern": "^\\d{7,8}$" },
+        "phone": { "type": "string", "minLength": 8 },
+        "noNewsletter": { "type": "boolean", "default": false }
+      }
+    },
+    "CheckoutShipping": {
+      "type": "object",
+      "required": ["type", "option", "address", "province", "city", "zip", "cost"],
+      "properties": {
+        "type": { "$ref": "#/definitions/ShippingType" },
+        "option": { "$ref": "#/definitions/ShippingSpeedOption" },
+        "address": { "type": "string", "minLength": 3 },
+        "apartment": { "type": "string", "default": "" },
+        "province": { "type": "string", "minLength": 2 },
+        "city": { "type": "string", "minLength": 2 },
+        "zip": { "type": "string", "pattern": "^\\d{4}$" },
+        "cost": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "CheckoutPayment": {
+      "type": "object",
+      "required": ["method", "installments"],
+      "properties": {
+        "method": { "$ref": "#/definitions/PaymentMethod" },
+        "installments": { "type": "integer", "minimum": 1, "maximum": 12, "default": 6 },
+        "cardNumber": { "type": "string" },
+        "cardHolder": { "type": "string" },
+        "cardExp": { "type": "string" },
+        "cardCvv": { "type": "string" },
+        "mpPaymentId": { "type": "string" },
+        "mpPreferenceId": { "type": "string" },
+        "mpStatus": { "type": "string" },
+        "idempotencyKey": { "type": "string" }
+      }
+    },
+    "OrderTransaction": {
+      "type": "object",
+      "required": [
+        "id",
+        "date",
+        "customer",
+        "shipping",
+        "payment",
+        "items",
+        "subtotal",
+        "shippingCost",
+        "discount",
+        "total",
+        "currency",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^DPM-\\d{6}$"
+        },
+        "date": { "type": "string" },
+        "customer": { "$ref": "#/definitions/CheckoutCustomer" },
+        "shipping": { "$ref": "#/definitions/CheckoutShipping" },
+        "payment": { "$ref": "#/definitions/CheckoutPayment" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CartLineItem" },
+          "minItems": 1
+        },
+        "subtotal": { "type": "integer", "minimum": 0 },
+        "shippingCost": { "type": "integer", "minimum": 0 },
+        "discount": { "type": "integer", "minimum": 0 },
+        "coupon": { "type": ["string", "null"] },
+        "total": { "type": "integer", "minimum": 0 },
+        "currency": { "type": "string", "enum": ["ARS"], "default": "ARS" },
+        "status": { "$ref": "#/definitions/OrderStatus", "default": "approved" }
+      }
+    },
+    "DeliveryMethod": {
+      "type": "string",
+      "enum": ["smtp", "relay", "toast"]
+    },
+    "VerificationCodeRecord": {
+      "type": "object",
+      "required": ["code", "createdAt", "expiresAt", "attempts", "verified", "deliveryMethod"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^\\d{6}$" },
+        "codeHash": { "type": "string" },
+        "createdAt": { "type": "integer", "minimum": 1 },
+        "expiresAt": { "type": "integer", "minimum": 1 },
+        "attempts": { "type": "integer", "minimum": 0, "maximum": 5, "default": 0 },
+        "verified": { "type": "boolean", "default": false },
+        "deliveryMethod": { "$ref": "#/definitions/DeliveryMethod", "default": "toast" }
+      }
+    },
+    "VerificationStore": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/VerificationCodeRecord" }
+    },
+    "ApiErrorResponse": {
+      "type": "object",
+      "required": ["success", "error"],
+      "properties": {
+        "success": { "type": "boolean", "enum": [false], "default": false },
+        "error": { "type": "string" },
+        "code": { "type": "string" },
+        "details": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "ApiRegisterRequest": {
+      "type": "object",
+      "required": ["email", "password", "name"],
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "password": { "type": "string", "minLength": 6 },
+        "name": { "type": "string", "minLength": 1 },
+        "birthdate": { "type": "string" },
+        "emailVerified": { "type": "boolean" }
+      }
+    },
+    "ApiRegisterResponse": {
+      "type": "object",
+      "required": ["success", "user", "token"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "user": { "$ref": "#/definitions/CustomerProfileSafe" },
+        "token": { "type": "string" },
+        "message": { "type": "string" }
+      }
+    },
+    "ApiLoginRequest": {
+      "type": "object",
+      "required": ["email", "password"],
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "password": { "type": "string", "minLength": 1 }
+      }
+    },
+    "ApiLoginResponse": {
+      "type": "object",
+      "required": ["success", "user", "token"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "user": { "$ref": "#/definitions/CustomerProfileSafe" },
+        "token": { "type": "string" },
+        "message": { "type": "string" }
+      }
+    },
+    "ApiVerifyCodeRequest": {
+      "type": "object",
+      "required": ["email", "code"],
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "code": { "type": "string", "pattern": "^\\d{6}$" }
+      }
+    },
+    "ApiVerifyCodeResponse": {
+      "type": "object",
+      "required": ["success", "verified"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "verified": { "type": "boolean" },
+        "message": { "type": "string" },
+        "user": { "$ref": "#/definitions/CustomerProfileSafe" }
+      }
+    },
+    "ApiSendCodeRequest": {
+      "type": "object",
+      "required": ["email"],
+      "properties": {
+        "email": { "type": "string", "format": "email" }
+      }
+    },
+    "ApiSendCodeResponse": {
+      "type": "object",
+      "required": ["success", "message", "deliveryMethod", "expiresInSeconds"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "message": { "type": "string" },
+        "deliveryMethod": { "$ref": "#/definitions/DeliveryMethod" },
+        "expiresInSeconds": { "type": "integer", "default": 900 },
+        "codePreview": { "type": "string" }
+      }
+    },
+    "ApiOAuthRequest": {
+      "type": "object",
+      "required": ["provider", "email"],
+      "properties": {
+        "provider": { "type": "string", "enum": ["google", "apple"] },
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" },
+        "picture": { "type": "string" },
+        "token": { "type": "string" }
+      }
+    },
+    "ApiOAuthResponse": {
+      "type": "object",
+      "required": ["success", "user", "token"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "user": { "$ref": "#/definitions/CustomerProfileSafe" },
+        "token": { "type": "string" }
+      }
+    },
+    "ApiAuthMeResponse": {
+      "type": "object",
+      "required": ["success", "user"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "user": { "$ref": "#/definitions/CustomerProfileSafe" }
+      }
+    },
+    "CheckoutItemInput": {
+      "type": "object",
+      "required": ["id", "quantity"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "color": { "type": "string" },
+        "size": { "type": "string" }
+      }
+    },
+    "ApiCreatePreferenceRequest": {
+      "type": "object",
+      "required": ["items", "customer", "shipping"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CheckoutItemInput" },
+          "minItems": 1
+        },
+        "customer": { "$ref": "#/definitions/CheckoutCustomer" },
+        "shipping": { "$ref": "#/definitions/CheckoutShipping" },
+        "coupon": { "type": "string" },
+        "idempotencyKey": { "type": "string" }
+      }
+    },
+    "ApiCreatePreferenceResponse": {
+      "type": "object",
+      "required": ["success", "preferenceId", "initPoint", "orderId", "summary"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "preferenceId": { "type": "string" },
+        "initPoint": { "type": "string", "format": "uri" },
+        "sandboxInitPoint": { "type": "string", "format": "uri" },
+        "orderId": { "type": "string" },
+        "summary": {
+          "type": "object",
+          "required": ["subtotal", "shippingCost", "discount", "total", "currency"],
+          "properties": {
+            "subtotal": { "type": "integer" },
+            "shippingCost": { "type": "integer" },
+            "discount": { "type": "integer" },
+            "total": { "type": "integer" },
+            "currency": { "type": "string", "enum": ["ARS"] }
+          }
+        }
+      }
+    },
+    "ApiMercadoPagoWebhook": {
+      "type": "object",
+      "required": [
+        "id",
+        "live_mode",
+        "type",
+        "date_created",
+        "user_id",
+        "api_version",
+        "action",
+        "data"
+      ],
+      "properties": {
+        "id": { "type": ["number", "string"] },
+        "live_mode": { "type": "boolean" },
+        "type": {
+          "type": "string",
+          "enum": ["payment", "plan", "subscription", "invoice", "test"]
+        },
+        "date_created": { "type": "string" },
+        "user_id": { "type": ["number", "string"] },
+        "api_version": { "type": "string" },
+        "action": { "type": "string" },
+        "data": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": { "type": "string" }
+          }
+        }
+      }
+    },
+    "ApiWebhookResponse": {
+      "type": "object",
+      "required": ["received", "status"],
+      "properties": {
+        "received": { "type": "boolean" },
+        "status": {
+          "type": "string",
+          "enum": ["processed", "ignored_duplicate", "invalid_signature"]
+        },
+        "orderId": { "type": "string" }
+      }
+    },
+    "ApiAdminCustomersResponse": {
+      "type": "object",
+      "required": ["success", "total", "customers"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "total": { "type": "integer", "minimum": 0 },
+        "customers": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CustomerProfileSafe" }
+        }
+      }
+    },
+    "ApiAdminOrdersResponse": {
+      "type": "object",
+      "required": ["success", "total", "orders"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "total": { "type": "integer", "minimum": 0 },
+        "orders": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/OrderTransaction" }
+        }
+      }
+    },
+    "ApiAdminPatchOrderRequest": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "$ref": "#/definitions/OrderStatus" },
+        "trackingNumber": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "ApiAdminPatchOrderResponse": {
+      "type": "object",
+      "required": ["success", "order"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "order": { "$ref": "#/definitions/OrderTransaction" },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}

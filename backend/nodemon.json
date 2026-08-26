@@ -1,0 +1,14 @@
+{
+  "watch": [
+    ".",
+    "../contracts"
+  ],
+  "ext": "js,json,ts",
+  "ignore": [
+    "users_db.json",
+    "data/*",
+    "../assets/*",
+    "../node_modules/*"
+  ],
+  "exec": "node server.js"
+}
