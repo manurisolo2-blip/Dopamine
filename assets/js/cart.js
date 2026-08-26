@@ -289,14 +289,14 @@
         if (input && result) {
           const zip = input.value.trim();
           if (!zip) {
-            result.textContent = 'Por favor ingresá un código postal.';
+            result.textContent = t('cart.shipping_prompt', 'Por favor ingresá un código postal.');
             result.hidden = false;
             return;
           }
           const isFree = subtotal() >= FREE_SHIPPING_THRESHOLD;
           result.textContent = isFree
-            ? `CP ${zip}: ¡Envío Estándar GRATIS a tu domicilio!`
-            : `CP ${zip}: Envío Estándar $5.500 (¡Llega en 3 a 5 días hábiles a todo el país!)`;
+            ? `CP ${zip}: ${t('cart.shipping_free_msg', '¡Envío Estándar GRATIS a tu domicilio!')}`
+            : `CP ${zip}: ${t('cart.shipping_standard_msg', 'Envío Estándar $5.500 (¡Llega en 3 a 5 días hábiles a todo el país!)')}`;
           result.hidden = false;
         }
       }

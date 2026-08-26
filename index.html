@@ -108,13 +108,16 @@
   </style>
 </head>
 <body>
-    <!-- ===== DOPAMINE BRAND PRELOADER / SPLASH LOADER ===== -->
+      <!-- ===== DOPAMINE BRAND PRELOADER / SPLASH LOADER ===== -->
   <div id="dopamine-preloader" class="dopamine-preloader" role="status" aria-live="polite" aria-label="Cargando Dopamine Streetwear" data-i18n-aria-label="loader.aria_label">
     <span class="preloader-brand-title">DOPAMINE</span>
     <div class="preloader-progress-track" aria-hidden="true">
       <div class="preloader-progress-bar"></div>
     </div>
-  </div>
+    <div class="preloader-status-row" aria-hidden="true">
+      <span class="preloader-status-text" data-i18n="loader.initializing">INITIALIZING SYSTEM // BUENOS AIRES</span>
+      <span class="preloader-status-code" data-i18n="loader.status">DROP 01/26</span>
+    </div>
   </div>
 
   <!-- ===== HEADER (ROTTEN FUTURE FLOATING GLASS CAPSULE) ===== -->
@@ -1938,7 +1941,10 @@
           const data = HUB_DATA[key];
           if (data) {
             const targetLon = -data.lon * DEG2RAD;
-            velY = (targetLon - rotY) * 0.06;
+            let deltaLon = (targetLon - (rotY % (Math.PI * 2)));
+          while (deltaLon > Math.PI) deltaLon -= Math.PI * 2;
+          while (deltaLon < -Math.PI) deltaLon += Math.PI * 2;
+          velY = deltaLon * 0.08;
           }
         });
       });

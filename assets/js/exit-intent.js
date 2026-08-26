@@ -126,9 +126,9 @@
     const toast = document.querySelector('[data-toast]');
     if (!toast) return;
     toast.textContent = msg;
-    toast.classList.add('show');
+    toast.classList.add('show', 'is-visible');
     clearTimeout(toast._timeout);
-    toast._timeout = setTimeout(() => toast.classList.remove('show'), 3500);
+    toast._timeout = setTimeout(() => toast.classList.remove('show', 'is-visible'), 3500);
   }
 
   function initListeners() {

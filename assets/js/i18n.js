@@ -544,6 +544,7 @@
       'error404.telemetry_action': 'ACCIÓN RECOMENDADA: RECONECTAR AL CATÁLOGO',
 
       // Exit Intent Modal / Recovery
+      'exit.close_aria': 'Cerrar modal de beneficio',
       'exit.badge': '// BENEFICIO EXCLUSIVO',
       'exit.title': 'ESPERA. NO TE VAYAS CON LAS MANOS VACÍAS',
       'exit.subtitle': 'DESBLOQUEÁ 10% OFF EXTRA EN TU PRIMER DROP',
@@ -1081,7 +1082,8 @@
       'error404.telemetry_action': 'RECOMMENDED ACTION: RECONNECT TO CATALOG',
 
       // Exit Intent Modal / Recovery
-      'exit.badge': '// BENEFICIO EXCLUSIVO',
+      'exit.close_aria': 'Cerrar modal de beneficio',
+      'exit.badge': '// EXCLUSIVE BENEFIT',
       'exit.title': 'WAIT. DO NOT LEAVE EMPTY-HANDED',
       'exit.subtitle': 'UNLOCK 10% EXTRA OFF ON YOUR FIRST DROP',
       'exit.desc': 'Priority access and exclusive member promo discount across all high-performance urban silhouettes.',
